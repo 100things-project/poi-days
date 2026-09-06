@@ -50,13 +50,13 @@ GitHubの画面からアップロードする場合はZIPそのものではな�
 
 ## 公開先を変える
 
-静的ホスティングに `dist` の内容を配置できます。リンクは相対パスに変換済みで、リポジトリ名のサブパスでも動く構成です。canonicalやサイトマップを作る際は公開先を指定して再生成します。
+静的ホスティングに `dist` の内容を配置できます。GitHub Pages用には同じ完成物を `docs` に自動同期します。リンクは相対パスに変換済みで、リポジトリ名のサブパスでも動く構成です。canonicalやサイトマップを作る際は公開先を指定して再生成します。
 
 ```sh
-SITE_URL=https://YOUR-ACCOUNT.github.io/poi-days python3 build.py
+SITE_URL=https://100things-project.github.io/poi-days python3 build.py
 ```
 
-公開先が未定ならcanonicalとサイトマップURLを設定しません。外部リンクとして必要なモッピー招待URLは維持します。GitHubへの保存だけではサイト公開にはなりません。GitHub Pages等の公開設定は別途必要です。
+GitHub Pagesでは Settings → Pages → Build and deployment → Deploy from a branch → `main` / `/docs` を選びます。外部リンクとして必要なモッピー招待URLは維持します。
 
 ## 通常チャットへ引き継ぐ
 

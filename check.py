@@ -29,4 +29,6 @@ for p,x in pages.items():
 for p in (d/'visuals').glob('*.svg'):ET.parse(p)
 def hashes():return {str(p.relative_to(d)):hashlib.sha256(p.read_bytes()).hexdigest() for p in d.rglob('*') if p.is_file()}
 before=hashes();subprocess.run([sys.executable,str(root/'build.py')],check=True);assert before==hashes()
+for p in d.rglob('*'):
+ if p.is_file():assert p.read_bytes()==(root/'docs'/p.relative_to(d)).read_bytes(),p
 print(f'PASS: {len(pages)} pages, relative links, anchors, referral URLs, image dimensions, SVG XML, reproducible build')

@@ -1,11 +1,11 @@
 """Build a portable static site. Standard-library Python only."""
 from pathlib import Path
-import os,re,subprocess,sys,posixpath
+import os,re,subprocess,sys,posixpath,shutil
 from urllib.parse import urlsplit
 root=Path(__file__).resolve().parent
 subprocess.run([sys.executable,str(root/'scripts/expand-site.py')],check=True)
 d=root/'dist'
-site=os.environ.get('SITE_URL','').rstrip('/')
+site=os.environ.get('SITE_URL','https://100things-project.github.io/poi-days').rstrip('/')
 if site:
  u=urlsplit(site)
  if u.scheme not in ('http','https') or not u.netloc or u.query or u.fragment:
@@ -25,4 +25,7 @@ else:
  (d/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>')
  (d/'robots.txt').write_text('User-agent: *\nAllow: /\n')
 (d/'.nojekyll').touch()
+docs=root/'docs'
+if docs.exists(): shutil.rmtree(docs)
+shutil.copytree(d,docs)
 print('Portable build complete: dist/')
