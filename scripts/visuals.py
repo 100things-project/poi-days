@@ -55,7 +55,8 @@ def apply_visuals(root):
    # practical checklist and expandable details that follow.
    s=s.replace('<h2>登録後の流れ</h2>','<h2>はじめてなら、この順番で。</h2>',1)
    s=re.sub(r'<p class="section-lead">まずは、ひとつの案件から。</p><ol class="steps">.*?</ol>',flow,s,count=1,flags=re.S)
-   s=s.replace('<div class="exchange-tags"><span>現金</span><span>電子マネー</span><span>ギフト券</span><span>マイル</span></div>','<div class="exchange-tags visual-exchange"><span><i aria-hidden="true">¥</i><b>現金</b><small>銀行振込など</small></span><span><i aria-hidden="true">◇</i><b>電子マネー</b><small>日常のお支払いに</small></span><span><i aria-hidden="true">▰</i><b>ギフト券</b><small>お買い物に</small></span><span><i aria-hidden="true">✈</i><b>マイル</b><small>旅行の楽しみに</small></span></div>',1)
+   exchange='''<figure class="exchange-map"><figcaption>貯めたポイントの交換先</figcaption><div class="exchange-line" aria-label="貯めたポイントを現金、電子マネー、ギフト券、マイルなどへ交換"><div class="exchange-source"><strong>P</strong><span>ポイント</span></div><span class="exchange-arrow" aria-hidden="true">→</span><ul><li><b>現金</b><small>銀行振込など</small></li><li><b>電子マネー</b><small>日常のお支払いに</small></li><li><b>ギフト券</b><small>お買い物に</small></li><li><b>マイル</b><small>旅行の楽しみに</small></li></ul></div></figure>'''
+   s=s.replace('<div class="exchange-tags"><span>現金</span><span>電子マネー</span><span>ギフト券</span><span>マイル</span></div>',exchange,1)
    for old,new in [
     ('<span class="reason-symbol" aria-hidden="true">◎</span>','<span class="reason-symbol reason-people" aria-hidden="true"><i></i><i></i><i></i></span>'),
     ('<span class="reason-symbol" aria-hidden="true">◇</span>','<span class="reason-symbol reason-calendar" aria-hidden="true"><b>20</b></span>'),
@@ -75,6 +76,6 @@ def apply_visuals(root):
    if key in VISUALS:return chunk.replace('>', '>'+thumb(key),1)
    return chunk
   s=re.sub(r'<a class="(?:article-link|journey-tile)"[^>]*>.*?</a>',article,s,flags=re.S)
-  visual_version='20260906-4' if p.name=='index.html' else '20260906-2'
+  visual_version='20260906-5' if p.name=='index.html' else '20260906-5' if p.stem=='about' else '20260906-2'
   s=s.replace('</head>',f'<link rel="stylesheet" href="/visuals.css?v={visual_version}"></head>')
   p.write_text(s)
