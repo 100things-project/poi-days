@@ -75,9 +75,6 @@ def apply_visuals(root):
    if key in VISUALS:return chunk.replace('>', '>'+thumb(key),1)
    return chunk
   s=re.sub(r'<a class="(?:article-link|journey-tile)"[^>]*>.*?</a>',article,s,flags=re.S)
-  # Purpose entries with fragment-only URLs have compact semantic category markers.
-  for text,symbol in [('無料から検討したい','¥0'),('ゲームを楽しみたい','▶'),('還元を活かしたい','%'),('何から始めるか迷う','✓')]:
-   s=s.replace('<h3>'+text+'</h3>','<span class="category-symbol" aria-hidden="true">'+symbol+'</span><h3>'+text+'</h3>')
-  visual_version='20260906-3' if p.name=='index.html' else '20260906-2'
+  visual_version='20260906-4' if p.name=='index.html' else '20260906-2'
   s=s.replace('</head>',f'<link rel="stylesheet" href="/visuals.css?v={visual_version}"></head>')
   p.write_text(s)
