@@ -2,6 +2,13 @@
 from html import escape
 import re
 
+SCENES={
+ 'game':('ゲームで貯める','好きなアプリを楽しみながら','▶'),
+ 'shopping':('ショッピングで貯める','いつもの買い物の前に経由','🛒'),
+ 'service':('サービス申込で貯める','必要な申込をおトクに','▰'),
+ 'spare':('スキマ時間で貯める','短い時間でコツコツ','◷'),
+}
+
 VISUALS={
  'mufg-card':('カード発行',['申込','受取','判定'],'45日以内の受取が条件'),
  'eneone':('電気の切替',['申込','供給','使用量'],'2回目の請求分を確認'),
@@ -17,6 +24,15 @@ VISUALS={
 
 def apply_visuals(root):
  d=root/'dist';assets=d/'visuals';assets.mkdir(exist_ok=True)
+ scene_paths={
+  'game':'<rect x="61" y="55" width="118" height="70" rx="30"/><path d="M91 78v26M78 91h26M140 85h1M155 101h1"/>',
+  'shopping':'<path d="M50 54h18l13 53h72l15-38H75M94 123a8 8 0 1 0 0 .1M147 123a8 8 0 1 0 0 .1"/><path d="M113 42v36M95 60h36"/>',
+  'service':'<rect x="47" y="48" width="132" height="84" rx="12"/><path d="M47 76h132M66 108h40M148 105h13"/><circle cx="150" cy="45" r="22"/><path d="m140 45 7 7 14-16"/>',
+  'spare':'<circle cx="113" cy="89" r="48"/><path d="M113 62v30l22 13M78 42l-17 17M148 42l17 17"/>',
+ }
+ for key in SCENES:
+  svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226 156" width="226" height="156"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7e9"/><stop offset="1" stop-color="#e8f4ee"/></linearGradient></defs><rect width="226" height="156" rx="20" fill="url(#g)"/><circle cx="184" cy="35" r="23" fill="#ffdfbf" opacity=".72"/><circle cx="37" cy="126" r="18" fill="#cce8de" opacity=".85"/><g fill="none" stroke="#087b75" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">{scene_paths[key]}</g></svg>'''
+  (assets/f'way-{key}.svg').write_text(svg)
  for key,(title,labels,note) in VISUALS.items():
   nodes=''
   for i,label in enumerate(labels):
@@ -30,10 +46,12 @@ def apply_visuals(root):
   title,labels,note=VISUALS[key]
   return f'<img class="{cls}" src="/visuals/{key}.svg" width="480" height="180" loading="lazy" decoding="async" alt="{escape(title)}：'+escape(' → '.join(labels)+'。'+note)+'">'
  # Real text, not an image of a login screen; stacks at mobile widths.
- flow='''<figure class="visual-flow"><figcaption>ポイント獲得までの4ステップ</figcaption><ol><li><span>01</span><strong>公式で登録</strong><small>紹介条件を確認</small></li><li><span>02</span><strong>広告を経由</strong><small>利用前に条件を保存</small></li><li><span>03</span><strong>条件を達成</strong><small>期限・費用を確認</small></li><li><span>04</span><strong>承認・獲得</strong><small>通帳を見て交換へ</small></li></ol><p>予定反映は獲得確定ではありません。</p></figure>'''
+ flow='''<figure class="visual-flow"><figcaption><span>かんたん4ステップ</span>ポイント獲得までの流れ</figcaption><ol><li><span>01</span><i aria-hidden="true">✓</i><strong>無料会員登録</strong><small>紹介条件を確認</small></li><li><span>02</span><i aria-hidden="true">⌕</i><strong>案件を選ぶ</strong><small>費用・期限を保存</small></li><li><span>03</span><i aria-hidden="true">▤</i><strong>条件を達成</strong><small>公式手順どおりに進む</small></li><li><span>04</span><i aria-hidden="true">P</i><strong>ポイントGET</strong><small>承認後に交換へ</small></li></ol><p>予定反映は獲得確定ではありません。案件ごとの条件を優先してください。</p></figure>'''
  for p in d.rglob('*.html'):
   s=p.read_text()
   if p.name=='index.html':
+   ways='''<section class="section way-scenes" aria-labelledby="way-scenes-title"><div class="container"><p class="eyebrow">POINTS IN YOUR LIFE</p><h2 id="way-scenes-title">いろいろな方法で、<span class="keep">ポイントが貯まる。</span></h2><p class="section-lead">予定や好きなことに合わせて、無理のない入口を選べます。</p><div class="scene-grid">'''+''.join(f'''<a class="scene-card" href="#diagnosis"><img src="/visuals/way-{key}.svg" width="226" height="156" loading="lazy" decoding="async" alt="{title}のイメージ図"><span class="scene-icon" aria-hidden="true">{icon}</span><strong>{title}</strong><small>{desc}</small></a>''' for key,(title,desc,icon) in SCENES.items())+'''</div></div></section>'''
+   s=s.replace('<section id="ways"',ways+'<section id="ways"',1)
    # Each ranking tile gets a process thumbnail, not an advertisement/logo.
    def card(m):
     chunk=m[0];match=re.search(r'guides/([a-z-]+)\.html',chunk)
@@ -41,6 +59,7 @@ def apply_visuals(root):
     return chunk
    s=re.sub(r'<article class="offer-card">.*?</article>',card,s,flags=re.S)
    s=s.replace('<h2>登録後の流れ</h2>','<h2>登録後の流れ</h2>'+flow,1)
+   s=s.replace('<div class="exchange-tags"><span>現金</span><span>電子マネー</span><span>ギフト券</span><span>マイル</span></div>','<div class="exchange-tags visual-exchange"><span><i aria-hidden="true">¥</i><b>現金</b><small>銀行振込など</small></span><span><i aria-hidden="true">◇</i><b>電子マネー</b><small>日常のお支払いに</small></span><span><i aria-hidden="true">▰</i><b>ギフト券</b><small>お買い物に</small></span><span><i aria-hidden="true">✈</i><b>マイル</b><small>旅行の楽しみに</small></span></div>',1)
   elif p.stem in ['about','registration']:
    s=s.replace('<section id="part-0">',flow+'<section id="part-0">',1)
   elif p.stem in VISUALS and p.parent.name=='guides':
