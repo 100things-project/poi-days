@@ -76,6 +76,6 @@ def apply_visuals(root):
    if key in VISUALS:return chunk.replace('>', '>'+thumb(key),1)
    return chunk
   s=re.sub(r'<a class="(?:article-link|journey-tile)"[^>]*>.*?</a>',article,s,flags=re.S)
-  visual_version='20260906-5' if p.name=='index.html' else '20260906-5' if p.stem=='about' else '20260906-2'
+  visual_version='20260906-6' if p.name=='index.html' else '20260906-6' if p.stem=='about' else '20260906-2'
   s=s.replace('</head>',f'<link rel="stylesheet" href="/visuals.css?v={visual_version}"></head>')
   p.write_text(s)
