@@ -45,15 +45,16 @@ def apply_visuals(root):
  for p in d.rglob('*.html'):
   s=p.read_text()
   if p.name=='index.html':
-   ways='''<section class="section way-scenes" aria-labelledby="way-scenes-title"><div class="container"><p class="eyebrow">POINTS IN YOUR LIFE</p><h2 id="way-scenes-title">いろいろな方法で、<span class="keep">ポイントが貯まる。</span></h2><p class="section-lead">予定や好きなことに合わせて、無理のない入口を選べます。</p><div class="scene-grid">'''+''.join(f'''<a class="scene-card" href="#diagnosis"><img src="/visuals/way-{key}.webp" width="900" height="600" loading="lazy" decoding="async" alt="{title}を表す生活シーン"><span class="scene-icon" aria-hidden="true">{icon}</span><strong>{title}</strong><small>{desc}</small></a>''' for key,(title,desc,icon) in SCENES.items())+'''</div><a class="button outline scene-cta" href="#diagnosis">自分に合う貯め方を診断する →</a></div></section>'''
-   s=s.replace('<section id="ways"',ways+'<section id="ways"',1)
    # Each ranking tile gets a process thumbnail, not an advertisement/logo.
    def card(m):
     chunk=m[0];match=re.search(r'guides/([a-z-]+)\.html',chunk)
     if match and match[1] in VISUALS:return chunk.replace('>', '>'+thumb(match[1]),1)
     return chunk
    s=re.sub(r'<article class="offer-card">.*?</article>',card,s,flags=re.S)
-   s=s.replace('<h2>登録後の流れ</h2>','<h2>登録後の流れ</h2>'+flow,1)
+   # One registration flow: replace the older three cards, then keep the
+   # practical checklist and expandable details that follow.
+   s=s.replace('<h2>登録後の流れ</h2>','<h2>はじめてなら、この順番で。</h2>',1)
+   s=re.sub(r'<p class="section-lead">まずは、ひとつの案件から。</p><ol class="steps">.*?</ol>',flow,s,count=1,flags=re.S)
    s=s.replace('<div class="exchange-tags"><span>現金</span><span>電子マネー</span><span>ギフト券</span><span>マイル</span></div>','<div class="exchange-tags visual-exchange"><span><i aria-hidden="true">¥</i><b>現金</b><small>銀行振込など</small></span><span><i aria-hidden="true">◇</i><b>電子マネー</b><small>日常のお支払いに</small></span><span><i aria-hidden="true">▰</i><b>ギフト券</b><small>お買い物に</small></span><span><i aria-hidden="true">✈</i><b>マイル</b><small>旅行の楽しみに</small></span></div>',1)
    for old,new in [
     ('<span class="reason-symbol" aria-hidden="true">◎</span>','<span class="reason-symbol reason-people" aria-hidden="true"><i></i><i></i><i></i></span>'),
@@ -68,6 +69,7 @@ def apply_visuals(root):
   # Article list and related tiles: identify the destination, keep labels accessible.
   def article(m):
    chunk=m[0];url=re.search(r'href="([^"]+)"',chunk)
+   if 'purpose-photo' in chunk:return chunk
    if not url:return chunk
    key=url[1].split('/')[-1].split('.html')[0]
    if key in VISUALS:return chunk.replace('>', '>'+thumb(key),1)
@@ -76,5 +78,6 @@ def apply_visuals(root):
   # Purpose entries with fragment-only URLs have compact semantic category markers.
   for text,symbol in [('無料から検討したい','¥0'),('ゲームを楽しみたい','▶'),('還元を活かしたい','%'),('何から始めるか迷う','✓')]:
    s=s.replace('<h3>'+text+'</h3>','<span class="category-symbol" aria-hidden="true">'+symbol+'</span><h3>'+text+'</h3>')
-  s=s.replace('</head>','<link rel="stylesheet" href="/visuals.css?v=20260906-2"></head>')
+  visual_version='20260906-3' if p.name=='index.html' else '20260906-2'
+  s=s.replace('</head>',f'<link rel="stylesheet" href="/visuals.css?v={visual_version}"></head>')
   p.write_text(s)

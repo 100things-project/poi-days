@@ -7,12 +7,21 @@ def enrich(root):
  offers=json.loads((root/'content/offers.json').read_text())
  def tiles(items,cls='journey-grid'):
   return '<div class="'+cls+'">'+''.join(f'<a class="journey-tile" href="{url}"><span class="tile-number">{i:02}</span><h3>{title}</h3><p>{text}</p><span class="tile-arrow" aria-hidden="true">→</span></a>' for i,(title,text,url) in enumerate(items,1))+'</div>'
- start=tiles([('まず、仕組みを知る','無料登録と、案件ごとの費用は別。','#mechanism'),('自分に合う案件を探す','使いたいサービスから、ひとつ。','#purpose'),('条件を確認して登録','公式の招待ページから始めよう。','/articles/registration.html')])
- purpose=tiles([('無料から検討したい','無料体験の継続料金もチェック。','/articles/categories.html#part-1'),('ゲームを楽しみたい','OS・期限・課金条件の見方から。','/articles/categories.html#part-0'),('還元を活かしたい','買う予定のものを、おトクに。','/guides/rakuten-shopping.html'),('何から始めるか迷う','5つの質問で、無理のない選び方。','#diagnosis')],'purpose-grid')
+ purpose_items=[
+  ('無料から検討したい','無料体験の継続料金もチェック。','/articles/categories.html#part-1','service','サービス申込や無料体験を検討する生活シーン'),
+  ('ゲームを楽しみたい','OS・期限・課金条件の見方から。','/articles/categories.html#part-0','game','スマートフォンでゲームを楽しむ生活シーン'),
+  ('還元を活かしたい','買う予定のものを、おトクに。','/guides/rakuten-shopping.html','shopping','日常の買い物でポイントを貯める生活シーン'),
+  ('何から始めるか迷う','5つの質問で、無理のない選び方。','#diagnosis','spare','スキマ時間にスマートフォンを確認する生活シーン'),
+ ]
+ purpose='<div class="purpose-grid">'+''.join(f'<a class="journey-tile" href="{url}"><img class="purpose-photo" src="/visuals/way-{key}.webp" width="900" height="600" loading="lazy" decoding="async" alt="{alt}"><span class="tile-number">{i:02}</span><h3>{title}</h3><p>{text}</p><span class="tile-arrow" aria-hidden="true">→</span></a>' for i,(title,text,url,key,alt) in enumerate(purpose_items,1))+'</div>'
  mechanism='''<section class="section mechanism" id="mechanism"><div class="container"><p class="eyebrow">HOW IT WORKS</p><h2><span class="phrase">ポイントは、</span><span class="phrase">どこから来るの？</span></h2><div class="money-flow" aria-label="広告費の一部がポイントとして利用者へ還元される仕組み"><div><span>広告主</span><strong>サービスを知ってほしい</strong></div><p>広告費の支払い →</p><div><span>モッピー</span><strong>広告と利用者をつなぐ</strong></div><p>一部を還元 →</p><div><span>あなた</span><strong>条件達成・承認でポイント</strong></div></div><p class="micro">広告を開くだけでは条件達成になりません。広告ごとの条件が優先されます。</p><a class="text-link" href="/articles/about.html">仕組みと費用を詳しく知る →</a></div></section>'''
  trust='''<section class="section trust-panel" id="trust"><div class="container"><p class="eyebrow">BEFORE YOU START</p><h2>安心のために、3つの確認。</h2>'''+tiles([('運営会社を確認','モッピーの運営会社と、当サイトは別です。','/articles/safety.html'),('費用と条件を確認','無料登録＝すべての案件が無料、ではありません。','/articles/categories.html'),('情報源と日付を確認','確認日の記録と、申込時の最新条件を区別。','/articles/policy.html')])+'''<div class="context-cta"><div><h3>登録の前に、気になることを解消。</h3><p>手順と招待コードをまとめて確認できます。</p></div><a class="button outline" href="/articles/registration.html">登録方法を読む →</a></div></div></section>'''
  p=d/'index.html';s=p.read_text()
- s=s.replace('<div class="invite-wrap">','<section class="section first-steps"><div class="container"><p class="eyebrow">FIRST THREE STEPS</p><h2>はじめてなら、この順番で。</h2>'+start+'</div></section><div class="invite-wrap">',1)
+ # Consolidate repeated entry points from earlier iterations. Purpose cards,
+ # the invitation panel and the article hub now each have one clear role.
+ s=re.sub(r'<section id="ways".*?</section>','',s,count=1,flags=re.S)
+ s=re.sub(r'<section class="section learning".*?</section>','',s,count=1,flags=re.S)
+ s=re.sub(r'<section class="section campaign".*?</section>','',s,count=1,flags=re.S)
  # Move existing ranking earlier instead of adding another copy.
  m=re.search(r'<!-- OFFERS START -->.*?<!-- OFFERS END -->',s,re.S)
  rank=m.group();s=s.replace(rank,'')
