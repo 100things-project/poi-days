@@ -76,5 +76,5 @@ def apply_visuals(root):
   # Purpose entries with fragment-only URLs have compact semantic category markers.
   for text,symbol in [('無料から検討したい','¥0'),('ゲームを楽しみたい','▶'),('還元を活かしたい','%'),('何から始めるか迷う','✓')]:
    s=s.replace('<h3>'+text+'</h3>','<span class="category-symbol" aria-hidden="true">'+symbol+'</span><h3>'+text+'</h3>')
-  s=s.replace('</head>','<link rel="stylesheet" href="/visuals.css"></head>')
+  s=s.replace('</head>','<link rel="stylesheet" href="/visuals.css?v=20260906-2"></head>')
   p.write_text(s)
