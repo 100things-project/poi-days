@@ -33,7 +33,7 @@ python3 check.py
 
 ## GitHubで管理する
 
-移行先は `https://github.com/100things-project/poi-days` です。以下の新規作成手順は別の場所へ複製する場合の参考です。既存リポジトリを使う場合はcloneして編集してください。
+この環境のGitHub連携には新規リポジトリ作成機能がないため、GitHubリポジトリ自体は未作成です。
 
 1. GitHubで空の `poi-days` リポジトリを作成します。最初はPrivateを推奨。README等は追加せず空で作成。
 2. 展開したフォルダで次を実行します。URLは作成したリポジトリのものに置き換えます。
