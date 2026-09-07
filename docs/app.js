@@ -1,4 +1,16 @@
 'use strict';
+(function loadGA4(){
+  const GA_ID='G-0TZ7EH65BW';
+  if (typeof window==='undefined' || window.gtag || document.querySelector(`script[src*="${GA_ID}"]`)) return;
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){window.dataLayer.push(arguments);};
+  window.gtag('js',new Date());
+  window.gtag('config',GA_ID);
+  const s=document.createElement('script');
+  s.async=true;
+  s.src=`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(s);
+})();
 const INVITE_URL = 'https://pc.moppy.jp/entry/invite.php?invite=Jh7He170&openExternalBrowser=1';
 const INVITE_CODE = 'Jh7He170';
 function getRoute(a) {
