@@ -25,6 +25,7 @@ VISUALS={
 
 def apply_visuals(root):
  d=root/'dist';assets=d/'visuals';assets.mkdir(exist_ok=True)
+ shutil.copy2(root/'content'/'assets'/'hero-photo.jpeg',d/'hero-photo.jpeg')
  for key in SCENES:
   (assets/f'way-{key}.svg').unlink(missing_ok=True)
   shutil.copy2(root/'content'/'assets'/f'way-{key}.webp',assets/f'way-{key}.webp')
@@ -57,12 +58,7 @@ def apply_visuals(root):
    s=re.sub(r'<p class="section-lead">まずは、ひとつの案件から。</p><ol class="steps">.*?</ol>',flow,s,count=1,flags=re.S)
    exchange='''<figure class="exchange-map"><figcaption>貯めたポイントの交換先</figcaption><div class="exchange-line" aria-label="貯めたポイントを現金、電子マネー、ギフト券、マイルなどへ交換"><div class="exchange-source"><strong>P</strong><span>ポイント</span></div><span class="exchange-arrow" aria-hidden="true">→</span><ul><li><b>現金</b><small>銀行振込など</small></li><li><b>電子マネー</b><small>日常のお支払いに</small></li><li><b>ギフト券</b><small>お買い物に</small></li><li><b>マイル</b><small>旅行の楽しみに</small></li></ul></div></figure>'''
    s=s.replace('<div class="exchange-tags"><span>現金</span><span>電子マネー</span><span>ギフト券</span><span>マイル</span></div>',exchange,1)
-   for old,new in [
-    ('<span class="reason-symbol" aria-hidden="true">◎</span>','<span class="reason-symbol reason-people" aria-hidden="true"><i></i><i></i><i></i></span>'),
-    ('<span class="reason-symbol" aria-hidden="true">◇</span>','<span class="reason-symbol reason-calendar" aria-hidden="true"><b>20</b></span>'),
-    ('<span class="reason-symbol" aria-hidden="true">P</span>','<span class="reason-symbol reason-coin" aria-hidden="true">P</span>'),
-    ('<span class="reason-symbol" aria-hidden="true">↔</span>','<span class="reason-symbol reason-gift" aria-hidden="true">◇</span>')]:
-    s=s.replace(old,new,1)
+   s=re.sub(r'<span class="reason-symbol" aria-hidden="true">(?:◎|◇|P|↔)</span>','',s,count=4)
   elif p.stem in ['about','registration']:
    s=s.replace('<section id="part-0">',flow+'<section id="part-0">',1)
   elif p.stem in VISUALS and p.parent.name=='guides':
@@ -76,6 +72,6 @@ def apply_visuals(root):
    if key in VISUALS:return chunk.replace('>', '>'+thumb(key),1)
    return chunk
   s=re.sub(r'<a class="(?:article-link|journey-tile)"[^>]*>.*?</a>',article,s,flags=re.S)
-  visual_version='20260906-6' if p.name=='index.html' else '20260906-6' if p.stem=='about' else '20260906-2'
+  visual_version='20260907-1' if p.name=='index.html' else '20260906-6' if p.stem=='about' else '20260906-2'
   s=s.replace('</head>',f'<link rel="stylesheet" href="/visuals.css?v={visual_version}"></head>')
   p.write_text(s)
