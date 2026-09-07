@@ -1,11 +1,16 @@
 @import url('visuals-base.css');
 
-/* Exchange reward icons: compact four-icon strip. */
-.exchange-source strong,.exchange-source span,.exchange-arrow{display:none!important}
-.exchange-line{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px!important;min-width:0!important}
-.exchange-source{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;height:132px!important;grid-column:1/-1;background:url('visuals/exchange-icons-strip.jpg?v=manual-20260908-0120') center center/contain no-repeat!important;overflow:hidden!important;margin:0 auto 8px!important}
-.exchange-source::before,.exchange-source::after{content:none!important;display:none!important}
-.exchange-map ul{grid-column:1/-1!important;width:100%!important;max-width:100%!important;min-width:0!important}
+/* Exchange destinations: integrate each supplied icon into its matching cell. */
+.exchange-source,.exchange-arrow{display:none!important}
+.exchange-line{display:block!important;min-width:0!important}
+.exchange-map ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;border-left:0!important}
+.exchange-map li{position:relative!important;min-width:0!important;padding:92px 16px 16px!important;text-align:left!important}
+.exchange-map li::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);display:block;width:70px;height:70px;border-radius:50%;background-image:url('visuals/exchange-icons-strip.jpg?v=manual-20260908-0120');background-repeat:no-repeat;background-size:400% auto;background-position-y:center}
+.exchange-map li:nth-child(1)::before{background-position-x:0%}
+.exchange-map li:nth-child(2)::before{background-position-x:33.333%}
+.exchange-map li:nth-child(3)::before{background-position-x:66.667%}
+.exchange-map li:nth-child(4)::before{background-position-x:100%}
 @media(max-width:700px){
-  .exchange-source{height:112px!important;background-size:contain!important;background-position:center!important;margin:0 auto 8px!important}
+  .exchange-map li{padding:82px 14px 14px!important}
+  .exchange-map li::before{width:62px;height:62px;top:12px}
 }
