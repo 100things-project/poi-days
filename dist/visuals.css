@@ -1,14 +1,11 @@
 @import url('visuals-base.css');
 
-/* Exchange reward icons: replace the old P/points source and arrow with the four-icon strip. */
+/* Exchange reward icons: use the manually uploaded image file directly. */
 .exchange-source strong,.exchange-source span,.exchange-arrow{display:none!important}
-.exchange-map,.exchange-line,.exchange-source{overflow:hidden!important;scrollbar-width:none!important}
-.exchange-map::-webkit-scrollbar,.exchange-line::-webkit-scrollbar,.exchange-source::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+.exchange-source::before,.exchange-source::after{content:none!important;display:none!important}
 .exchange-line{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px!important;min-width:0!important}
-.exchange-source{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;height:118px!important;grid-column:1/-1;background:url('visuals/exchange-icons-strip.jpg?v=20260908-0003') center/contain no-repeat!important}
-.exchange-map ul{grid-column:1/-1;width:100%;max-width:100%;min-width:0}
+.exchange-source{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;height:118px!important;grid-column:1/-1;background-color:transparent!important;background-image:url('visuals/exchange-icons-strip.jpg?v=manual-20260908-0017')!important;background-position:center!important;background-size:contain!important;background-repeat:no-repeat!important;overflow:hidden!important}
+.exchange-map ul{grid-column:1/-1!important;width:100%!important;max-width:100%!important;min-width:0!important}
 @media(max-width:700px){
-  .exchange-map{overflow:hidden!important}
-  .exchange-source{height:118px!important;margin:0 auto 8px}
-  .exchange-map ul{grid-column:1/-1!important}
+  .exchange-source{height:118px!important;margin:0 auto 8px!important}
 }
