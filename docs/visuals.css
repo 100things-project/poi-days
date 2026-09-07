@@ -1,14 +1,11 @@
 @import url('visuals-base.css');
 
-/* Exchange reward icons: P/points and arrow removed; render the uploaded image directly. */
+/* Exchange reward icons: compact four-icon strip. */
 .exchange-source strong,.exchange-source span,.exchange-arrow{display:none!important}
 .exchange-line{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px!important;min-width:0!important}
-.exchange-source{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;grid-column:1/-1;background:none!important;overflow:visible!important;margin:0 auto 8px!important}
-.exchange-source::before{content:url('visuals/exchange-icons-strip.jpg?v=manual-20260908-0054')!important;display:block!important;width:100%!important;max-width:100%!important;height:auto!important;line-height:0!important;overflow:hidden!important}
-.exchange-source::after{content:none!important;display:none!important}
-.exchange-source::before{object-fit:contain!important}
+.exchange-source{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;height:132px!important;grid-column:1/-1;background:url('visuals/exchange-icons-strip.jpg?v=manual-20260908-0120') center center/contain no-repeat!important;overflow:hidden!important;margin:0 auto 8px!important}
+.exchange-source::before,.exchange-source::after{content:none!important;display:none!important}
 .exchange-map ul{grid-column:1/-1!important;width:100%!important;max-width:100%!important;min-width:0!important}
 @media(max-width:700px){
-  .exchange-source{height:auto!important;margin:0 auto 8px!important}
-  .exchange-source::before{width:100%!important;max-width:100%!important;height:auto!important}
+  .exchange-source{height:112px!important;background-size:contain!important;background-position:center!important;margin:0 auto 8px!important}
 }
