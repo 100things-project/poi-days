@@ -1,12 +1,11 @@
 @import url('visuals-base.css');
 
-/* Exchange reward icons: replace the P/points source and arrow with the supplied four-icon strip. */
+/* Exchange reward icons: replace the old P/points source and arrow with the supplied four-icon strip. */
 .exchange-source strong,.exchange-source span,.exchange-arrow{display:none!important}
-.exchange-line{grid-template-columns:1fr!important;gap:18px!important}
-.exchange-source{display:block!important;width:100%;height:150px;background:url('visuals/exchange-icons-strip.jpg') center/contain no-repeat;grid-column:1/-1}
+.exchange-line{display:grid!important;grid-template-columns:1fr!important;gap:12px!important}
+.exchange-source{display:block!important;width:100%;height:150px;grid-column:1/-1;background-image:url('https://raw.githubusercontent.com/100things-project/poi-days/main/docs/visuals/exchange-icons-strip.jpg');background-position:center;background-size:contain;background-repeat:no-repeat}
 .exchange-map ul{grid-column:1/-1;width:100%}
 @media(max-width:700px){
   .exchange-source{height:118px;margin:0 auto 8px}
-  .exchange-line{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
   .exchange-map ul{grid-column:1/-1!important}
 }
