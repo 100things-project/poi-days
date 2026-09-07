@@ -1,11 +1,11 @@
 @import url('visuals-base.css');
 
-/* Exchange reward icons: replace the old P/points source and arrow with the supplied four-icon strip. */
+/* Exchange reward icons: replace the old P/points source and arrow with the four-icon strip. */
 .exchange-source strong,.exchange-source span,.exchange-arrow{display:none!important}
 .exchange-map,.exchange-line,.exchange-source{overflow:hidden!important;scrollbar-width:none!important}
 .exchange-map::-webkit-scrollbar,.exchange-line::-webkit-scrollbar,.exchange-source::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
 .exchange-line{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px!important;min-width:0!important}
-.exchange-source{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;height:118px!important;grid-column:1/-1;background-image:url('/poi-days/visuals/exchange-icons-strip.jpg?v=20260907-2147');background-position:center;background-size:contain;background-repeat:no-repeat}
+.exchange-source{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;height:118px!important;grid-column:1/-1;background:url('visuals/exchange-icons-strip.jpg?v=20260908-0003') center/contain no-repeat!important}
 .exchange-map ul{grid-column:1/-1;width:100%;max-width:100%;min-width:0}
 @media(max-width:700px){
   .exchange-map{overflow:hidden!important}
