@@ -25,6 +25,7 @@ for p,x in pages.items():
    continue
   assert not u.path.startswith('/'),(p,link)
   target=(p.parent/u.path).resolve() if u.path else p
+  if target.is_dir():target=target/'index.html'
   assert target.exists(),(p,link)
   if u.fragment and target in pages:assert u.fragment in pages[target].ids,(p,link)
 for p in (d/'visuals').glob('*.svg'):ET.parse(p)

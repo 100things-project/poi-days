@@ -2,7 +2,8 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit
-import re, subprocess
+import re, subprocess, json
+import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.meta={};self.links=[];self.h1=0;self.ids=[]
@@ -21,6 +22,10 @@ for p in sorted((ROOT/'docs/articles').glob('moppy-*.html')):
  assert '2026年9月8日' in s and 'Jh7He170' in s
  assert '運営者が報酬を受け取る場合' in s
  assert '<nav class="seo-breadcrumb"' in s and '<nav class="seo-toc"' in s
+ schema=json.loads(re.search(r'<script type="application/ld\+json" data-poidays-schema>(.*?)</script>',s)[1])
+ assert [x['@type'] for x in schema['@graph']]==['Article','BreadcrumbList']
+ assert schema['@graph'][0]['headline']==title.removesuffix('｜POI DAYS')
+ assert '../analytics.js' in s and 'poidays_owner_exclude_v1' in s
  assert len(re.findall(r'<a ',s.split('<section class="seo-next">')[1].split('</section>')[0]))==2
  for a in page.links:
   if 'entry/invite' in a['href']:
@@ -34,9 +39,12 @@ for p in sorted((ROOT/'docs/articles').glob('moppy-*.html')):
  assert not re.search(r'私は稼げ|実際にやってみた|絶対稼げる|必ず安全',s)
  print(p.name, 'description:',len(description),'h1:1; sources/date/PR/links:PASS')
 assert len(titles)==len(set(titles))==5 and len(set(descriptions))==5
-baseline='06b84966bc96098e26cb73466086741fd887f2ec'
-for path in ['docs/index.html','docs/style.css','docs/visuals.css','docs/visuals-base.css','docs/enrichment.css','docs/app.js','docs/hero-photo.jpeg','docs/google988181a833d31a3a.html']:
+baseline='f6aa746dbad83ec1e0e5b3af09519d7f014a9f20'
+for path in ['docs/index.html','docs/style.css','docs/visuals.css','docs/visuals-base.css','docs/enrichment.css','docs/app.js','docs/analytics.js','docs/articles/privacy.html','docs/hero-photo.jpeg','docs/google988181a833d31a3a.html']:
  original=subprocess.check_output(['git','show',f'{baseline}:{path}'],cwd=ROOT)
  assert original==(ROOT/path).read_bytes(),path
+urls=[n.text for n in ET.parse(ROOT/'docs/sitemap.xml').findall('.//{*}loc')]
+assert len(urls)==len(set(urls))==16
+assert not any(x.endswith(('/qa-preview.html','/articles/safety.html','/articles/registration.html')) for x in urls)
 assert {p.relative_to(ROOT/'docs') for p in (ROOT/'docs').rglob('*') if p.is_file()}=={p.relative_to(ROOT/'dist') for p in (ROOT/'dist').rglob('*') if p.is_file()}
 print('PASS: unique metadata, specified referral, baseline homepage/assets/verification retained; dist/docs file inventory matches')

@@ -26,6 +26,22 @@ def write_both(path, text):
   p.parent.mkdir(parents=True, exist_ok=True)
   p.write_text(text, encoding='utf-8')
 
+def finish_page(page, title=None, description=None, url=None):
+ page = page.replace('../index.html', '../')
+ if title:
+  schema = {'@context':'https://schema.org','@graph':[
+   {'@type':'Article','headline':title,'description':description,
+    'mainEntityOfPage':url,'url':url,'datePublished':'2026-09-08',
+    'dateModified':'2026-09-08','inLanguage':'ja',
+    'author':{'@type':'Organization','name':'POI DAYS'},
+    'publisher':{'@type':'Organization','name':'POI DAYS','url':BASE+'/'}},
+   {'@type':'BreadcrumbList','itemListElement':[
+    {'@type':'ListItem','position':1,'name':'POI DAYS','item':BASE+'/'},
+    {'@type':'ListItem','position':2,'name':title,'item':url}]}]}
+  marker='<script src="../analytics.js" defer></script>'
+  page=page.replace(marker,'<script type="application/ld+json" data-poidays-schema>'+json.dumps(schema,ensure_ascii=False,separators=(',',':'))+'</script>'+marker)
+ return page
+
 def main():
  # Synchronize only known pre-existing publishing differences. Any unexpected
  # difference stops the build rather than choosing a winner for another editor.
@@ -51,13 +67,13 @@ def main():
   values = dict(TITLE=html.escape(title), DESCRIPTION=html.escape(description,quote=True), URL=BASE+'/articles/'+slug+'.html', SHORT=short, LABEL=label, BODY=body, CTA_TITLE=cta, RELATED=''.join(f'<a href="{r}.html">{titles[r]} →</a>' for r in related))
   page = template
   for key,value in values.items(): page=page.replace('{{'+key+'}}',value)
-  write_both('articles/'+slug+'.html',page)
+  write_both('articles/'+slug+'.html',finish_page(page,title,description,values['URL']))
  write_both('seo-articles.css',(ROOT/'content/seo-articles.css').read_text())
  index = template
  body = '<p>知りたいことから選ぶ、モッピーの初心者ガイド。各記事は2026年9月8日に公開情報を確認しています。</p>' + ''.join(f'<a class="seo-index-link" href="{a[0]}.html">{a[1]} →</a>' for a in ARTICLES)
  values = dict(TITLE='モッピー初心者ガイド一覧',DESCRIPTION='モッピーの安全性・評判・稼ぎ方・登録方法・ゲーム案件の選び方をまとめたPOI DAYSの初心者ガイド。',URL=BASE+'/articles/index.html',SHORT='ガイド一覧',LABEL='READ & LEARN',BODY=body,CTA_TITLE='自分に合う始め方を、ひとつずつ',RELATED='<a href="../index.html#diagnosis">5問診断で始め方を選ぶ →</a><a href="../index.html#ranking">掲載案件と確認日を見る →</a>')
  for key,value in values.items(): index=index.replace('{{'+key+'}}',value)
- write_both('articles/index.html',index)
+ write_both('articles/index.html',finish_page(index))
  # Minimal contextual gateways in existing articles; top and guides untouched.
  gateways={'about':'moppy-safety','safety':'moppy-safety','registration':'moppy-registration','categories':'moppy-earning'}
  for old,new in gateways.items():
@@ -66,8 +82,16 @@ def main():
   gateway=f'<!-- SEO gateway --><section><h2>もう少し詳しく知りたい方へ</h2><p><a href="{new}.html">{titles[new]} →</a></p><p><a href="index.html">5つの初心者ガイドから選ぶ →</a></p></section><!-- /SEO gateway -->'
   page=page.replace('</main>',gateway+'</main>')
   write_both('articles/'+old+'.html',page)
- paths=[p.relative_to(DOCS).as_posix() for p in sorted(DOCS.rglob('*.html')) if not p.name.startswith('google')]
- sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>'+html.escape(BASE+'/'+p)+'</loc></url>\n' for p in paths)+'</urlset>\n'
+ paths=[]
+ for p in sorted(DOCS.rglob('*.html')):
+  if p.name.startswith('google') or p.name=='qa-preview.html': continue
+  source=p.read_text()
+  if re.search(r'<meta[^>]+content=["\'][^"\']*noindex',source): continue
+  canonical=re.search(r'<link rel="canonical" href="([^"]+)"',source)
+  url=canonical[1] if canonical else BASE+'/'+p.relative_to(DOCS).as_posix()
+  if url not in paths: paths.append(url)
+ paths.sort()
+ sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>'+html.escape(p)+'</loc></url>\n' for p in paths)+'</urlset>\n'
  write_both('sitemap.xml',sitemap)
  write_both('robots.txt','User-agent: *\nAllow: /\nSitemap: '+BASE+'/sitemap.xml\n')
  print(f'SEO build complete: 5 articles + collection; {len(paths)} site pages; existing homepage preserved.')
