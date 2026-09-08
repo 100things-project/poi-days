@@ -14,6 +14,7 @@ class Page(HTMLParser):
   self.links.extend(a[k] for k in ['src','href'] if k in a)
 pages={}
 for p in d.rglob('*.html'):
+ if p.name.startswith('google'):continue # Search Console verification, not a page
  x=Page();x.feed(p.read_text());pages[p.resolve()]=x
  assert x.headings==1 and len(x.ids)==len(set(x.ids)),p
 for p,x in pages.items():

@@ -3,6 +3,12 @@ from pathlib import Path
 import os,re,subprocess,sys,posixpath,shutil
 from urllib.parse import urlsplit
 root=Path(__file__).resolve().parent
+# The published layout has direct user edits not represented by the legacy
+# layout generator. Default builds must preserve them (including verification
+# files). Keep the old generator available only through an explicit opt-in.
+if '--legacy-layout-build' not in sys.argv:
+ subprocess.run([sys.executable,str(root/'scripts/build-seo.py')],check=True)
+ raise SystemExit(0)
 subprocess.run([sys.executable,str(root/'scripts/expand-site.py')],check=True)
 d=root/'dist'
 site=os.environ.get('SITE_URL','https://100things-project.github.io/poi-days').rstrip('/')

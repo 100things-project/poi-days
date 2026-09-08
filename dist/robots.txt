@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://100things-project.github.io/poi-days/sitemap.xml
