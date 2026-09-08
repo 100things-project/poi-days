@@ -40,7 +40,7 @@ def main():
     raise SystemExit(f'Unreviewed docs/dist difference: {rel}; reconcile explicitly first.')
    target.parent.mkdir(parents=True, exist_ok=True)
    shutil.copy2(p, target)
- template = (ROOT/'content/seo-template.html').read_text()
+ template = (ROOT/'content/seo-template.html').read_text().replace('../seo-articles.css','../seo-articles.css?v=20260908-2')
  titles = {a[0]:a[1] for a in ARTICLES}
  for slug,title,short,label,description,related,cta in ARTICLES:
   assert 90 <= len(description) <= 130, (slug, len(description))
