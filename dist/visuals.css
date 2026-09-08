@@ -1,16 +1,25 @@
 @import url('visuals-base.css');
 
-/* Exchange destinations: integrate each supplied icon into its matching cell. */
+/* Exchange destinations: editorial 2x2 layout matched to the approved mockup. */
 .exchange-source,.exchange-arrow{display:none!important}
 .exchange-line{display:block!important;min-width:0!important}
-.exchange-map ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;border-left:0!important}
-.exchange-map li{position:relative!important;min-width:0!important;padding:92px 16px 16px!important;text-align:left!important}
-.exchange-map li::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);display:block;width:70px;height:70px;border-radius:50%;background-image:url('visuals/exchange-icons-strip.jpg?v=manual-20260908-0120');background-repeat:no-repeat;background-size:400% auto;background-position-y:center}
+.exchange-map{padding:30px 28px 24px!important;background:linear-gradient(110deg,#f4f9f6,#fffaf1)!important;border:1px solid #dfe9e3!important;border-radius:24px!important;box-shadow:none!important}
+.exchange-map figcaption{margin:0 0 22px!important;font:700 20px var(--serif)!important;color:var(--teal)!important;text-align:left!important}
+.exchange-map ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px 34px!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:0!important;border:0!important}
+.exchange-map li{position:relative!important;min-width:0!important;padding:94px 8px 8px!important;text-align:center!important;border:0!important;background:transparent!important}
+.exchange-map li::before{content:'';position:absolute;top:4px;left:50%;transform:translateX(-50%);display:block;width:78px;height:78px;border-radius:50%;background-image:url('visuals/exchange-icons-strip.jpg?v=manual-20260908-1120');background-repeat:no-repeat;background-size:400% auto;background-position-y:center}
 .exchange-map li:nth-child(1)::before{background-position-x:0%}
 .exchange-map li:nth-child(2)::before{background-position-x:33.333%}
 .exchange-map li:nth-child(3)::before{background-position-x:66.667%}
 .exchange-map li:nth-child(4)::before{background-position-x:100%}
+.exchange-map b{display:block!important;font-size:18px!important;line-height:1.35!important;color:var(--ink)!important;text-align:center!important}
+.exchange-map small{display:block!important;margin-top:5px!important;font-size:13px!important;line-height:1.55!important;color:var(--muted)!important;text-align:center!important}
 @media(max-width:700px){
-  .exchange-map li{padding:82px 14px 14px!important}
-  .exchange-map li::before{width:62px;height:62px;top:12px}
+  .exchange-map{padding:24px 18px 20px!important;border-radius:22px!important}
+  .exchange-map figcaption{font-size:18px!important;margin-bottom:20px!important}
+  .exchange-map ul{gap:22px 18px!important}
+  .exchange-map li{padding:84px 4px 4px!important}
+  .exchange-map li::before{width:70px;height:70px;top:2px}
+  .exchange-map b{font-size:16px!important}
+  .exchange-map small{font-size:12px!important}
 }
