@@ -1,216 +1,52 @@
 {
   "sites": [
-    {
-      "id": "moppy",
-      "name": "モッピー"
-    },
-    {
-      "id": "hapitas",
-      "name": "ハピタス"
-    },
-    {
-      "id": "warau",
-      "name": "ワラウ"
-    },
-    {
-      "id": "chobirich",
-      "name": "ちょびリッチ"
-    }
+    {"id": "moppy", "name": "モッピー"},
+    {"id": "hapitas", "name": "ハピタス"},
+    {"id": "warau", "name": "ワラウ"},
+    {"id": "chobirich", "name": "ちょびリッチ"}
   ],
   "rankings": {
     "moppy": [
-      {
-        "title": "ゲーム案件の掲載例",
-        "category": "ゲーム",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-game.webp"
-      },
-      {
-        "title": "カード案件の掲載例",
-        "category": "カード",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-service.webp"
-      },
-      {
-        "title": "動画サービスの掲載例",
-        "category": "サービス",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
-      },
-      {
-        "title": "買い物案件の掲載例",
-        "category": "ショッピング",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-shopping.webp"
-      },
-      {
-        "title": "無料案件の掲載例",
-        "category": "無料",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
-      }
+      {"title": "ゲーム案件の掲載例", "category": "ゲーム", "sample": true, "reward": null, "href": null, "image": "visuals/way-game.webp"},
+      {"title": "カード案件の掲載例", "category": "カード", "sample": true, "reward": null, "href": null, "image": "visuals/way-service.webp"},
+      {"title": "動画サービスの掲載例", "category": "サービス", "sample": true, "reward": null, "href": null, "image": "visuals/way-spare.webp"},
+      {"title": "買い物案件の掲載例", "category": "ショッピング", "sample": true, "reward": null, "href": null, "image": "visuals/way-shopping.webp"},
+      {"title": "無料案件の掲載例", "category": "無料", "sample": true, "reward": null, "href": null, "image": "visuals/way-spare.webp"}
     ],
     "hapitas": [
-      {
-        "title": "ゲーム案件の掲載例",
-        "category": "ゲーム",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-game.webp"
-      },
-      {
-        "title": "カード案件の掲載例",
-        "category": "カード",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-service.webp"
-      },
-      {
-        "title": "動画サービスの掲載例",
-        "category": "サービス",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
-      },
-      {
-        "title": "買い物案件の掲載例",
-        "category": "ショッピング",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-shopping.webp"
-      },
-      {
-        "title": "無料案件の掲載例",
-        "category": "無料",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
-      }
+      {"title": "ゲーム案件の掲載例", "category": "ゲーム", "sample": true, "reward": null, "href": null, "image": "visuals/way-game.webp"},
+      {"title": "カード案件の掲載例", "category": "カード", "sample": true, "reward": null, "href": null, "image": "visuals/way-service.webp"},
+      {"title": "動画サービスの掲載例", "category": "サービス", "sample": true, "reward": null, "href": null, "image": "visuals/way-spare.webp"},
+      {"title": "買い物案件の掲載例", "category": "ショッピング", "sample": true, "reward": null, "href": null, "image": "visuals/way-shopping.webp"},
+      {"title": "無料案件の掲載例", "category": "無料", "sample": true, "reward": null, "href": null, "image": "visuals/way-spare.webp"}
     ],
     "warau": [
-      {
-        "title": "ゲーム案件の掲載例",
-        "category": "ゲーム",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-game.webp"
-      },
-      {
-        "title": "カード案件の掲載例",
-        "category": "カード",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-service.webp"
-      },
-      {
-        "title": "動画サービスの掲載例",
-        "category": "サービス",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
-      },
-      {
-        "title": "買い物案件の掲載例",
-        "category": "ショッピング",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-shopping.webp"
-      },
-      {
-        "title": "無料案件の掲載例",
-        "category": "無料",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
-      }
+      {"title": "ゲーム案件の掲載例", "category": "ゲーム", "sample": true, "reward": null, "href": null, "image": "visuals/way-game.webp"},
+      {"title": "カード案件の掲載例", "category": "カード", "sample": true, "reward": null, "href": null, "image": "visuals/way-service.webp"},
+      {"title": "動画サービスの掲載例", "category": "サービス", "sample": true, "reward": null, "href": null, "image": "visuals/way-spare.webp"},
+      {"title": "買い物案件の掲載例", "category": "ショッピング", "sample": true, "reward": null, "href": null, "image": "visuals/way-shopping.webp"},
+      {"title": "無料案件の掲載例", "category": "無料", "sample": true, "reward": null, "href": null, "image": "visuals/way-spare.webp"}
     ],
     "chobirich": [
-      {
-        "title": "ゲーム案件の掲載例",
-        "category": "ゲーム",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-game.webp"
-      },
-      {
-        "title": "カード案件の掲載例",
-        "category": "カード",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-service.webp"
-      },
-      {
-        "title": "動画サービスの掲載例",
-        "category": "サービス",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
-      },
-      {
-        "title": "買い物案件の掲載例",
-        "category": "ショッピング",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-shopping.webp"
-      },
-      {
-        "title": "無料案件の掲載例",
-        "category": "無料",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
-      }
+      {"title": "ゲーム案件の掲載例", "category": "ゲーム", "sample": true, "reward": null, "href": null, "image": "visuals/way-game.webp"},
+      {"title": "カード案件の掲載例", "category": "カード", "sample": true, "reward": null, "href": null, "image": "visuals/way-service.webp"},
+      {"title": "動画サービスの掲載例", "category": "サービス", "sample": true, "reward": null, "href": null, "image": "visuals/way-spare.webp"},
+      {"title": "買い物案件の掲載例", "category": "ショッピング", "sample": true, "reward": null, "href": null, "image": "visuals/way-shopping.webp"},
+      {"title": "無料案件の掲載例", "category": "無料", "sample": true, "reward": null, "href": null, "image": "visuals/way-spare.webp"}
     ]
   },
   "news": [
-    {
-      "date": null,
-      "title": "各サイトのキャンペーン情報をお届けします",
-      "sample": true
-    },
-    {
-      "date": null,
-      "title": "ポイント交換先・交換条件のニュース",
-      "sample": true
-    },
-    {
-      "date": null,
-      "title": "新着ゲーム・サービスの情報",
-      "sample": true
-    }
+    {"date": null, "title": "各サイトのキャンペーン情報をお届けします", "sample": true},
+    {"date": null, "title": "ポイント交換先・交換条件のニュース", "sample": true},
+    {"date": null, "title": "新着ゲーム・サービスの情報", "sample": true}
   ],
   "features": [
     {
-      "title": "ゲーム案件特集",
-      "description": "始める前に、条件をチェック",
+      "title": "ゲーム案件の選び方",
+      "description": "高還元だけで決めない、7つのチェック",
       "image": "visuals/way-game.webp",
-      "href": "articles/moppy-games.html",
-      "label": "モッピー編"
+      "href": "articles/game-offer-selection.html",
+      "label": "今週の特集"
     },
     {
       "title": "クレジットカード特集",
@@ -235,6 +71,12 @@
     }
   ],
   "articles": [
+    {
+      "title": "ポイントサイトのゲーム案件の選び方｜失敗しにくい7つのチェック",
+      "href": "articles/game-offer-selection.html",
+      "date": "2026-09-09",
+      "image": "visuals/way-game.webp"
+    },
     {
       "title": "モッピーの登録方法｜招待コード・紹介リンクの使い方",
       "href": "articles/moppy-registration.html",
