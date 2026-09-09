@@ -9,6 +9,7 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
+from zoneinfo import ZoneInfo
 import json
 import re
 import time
@@ -19,6 +20,7 @@ from bs4 import BeautifulSoup, Tag
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "content" / "live-rankings.json"
 TIMEOUT = 15
+JST = ZoneInfo("Asia/Tokyo")
 USER_AGENT = "POI-DAYS-RankingBot/1.0 (+https://100things-project.github.io/poi-days/)"
 
 SOURCES = {
@@ -34,7 +36,7 @@ SOURCES = {
         "url": "https://hapitas.jp/ranking/",
         "marker": "ランキング",
         "stop": ["ショッピングでためる", "サービスでためる"],
-        "href_hints": ["/item/", "/ranking"],
+        "href_hints": ["/item/detail/"],
     },
     "warau": {
         "name": "ワラウ",
@@ -58,7 +60,7 @@ SPACE_RE = re.compile(r"\s+")
 
 
 def now_jst() -> datetime:
-    return datetime.now().astimezone()
+    return datetime.now(JST)
 
 
 def iso_now() -> str:
@@ -107,8 +109,6 @@ def reward_text(value: str) -> str | None:
     found = REWARD_RE.findall(value)
     if not found:
         return None
-    # Some sites expose both a boosted/current value and a baseline value.
-    # Preserve what the official ranking row shows instead of guessing which is which.
     unique = []
     for item in found:
         item = SPACE_RE.sub("", item)
@@ -126,7 +126,9 @@ def clean_title(value: str) -> str:
 
 def same_site(base: str, href: str) -> bool:
     try:
-        return urlparse(base).netloc.endswith(urlparse(href).netloc) or urlparse(href).netloc.endswith(urlparse(base).netloc)
+        base_host = urlparse(base).netloc.lower()
+        href_host = urlparse(href).netloc.lower()
+        return bool(base_host and href_host and (base_host == href_host or base_host.endswith('.' + href_host) or href_host.endswith('.' + base_host)))
     except Exception:
         return False
 
@@ -167,8 +169,6 @@ def parse_rows(html: str, source: dict) -> list[dict]:
             continue
         if source["href_hints"] and not any(hint in href for hint in source["href_hints"]):
             continue
-        # Ranking cards often keep the amount outside the link. Read the nearest
-        # small card/list container, but cap the amount of surrounding text.
         raw = text(anchor)
         container = anchor
         for _ in range(3):
@@ -268,7 +268,6 @@ def main() -> int:
                 }
                 print(f"{site_id}: UNAVAILABLE ({exc})")
     OUT.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    # Individual site failures are non-fatal because stale/placeholder fallback is deliberate.
     print("collector complete; failed sites:", ", ".join(failures) if failures else "none")
     return 0
 
