@@ -70,16 +70,24 @@ def main():
   write_both('articles/'+slug+'.html',finish_page(page,title,description,values['URL']))
  write_both('seo-articles.css',(ROOT/'content/seo-articles.css').read_text())
  index = template
- body = '<p>知りたいことから選ぶ、モッピーの初心者ガイド。各記事は2026年9月8日に公開情報を確認しています。</p>' + ''.join(f'<a class="seo-index-link" href="{a[0]}.html">{a[1]} →</a>' for a in ARTICLES)
- values = dict(TITLE='モッピー初心者ガイド一覧',DESCRIPTION='モッピーの安全性・評判・稼ぎ方・登録方法・ゲーム案件の選び方をまとめたPOI DAYSの初心者ガイド。',URL=BASE+'/articles/index.html',SHORT='ガイド一覧',LABEL='READ & LEARN',BODY=body,CTA_TITLE='自分に合う始め方を、ひとつずつ',RELATED='<a href="../moppy.html#diagnosis">5問診断で始め方を選ぶ →</a><a href="../moppy.html#ranking">掲載案件と確認日を見る →</a>')
+ body = ('<section><p class="eyebrow">WEEKLY FEATURE</p><h2>今週の特集</h2>'
+         '<a class="seo-index-link" href="game-offer-selection.html">ポイントサイトのゲーム案件の選び方｜失敗しにくい7つのチェック →</a></section>'
+         '<section><h2>モッピー初心者ガイド</h2><p>モッピーの安全性・評判・稼ぎ方・登録方法・ゲーム案件を、知りたいテーマから選べます。</p>'
+         + ''.join(f'<a class="seo-index-link" href="{a[0]}.html">{a[1]} →</a>' for a in ARTICLES) + '</section>')
+ values = dict(TITLE='ポイントサイト初心者ガイド・特集一覧',DESCRIPTION='ポイントサイトの使い方やゲーム案件の選び方、モッピーの安全性・評判・登録方法などをまとめたPOI DAYSの記事・特集一覧。',URL=BASE+'/articles/index.html',SHORT='記事・特集一覧',LABEL='READ & LEARN',BODY=body,CTA_TITLE='まずは、気になるテーマから',RELATED='<a href="../#popular">ポイントサイトの特徴を見る →</a><a href="../#ranking">各ポイントサイトの今日のランキングを見る →</a>')
  for key,value in values.items(): index=index.replace('{{'+key+'}}',value)
+ general_cta=('<section class="seo-cta"><p class="eyebrow">YOUR NEXT STEP</p><h2>まずは、気になるテーマから</h2>'
+              '<p>案件の条件、ポイントサイトの特徴、始め方を一つずつ確認して、自分に合うものから選べます。</p>'
+              '<a class="button primary" href="../#popular">ポイントサイトの特徴を見る →</a>'
+              '<a href="game-offer-selection.html">ゲーム案件の選び方を読む</a></section>')
+ index=re.sub(r'<section class="seo-cta">.*?</section>',general_cta,index,flags=re.S)
  write_both('articles/index.html',finish_page(index))
  # Minimal contextual gateways in existing articles; top and guides untouched.
  gateways={'about':'moppy-safety','safety':'moppy-safety','registration':'moppy-registration','categories':'moppy-earning'}
  for old,new in gateways.items():
   page=(DOCS/'articles'/f'{old}.html').read_text()
   page=re.sub(r'<!-- SEO gateway -->.*?<!-- /SEO gateway -->','',page,flags=re.S)
-  gateway=f'<!-- SEO gateway --><section><h2>もう少し詳しく知りたい方へ</h2><p><a href="{new}.html">{titles[new]} →</a></p><p><a href="index.html">5つの初心者ガイドから選ぶ →</a></p></section><!-- /SEO gateway -->'
+  gateway=f'<!-- SEO gateway --><section><h2>もう少し詳しく知りたい方へ</h2><p><a href="{new}.html">{titles[new]} →</a></p><p><a href="index.html">記事・特集一覧から選ぶ →</a></p></section><!-- /SEO gateway -->'
   page=page.replace('</main>',gateway+'</main>')
   write_both('articles/'+old+'.html',page)
  paths=[]
@@ -94,6 +102,6 @@ def main():
  sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>'+html.escape(p)+'</loc></url>\n' for p in paths)+'</urlset>\n'
  write_both('sitemap.xml',sitemap)
  write_both('robots.txt','User-agent: *\nAllow: /\nSitemap: '+BASE+'/sitemap.xml\n')
- print(f'SEO build complete: 5 articles + collection; {len(paths)} site pages; existing homepage preserved.')
+ print(f'SEO build complete: 5 Moppy articles + general article hub; {len(paths)} site pages; existing homepage preserved.')
 
 if __name__ == '__main__': main()
