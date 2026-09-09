@@ -1,0 +1,1 @@
+{"name":"poi-days-mobile-qa","private":true,"version":"1.0.0","scripts":{"dev":"vite","build":"python3 build.py","check":"python3 check.py"},"devDependencies":{"jsdom":"^30.0.1","vite":"^7.1.0"}}

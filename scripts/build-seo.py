@@ -71,7 +71,7 @@ def main():
  write_both('seo-articles.css',(ROOT/'content/seo-articles.css').read_text())
  index = template
  body = '<p>知りたいことから選ぶ、モッピーの初心者ガイド。各記事は2026年9月8日に公開情報を確認しています。</p>' + ''.join(f'<a class="seo-index-link" href="{a[0]}.html">{a[1]} →</a>' for a in ARTICLES)
- values = dict(TITLE='モッピー初心者ガイド一覧',DESCRIPTION='モッピーの安全性・評判・稼ぎ方・登録方法・ゲーム案件の選び方をまとめたPOI DAYSの初心者ガイド。',URL=BASE+'/articles/index.html',SHORT='ガイド一覧',LABEL='READ & LEARN',BODY=body,CTA_TITLE='自分に合う始め方を、ひとつずつ',RELATED='<a href="../index.html#diagnosis">5問診断で始め方を選ぶ →</a><a href="../index.html#ranking">掲載案件と確認日を見る →</a>')
+ values = dict(TITLE='モッピー初心者ガイド一覧',DESCRIPTION='モッピーの安全性・評判・稼ぎ方・登録方法・ゲーム案件の選び方をまとめたPOI DAYSの初心者ガイド。',URL=BASE+'/articles/index.html',SHORT='ガイド一覧',LABEL='READ & LEARN',BODY=body,CTA_TITLE='自分に合う始め方を、ひとつずつ',RELATED='<a href="../moppy.html#diagnosis">5問診断で始め方を選ぶ →</a><a href="../moppy.html#ranking">掲載案件と確認日を見る →</a>')
  for key,value in values.items(): index=index.replace('{{'+key+'}}',value)
  write_both('articles/index.html',finish_page(index))
  # Minimal contextual gateways in existing articles; top and guides untouched.

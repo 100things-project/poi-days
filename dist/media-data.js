@@ -1,0 +1,269 @@
+window.POI_DAYS_MEDIA = {
+  "sites": [
+    {
+      "id": "moppy",
+      "name": "モッピー"
+    },
+    {
+      "id": "hapitas",
+      "name": "ハピタス"
+    },
+    {
+      "id": "warau",
+      "name": "ワラウ"
+    },
+    {
+      "id": "chobirich",
+      "name": "ちょびリッチ"
+    }
+  ],
+  "rankings": {
+    "moppy": [
+      {
+        "title": "ゲーム案件の掲載例",
+        "category": "ゲーム",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-game.webp"
+      },
+      {
+        "title": "カード案件の掲載例",
+        "category": "カード",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-service.webp"
+      },
+      {
+        "title": "動画サービスの掲載例",
+        "category": "サービス",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-spare.webp"
+      },
+      {
+        "title": "買い物案件の掲載例",
+        "category": "ショッピング",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-shopping.webp"
+      },
+      {
+        "title": "無料案件の掲載例",
+        "category": "無料",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-spare.webp"
+      }
+    ],
+    "hapitas": [
+      {
+        "title": "ゲーム案件の掲載例",
+        "category": "ゲーム",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-game.webp"
+      },
+      {
+        "title": "カード案件の掲載例",
+        "category": "カード",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-service.webp"
+      },
+      {
+        "title": "動画サービスの掲載例",
+        "category": "サービス",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-spare.webp"
+      },
+      {
+        "title": "買い物案件の掲載例",
+        "category": "ショッピング",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-shopping.webp"
+      },
+      {
+        "title": "無料案件の掲載例",
+        "category": "無料",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-spare.webp"
+      }
+    ],
+    "warau": [
+      {
+        "title": "ゲーム案件の掲載例",
+        "category": "ゲーム",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-game.webp"
+      },
+      {
+        "title": "カード案件の掲載例",
+        "category": "カード",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-service.webp"
+      },
+      {
+        "title": "動画サービスの掲載例",
+        "category": "サービス",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-spare.webp"
+      },
+      {
+        "title": "買い物案件の掲載例",
+        "category": "ショッピング",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-shopping.webp"
+      },
+      {
+        "title": "無料案件の掲載例",
+        "category": "無料",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-spare.webp"
+      }
+    ],
+    "chobirich": [
+      {
+        "title": "ゲーム案件の掲載例",
+        "category": "ゲーム",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-game.webp"
+      },
+      {
+        "title": "カード案件の掲載例",
+        "category": "カード",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-service.webp"
+      },
+      {
+        "title": "動画サービスの掲載例",
+        "category": "サービス",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-spare.webp"
+      },
+      {
+        "title": "買い物案件の掲載例",
+        "category": "ショッピング",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-shopping.webp"
+      },
+      {
+        "title": "無料案件の掲載例",
+        "category": "無料",
+        "sample": true,
+        "reward": null,
+        "href": null,
+        "image": "visuals/way-spare.webp"
+      }
+    ]
+  },
+  "news": [
+    {
+      "date": null,
+      "title": "各サイトのキャンペーン情報をお届けします",
+      "sample": true
+    },
+    {
+      "date": null,
+      "title": "ポイント交換先・交換条件のニュース",
+      "sample": true
+    },
+    {
+      "date": null,
+      "title": "新着ゲーム・サービスの情報",
+      "sample": true
+    }
+  ],
+  "features": [
+    {
+      "title": "ゲーム案件特集",
+      "description": "始める前に、条件をチェック",
+      "image": "visuals/way-game.webp",
+      "href": "articles/moppy-games.html",
+      "label": "モッピー編"
+    },
+    {
+      "title": "クレジットカード特集",
+      "description": "費用と条件を、申し込む前に",
+      "image": "visuals/way-service.webp",
+      "href": null,
+      "label": "準備中"
+    },
+    {
+      "title": "無料案件特集",
+      "description": "小さく始めるヒント",
+      "image": null,
+      "href": "articles/moppy-earning.html",
+      "label": "モッピー編"
+    },
+    {
+      "title": "高還元案件特集",
+      "description": "還元額と条件を一緒に比較",
+      "image": null,
+      "href": null,
+      "label": "準備中"
+    }
+  ],
+  "articles": [
+    {
+      "title": "モッピーの登録方法｜招待コード・紹介リンクの使い方",
+      "href": "articles/moppy-registration.html",
+      "date": "2026-09-08",
+      "image": "visuals/way-spare.webp"
+    },
+    {
+      "title": "モッピーの稼ぎ方｜初心者が最初にやること",
+      "href": "articles/moppy-earning.html",
+      "date": "2026-09-08",
+      "image": "visuals/way-shopping.webp"
+    },
+    {
+      "title": "モッピーのゲーム案件｜初心者向けの選び方・注意点",
+      "href": "articles/moppy-games.html",
+      "date": "2026-09-08",
+      "image": "visuals/way-game.webp"
+    },
+    {
+      "title": "モッピーとは？安全性と仕組みをやさしく解説",
+      "href": "articles/moppy-safety.html",
+      "date": "2026-09-08",
+      "image": "visuals/way-service.webp"
+    },
+    {
+      "title": "モッピーの評判・口コミ｜良い声と気になる声を整理",
+      "href": "articles/moppy-reviews.html",
+      "date": "2026-09-08",
+      "image": "visuals/way-spare.webp"
+    }
+  ]
+};
