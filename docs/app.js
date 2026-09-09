@@ -37,6 +37,14 @@ function getRoute(a) {
 }
 if (typeof module !== 'undefined') module.exports = {getRoute, INVITE_URL, INVITE_CODE};
 if (typeof document !== 'undefined') {
+const mechanismContainer = document.querySelector('.mechanism .container');
+if (mechanismContainer && !mechanismContainer.querySelector('.moppy-intro')) {
+  const intro = document.createElement('p');
+  intro.className = 'moppy-intro';
+  intro.textContent = 'モッピーは、いつもの買い物やゲーム、サービス利用でポイントを貯められるサイトです。貯まったポイントは、現金や電子マネーなどに交換できます。';
+  const mechanismTitle = mechanismContainer.querySelector('h2');
+  if (mechanismTitle) mechanismContainer.insertBefore(intro, mechanismTitle);
+}
 const quiz = document.getElementById('quiz');
 const result = document.getElementById('result');
 const showResult = document.getElementById('show-result');
