@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-09-09",
+  "sites": [
+    {
+      "id": "moppy",
+      "name": "モッピー",
+      "page": "moppy.html",
+      "officialUrl": "https://pc.moppy.jp/",
+      "registerUrl": "https://pc.moppy.jp/entry/invite.php?invite=Jh7He170&openExternalBrowser=1",
+      "registerRel": "sponsored noopener",
+      "summary": "会員数1,400万人突破。1P=1円で、約60種類の交換先に対応。",
+      "facts": ["2005年開始", "会員数1,400万人突破", "1P=1円", "交換先は約60種類"],
+      "bestFor": "案件数や交換先の幅を重視したい人",
+      "sourceUrl": "https://pc.moppy.jp/guide/",
+      "sourceLabel": "モッピー公式 ご利用ガイド"
+    },
+    {
+      "id": "hapitas",
+      "name": "ハピタス",
+      "page": "hapitas.html",
+      "officialUrl": "https://hapitas.jp/",
+      "registerUrl": "https://hapitas.jp/register/",
+      "registerRel": "noopener",
+      "summary": "会員数630万人、運営実績19年。買い物やサービス利用でポイントを貯められる。",
+      "facts": ["会員数630万人（2026年9月時点）", "運営実績19年", "利用可能サービス3,000以上", "買い物のポイント保証案内あり"],
+      "bestFor": "ネットショッピングやサービス利用を中心に貯めたい人",
+      "sourceUrl": "https://hapitas.jp/register/",
+      "sourceLabel": "ハピタス公式 登録案内"
+    },
+    {
+      "id": "warau",
+      "name": "ワラウ",
+      "page": "warau.html",
+      "officialUrl": "https://www.warau.jp/",
+      "registerUrl": "https://www.warau.jp/",
+      "registerRel": "noopener",
+      "summary": "運営歴26年以上、累計会員数492万人。1ポイント=1円相当で、40種類の交換先に対応。",
+      "facts": ["運営歴26年以上", "累計会員数492万人", "掲載広告5,700件以上", "交換先40種類", "1ポイント=1円相当"],
+      "bestFor": "ゲームやコツコツ系も含め、貯め方を広く選びたい人",
+      "sourceUrl": "https://www.warau.jp/",
+      "sourceLabel": "ワラウ公式"
+    },
+    {
+      "id": "chobirich",
+      "name": "ちょびリッチ",
+      "page": "chobirich.html",
+      "officialUrl": "https://www.chobirich.com/",
+      "registerUrl": "https://www.chobirich.com/",
+      "registerRel": "noopener",
+      "summary": "買い物・申込・登録・アンケート・ゲームなどで貯められるポイントサイト。2026年6月22日から1pt=1円。",
+      "facts": ["2026年6月22日から1pt=1円", "買い物・申込・登録・アンケート・ゲームに対応", "会員ランク制度あり", "プラチナは対象特典ポイント最大15%"],
+      "bestFor": "ランク特典も使いながら複数の方法で貯めたい人",
+      "sourceUrl": "https://help.chobirich.com/9d474982b0d842e6bf80fbbb22b32377",
+      "sourceLabel": "ちょびリッチ公式ヘルプ"
+    }
+  ]
+}
