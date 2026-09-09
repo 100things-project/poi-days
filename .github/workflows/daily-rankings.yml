@@ -38,6 +38,9 @@ jobs:
       - name: Build site with verified snapshots
         run: python build.py
 
+      - name: Validate daily recommendation
+        run: python scripts/check-recommendation.py
+
       - name: Run existing checks
         run: python check.py
 
