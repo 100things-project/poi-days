@@ -39,6 +39,19 @@ if (typeof module !== 'undefined') module.exports = {getRoute, INVITE_URL, INVIT
 if (typeof document !== 'undefined') {
 const mechanism = document.getElementById('mechanism');
 const inviteWrap = document.querySelector('.invite-wrap');
+if (inviteWrap && !document.getElementById('invite-campaign')) {
+  const campaign = document.createElement('section');
+  campaign.id = 'invite-campaign';
+  campaign.className = 'invite-campaign';
+  campaign.innerHTML = '<div class="invite-campaign-inner"><span class="invite-campaign-badge">9月限定</span><p class="invite-campaign-kicker">今登録すると、ちょっとおトク。</p><h2>紹介からの新規登録で、<br>ボーナスのチャンス</h2><div class="invite-campaign-benefits"><div><strong>30P</strong><span>入会日から3日連続ログイン</span></div><div><strong>＋2,000P</strong><span>入会月の翌々月末までに、広告利用で5,000P以上獲得</span></div></div><p class="invite-campaign-note">9月中に友達紹介から新規入会した方が対象です。特典にはそれぞれ条件があります。</p><div class="invite-campaign-actions"><a class="button primary invite-link" href="'+INVITE_URL+'" target="_blank" rel="sponsored noopener">紹介リンクから無料登録 →</a><a class="text-link" href="https://pc.moppy.jp/friend/" target="_blank" rel="noopener">モッピー公式のキャンペーン詳細を見る →</a></div></div>';
+  inviteWrap.insertAdjacentElement('afterend', campaign);
+  if (!document.getElementById('invite-campaign-style')) {
+    const style = document.createElement('style');
+    style.id = 'invite-campaign-style';
+    style.textContent = '.invite-campaign{padding:0 20px 28px;background:#fff}.invite-campaign-inner{max-width:980px;margin:0 auto;padding:24px 28px;border:1px solid #f1ddcf;border-radius:20px;background:linear-gradient(135deg,#fffaf3,#fff 58%,#f5faf7);text-align:center}.invite-campaign-badge{display:inline-block;padding:5px 12px;border-radius:999px;background:#fff0e7;color:#e85d35;font-size:12px;font-weight:700;letter-spacing:.08em}.invite-campaign-kicker{margin:12px 0 4px;color:#e85d35;font-weight:700}.invite-campaign h2{margin:0;font:700 28px/1.5 var(--serif);color:var(--ink)}.invite-campaign-benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:700px;margin:20px auto 14px}.invite-campaign-benefits div{padding:16px;border-radius:14px;background:#fff;border:1px solid #eee7df}.invite-campaign-benefits strong{display:block;color:var(--teal);font-size:25px}.invite-campaign-benefits span{display:block;margin-top:6px;font-size:13px;line-height:1.6;color:var(--muted)}.invite-campaign-note{margin:0 auto 16px;max-width:720px;font-size:12px;line-height:1.7;color:var(--muted)}.invite-campaign-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}.invite-campaign-actions .button{margin:0}.invite-campaign-actions .text-link{font-size:13px}@media(max-width:700px){.invite-campaign{padding:0 12px 22px}.invite-campaign-inner{padding:20px 16px;border-radius:18px}.invite-campaign h2{font-size:24px;line-height:1.55}.invite-campaign-benefits{grid-template-columns:1fr;gap:10px;margin-top:16px}.invite-campaign-benefits div{padding:14px}.invite-campaign-actions{display:grid;grid-template-columns:1fr;gap:10px}.invite-campaign-actions .button{width:100%}}';
+    document.head.appendChild(style);
+  }
+}
 if (mechanism && inviteWrap && !document.getElementById('moppy-fit')) {
   const fit = document.createElement('section');
   fit.className = 'section moppy-fit';
