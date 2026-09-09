@@ -14,6 +14,27 @@
 .exchange-map li:nth-child(4)::before{background-image:url('exchange-mile.png?v=20260908-1')}
 .exchange-map b{display:block!important;font-size:18px!important;line-height:1.35!important;color:var(--ink)!important;text-align:center!important}
 .exchange-map small{display:block!important;margin-top:5px!important;font-size:13px!important;line-height:1.55!important;color:var(--muted)!important;text-align:center!important}
+
+/* Homepage declutter pass: keep the strongest paths, hide overlapping detail. */
+#ways,
+#planner,
+.honesty,
+#guide .start-checklist,
+#ranking .more-guides-heading,
+#ranking .extra-offers,
+#ranking .extra-offers + .micro{display:none!important}
+
+/* The FAQ is intentionally short on the homepage. Deeper answers live in guides/articles. */
+#faq details:nth-of-type(n+6){display:none!important}
+
+/* Give each remaining block more breathing room without making the page feel endless. */
+.section{padding-top:72px!important;padding-bottom:72px!important}
+.invite-wrap{padding-top:28px!important;padding-bottom:28px!important}
+.invite-panel{padding:26px!important}
+.ranking .offer-grid{gap:22px!important}
+.ranking .offer-card{padding:24px!important}
+#guide .visual-flow{margin-bottom:0!important}
+
 @media(max-width:700px){
   .exchange-map{padding:24px 18px 20px!important;border-radius:22px!important}
   .exchange-map figcaption{font-size:18px!important;margin-bottom:20px!important}
@@ -22,4 +43,10 @@
   .exchange-map li::before{width:70px;height:70px;top:2px}
   .exchange-map b{font-size:16px!important}
   .exchange-map small{font-size:12px!important}
+
+  .section{padding-top:48px!important;padding-bottom:48px!important}
+  .invite-wrap{padding-top:18px!important;padding-bottom:18px!important}
+  .invite-panel{padding:20px 16px!important}
+  .ranking .offer-grid{gap:16px!important}
+  .ranking .offer-card{padding:20px!important}
 }
