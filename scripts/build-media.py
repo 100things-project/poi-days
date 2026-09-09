@@ -6,11 +6,13 @@ import copy,json,os
 ROOT=Path(__file__).resolve().parents[1]
 base_data=json.loads((ROOT/'content/media-home.json').read_text(encoding='utf-8'))
 data=copy.deepcopy(base_data)
-live_path=ROOT/'content/live-rankings.json'
-live={}
-if live_path.exists():
- try: live=json.loads(live_path.read_text(encoding='utf-8'))
- except Exception: live={}
+
+def load_json(path):
+ try:return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+ except Exception:return {}
+
+live=load_json(ROOT/'content/live-rankings.json')
+live_news=load_json(ROOT/'content/live-news.json')
 
 def write(path,text):
  for folder in ['docs','dist']:
@@ -27,17 +29,7 @@ def verified_rows(site_id):
  result=[]
  for row in rows[:5]:
   if not isinstance(row,dict) or not row.get('verified') or not row.get('title') or not row.get('rewardText') or not checked:return None
-  result.append({
-   'title':row['title'],
-   'category':'公式ランキング',
-   'sample':False,
-   'verified':True,
-   'rewardText':row['rewardText'],
-   'checkedAt':checked,
-   'sourceHref':row.get('sourceHref'),
-   'href':None,
-   'image':'visuals/about.svg'
-  })
+  result.append({'title':row['title'],'category':'公式ランキング','sample':False,'verified':True,'rewardText':row['rewardText'],'checkedAt':checked,'sourceHref':row.get('sourceHref'),'href':None,'image':'visuals/about.svg'})
  return result
 
 for site in data.get('sites',[]):
@@ -47,20 +39,14 @@ for site in data.get('sites',[]):
 data['rankingMeta']={}
 for site in data.get('sites',[]):
  state=(live.get('sites') or {}).get(site['id']) or {}
- data['rankingMeta'][site['id']]={
-  'status':state.get('status','sample'),
-  'stale':bool(state.get('stale')),
-  'checkedAt':state.get('checkedAt'),
-  'sourceUrl':state.get('sourceUrl')
- }
+ data['rankingMeta'][site['id']]={'status':state.get('status','sample'),'stale':bool(state.get('stale')),'checkedAt':state.get('checkedAt'),'sourceUrl':state.get('sourceUrl')}
 
 def ranks(rows):
  if not rows:return '<li class="empty-state">現在準備中です。</li>'
  html=[]
  for i,r in enumerate(rows[:5]):
   verified=r.get('sample') is False and r.get('verified') is True and r.get('rewardText') and r.get('checkedAt')
-  amount=e(str(r.get('rewardText'))) if verified else 'サンプル'
-  small=e(r.get('checkedAt'))+' 確認' if verified else '金額未掲載'
+  amount=e(str(r.get('rewardText'))) if verified else 'サンプル';small=e(r.get('checkedAt'))+' 確認' if verified else '金額未掲載'
   html.append(f'<li class="ranking-row"><span class="rank-number">{i+1}</span>'+image(r.get('image') or 'visuals/about.svg','ランキング掲載案件のイメージ','rank-thumb',42,42)+f'<div class="rank-description"><h3>{e(r["title"])}</h3><span class="rank-category">{e(r.get("category") or "公式ランキング")}</span></div><div class="rank-amount">{amount}<small>{small}</small></div></li>')
  return ''.join(html)
 
@@ -68,16 +54,29 @@ moppy_meta=data['rankingMeta'].get('moppy',{})
 if moppy_meta.get('checkedAt'):
  disclosure='各ポイントサイトの公開ランキングを毎日取得しています。'
  if moppy_meta.get('stale'):disclosure+=' 一部は前回取得分です。'
-else:
- disclosure='サンプル表示 · 自動取得は本番反映前です。'
+else:disclosure='サンプル表示 · 自動取得は本番反映前です。'
+
+safe_news=[]
+for n in live_news.get('items') or []:
+ if not isinstance(n,dict) or n.get('official') is not True:continue
+ if not all(isinstance(n.get(k),str) and n.get(k) for k in ['date','title','siteName','sourceUrl']):continue
+ if not n['sourceUrl'].startswith('https://'):continue
+ safe_news.append(n)
+safe_news=sorted(safe_news,key=lambda x:(x['date'],x.get('id','')),reverse=True)[:6]
+if safe_news:
+ data['news']=safe_news
+ news_note='各ポイントサイトの公式お知らせを自動取得しています。本文は転載せず、公式ページへ案内します。'
+else:news_note='サンプル表示 · 公式NEWSの自動取得は本番反映前です。'
 
 page=(ROOT/'content/media-home.html').read_text(encoding='utf-8')
 values={
 'TABS':''.join(f'<button type="button" id="tab-{s["id"]}" role="tab" aria-selected="{str(i==0).lower()}" aria-controls="ranking-panel" tabindex="{0 if i==0 else -1}" data-site="{s["id"]}">{e(s["name"])}</button>' for i,s in enumerate(data['sites'])),
-'RANKINGS':ranks(data['rankings'].get('moppy',[])),
-'RANKING_DISCLOSURE':e(disclosure),
-'ARTICLES':''.join(f'<a class="article-row" href="{e(a["href"])}">'+image(a['image'],'記事のテーマを表すイメージ')+f'<div><h3>{e(a["title"])}</h3><time datetime="{a["date"]}">{a["date"].replace("-",".")}</time></div><span class="arrow" aria-hidden="true">›</span></a>' for a in data['articles']),
-'NEWS':''.join(f'<li><span class="news-date">サンプル</span><span>{e(n["title"])}</span></li>' for n in data['news'])}
+'RANKINGS':ranks(data['rankings'].get('moppy',[])),'RANKING_DISCLOSURE':e(disclosure),'NEWS_NOTE':e(news_note),
+'ARTICLES':''.join(f'<a class="article-row" href="{e(a["href"])}">'+image(a['image'],'記事のテーマを表すイメージ')+f'<div><h3>{e(a["title"])}</h3><time datetime="{a["date"]}">{a["date"].replace("-",".")}</time></div><span class="arrow" aria-hidden="true">›</span></a>' for a in data['articles'])}
+if safe_news:
+ values['NEWS']=''.join(f'<li><span class="news-date">{e(n["date"].replace("-","."))}</span><span><small>{e(n.get("siteName") or "公式")}</small> <a href="{e(n["sourceUrl"],quote=True)}" target="_blank" rel="noopener noreferrer">{e(n["title"])}</a></span></li>' for n in safe_news)
+else:
+ values['NEWS']=''.join(f'<li><span class="news-date">サンプル</span><span>{e(n["title"])}</span></li>' for n in data['news'])
 features=[]
 for f in data['features']:
  tag='a' if f['href'] else 'div';attrs=f' href="{e(f["href"])}"' if f['href'] else ''
@@ -92,4 +91,4 @@ page=page.replace('https://100things-project.github.io/poi-days/',base+'/')
 write('index.html',page)
 write('media-data.js','window.POI_DAYS_MEDIA = '+json.dumps(data,ensure_ascii=False,indent=2)+';\n')
 for name in ['media-home.css','media-home.js']:write(name,(ROOT/'content'/name).read_text(encoding='utf-8'))
-print('Media build complete: live ranking snapshot merged when verified; docs/dist synchronized.')
+print('Media build complete: verified rankings and official NEWS merged when available; docs/dist synchronized.')
