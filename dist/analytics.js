@@ -3,6 +3,19 @@
   const GA_ID = "G-0TZ7EH65BW";
   const OWNER_KEY = "poidays_owner_exclude_v1";
 
+  const purpose = document.getElementById("purpose");
+  if (purpose) {
+    const heading = purpose.querySelector("h2");
+    const grid = purpose.querySelector(".purpose-grid");
+    if (heading) heading.textContent = "自分に合う貯め方を見つけよう";
+    if (grid && !purpose.querySelector(".purpose-intro")) {
+      const intro = document.createElement("div");
+      intro.className = "purpose-intro";
+      intro.innerHTML = '<p>モッピーには、ゲームやショッピング、無料サービス、クレジットカードなど、さまざまなポイントの貯め方があります。</p><p>たくさんポイントがもらえる案件が、必ずしも自分に合っているとは限りません。使える時間や普段の生活、やってみたいことに合わせて選ぶのが、無理なく続けるコツです。</p><p><strong>「ゲームなら楽しめそう」「まずは無料で試したい」「いつもの買い物をおトクにしたい」</strong>など、自分に合いそうな方法から見つけてみましょう。</p>';
+      grid.parentNode.insertBefore(intro, grid);
+    }
+  }
+
   const params = new URLSearchParams(location.search);
   if (params.get("owner") === "1") localStorage.setItem(OWNER_KEY, "1");
   if (params.get("owner") === "0") localStorage.removeItem(OWNER_KEY);
