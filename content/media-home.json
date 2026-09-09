@@ -49,11 +49,11 @@
       "label": "今週の特集"
     },
     {
-      "title": "クレジットカード特集",
-      "description": "費用と条件を、申し込む前に",
+      "title": "ポイントサイトの選び方",
+      "description": "主要4サイトを、使い方から比べる",
       "image": "visuals/way-service.webp",
-      "href": null,
-      "label": "準備中"
+      "href": "articles/point-site-selection.html",
+      "label": "選び方ガイド"
     },
     {
       "title": "無料案件特集",
@@ -72,9 +72,15 @@
   ],
   "articles": [
     {
+      "title": "ポイントサイトの選び方｜4サイトの特徴を比べる6つの視点",
+      "href": "articles/point-site-selection.html",
+      "date": "2026-09-10",
+      "image": "visuals/way-service.webp"
+    },
+    {
       "title": "ポイントサイトのゲーム案件の選び方｜失敗しにくい7つのチェック",
       "href": "articles/game-offer-selection.html",
-      "date": "2026-09-09",
+      "date": "2026-09-10",
       "image": "visuals/way-game.webp"
     },
     {
