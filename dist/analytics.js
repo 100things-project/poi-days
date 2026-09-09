@@ -7,28 +7,12 @@
   if (purpose) {
     const heading = purpose.querySelector("h2");
     const grid = purpose.querySelector(".purpose-grid");
-    if (heading) {
-      heading.innerHTML = '<span class="purpose-heading-line">自分に合う貯め方を</span><span class="purpose-heading-line">見つけよう</span>';
-      heading.style.setProperty("font-size", "29px", "important");
-      heading.style.setProperty("line-height", "1.5", "important");
-      heading.style.setProperty("white-space", "normal", "important");
-      heading.style.setProperty("word-break", "normal", "important");
-      heading.style.setProperty("overflow-wrap", "normal", "important");
-      heading.style.setProperty("overflow", "visible", "important");
-      heading.style.setProperty("max-width", "100%", "important");
-      heading.style.setProperty("text-align", "center", "important");
-    }
+    if (heading) heading.textContent = "自分に合う貯め方を見つけよう";
     if (grid && !purpose.querySelector(".purpose-intro")) {
       const intro = document.createElement("div");
       intro.className = "purpose-intro";
       intro.innerHTML = '<p>モッピーには、ゲームやショッピング、無料サービス、クレジットカードなど、さまざまなポイントの貯め方があります。</p><p>たくさんポイントがもらえる案件が、必ずしも自分に合っているとは限りません。使える時間や普段の生活、やってみたいことに合わせて選ぶのが、無理なく続けるコツです。</p><p><strong>「ゲームなら楽しめそう」「まずは無料で試したい」「いつもの買い物をおトクにしたい」</strong>など、自分に合いそうな方法から見つけてみましょう。</p>';
       grid.parentNode.insertBefore(intro, grid);
-    }
-    if (!document.getElementById("purpose-mobile-fix")) {
-      const style = document.createElement("style");
-      style.id = "purpose-mobile-fix";
-      style.textContent = '@media(max-width:700px){.purpose h2::before{content:none!important}.purpose-heading-line{display:block!important}.purpose .purpose-intro,.purpose .purpose-intro p{text-align:left!important}.purpose .purpose-intro p{font-size:16px!important;line-height:1.9!important;margin:0 0 16px!important}}';
-      document.head.appendChild(style);
     }
   }
 
