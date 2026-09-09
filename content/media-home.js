@@ -3,6 +3,7 @@
   var data = window.POI_DAYS_MEDIA;
   var panel = document.getElementById('ranking-panel');
   var tablist = document.querySelector('.ranking-tabs');
+  var disclosure = document.getElementById('ranking-disclosure');
   function element(tag, className, text) {
     var node = document.createElement(tag); node.className = className || '';
     if (text != null) node.textContent = String(text);
@@ -13,14 +14,29 @@
     try { var url = new URL(value, location.href); return url.origin === location.origin ? value : null; } catch (_) { return null; }
   }
   function empty(message) { return element('p', 'empty-state', message || '現在準備中です。'); }
+  function rankingMeta(siteId) {
+    return data && data.rankingMeta && data.rankingMeta[siteId] ? data.rankingMeta[siteId] : {};
+  }
+  function updateDisclosure(siteId) {
+    if (!disclosure) return;
+    var meta = rankingMeta(siteId);
+    if (meta.checkedAt) {
+      disclosure.textContent = meta.checkedAt + ' 取得 · 各ポイントサイトの公開ランキング';
+      if (meta.stale) disclosure.textContent += '（前回取得分）';
+    } else {
+      disclosure.textContent = 'サンプル表示 · 自動取得は本番反映前です。';
+    }
+  }
   function selectSite(button) {
     var buttons = tablist.querySelectorAll('button');
     for (var j = 0; j < buttons.length; j++) {
       var selected = buttons[j] === button;
       buttons[j].setAttribute('aria-selected', String(selected)); buttons[j].tabIndex = selected ? 0 : -1;
     }
+    var siteId = button.getAttribute('data-site');
     panel.setAttribute('aria-labelledby', button.id); panel.removeAttribute('aria-label');
-    var rows = data.rankings && data.rankings[button.getAttribute('data-site')];
+    updateDisclosure(siteId);
+    var rows = data.rankings && data.rankings[siteId];
     panel.textContent = '';
     if (!Array.isArray(rows) || !rows.length) { panel.appendChild(empty()); return; }
     var list = element('ol', 'ranking-list');
@@ -29,13 +45,12 @@
       var li = element('li', 'ranking-row');
       li.appendChild(element('span', 'rank-number', index + 1));
       var img = element('img', 'rank-thumb'); img.width = 42; img.height = 42;
-      img.alt = '掲載カテゴリのイメージ'; img.src = safeLocal(row.image) || 'visuals/about.svg'; li.appendChild(img);
+      img.alt = 'ランキング掲載案件のイメージ'; img.src = safeLocal(row.image) || 'visuals/about.svg'; li.appendChild(img);
       var description = element('div', 'rank-description');
       description.appendChild(element('h3', '', row.title));
-      description.appendChild(element('span', 'rank-category', row.category || '準備中')); li.appendChild(description);
-      // Only independently verified entries may show an amount and actionable URL.
-      var verified = row.sample === false && row.verified === true && /^\d{4}-\d{2}-\d{2}$/.test(row.checkedAt || '') && typeof row.reward === 'number' && isFinite(row.reward) && row.reward >= 0;
-      var amount = element('div', 'rank-amount', verified ? row.reward.toLocaleString('ja-JP') + 'P' : 'サンプル');
+      description.appendChild(element('span', 'rank-category', row.category || '公式ランキング')); li.appendChild(description);
+      var verified = row.sample === false && row.verified === true && /^\d{4}-\d{2}-\d{2}$/.test(row.checkedAt || '') && typeof row.rewardText === 'string' && row.rewardText.trim();
+      var amount = element('div', 'rank-amount', verified ? row.rewardText : 'サンプル');
       amount.appendChild(element('small', '', verified ? row.checkedAt + ' 確認' : '金額未掲載')); li.appendChild(amount);
       var href = verified && safeLocal(row.href);
       if (href) { var link = element('a', '', row.title); link.href = href; description.firstChild.textContent = ''; description.firstChild.appendChild(link); }
@@ -64,7 +79,6 @@
     if (img.getAttribute('data-fallback') === 'true') { img.removeAttribute('src'); img.alt = '画像準備中'; return; }
     img.setAttribute('data-fallback', 'true'); img.classList.add('image-fallback'); img.src = 'visuals/about.svg';
   }, true);
-  // Images may fail before deferred scripts run.
   Array.prototype.forEach.call(document.images, function (img) { if (img.complete && !img.naturalWidth) img.dispatchEvent(new Event('error')); });
   var menus = document.querySelectorAll('.header-disclosure');
   Array.prototype.forEach.call(menus, function (menu) {
