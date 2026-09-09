@@ -29,6 +29,9 @@ jobs:
       - name: Install collector dependencies
         run: python -m pip install --disable-pip-version-check --no-cache-dir requests==2.32.5 beautifulsoup4==4.13.5
 
+      - name: Check ranking parser offline
+        run: python scripts/check-rankings.py
+
       - name: Fetch public rankings
         run: python scripts/fetch-rankings.py
 
