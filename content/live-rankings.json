@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "timezone": "Asia/Tokyo",
+  "generatedAt": null,
+  "sites": {
+    "moppy": {
+      "name": "モッピー",
+      "status": "unavailable",
+      "stale": false,
+      "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
+      "fetchedAt": null,
+      "checkedAt": null,
+      "items": []
+    },
+    "hapitas": {
+      "name": "ハピタス",
+      "status": "unavailable",
+      "stale": false,
+      "sourceUrl": "https://hapitas.jp/ranking/",
+      "fetchedAt": null,
+      "checkedAt": null,
+      "items": []
+    },
+    "warau": {
+      "name": "ワラウ",
+      "status": "unavailable",
+      "stale": false,
+      "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
+      "fetchedAt": null,
+      "checkedAt": null,
+      "items": []
+    },
+    "chobirich": {
+      "name": "ちょびリッチ",
+      "status": "unavailable",
+      "stale": false,
+      "sourceUrl": "https://www.chobirich.com/shopping/",
+      "fetchedAt": null,
+      "checkedAt": null,
+      "items": []
+    }
+  }
+}
