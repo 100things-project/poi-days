@@ -2,10 +2,8 @@ name: Point-site NEWS refresh
 
 on:
   schedule:
-    # GitHub Actions cron is UTC. 21:05 / 03:05 / 09:05 UTC = 06:05 / 12:05 / 18:05 JST.
+    # GitHub Actions cron is UTC. 21:05 UTC = 06:05 JST.
     - cron: '5 21 * * *'
-    - cron: '5 3 * * *'
-    - cron: '5 9 * * *'
   workflow_dispatch:
 
 permissions:
