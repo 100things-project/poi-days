@@ -1,7 +1,9 @@
 """Render the mobile-first media index; retain the separate Moppy page."""
 from pathlib import Path
 from html import escape as e
-import copy,json,os
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import copy,json,os,re
 
 ROOT=Path(__file__).resolve().parents[1]
 base_data=json.loads((ROOT/'content/media-home.json').read_text(encoding='utf-8'))
@@ -65,10 +67,49 @@ for n in live_news.get('items') or []:
 safe_news=sorted(safe_news,key=lambda x:(x['date'],x.get('id','')),reverse=True)[:6]
 if safe_news:
  data['news']=safe_news
- news_note='各ポイントサイトの公式お知らせを自動取得しています。本文は転載せず、公式ページへ案内します。'
+ news_note='各ポイントサイトの公式お知らせを1日1回取得しています。本文は転載せず、公式ページへ案内します。'
 else:news_note='サンプル表示 · 公式NEWSの自動取得は本番反映前です。'
 
+# Today's featured offer is deliberately not a cross-site "best" comparison.
+# Among sites whose ranking was freshly and successfully fetched, rotate through
+# each site's official #1 so different point sites get fair exposure.  This
+# avoids pretending that points, percentages and campaign conditions are directly comparable.
+def daily_recommendation():
+ candidates=[]
+ site_names={s['id']:s['name'] for s in data.get('sites',[])}
+ for site_id,site in (live.get('sites') or {}).items():
+  if not isinstance(site,dict) or site.get('status')!='ok' or site.get('stale'):continue
+  items=site.get('items') or []
+  if not items or not isinstance(items[0],dict):continue
+  row=items[0]
+  if row.get('verified') is not True or not row.get('title') or not row.get('rewardText'):continue
+  candidates.append({'siteId':site_id,'siteName':site_names.get(site_id,site.get('name',site_id)),'title':row['title'],'rewardText':row['rewardText'],'checkedAt':site.get('checkedAt'),'sourceHref':row.get('sourceHref')})
+ if not candidates:return None
+ candidates.sort(key=lambda x:x['siteId'])
+ today=datetime.now(ZoneInfo('Asia/Tokyo')).date()
+ return candidates[today.toordinal()%len(candidates)]
+
+recommendation=daily_recommendation()
+data['recommendation']=recommendation
+
 page=(ROOT/'content/media-home.html').read_text(encoding='utf-8')
+if recommendation:
+ href=recommendation.get('sourceHref') if isinstance(recommendation.get('sourceHref'),str) and recommendation['sourceHref'].startswith('https://') else None
+ tag='a' if href else 'div'
+ href_attr=f' href="{e(href,quote=True)}" target="_blank" rel="noopener noreferrer"' if href else ''
+ rec_html=(
+  '<section class="media-section recommendations" id="recommendations" aria-labelledby="recommendation-title">'
+  '<div class="section-heading"><h1 id="recommendation-title"><span class="section-icon" aria-hidden="true">✦</span>今日のおすすめ案件</h1><span class="status">公式ランキングから</span></div>'
+  f'<{tag} class="lead-story"{href_attr}><div class="lead-image">'
+  '<img src="visuals/way-shopping.webp" width="900" height="600" alt="今日の注目案件のイメージ" fetchpriority="high">'
+  f'<span class="image-label">{e(recommendation["siteName"])}</span></div><div class="lead-copy">'
+  '<p class="eyebrow">各サイト公式ランキング1位から日替わりで紹介</p>'
+  f'<h2>{e(recommendation["title"])}</h2><p>{e(str(recommendation["rewardText"]))}</p>'
+  f'<span class="story-link">{e(recommendation["siteName"])}の公式掲載を見る <span aria-hidden="true">→</span></span></div></{tag}>'
+  f'<p class="section-note">{e(recommendation.get("checkedAt") or "")}確認。POI DAYS独自の優劣順位ではなく、取得できた各サイトの公式1位案件から日替わりで紹介しています。</p></section>'
+ )
+ page=re.sub(r'<section class="media-section recommendations" id="recommendations".*?</section>',rec_html,page,count=1,flags=re.S)
+
 values={
 'TABS':''.join(f'<button type="button" id="tab-{s["id"]}" role="tab" aria-selected="{str(i==0).lower()}" aria-controls="ranking-panel" tabindex="{0 if i==0 else -1}" data-site="{s["id"]}">{e(s["name"])}</button>' for i,s in enumerate(data['sites'])),
 'RANKINGS':ranks(data['rankings'].get('moppy',[])),'RANKING_DISCLOSURE':e(disclosure),'NEWS_NOTE':e(news_note),
@@ -91,4 +132,4 @@ page=page.replace('https://100things-project.github.io/poi-days/',base+'/')
 write('index.html',page)
 write('media-data.js','window.POI_DAYS_MEDIA = '+json.dumps(data,ensure_ascii=False,indent=2)+';\n')
 for name in ['media-home.css','media-home.js']:write(name,(ROOT/'content'/name).read_text(encoding='utf-8'))
-print('Media build complete: verified rankings and official NEWS merged when available; docs/dist synchronized.')
+print('Media build complete: verified rankings, daily featured offer and official NEWS merged when available; docs/dist synchronized.')
