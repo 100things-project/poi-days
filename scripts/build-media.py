@@ -15,6 +15,7 @@ def load_json(path):
 
 live=load_json(ROOT/'content/live-rankings.json')
 live_news=load_json(ROOT/'content/live-news.json')
+point_sites=(load_json(ROOT/'content/point-sites.json').get('sites') or [])
 
 def write(path,text):
  for folder in ['docs','dist']:
@@ -72,8 +73,7 @@ else:news_note='サンプル表示 · 公式NEWSの自動取得は本番反映�
 
 # Today's featured offer is deliberately not a cross-site "best" comparison.
 # Among sites whose ranking was freshly and successfully fetched, rotate through
-# each site's official #1 so different point sites get fair exposure.  This
-# avoids pretending that points, percentages and campaign conditions are directly comparable.
+# each site's official #1 so different point sites get fair exposure.
 def daily_recommendation():
  candidates=[]
  site_names={s['id']:s['name'] for s in data.get('sites',[])}
@@ -110,7 +110,14 @@ if recommendation:
  )
  page=re.sub(r'<section class="media-section recommendations" id="recommendations".*?</section>',rec_html,page,count=1,flags=re.S)
 
+point_site_links=[]
+for site in point_sites:
+ sid=site.get('id');name=site.get('name');target=site.get('page')
+ if not sid or not name or not target:continue
+ point_site_links.append(f'<li><a href="{e(target,quote=True)}" aria-label="{e(name)}の特徴を見る"><span class="site-name {e(sid,quote=True)}">{e(name)}</span><small>特徴を見る →</small></a></li>')
+
 values={
+'POINT_SITES':''.join(point_site_links),
 'TABS':''.join(f'<button type="button" id="tab-{s["id"]}" role="tab" aria-selected="{str(i==0).lower()}" aria-controls="ranking-panel" tabindex="{0 if i==0 else -1}" data-site="{s["id"]}">{e(s["name"])}</button>' for i,s in enumerate(data['sites'])),
 'RANKINGS':ranks(data['rankings'].get('moppy',[])),'RANKING_DISCLOSURE':e(disclosure),'NEWS_NOTE':e(news_note),
 'ARTICLES':''.join(f'<a class="article-row" href="{e(a["href"])}">'+image(a['image'],'記事のテーマを表すイメージ')+f'<div><h3>{e(a["title"])}</h3><time datetime="{a["date"]}">{a["date"].replace("-",".")}</time></div><span class="arrow" aria-hidden="true">›</span></a>' for a in data['articles'])}
@@ -132,4 +139,4 @@ page=page.replace('https://100things-project.github.io/poi-days/',base+'/')
 write('index.html',page)
 write('media-data.js','window.POI_DAYS_MEDIA = '+json.dumps(data,ensure_ascii=False,indent=2)+';\n')
 for name in ['media-home.css','media-home.js']:write(name,(ROOT/'content'/name).read_text(encoding='utf-8'))
-print('Media build complete: verified rankings, daily featured offer and official NEWS merged when available; docs/dist synchronized.')
+print('Media build complete: verified rankings, daily featured offer, real point-site links and official NEWS merged when available; docs/dist synchronized.')
