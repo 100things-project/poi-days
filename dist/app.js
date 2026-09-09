@@ -37,6 +37,15 @@ function getRoute(a) {
 }
 if (typeof module !== 'undefined') module.exports = {getRoute, INVITE_URL, INVITE_CODE};
 if (typeof document !== 'undefined') {
+const mechanism = document.getElementById('mechanism');
+const inviteWrap = document.querySelector('.invite-wrap');
+if (mechanism && inviteWrap && !document.getElementById('moppy-fit')) {
+  const fit = document.createElement('section');
+  fit.className = 'section moppy-fit';
+  fit.id = 'moppy-fit';
+  fit.innerHTML = '<div class="container"><p class="eyebrow">IS MOPPY FOR ME?</p><h2>モッピー、私にも合う？</h2><div class="moppy-fit-copy"><p>ポイ活と聞くと、クレジットカードを作ったり、たくさんのサービスに申し込んだりしないと貯まらないイメージがあるかもしれません。</p><p>でもモッピーには、ゲームを楽しんだり、いつもの買い物を経由したり、無料で利用できるサービスを試したりと、いろいろな貯め方があります。</p><p>大きく稼ぐことだけがポイ活ではありません。生活や使える時間に合わせて、無理のない方法を選ぶこともできます。</p><p><strong>「自分なら、どんな使い方ができそう？」</strong> まずは5つの質問から、あなたに合いそうな始め方を探してみましょう。</p></div><a class="text-link" href="#diagnosis">5つの質問で自分に合う使い方を見る →</a></div>';
+  mechanism.parentNode.insertBefore(fit, mechanism);
+}
 const mechanismContainer = document.querySelector('.mechanism .container');
 if (mechanismContainer && !mechanismContainer.querySelector('.moppy-intro')) {
   const intro = document.createElement('p');
