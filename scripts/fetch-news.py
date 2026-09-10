@@ -11,10 +11,10 @@ from urllib.parse import urljoin, urlparse
 import hashlib
 import json
 import re
-import time
 
 import requests
 from bs4 import BeautifulSoup, Tag
+from collector_http import fetch_public, official_url
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "content" / "live-news.json"
@@ -70,8 +70,7 @@ def classify(title: str) -> str:
 
 
 def same_site(base: str, href: str) -> bool:
-    a, b = urlparse(base).netloc, urlparse(href).netloc
-    return bool(a and b and (a == b or a.endswith("." + b) or b.endswith("." + a)))
+    return official_url(base, href)
 
 
 def allowed_href(source: dict, href: str) -> bool:
@@ -82,22 +81,7 @@ def allowed_href(source: dict, href: str) -> bool:
 
 
 def fetch(url: str) -> str:
-    headers = {"User-Agent": USER_AGENT, "Accept-Language": "ja,en;q=0.7", "Cache-Control": "no-cache"}
-    error = None
-    for attempt in range(2):
-        try:
-            r = requests.get(url, headers=headers, timeout=TIMEOUT)
-            r.raise_for_status()
-            if len(r.text) < 500:
-                raise RuntimeError("response too small")
-            # Honor HTML charset metadata when HTTP omits it (Warau otherwise
-            # defaults to ISO-8859-1 in requests and Japanese dates are lost).
-            return BeautifulSoup(r.content, "html.parser").decode()
-        except Exception as exc:
-            error = exc
-            if attempt == 0:
-                time.sleep(2)
-    raise RuntimeError(str(error))
+    return fetch_public(url, USER_AGENT, TIMEOUT)
 
 
 def nearby_date(anchor: Tag) -> str | None:
@@ -119,6 +103,10 @@ def nearby_date(anchor: Tag) -> str | None:
 def parse_items(html: str, site_id: str, source: dict) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     items, seen = [], set()
+    if site_id == 'moppy':
+        # Public list currently returns an empty body. No verified item container
+        # exists, so do not infer NEWS dates from arbitrary adjacent anchors.
+        return []
     if site_id == 'chobirich':
         candidates = []
         for summary in soup.select('details[id] > summary'):
@@ -142,6 +130,8 @@ def parse_items(html: str, site_id: str, source: dict) -> list[dict]:
                 date_node = a.parent.select_one('.message_date')
                 if date_node is None:
                     continue  # duplicate sidebar links have no local date
+            if site_id == 'warau' and date_node is None:
+                continue
             date = parse_date(clean(date_node.get_text(' ', strip=True))) if date_node else nearby_date(a)
             candidates.append((clean(title_node.get_text(' ', strip=True)), date, urljoin(source['url'], a['href'])))
     for title, date, href in candidates:

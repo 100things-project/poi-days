@@ -176,44 +176,59 @@ window.POI_DAYS_MEDIA = {
     ],
     "chobirich": [
       {
-        "title": "ゲーム案件の掲載例",
-        "category": "ゲーム",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-game.webp"
+        "title": "楽天市場",
+        "category": "公式ショッピング順位",
+        "sample": false,
+        "verified": true,
+        "rewardText": "1%",
+        "checkedAt": "2026-09-10",
+        "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "href": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "image": "visuals/about.svg"
       },
       {
-        "title": "カード案件の掲載例",
-        "category": "カード",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-service.webp"
+        "title": "Yahoo!ショッピング",
+        "category": "公式ショッピング順位",
+        "sample": false,
+        "verified": true,
+        "rewardText": "1%",
+        "checkedAt": "2026-09-10",
+        "sourceHref": "https://www.chobirich.com/ad_details/41250?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "href": "https://www.chobirich.com/ad_details/41250?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "image": "visuals/about.svg"
       },
       {
-        "title": "動画サービスの掲載例",
-        "category": "サービス",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
+        "title": "楽天トラベル（宿泊予約）",
+        "category": "公式ショッピング順位",
+        "sample": false,
+        "verified": true,
+        "rewardText": "1%",
+        "checkedAt": "2026-09-10",
+        "sourceHref": "https://www.chobirich.com/ad_details/57209?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "href": "https://www.chobirich.com/ad_details/57209?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "image": "visuals/about.svg"
       },
       {
-        "title": "買い物案件の掲載例",
-        "category": "ショッピング",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-shopping.webp"
+        "title": "楽天ブックス",
+        "category": "公式ショッピング順位",
+        "sample": false,
+        "verified": true,
+        "rewardText": "1%",
+        "checkedAt": "2026-09-10",
+        "sourceHref": "https://www.chobirich.com/ad_details/69345?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "href": "https://www.chobirich.com/ad_details/69345?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "image": "visuals/about.svg"
       },
       {
-        "title": "無料案件の掲載例",
-        "category": "無料",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
+        "title": "【リピートOK】iHerb",
+        "category": "公式ショッピング順位",
+        "sample": false,
+        "verified": true,
+        "rewardText": "1%",
+        "checkedAt": "2026-09-10",
+        "sourceHref": "https://www.chobirich.com/ad_details/1147320?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "href": "https://www.chobirich.com/ad_details/1147320?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+        "image": "visuals/about.svg"
       }
     ]
   },
@@ -361,11 +376,18 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
-      "status": "unavailable",
+      "status": "ok",
       "stale": false,
-      "checkedAt": null,
+      "checkedAt": "2026-09-10",
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
-  "recommendation": null
+  "recommendation": {
+    "siteId": "chobirich",
+    "siteName": "ちょびリッチ",
+    "title": "楽天市場",
+    "rewardText": "1%",
+    "checkedAt": "2026-09-10",
+    "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking"
+  }
 };

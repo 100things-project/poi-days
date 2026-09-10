@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-09T22:37:56+09:00",
+  "generatedAt": "2026-09-10T17:44:30+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -126,14 +126,59 @@
     },
     "chobirich": {
       "name": "ちょびリッチ",
-      "status": "unavailable",
+      "scope": "ショッピング",
+      "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.chobirich.com/shopping/",
-      "fetchedAt": null,
-      "checkedAt": null,
-      "items": [],
-      "lastErrorAt": "2026-09-09T22:38:39+09:00",
-      "lastError": "ranking list is loaded dynamically; public HTML has no verifiable top five"
+      "fetchedAt": "2026-09-10T17:44:30+09:00",
+      "checkedAt": "2026-09-10",
+      "items": [
+        {
+          "rank": 1,
+          "title": "楽天市場",
+          "rewardText": "1%",
+          "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-10"
+        },
+        {
+          "rank": 2,
+          "title": "Yahoo!ショッピング",
+          "rewardText": "1%",
+          "sourceHref": "https://www.chobirich.com/ad_details/41250?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-10"
+        },
+        {
+          "rank": 3,
+          "title": "楽天トラベル（宿泊予約）",
+          "rewardText": "1%",
+          "sourceHref": "https://www.chobirich.com/ad_details/57209?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-10"
+        },
+        {
+          "rank": 4,
+          "title": "楽天ブックス",
+          "rewardText": "1%",
+          "sourceHref": "https://www.chobirich.com/ad_details/69345?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-10"
+        },
+        {
+          "rank": 5,
+          "title": "【リピートOK】iHerb",
+          "rewardText": "1%",
+          "sourceHref": "https://www.chobirich.com/ad_details/1147320?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-10"
+        }
+      ]
     }
   }
 }

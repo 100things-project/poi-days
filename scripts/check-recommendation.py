@@ -34,3 +34,22 @@ if candidates:
 else:
  assert rec is None,'recommendation must remain empty when no fresh ranking exists'
  print('PASS: no fresh ranking, recommendation safely remains sample/empty')
+
+# Exercise freshness/fallback behavior without overwriting generated site files.
+import contextlib,io,runpy
+from unittest.mock import patch
+source='https://pc.moppy.jp/ad/category_ranking/list.php'
+today=datetime.now(ZoneInfo('Asia/Tokyo')).date().isoformat()
+original_read=Path.read_text
+for status,stale,checked,expected in [('ok',False,today,True),('stale',True,today,False),('ok',False,'2000-01-01',False),('unavailable',False,today,False)]:
+ fixture={'sites':{'moppy':{'name':'モッピー','sourceUrl':source,'status':status,'stale':stale,'checkedAt':checked,'items':[
+  {'rank':i,'title':f'検証案件{i}','rewardText':'100pt','verified':True,'sourceHref':f'https://pc.moppy.jp/ad/{i}'} for i in range(1,6)]}}}
+ def read(path,*args,**kwargs):
+  if path==ROOT/'content/live-rankings.json':return json.dumps(fixture)
+  return original_read(path,*args,**kwargs)
+ with patch.object(Path,'read_text',read),patch.object(Path,'write_text'),contextlib.redirect_stdout(io.StringIO()):
+  built=runpy.run_path(str(ROOT/'scripts/build-media.py'))
+ assert bool(built['recommendation'])==expected,(status,stale,checked)
+ if checked=='2000-01-01':assert built['data']['rankingMeta']['moppy']['stale'] is True
+ if status=='unavailable':assert built['data']['rankings']['moppy'][0].get('sample') is not False
+print('PASS: fresh/stale/old-date/unavailable recommendation and ranking fallback fixtures')

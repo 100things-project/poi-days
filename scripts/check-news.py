@@ -4,12 +4,7 @@ import tempfile,json
 p=Path('scripts/fetch-news.py');spec=spec_from_file_location('news',p);m=module_from_spec(spec);spec.loader.exec_module(m)
 html='''<html><body><div><span>2026年9月9日</span><a href="/news/123">【重要】ポイント交換条件変更のお知らせ</a></div><div><span>2026-09-08</span><a href="/news/124">9月キャンペーン開催のお知らせ</a></div></body></html>'''
 source={'name':'モッピー','url':'https://pc.moppy.jp/news/','path_hints':['/news/']}
-rows=m.parse_items(html,'moppy',source)
-assert len(rows)==2,rows
-assert rows[0]['date']=='2026-09-09' and rows[0]['official'] is True
-assert rows[0]['category']=='重要'
-assert rows[1]['category']=='キャンペーン'
-assert all(r['sourceUrl'].startswith('https://pc.moppy.jp/news/') for r in rows)
+assert m.parse_items(html,'moppy',source)==[], 'unverified Moppy markup must not become NEWS'
 assert m.parse_date('2026年2月30日') is None
 assert not m.same_site('https://pc.moppy.jp/','https://evil.example/')
 print('PASS: news parser date/title/source/category/same-site guards')
@@ -23,3 +18,10 @@ rows=m.parse_items(chobi,'chobirich',m.SOURCES['chobirich'])
 assert len(rows)==1 and rows[0]['date']=='2026-09-01' and rows[0]['sourceUrl'].endswith('#block-a')
 assert '本文' not in rows[0]['title']
 print('PASS: no borrowed dates, sidebar duplicates or FAQ-as-news; dated announcement anchors retained')
+
+assert not m.allowed_href(m.SOURCES['hapitas'],'http://hapitas.jp/notifications/detail/id/1')
+assert not m.allowed_href(m.SOURCES['hapitas'],'https://user@hapitas.jp/notifications/detail/id/1')
+assert not m.allowed_href(m.SOURCES['hapitas'],'https://hapitas.jp.evil.test/notifications/detail/id/1')
+rows=m.parse_items(hap+hap,'hapitas',m.SOURCES['hapitas'])
+assert len(rows)==2, 'duplicate NEWS URLs must be deduplicated'
+print('PASS: NEWS unsafe URLs and duplicate rejection')

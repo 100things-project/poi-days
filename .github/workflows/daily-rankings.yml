@@ -1,6 +1,7 @@
 name: Daily point-site rankings
 
 on:
+  # Scheduled runs only become active on the default branch.
   schedule:
     # GitHub Actions cron is UTC. 15:05 UTC = 00:05 JST.
     - cron: '5 15 * * *'
@@ -10,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: daily-point-site-rankings
+  group: point-site-refresh-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -35,6 +36,9 @@ jobs:
       - name: Fetch public rankings
         run: python scripts/fetch-rankings.py
 
+      - name: Check collector fallbacks offline
+        run: python scripts/check-collector-fallbacks.py
+
       - name: Build site with verified snapshots
         run: python build.py
 
@@ -54,6 +58,8 @@ jobs:
               print(key, site.get('status'), site.get('checkedAt'), len(site.get('items',[])))
           PY
 
+      # GITHUB_TOKEN pushes do not trigger branch-based Pages builds.
+      # Publishing configuration must be reviewed before enabling on main.
       - name: Commit refreshed ranking data
         run: |
           if git diff --quiet -- content/live-rankings.json docs dist; then

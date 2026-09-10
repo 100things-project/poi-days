@@ -8,14 +8,14 @@ from __future__ import annotations
 
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, parse_qs
 from zoneinfo import ZoneInfo
 import json
 import re
-import time
 
 import requests
 from bs4 import BeautifulSoup, Tag
+from collector_http import fetch_public, official_url
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "content" / "live-rankings.json"
@@ -81,24 +81,27 @@ def load_previous() -> dict:
 
 
 def fetch_html(url: str) -> str:
-    headers = {
-        "User-Agent": USER_AGENT,
-        "Accept-Language": "ja,en;q=0.7",
-        "Cache-Control": "no-cache",
-    }
-    last = None
-    for attempt in range(2):
-        try:
-            response = requests.get(url, headers=headers, timeout=TIMEOUT)
-            response.raise_for_status()
-            if len(response.text) < 1000:
-                raise RuntimeError("response too small")
-            return response.text
-        except Exception as exc:
-            last = exc
-            if attempt == 0:
-                time.sleep(2)
-    raise RuntimeError(str(last))
+    return fetch_public(url, USER_AGENT, TIMEOUT, minimum=500)
+
+
+def ranking_html(html: str, source: dict) -> str:
+    """Follow only the shopping-ranking URL explicitly advertised by the page."""
+    if source['name'] != 'ちょびリッチ':
+        return html
+    soup = BeautifulSoup(html, 'html.parser')
+    matches = []
+    for node in soup.select('[hx-get][hx-target="#ShopRankingResponse"]'):
+        href = urljoin(source['url'], node['hx-get'])
+        parsed = urlparse(href)
+        query = parse_qs(parsed.query)
+        expected = {'logreco[response_number]':['15'], 'logreco[method_type]':['2'],
+                    'logreco[spot_name]':['SPShopping_ranking'],
+                    'logreco[category1]':['お買い物で貯める']}
+        if official_url(source['url'], href) and parsed.path == '/logreco/ranking' and query == expected:
+            matches.append(href)
+    if len(set(matches)) != 1:
+        raise RuntimeError('verified public shopping-ranking endpoint missing or ambiguous')
+    return fetch_html(matches[0])
 
 
 def text(node: Tag) -> str:
@@ -106,7 +109,7 @@ def text(node: Tag) -> str:
 
 
 def reward_text(value: str) -> str | None:
-    found = REWARD_RE.findall(value)
+    found = REWARD_RE.findall(value.replace("％", "%"))
     if not found:
         return None
     unique = []
@@ -125,12 +128,7 @@ def clean_title(value: str) -> str:
 
 
 def same_site(base: str, href: str) -> bool:
-    try:
-        base_host = urlparse(base).netloc.lower()
-        href_host = urlparse(href).netloc.lower()
-        return bool(base_host and href_host and (base_host == href_host or base_host.endswith('.' + href_host) or href_host.endswith('.' + base_host)))
-    except Exception:
-        return False
+    return official_url(base, href)
 
 
 def marker_node(soup: BeautifulSoup, marker: str) -> Tag | None:
@@ -165,6 +163,7 @@ def parse_rows(html: str, source: dict) -> list[dict]:
     # search can mix neighbouring offers, old rewards and advertising copy.
     selectors = {
         "モッピー": ('ol[data-ga-action="クリック - 総合"] > li', '.a-list__item__title', '.a-list__item__point', 'a.block__link'),
+        "ちょびリッチ": ('ul.CommonRankingBox > li.CommonRankingBox__item', '.CommonRankingBox__itemName', '.CommonRankingBox__itemPt', 'a.CommonRankingBox__itemInner'),
         "ワラウ": ('#allPointRanking li', '.sw-AfListCarousel_ListSpecTitle', '.ranking-AfListItem_Pt', 'a.sw-AfListCarousel_AdListLink'),
     }
     if source['name'] in selectors:
@@ -177,6 +176,8 @@ def parse_rows(html: str, source: dict) -> list[dict]:
             href = urljoin(source['url'], link.get('href', ''))
             if not same_site(source['url'], href) or not href.startswith('https://'):
                 raise RuntimeError('ranking card has an invalid official URL')
+            if source['name'] == 'ちょびリッチ' and not re.fullmatch(r'/ad_details/\d+', urlparse(href).path):
+                raise RuntimeError('invalid Chobirich offer detail URL')
             rows.append({'rank':len(rows)+1, 'title':text(title), 'rewardText':reward_text(text(reward)),
                          'sourceHref':href, 'sample':False, 'verified':True, 'checkedAt':today()})
         return rows
@@ -185,12 +186,16 @@ def parse_rows(html: str, source: dict) -> list[dict]:
     raise RuntimeError('no verified static ranking container; keeping previous data')
 
 
-def validate(rows: list[dict]) -> None:
+def validate(rows: list[dict], source: dict | None = None) -> None:
     if len(rows) != 5:
         raise RuntimeError(f"expected 5 ranking rows, got {len(rows)}")
     if [row["rank"] for row in rows] != [1, 2, 3, 4, 5]:
         raise RuntimeError("rank sequence is invalid")
+    if len({urlparse(r.get('sourceHref', '')).path + '?' + urlparse(r.get('sourceHref', '')).query for r in rows}) != 5:
+        raise RuntimeError('duplicate ranking offer URL')
     for row in rows:
+        if source and not official_url(source['url'], row.get('sourceHref', '')):
+            raise RuntimeError('invalid ranking official URL')
         if not row["title"] or not row["rewardText"] or not row["verified"]:
             raise RuntimeError("ranking row missing required field")
 
@@ -206,11 +211,12 @@ def main() -> int:
     failures = []
     for site_id, source in SOURCES.items():
         try:
-            html = fetch_html(source["url"])
+            html = ranking_html(fetch_html(source["url"]), source)
             rows = parse_rows(html, source)
-            validate(rows)
+            validate(rows, source)
             output["sites"][site_id] = {
                 "name": source["name"],
+                "scope": "ショッピング" if site_id == "chobirich" else "総合",
                 "status": "ok",
                 "stale": False,
                 "sourceUrl": source["url"],

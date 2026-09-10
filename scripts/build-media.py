@@ -43,7 +43,7 @@ def verified_rows(site_id):
  result=[]
  for row in rows[:5]:
   if not isinstance(row,dict) or not row.get('verified') or not row.get('title') or not row.get('rewardText') or not checked:return None
-  result.append({'title':row['title'],'category':'公式ランキング','sample':False,'verified':True,'rewardText':row['rewardText'],'checkedAt':checked,'sourceHref':row.get('sourceHref'),'href':official_href(row.get('sourceHref'),site.get('sourceUrl')),'image':'visuals/about.svg'})
+  result.append({'title':row['title'],'category':('公式ショッピング順位' if site.get('scope')=='ショッピング' else '公式ランキング'),'sample':False,'verified':True,'rewardText':row['rewardText'],'checkedAt':checked,'sourceHref':row.get('sourceHref'),'href':official_href(row.get('sourceHref'),site.get('sourceUrl')),'image':'visuals/about.svg'})
  return result
 
 for site in data.get('sites',[]):
