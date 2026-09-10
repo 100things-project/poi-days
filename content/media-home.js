@@ -24,7 +24,7 @@
       disclosure.textContent = meta.checkedAt + ' 取得 · 各ポイントサイトの公開ランキング';
       if (meta.stale) disclosure.textContent += '（前回取得分）';
     } else {
-      disclosure.textContent = 'サンプル表示 · 自動取得は本番反映前です。';
+      disclosure.textContent = 'サンプル表示 · 今回の取得結果は未掲載です。';
     }
   }
   function selectSite(button) {
@@ -51,9 +51,10 @@
       description.appendChild(element('span', 'rank-category', row.category || '公式ランキング')); li.appendChild(description);
       var verified = row.sample === false && row.verified === true && /^\d{4}-\d{2}-\d{2}$/.test(row.checkedAt || '') && typeof row.rewardText === 'string' && row.rewardText.trim();
       var amount = element('div', 'rank-amount', verified ? row.rewardText : 'サンプル');
-      amount.appendChild(element('small', '', verified ? row.checkedAt + ' 確認' : '金額未掲載')); li.appendChild(amount);
+      amount.appendChild(element('small', '', verified ? '公式掲載' : '金額未掲載')); li.appendChild(amount);
       var href = verified && safeLocal(row.href);
-      if (href) { var link = element('a', '', row.title); link.href = href; description.firstChild.textContent = ''; description.firstChild.appendChild(link); }
+      if (verified && !href) { try { var official = new URL(row.sourceHref); var source = new URL(rankingMeta(siteId).sourceUrl); if (official.protocol === 'https:' && official.hostname === source.hostname) href = official.href; } catch (_) {} }
+      if (href) { var link = element('a', '', row.title); link.href = href; if (/^https:/.test(href)) { link.target = '_blank'; link.rel = 'noopener noreferrer'; } description.firstChild.textContent = ''; description.firstChild.appendChild(link); }
       list.appendChild(li);
     });
     panel.appendChild(list.children.length ? list : empty());

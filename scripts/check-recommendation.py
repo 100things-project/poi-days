@@ -1,5 +1,7 @@
 from pathlib import Path
 import json,re
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 ROOT=Path(__file__).resolve().parents[1]
 live=json.loads((ROOT/'content/live-rankings.json').read_text(encoding='utf-8'))
@@ -12,6 +14,7 @@ rec=data.get('recommendation')
 candidates={}
 for site_id,site in (live.get('sites') or {}).items():
  if not isinstance(site,dict) or site.get('status')!='ok' or site.get('stale'):continue
+ if site.get('checkedAt')!=datetime.now(ZoneInfo('Asia/Tokyo')).date().isoformat():continue
  items=site.get('items') or []
  if not items or not isinstance(items[0],dict):continue
  row=items[0]

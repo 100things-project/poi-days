@@ -44,7 +44,7 @@ for path in ['docs/style.css','docs/visuals.css','docs/visuals-base.css','docs/e
  original=subprocess.check_output(['git','show',f'{baseline}:{path}'],cwd=ROOT)
  assert original==(ROOT/path).read_bytes(),path
 urls=[n.text for n in ET.parse(ROOT/'docs/sitemap.xml').findall('.//{*}loc')]
-assert len(urls)==len(set(urls))==17
+assert len(urls)==len(set(urls))==20
 assert not any(x.endswith(('/qa-preview.html','/articles/safety.html','/articles/registration.html')) for x in urls)
 assert {p.relative_to(ROOT/'docs') for p in (ROOT/'docs').rglob('*') if p.is_file()}=={p.relative_to(ROOT/'dist') for p in (ROOT/'dist').rglob('*') if p.is_file()}
 print('PASS: unique metadata, specified referral, baseline shared assets/verification retained; dist/docs file inventory matches')

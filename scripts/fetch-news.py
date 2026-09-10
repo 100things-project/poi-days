@@ -90,7 +90,9 @@ def fetch(url: str) -> str:
             r.raise_for_status()
             if len(r.text) < 500:
                 raise RuntimeError("response too small")
-            return r.text
+            # Honor HTML charset metadata when HTTP omits it (Warau otherwise
+            # defaults to ISO-8859-1 in requests and Japanese dates are lost).
+            return BeautifulSoup(r.content, "html.parser").decode()
         except Exception as exc:
             error = exc
             if attempt == 0:
@@ -117,17 +119,39 @@ def nearby_date(anchor: Tag) -> str | None:
 def parse_items(html: str, site_id: str, source: dict) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     items, seen = [], set()
-    for a in soup.find_all("a", href=True):
-        title = clean(a.get_text(" ", strip=True))
+    if site_id == 'chobirich':
+        candidates = []
+        for summary in soup.select('details[id] > summary'):
+            value = clean(summary.get_text(' ', strip=True))
+            date = parse_date(value)
+            if not date:
+                continue
+            title = DATE_PATTERNS[0].sub('', value, count=1).strip()
+            candidates.append((title, date, source['url']+'#'+summary.parent['id']))
+    else:
+        candidates = []
+        anchors = soup.select('a[href*="/notifications/detail/"]') if site_id == 'hapitas' else soup.find_all('a', href=True)
+        for a in anchors:
+            title_node = a.select_one('.serviceInfo-Subject') if site_id == 'warau' else a
+            if title_node is None:
+                continue
+            # A dated sibling belongs to this item; never climb into a list
+            # containing multiple links and borrow the first item's date.
+            date_node = a.select_one('.serviceInfo-Date')
+            if site_id == 'hapitas':
+                date_node = a.parent.select_one('.message_date')
+                if date_node is None:
+                    continue  # duplicate sidebar links have no local date
+            date = parse_date(clean(date_node.get_text(' ', strip=True))) if date_node else nearby_date(a)
+            candidates.append((clean(title_node.get_text(' ', strip=True)), date, urljoin(source['url'], a['href'])))
+    for title, date, href in candidates:
         if len(title) < 8 or len(title) > 180:
             continue
-        href = urljoin(source["url"], a["href"])
         if not allowed_href(source, href):
             continue
-        date = nearby_date(a)
         if not date:
             continue
-        key = hashlib.sha256((site_id + "|" + date + "|" + title).encode()).hexdigest()[:20]
+        key = hashlib.sha256((site_id + "|" + href).encode()).hexdigest()[:20]
         if key in seen:
             continue
         seen.add(key)

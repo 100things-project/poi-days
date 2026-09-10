@@ -54,7 +54,7 @@ SOURCES = {
     },
 }
 
-REWARD_RE = re.compile(r"(?:\d[\d,]*(?:\.\d+)?\s*(?:P|pt|ポイント)|\d+(?:\.\d+)?\s*%)", re.I)
+REWARD_RE = re.compile(r"(?:\d[\d,]*(?:\.\d+)?\s*(?:pt|P|ポイント)|\d+(?:\.\d+)?\s*%)", re.I)
 RANK_PREFIX_RE = re.compile(r"^\s*(?:第?\s*)?\d{1,2}\s*位?\s*[.．:：\-–—]?\s*")
 SPACE_RE = re.compile(r"\s+")
 
@@ -161,50 +161,28 @@ def candidates_from_section(soup: BeautifulSoup, source: dict) -> list[Tag]:
 
 def parse_rows(html: str, source: dict) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
-    rows = []
-    seen = set()
-    for anchor in candidates_from_section(soup, source):
-        href = urljoin(source["url"], anchor.get("href", ""))
-        if not same_site(source["url"], href):
-            continue
-        if source["href_hints"] and not any(hint in href for hint in source["href_hints"]):
-            continue
-        raw = text(anchor)
-        container = anchor
-        for _ in range(3):
-            parent = container.parent
-            if not isinstance(parent, Tag):
-                break
-            parent_text = text(parent)
-            if len(parent_text) <= 350:
-                container = parent
-                raw = parent_text
-            else:
-                break
-        reward = reward_text(raw)
-        if not reward:
-            continue
-        title = clean_title(text(anchor))
-        if len(title) < 2:
-            title = clean_title(raw)
-        if len(title) < 2 or len(title) > 140:
-            continue
-        key = re.sub(r"\W", "", title).lower()
-        if not key or key in seen:
-            continue
-        seen.add(key)
-        rows.append({
-            "rank": len(rows) + 1,
-            "title": title,
-            "rewardText": reward,
-            "sourceHref": href,
-            "sample": False,
-            "verified": True,
-            "checkedAt": today(),
-        })
-        if len(rows) == 5:
-            break
-    return rows
+    # Only inspect the verified overall-ranking container. A generic ancestor
+    # search can mix neighbouring offers, old rewards and advertising copy.
+    selectors = {
+        "モッピー": ('ol[data-ga-action="クリック - 総合"] > li', '.a-list__item__title', '.a-list__item__point', 'a.block__link'),
+        "ワラウ": ('#allPointRanking li', '.sw-AfListCarousel_ListSpecTitle', '.ranking-AfListItem_Pt', 'a.sw-AfListCarousel_AdListLink'),
+    }
+    if source['name'] in selectors:
+        container, title_sel, reward_sel, link_sel = selectors[source['name']]
+        rows = []
+        for card in soup.select(container)[:5]:
+            title, reward, link = card.select_one(title_sel), card.select_one(reward_sel), card.select_one(link_sel)
+            if not all((title, reward, link)):
+                raise RuntimeError('ranking card missing title, current reward or official link')
+            href = urljoin(source['url'], link.get('href', ''))
+            if not same_site(source['url'], href) or not href.startswith('https://'):
+                raise RuntimeError('ranking card has an invalid official URL')
+            rows.append({'rank':len(rows)+1, 'title':text(title), 'rewardText':reward_text(text(reward)),
+                         'sourceHref':href, 'sample':False, 'verified':True, 'checkedAt':today()})
+        return rows
+    if soup.select_one('#item-categorized-ranking') or soup.select_one('#ShopRankingResponse'):
+        raise RuntimeError('ranking list is loaded dynamically; public HTML has no verifiable top five')
+    raise RuntimeError('no verified static ranking container; keeping previous data')
 
 
 def validate(rows: list[dict]) -> None:
