@@ -1,0 +1,50 @@
+"""Build the dedicated Chobirich guide page from reviewed data."""
+from pathlib import Path
+from html import escape as e
+import json
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA = json.loads((ROOT / 'content/point-sites.json').read_text(encoding='utf-8'))
+SITE = next(x for x in DATA['sites'] if x['id'] == 'chobirich')
+CHECKED = DATA['checkedAt']
+
+CSS = '''<style>
+:root{--green:#006653;--ink:#17302d;--muted:#64706b;--line:#e6ebe6;--cream:#fcfaf4;--mint:#e8f3ed;--orange:#d97822;--orange-soft:#fff5e8;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:var(--ink);background:#f4f5f1}*{box-sizing:border-box}body{margin:0;line-height:1.85;background:#f4f5f1}a{color:inherit}.shell{max-width:760px;margin:auto;background:#fff;min-height:100vh}.head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.brand{display:inline-flex;align-items:center;min-height:44px;font-weight:850;letter-spacing:.06em;color:var(--green);text-decoration:none;font-size:24px}.home{font-size:13px;color:var(--green);text-decoration:none}.hero{padding:40px 20px 36px;background:linear-gradient(180deg,#fff9ed 0%,var(--cream) 100%)}.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--green);font-weight:700}.hero h1{font-size:31px;line-height:1.35;margin:7px 0 12px}.lead,.mini,.note,.fit,.invite,.qa,.source-list{word-break:auto-phrase;text-wrap:pretty}.lead{font-size:16px}.hero .cta{margin-top:22px}.section{padding:32px 20px;border-bottom:1px solid var(--line)}.section h2{font-size:22px;line-height:1.5;margin:0 0 14px}.section h3{font-size:17px;margin:24px 0 7px}.section p{margin:0 0 14px}.facts{display:grid;gap:0;padding:0;margin:0;list-style:none;border-top:1px solid var(--line)}.facts li{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}.fit{background:var(--mint);border-radius:10px;padding:16px}.steps{margin:0;padding-left:1.4em}.steps li{margin:9px 0}.invite{border:1px solid #f0d9bd;background:#fffaf1;border-radius:14px;padding:18px;margin-top:14px}.invite strong{display:block;font-size:13px;color:#6e512d}.invite-code{font-size:28px;font-weight:850;letter-spacing:.08em;color:var(--orange);margin:3px 0 10px}.actions{display:grid;gap:10px;margin-top:18px}.button{display:flex;justify-content:center;align-items:center;min-height:50px;border-radius:25px;padding:10px 16px;text-decoration:none;font-weight:800;text-align:center;text-wrap:balance}.primary{background:var(--green);color:#fff}.secondary{background:#eef3ef;color:var(--green)}.note{font-size:12px;color:var(--muted)}.mini{font-size:14px}.compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.compare>div{border:1px solid var(--line);border-radius:10px;padding:14px}.compare strong{display:block;color:var(--green);margin-bottom:5px}.callout{background:var(--orange-soft);border-left:4px solid var(--orange);padding:15px 16px;margin:18px 0}.qa{border-top:1px solid var(--line)}.qa div{padding:15px 0;border-bottom:1px solid var(--line)}.qa dt{font-weight:800;margin-bottom:5px}.qa dd{margin:0;font-size:14px;color:#44534e}.source-list{margin:0;padding-left:1.2em}.source-list li{margin:8px 0}.source-list a{color:var(--green);text-underline-offset:3px}.footer{padding:28px 20px;background:#edf3ee;font-size:12px;color:var(--muted)}@media(min-width:430px){.hero,.section{padding-left:30px;padding-right:30px}}@media(max-width:390px){.compare{grid-template-columns:1fr}.hero h1{font-size:28px}}
+</style>'''
+
+reg = e(SITE['registerUrl'], quote=True)
+code = e(SITE.get('inviteCode', ''))
+rel = e(SITE.get('registerRel') or 'noopener', quote=True)
+
+html = f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#006653"><title>ちょびリッチとは？特徴・使い方・交換・紹介コード｜POI DAYS</title><meta name="description" content="ちょびリッチの特徴、ポイントの貯め方、会員ランク、ポイント交換、注意点、紹介コードまでまとめて解説。"><link rel="canonical" href="https://100things-project.github.io/poi-days/chobirich.html"><script src="analytics.js" defer></script>{CSS}</head><body><div class="shell"><header class="head"><a class="brand" href="index.html">POI DAYS</a><a class="home" href="index.html">トップへ</a></header><main>
+<section class="hero"><p class="eyebrow">POINT SITE GUIDE</p><h1>ちょびリッチとは？<br>特徴・使い方をまとめて解説</h1><p class="lead">ちょびリッチは、買い物・サービス申込み・会員登録・アンケート・ゲームなどでポイントを貯められるポイントサイトです。2026年6月22日から1ポイント＝1円になり、ポイントの価値がより分かりやすくなりました。</p><div class="cta"><a class="button primary" href="{reg}" target="_blank" rel="{rel}">紹介リンクからちょびリッチを始める →</a></div><p class="note">このリンクは紹介リンクです。登録・利用によりPOI DAYS運営者が紹介報酬を受け取る場合があります。</p></section>
+
+<section class="section"><h2>まず知っておきたい基本情報</h2><ul class="facts"><li>2026年6月22日から1pt＝1円</li><li>買い物・各種申込み・登録・アンケート・ゲームなどで貯められる</li><li>会員ランク制度あり</li><li>プラチナランクは対象コンテンツの特典ポイント最大15%</li><li>初回のポイント交換前には電話認証が必要</li></ul><p class="note">確認日：{e(CHECKED)}。制度・交換条件は変更される場合があるため、利用時は公式案内をご確認ください。</p></section>
+
+<section class="section"><h2>ちょびリッチでポイントが貯まる仕組み</h2><p>ちょびリッチ内に掲載されている対象広告から公式サービスへ移動し、広告ごとに定められた条件を満たすとポイントを獲得できます。</p><div class="compare"><div><strong>日常系</strong><span>ネットショッピング、アンケート、アプリ、ゲームなど。</span></div><div><strong>高還元系</strong><span>カード、口座、各種サービス申込みなど。</span></div></div><p class="note">「PR」「i」マークの広告やポイント設定のない広告など、ポイント獲得対象外のものもあります。</p></section>
+
+<section class="section"><h2>1ポイント＝1円で分かりやすい</h2><p>ちょびリッチは2026年6月22日にポイントレートを変更し、現在は1ちょびリッチポイント＝1円です。以前より「今いくら分あるか」を直感的に把握しやすくなっています。</p><div class="callout"><strong>ここは初心者にも分かりやすいところ</strong><br>1,000ptなら1,000円相当として考えられるので、案件の比較や交換額の確認が簡単です。</div></section>
+
+<section class="section"><h2>会員ランク制度はどうなっている？</h2><p>ちょびリッチには、利用状況に応じて特典が増える会員ランク制度があります。</p><ul class="facts"><li>レギュラー</li><li>ブロンズ：対象1コンテンツの獲得ptに5%特典</li><li>シルバー：対象3コンテンツの獲得ptに5%特典＋誕生日特典</li><li>ゴールド：対象3コンテンツの獲得ptに10%特典＋誕生日特典</li><li>プラチナ：対象3コンテンツの獲得ptに15%特典＋誕生日特典＋Amazon交換特典1%</li></ul><p>対象コンテンツとして公式案内に記載されているのは、お買い物・対象アプリダウンロード・アンケートです。</p><p class="note">ランク条件や特典対象は変更される可能性があります。最新情報は公式ランク案内をご確認ください。</p></section>
+
+<section class="section"><h2>ポイント交換で知っておきたいこと</h2><p>ポイント交換は交換先ごとにレート・手数料・完了時期が異なります。初回交換前には電話発信による認証が必要です。</p><ul class="facts"><li>新規登録後2日間は交換制限あり</li><li>初回交換前は電話認証が必要</li><li>交換のたびに「秘密の質問」の認証が必要</li><li>交換先や会員ランクによって1日の上限がある</li><li>プラチナランクの交換上限は30,000pt</li></ul><p class="note">一部の重要情報を変更した後は、安全対策として一定期間ポイント交換が停止される場合があります。</p></section>
+
+<section class="section"><h2>ちょびリッチが向いている人</h2><div class="fit">{e(SITE['bestFor'])}</div><ul class="facts"><li>買い物だけでなくアンケートやゲームでも貯めたい</li><li>使い続けるほどランク特典が増える仕組みが好き</li><li>1pt＝1円の分かりやすさを重視したい</li><li>複数の貯め方を1つのサイトで使い分けたい</li></ul><p class="note">POI DAYSによる整理であり、公式の推薦表現ではありません。</p></section>
+
+<section class="section"><h2>基本的な使い方</h2><ol class="steps"><li>ちょびリッチへ無料登録する</li><li>使いたい案件を検索する</li><li>獲得条件・対象外条件を確認する</li><li>ちょびリッチ内の広告から公式サイトへ移動する</li><li>途中で別サイトを挟まず、そのまま申込みや購入を完了する</li><li>ポイント通帳で反映状況を確認する</li><li>獲得後、希望の交換先へポイント交換する</li></ol></section>
+
+<section class="section"><h2>ポイントを取りこぼしにくくするコツ</h2><ul class="facts"><li>利用直前に案件ページを開き直す</li><li>Cookieやブラウザ設定を確認する</li><li>申込み途中で別サイトや別アプリへ移動しすぎない</li><li>案件条件・申込完了画面を必要に応じて保存する</li><li>家族で同じ端末を使う場合はアカウントとCookieの混同に注意する</li></ul><p class="note">公式ヘルプでも、共有端末ではCookie削除やログアウトなどの注意が案内されています。</p></section>
+
+<section class="section"><h2>紹介リンク・紹介コード</h2><p class="mini">POI DAYSからちょびリッチへ登録する場合は、下の紹介リンクまたは紹介コードをご利用いただけます。</p><div class="invite"><strong>紹介コード</strong><div class="invite-code">{code}</div><p class="note">コードの入力欄や適用条件、開催中の紹介キャンペーンは実際の登録画面・公式案内を優先してください。</p></div><div class="actions"><a class="button primary" href="{reg}" target="_blank" rel="{rel}">紹介リンクから登録する →</a><a class="button secondary" href="https://www.chobirich.com/" target="_blank" rel="noopener">ちょびリッチ公式を見る →</a><a class="button secondary" href="index.html#ranking">今日のランキングを見る →</a></div></section>
+
+<section class="section"><h2>よくある質問</h2><dl class="qa"><div><dt>Q. ちょびリッチの1ポイントはいくら？</dt><dd>A. 2026年6月22日以降、1ポイント＝1円です。</dd></div><div><dt>Q. 初めてポイント交換するときに必要なことは？</dt><dd>A. 初回交換前に電話発信による認証が必要です。</dd></div><div><dt>Q. 家族と同じスマホやPCを使ってもいい？</dt><dd>A. 公式ヘルプでは共有利用自体は可能とされていますが、アカウントやCookieの混同を避けるため注意が必要と案内されています。</dd></div><div><dt>Q. ランクを上げるメリットは？</dt><dd>A. 対象コンテンツの獲得ポイントに対する特典率が上がり、プラチナでは最大15%の特典があります。</dd></div></dl></section>
+
+<section class="section"><h2>公式情報の確認先</h2><ul class="source-list"><li><a href="https://help.chobirich.com/9d474982b0d842e6bf80fbbb22b32377" target="_blank" rel="noopener">ちょびリッチはどんなサイト？</a></li><li><a href="https://help.chobirich.com/0353093ce06c48718a8fdcf7cbdda4f4" target="_blank" rel="noopener">1ポイントはいくら？</a></li><li><a href="https://help.chobirich.com/45d8609b35f941dc8568a792e3824db7" target="_blank" rel="noopener">会員ランク制度</a></li><li><a href="https://help.chobirich.com/2a4124d3c7714c8a87f7819f3b4a9148" target="_blank" rel="noopener">ポイント交換の手順</a></li><li><a href="https://help.chobirich.com/7ec1d101b982411e8a523fb89101470e" target="_blank" rel="noopener">ポイント交換の制限・注意事項</a></li><li><a href="https://help.chobirich.com/6e3d7c8929084184a822f98282a56a07" target="_blank" rel="noopener">ポイントを貯める手順と注意事項</a></li></ul></section>
+</main><footer class="footer">POI DAYSは非公式の情報メディアです。このページにはちょびリッチの紹介リンクを含み、登録・利用により運営者が紹介報酬を受け取る場合があります。最新の条件・キャンペーンはちょびリッチ公式ページをご確認ください。</footer></div></body></html>'''
+
+for folder in ('dist', 'docs'):
+    path = ROOT / folder / 'chobirich.html'
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(html, encoding='utf-8')
+
+print('Dedicated Chobirich guide built: chobirich.html')
