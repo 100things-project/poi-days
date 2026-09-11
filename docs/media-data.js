@@ -296,18 +296,18 @@ window.POI_DAYS_MEDIA = {
   ],
   "features": [
     {
-      "title": "ゲーム案件特集",
-      "description": "始める前に、条件をチェック",
+      "title": "ゲーム案件の選び方",
+      "description": "高還元だけで決めない、7つのチェック",
       "image": "visuals/way-game.webp",
-      "href": "articles/moppy-games.html",
-      "label": "モッピー編"
+      "href": "articles/game-offer-selection.html",
+      "label": "今週の特集"
     },
     {
-      "title": "クレジットカード特集",
-      "description": "費用と条件を、申し込む前に",
+      "title": "ポイントサイトの選び方",
+      "description": "主要4サイトを、使い方から比べる",
       "image": "visuals/way-service.webp",
-      "href": null,
-      "label": "準備中"
+      "href": "articles/point-site-selection.html",
+      "label": "選び方ガイド"
     },
     {
       "title": "無料案件特集",
@@ -325,6 +325,18 @@ window.POI_DAYS_MEDIA = {
     }
   ],
   "articles": [
+    {
+      "title": "ポイントサイトの選び方｜4サイトの特徴を比べる6つの視点",
+      "href": "articles/point-site-selection.html",
+      "date": "2026-09-10",
+      "image": "visuals/way-service.webp"
+    },
+    {
+      "title": "ポイントサイトのゲーム案件の選び方｜失敗しにくい7つのチェック",
+      "href": "articles/game-offer-selection.html",
+      "date": "2026-09-10",
+      "image": "visuals/way-game.webp"
+    },
     {
       "title": "モッピーの登録方法｜招待コード・紹介リンクの使い方",
       "href": "articles/moppy-registration.html",
@@ -377,17 +389,10 @@ window.POI_DAYS_MEDIA = {
     },
     "chobirich": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-10",
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
-  "recommendation": {
-    "siteId": "chobirich",
-    "siteName": "ちょびリッチ",
-    "title": "楽天市場",
-    "rewardText": "1%",
-    "checkedAt": "2026-09-10",
-    "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking"
-  }
+  "recommendation": null
 };
