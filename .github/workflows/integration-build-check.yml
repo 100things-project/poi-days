@@ -1,0 +1,64 @@
+name: One-time integration build check
+
+on:
+  push:
+    branches:
+      - feat/index-publication-integration
+    paths:
+      - .github/workflows/integration-build-check.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: poi-days-integration-build-check
+  cancel-in-progress: false
+
+jobs:
+  build-check:
+    if: github.event.head_commit.message == 'Run integration build verification'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout integration branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/index-publication-integration
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install parser dependencies
+        run: python -m pip install --disable-pip-version-check --no-cache-dir requests==2.32.5 beautifulsoup4==4.13.5
+
+      - name: Build without refetching live data
+        run: python build.py
+
+      - name: Validate ranking snapshots
+        run: python scripts/check-rankings.py
+
+      - name: Validate NEWS snapshots
+        run: python scripts/check-news.py
+
+      - name: Validate recommendation
+        run: python scripts/check-recommendation.py
+
+      - name: Validate collector fallbacks offline
+        run: python scripts/check-collector-fallbacks.py
+
+      - name: Run full reproducibility and link checks
+        run: python check.py
+
+      - name: Commit generated integration output only
+        run: |
+          if git diff --quiet -- docs dist; then
+            echo "Generated output already matches source."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs dist
+          git commit -m "Regenerate integrated Index and article outputs"
+          git push origin HEAD:feat/index-publication-integration
