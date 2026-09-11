@@ -1,0 +1,38 @@
+name: One-time Hapitas ranking rebuild
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/one-time-hapitas-rebuild.yml
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check --no-cache-dir requests==2.32.5 beautifulsoup4==4.13.5
+      - name: Validate Hapitas ranking snapshot
+        run: python scripts/check-rankings.py
+      - name: Rebuild generated site
+        run: python build.py
+      - name: Run site checks
+        run: python check.py
+      - name: Commit regenerated outputs
+        run: |
+          if git diff --quiet -- docs dist; then
+            echo "No generated changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs dist
+          git commit -m "Publish Hapitas ranking update"
+          git push
