@@ -77,44 +77,59 @@ window.POI_DAYS_MEDIA = {
     ],
     "hapitas": [
       {
-        "title": "ゲーム案件の掲載例",
-        "category": "ゲーム",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-game.webp"
+        "title": "【過去最高】三菱ＵＦＪカード【最大45,000円相当】",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "15,000pt",
+        "checkedAt": "2026-09-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/100868?apn=top_header",
+        "href": "https://hapitas.jp/item/detail/itemid/100868?apn=top_header",
+        "image": "visuals/about.svg"
       },
       {
-        "title": "カード案件の掲載例",
-        "category": "カード",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-service.webp"
+        "title": "13日まで高還元！三菱ＵＦＪ銀行 口座開設【最大59,000円相当】",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "4,000pt",
+        "checkedAt": "2026-09-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_6",
+        "href": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_6",
+        "image": "visuals/about.svg"
       },
       {
-        "title": "動画サービスの掲載例",
-        "category": "サービス",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
+        "title": "【最大9,500pt】楽天銀行 口座開設",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "1,500pt",
+        "checkedAt": "2026-09-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_bank_6/page/1",
+        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_bank_6/page/1",
+        "image": "visuals/about.svg"
       },
       {
-        "title": "買い物案件の掲載例",
-        "category": "ショッピング",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-shopping.webp"
+        "title": "楽天証券",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "12,000pt",
+        "checkedAt": "2026-09-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1/page/1",
+        "href": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1/page/1",
+        "image": "visuals/about.svg"
       },
       {
-        "title": "無料案件の掲載例",
-        "category": "無料",
-        "sample": true,
-        "reward": null,
-        "href": null,
-        "image": "visuals/way-spare.webp"
+        "title": "みずほ銀行「口座開設」",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "6,000pt",
+        "checkedAt": "2026-09-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/95341",
+        "href": "https://hapitas.jp/item/detail/itemid/95341",
+        "image": "visuals/about.svg"
       }
     ],
     "warau": [
@@ -376,9 +391,9 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
-      "status": "unavailable",
+      "status": "ok",
       "stale": false,
-      "checkedAt": null,
+      "checkedAt": "2026-09-11",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
@@ -394,5 +409,12 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
-  "recommendation": null
+  "recommendation": {
+    "siteId": "hapitas",
+    "siteName": "ハピタス",
+    "title": "【過去最高】三菱ＵＦＪカード【最大45,000円相当】",
+    "rewardText": "15,000pt",
+    "checkedAt": "2026-09-11",
+    "sourceHref": "https://hapitas.jp/item/detail/itemid/100868?apn=top_header"
+  }
 };
