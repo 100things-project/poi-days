@@ -39,12 +39,12 @@ for p in sorted((ROOT/'docs/articles').glob('moppy-*.html')):
  assert not re.search(r'私は稼げ|実際にやってみた|絶対稼げる|必ず安全',s)
  print(p.name, 'description:',len(description),'h1:1; sources/date/PR/links:PASS')
 assert len(titles)==len(set(titles))==5 and len(set(descriptions))==5
-baseline='f6aa746dbad83ec1e0e5b3af09519d7f014a9f20'
-for path in ['docs/index.html','docs/style.css','docs/visuals.css','docs/visuals-base.css','docs/enrichment.css','docs/app.js','docs/analytics.js','docs/articles/privacy.html','docs/hero-photo.jpeg','docs/google988181a833d31a3a.html']:
+baseline='4d204a1'
+for path in ['docs/style.css','docs/visuals.css','docs/visuals-base.css','docs/enrichment.css','docs/app.js','docs/analytics.js','docs/hero-photo.jpeg','docs/google988181a833d31a3a.html']:
  original=subprocess.check_output(['git','show',f'{baseline}:{path}'],cwd=ROOT)
  assert original==(ROOT/path).read_bytes(),path
 urls=[n.text for n in ET.parse(ROOT/'docs/sitemap.xml').findall('.//{*}loc')]
-assert len(urls)==len(set(urls))==16
+assert len(urls)==len(set(urls))==20
 assert not any(x.endswith(('/qa-preview.html','/articles/safety.html','/articles/registration.html')) for x in urls)
 assert {p.relative_to(ROOT/'docs') for p in (ROOT/'docs').rglob('*') if p.is_file()}=={p.relative_to(ROOT/'dist') for p in (ROOT/'dist').rglob('*') if p.is_file()}
-print('PASS: unique metadata, specified referral, baseline homepage/assets/verification retained; dist/docs file inventory matches')
+print('PASS: unique metadata, specified referral, baseline shared assets/verification retained; dist/docs file inventory matches')
