@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-09",
+  "checkedAt": "2026-09-11",
   "sites": [
     {
       "id": "moppy",
@@ -19,8 +19,9 @@
       "name": "ハピタス",
       "page": "hapitas.html",
       "officialUrl": "https://hapitas.jp/",
-      "registerUrl": "https://hapitas.jp/register/",
-      "registerRel": "noopener",
+      "registerUrl": "https://hapitas.jp/appinvite?i=23001138&route=text",
+      "registerRel": "sponsored noopener",
+      "inviteCode": "WSOVBE",
       "summary": "会員数630万人、運営実績19年。買い物やサービス利用でポイントを貯められる。",
       "facts": ["会員数630万人（2026年9月時点）", "運営実績19年", "利用可能サービス3,000以上", "買い物のポイント保証案内あり"],
       "bestFor": "ネットショッピングやサービス利用を中心に貯めたい人",
