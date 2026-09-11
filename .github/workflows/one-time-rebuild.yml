@@ -1,0 +1,32 @@
+name: One-time homepage rebuild
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/one-time-rebuild.yml
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild generated site
+        run: python build.py
+      - name: Commit regenerated outputs
+        run: |
+          if git diff --quiet -- docs dist; then
+            echo "No generated changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs dist
+          git commit -m "Regenerate homepage without sample badge"
+          git push
