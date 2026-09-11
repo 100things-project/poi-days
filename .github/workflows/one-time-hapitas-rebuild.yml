@@ -36,3 +36,4 @@ jobs:
           git add docs dist
           git commit -m "Publish Hapitas ranking update"
           git push
+# retry after source URL validation fix
