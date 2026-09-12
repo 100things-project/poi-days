@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-11",
+  "checkedAt": "2026-09-12",
   "sites": [
     {
       "id": "moppy",
@@ -36,8 +36,8 @@
       "registerUrl": "https://www.warau.jp/friend/reg/d5em",
       "registerRel": "sponsored noopener",
       "inviteCode": "d5eo",
-      "summary": "運営歴26年以上、累計会員数492万人。1ポイント=1円相当で、40種類の交換先に対応。",
-      "facts": ["運営歴26年以上", "累計会員数492万人", "掲載広告5,700件以上", "交換先40種類", "1ポイント=1円相当"],
+      "summary": "運営歴26年以上。1ポイント=1円相当で、広告・アンケート・ゲームなど複数の方法で貯められ、約40種類の交換先に対応。",
+      "facts": ["運営歴26年以上", "掲載広告5,700件以上", "交換先40種類", "1ポイント=1円相当", "プライバシーマーク取得・JIPC加盟"],
       "bestFor": "ゲームやコツコツ系も含め、貯め方を広く選びたい人",
       "sourceUrl": "https://www.warau.jp/",
       "sourceLabel": "ワラウ公式"
