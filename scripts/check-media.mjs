@@ -43,5 +43,5 @@ const img=d.querySelector('.lead-image img');img.dispatchEvent(new dom.window.Ev
 img.dispatchEvent(new dom.window.Event('error'));assert.equal(img.getAttribute('src'),null);
 dom.window.close();
 // Script-disabled HTML has complete content and native menu/search fallback.
-const nojs=new JSDOM(html);assert.equal(nojs.window.document.querySelectorAll('.article-row').length,7);assert.equal(nojs.window.document.querySelectorAll('.ranking-row').length,5);assert.equal(nojs.window.document.querySelectorAll('main > section').length,8);nojs.window.close();
-console.log(`PASS: ${runs} rank/missing-data cases; 0/1/5/12 items, tabs/keyboard, long text retained, safe rendering, search, image fallback, script-disabled content. DOM tests only; no visual-layout claims.`);
+const nojs=new JSDOM(html);assert.equal(nojs.window.document.querySelectorAll('.article-row').length,original.articles.length);assert.equal(nojs.window.document.querySelectorAll('.ranking-row').length,5);assert.equal(nojs.window.document.querySelectorAll('main > section').length,8);nojs.window.close();
+console.log(`PASS: ${runs} rank/missing-data cases; ${original.articles.length} article rows; 0/1/5/12 items, tabs/keyboard, long text retained, safe rendering, search, image fallback, script-disabled content. DOM tests only; no visual-layout claims.`);
