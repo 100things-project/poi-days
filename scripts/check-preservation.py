@@ -10,11 +10,11 @@ MOPPY_GUIDES={
  'docs/articles/moppy-reviews.html','docs/articles/moppy-earning.html',
  'docs/articles/moppy-registration.html','docs/articles/moppy-games.html',
 }
-# The home page/live-data bundle can change with collection. The article hub is
-# intentionally regenerated from reviewed source definitions. moppy.html may
-# only change inside the explicit generated article-navigation marker. The eight
-# Moppy guides may only change in their generated "次に読む" section. sitemap
-# may gain URLs but may not lose committed URLs.
+# The home page/live-data bundle can change with collection. The article hub and
+# eight Moppy guides are generated from reviewed source definitions and are
+# validated independently by check.py/check-seo.py plus the reproducible-build
+# check. moppy.html may only change inside its explicit generated navigation
+# marker. sitemap may gain URLs but may not lose committed URLs.
 for path in paths:
     if path in {'docs/index.html','docs/media-data.js','docs/articles/index.html','docs/moppy.html','docs/sitemap.xml'} or path in MOPPY_GUIDES:
         continue
@@ -30,13 +30,16 @@ new_moppy=(ROOT/'docs/moppy.html').read_text(encoding='utf-8')
 assert start in new_moppy and end in new_moppy, 'generated Moppy article navigation missing'
 assert strip_moppy_nav(new_moppy)==strip_moppy_nav(old_moppy), 'moppy.html changed outside reviewed article navigation'
 
-def strip_next(text):
-    return re.sub(r'<section class="seo-next"><h2>次に読む</h2>.*?</section>', '<section class="seo-next"></section>', text, count=1, flags=re.S)
+# Generated guide bodies are allowed to change when their reviewed source or
+# generator changes. Keep minimum structural guards here; detailed metadata,
+# referral, link, source and reproducibility checks live in check-seo.py/check.py.
 for path in sorted(MOPPY_GUIDES):
-    old=subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT,text=True)
     new=(ROOT/path).read_text(encoding='utf-8')
     assert '<section class="seo-next"><h2>次に読む</h2>' in new, f'generated next-reading section missing: {path}'
-    assert strip_next(new)==strip_next(old), f'{path} changed outside reviewed next-reading section'
+    assert 'Jh7He170' in new, f'referral marker missing: {path}'
+    source_name=Path(path).name
+    source=ROOT/'content'/'seo'/source_name
+    assert source.exists(), f'reviewed source missing for generated guide: {source_name}'
 
 old_sitemap=subprocess.check_output(['git','show','HEAD:docs/sitemap.xml'],cwd=ROOT)
 old_root=ET.fromstring(old_sitemap)
@@ -47,4 +50,4 @@ assert old_urls <= new_urls, f'sitemap lost committed URLs: {sorted(old_urls-new
 
 for path in ('content/point-sites.json',):
     assert (ROOT/path).read_bytes()==subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT),path
-print('PASS: committed pages/assets preserved; reviewed Moppy navigation/internal links allowed; sitemap retained all existing URLs')
+print('PASS: committed pages/assets preserved; reviewed generated Moppy guides/navigation allowed; sitemap retained all existing URLs')
