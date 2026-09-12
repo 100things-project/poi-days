@@ -13,6 +13,7 @@ if '--legacy-layout-build' not in sys.argv:
  subprocess.run([sys.executable,str(root/'scripts/build-chobirich.py')],check=True)
  subprocess.run([sys.executable,str(root/'scripts/build-moppy-search.py')],check=True)
  subprocess.run([sys.executable,str(root/'scripts/build-seo.py')],check=True)
+ subprocess.run([sys.executable,str(root/'scripts/build-moppy-navigation.py')],check=True)
  raise SystemExit(0)
 subprocess.run([sys.executable,str(root/'scripts/expand-site.py')],check=True)
 d=root/'dist'
@@ -23,7 +24,7 @@ if site:
   raise SystemExit('SITE_URL must be an http(s) site base URL without query or fragment')
 ga_id='G-0TZ7EH65BW'
 ga_tag=(f'<script async src="https://www.googletagmanager.com/gtag/js?id={ga_id}"></script>'
-        '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
+        '<script>window.dataLayer=window.dataLayer||[];function gtag(){window.dataLayer.push(arguments);}'
         f"gtag('js',new Date());gtag('config','{ga_id}');</script>")
 for p in d.rglob('*.html'):
  s=p.read_text()
