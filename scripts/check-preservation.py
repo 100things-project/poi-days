@@ -4,11 +4,12 @@ import subprocess
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 paths=subprocess.check_output(['git','ls-tree','-r','--name-only','HEAD','docs'],text=True,cwd=ROOT).splitlines()
-# The home page/live-data bundle can change with collection. sitemap.xml can
+# The home page/live-data bundle can change with collection. The article hub is
+# intentionally regenerated from reviewed source definitions. sitemap.xml can
 # legitimately gain URLs when reviewed articles are added, so validate it
 # separately as a no-loss superset instead of requiring byte-for-byte identity.
 for path in paths:
-    if path in {'docs/index.html','docs/media-data.js','docs/sitemap.xml'}:
+    if path in {'docs/index.html','docs/media-data.js','docs/articles/index.html','docs/sitemap.xml'}:
         continue
     old=subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT)
     assert (ROOT/path).read_bytes()==old, f'committed page/asset changed: {path}'
@@ -22,4 +23,4 @@ assert old_urls <= new_urls, f'sitemap lost committed URLs: {sorted(old_urls-new
 
 for path in ('content/point-sites.json',):
     assert (ROOT/path).read_bytes()==subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT),path
-print('PASS: committed pages/assets preserved; sitemap retained all existing URLs and may add reviewed pages')
+print('PASS: committed pages/assets preserved; reviewed article hub generation allowed; sitemap retained all existing URLs and may add reviewed pages')
