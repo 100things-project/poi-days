@@ -28,7 +28,10 @@ def main():
   vals={'TITLE':html.escape(title),'DESCRIPTION':html.escape(desc,quote=True),'URL':url,'SHORT':short,'LABEL':label,'BODY':body,'CTA_TITLE':'登録前に、もう一つ確認','RELATED':''.join(f'<a href="{s}.html">{t} →</a>' for s,t in related[slug])}
   page=template
   for k,v in vals.items():page=page.replace('{{'+k+'}}',v)
-  schema={'@context':'https://schema.org','@type':'Article','headline':title,'description':desc,'url':url,'datePublished':'2026-09-12','dateModified':'2026-09-12','inLanguage':'ja','author':{'@type':'Organization','name':'POI DAYS'},'publisher':{'@type':'Organization','name':'POI DAYS','url':BASE+'/'}}
+  schema={'@context':'https://schema.org','@graph':[
+   {'@type':'Article','headline':title,'description':desc,'mainEntityOfPage':url,'url':url,'datePublished':'2026-09-12','dateModified':'2026-09-12','inLanguage':'ja','author':{'@type':'Organization','name':'POI DAYS'},'publisher':{'@type':'Organization','name':'POI DAYS','url':BASE+'/' }},
+   {'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'POI DAYS','item':BASE+'/'},{'@type':'ListItem','position':2,'name':title,'item':url}]}
+  ]}
   marker='<script src="../analytics.js" defer></script>'
   page=page.replace(marker,'<script type="application/ld+json" data-poidays-schema>'+json.dumps(schema,ensure_ascii=False,separators=(',',':'))+'</script>'+marker)
   page=page.replace('../index.html','../')
