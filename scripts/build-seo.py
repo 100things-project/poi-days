@@ -19,6 +19,11 @@ ARTICLES = [
  ('moppy-registration', 'モッピーの登録方法｜招待コード・紹介リンクの使い方', '登録方法', 'REGISTRATION', 'モッピーに登録したい方へ、紹介リンクと招待コードJh7He170の使い方を公式案内に沿って解説。登録前の年齢・情報確認、紹介コードの入れ忘れ、特典の反映条件、登録後の確認と退会の疑問まで整理します。', ['moppy-earning','moppy-games'], '入力前に、紹介条件をもう一度確認'),
  ('moppy-games', 'モッピーのゲーム案件｜初心者向けの選び方・注意点', 'ゲーム案件', 'PLAY WISELY', 'モッピーのゲーム案件を始めたい初心者へ、OS・達成条件・期限・課金・判定条件の5項目を解説。開始前の記録、再インストールや機種変更の注意、未反映時の確認手順を整理し、報酬額だけに頼らない選び方を紹介します。', ['moppy-earning','moppy-registration'], 'インストール前に、登録と条件を確認'),
 ]
+SEARCH_ARTICLES = [
+ ('moppy-referral-code', '【2026年9月】モッピー紹介コードはどこ？入力方法・後付け・特典を解説'),
+ ('moppy-september-campaign', '【2026年9月】モッピー新規登録キャンペーン｜入会特典と条件を解説'),
+ ('moppy-pros-cons', 'モッピーのメリット・デメリット｜登録前に知りたい注意点'),
+]
 
 def write_both(path, text):
  for directory in (DOCS, DIST):
@@ -43,8 +48,6 @@ def finish_page(page, title=None, description=None, url=None):
  return page
 
 def main():
- # Synchronize only known pre-existing publishing differences. Any unexpected
- # difference stops the build rather than choosing a winner for another editor.
  allowed = {'robots.txt','sitemap.xml','exchange-cash.png','exchange-emoney.png',
             'exchange-gift.png','exchange-mile.png','google988181a833d31a3a.html'}
  for p in DOCS.rglob('*'):
@@ -70,11 +73,12 @@ def main():
   write_both('articles/'+slug+'.html',finish_page(page,title,description,values['URL']))
  write_both('seo-articles.css',(ROOT/'content/seo-articles.css').read_text())
  index = template
+ all_moppy_links = [(a[0],a[1]) for a in ARTICLES] + SEARCH_ARTICLES
  body = ('<section><p class="eyebrow">WEEKLY FEATURE</p><h2>今週の特集</h2>'
          '<a class="seo-index-link" href="point-site-selection.html">ポイントサイトの選び方｜4サイトの特徴を比べる6つの視点 →</a>'
          '<a class="seo-index-link" href="game-offer-selection.html">ポイントサイトのゲーム案件の選び方｜失敗しにくい7つのチェック →</a></section>'
-         '<section><h2>モッピー初心者ガイド</h2><p>モッピーの安全性・評判・稼ぎ方・登録方法・ゲーム案件を、知りたいテーマから選べます。</p>'
-         + ''.join(f'<a class="seo-index-link" href="{a[0]}.html">{a[1]} →</a>' for a in ARTICLES) + '</section>')
+         '<section><h2>モッピー初心者ガイド</h2><p>安全性・評判・稼ぎ方・登録方法に加えて、紹介コードや最新キャンペーン、メリット・デメリットまで、知りたいテーマから選べます。</p>'
+         + ''.join(f'<a class="seo-index-link" href="{slug}.html">{title} →</a>' for slug,title in all_moppy_links) + '</section>')
  values = dict(TITLE='ポイントサイト初心者ガイド・特集一覧',DESCRIPTION='ポイントサイトの選び方やゲーム案件の選び方、モッピーの安全性・評判・登録方法などをまとめたPOI DAYSの記事・特集一覧。',URL=BASE+'/articles/index.html',SHORT='記事・特集一覧',LABEL='READ & LEARN',BODY=body,CTA_TITLE='まずは、気になるテーマから',RELATED='<a href="point-site-selection.html">ポイントサイトの選び方を読む →</a><a href="game-offer-selection.html">ゲーム案件の選び方を読む →</a><a href="../#ranking">各ポイントサイトの今日のランキングを見る →</a>')
  for key,value in values.items(): index=index.replace('{{'+key+'}}',value)
  general_cta=('<section class="seo-cta"><p class="eyebrow">YOUR NEXT STEP</p><h2>まずは、気になるテーマから</h2>'
@@ -83,7 +87,6 @@ def main():
               '<a href="game-offer-selection.html">ゲーム案件の選び方を読む</a></section>')
  index=re.sub(r'<section class="seo-cta">.*?</section>',general_cta,index,flags=re.S)
  write_both('articles/index.html',finish_page(index))
- # Minimal contextual gateways in existing articles; top and guides untouched.
  gateways={'about':'moppy-safety','safety':'moppy-safety','registration':'moppy-registration','categories':'moppy-earning'}
  for old,new in gateways.items():
   page=(DOCS/'articles'/f'{old}.html').read_text()
@@ -103,6 +106,6 @@ def main():
  sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>'+html.escape(p)+'</loc></url>\n' for p in paths)+'</urlset>\n'
  write_both('sitemap.xml',sitemap)
  write_both('robots.txt','User-agent: *\nAllow: /\nSitemap: '+BASE+'/sitemap.xml\n')
- print(f'SEO build complete: 5 Moppy articles + general article hub; {len(paths)} site pages; existing homepage preserved.')
+ print(f'SEO build complete: {len(all_moppy_links)} Moppy articles + general article hub; {len(paths)} site pages; existing homepage preserved.')
 
 if __name__ == '__main__': main()
