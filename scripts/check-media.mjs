@@ -36,12 +36,12 @@ for(const data of [null,{}, {rankings:{}}, {rankings:{moppy:[null,{}, {title:'<i
 }
 const dom=boot(),d=dom.window.document;
 const input=d.querySelector('#search-query'); input.value='ゲーム';d.querySelector('#site-search').dispatchEvent(new dom.window.Event('submit',{cancelable:true}));
-assert.equal(d.querySelectorAll('#search-results a').length,1);
+assert.deepEqual(Array.from(d.querySelectorAll('#search-results a'),a=>a.getAttribute('href')).sort(),['articles/game-offer-selection.html','articles/moppy-games.html'].sort());
 input.value='存在しない検索語';d.querySelector('#site-search').dispatchEvent(new dom.window.Event('submit',{cancelable:true}));assert.match(d.querySelector('#search-results').textContent,/該当する記事がありません/);
 const first=d.querySelector('#tab-moppy');first.focus();first.dispatchEvent(new dom.window.KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));assert.equal(d.querySelector('#tab-hapitas').getAttribute('aria-selected'),'true');
 const img=d.querySelector('.lead-image img');img.dispatchEvent(new dom.window.Event('error'));assert.equal(img.getAttribute('data-fallback'),'true');assert.match(img.src,/visuals\/about.svg$/);
 img.dispatchEvent(new dom.window.Event('error'));assert.equal(img.getAttribute('src'),null);
 dom.window.close();
 // Script-disabled HTML has complete content and native menu/search fallback.
-const nojs=new JSDOM(html);assert.equal(nojs.window.document.querySelectorAll('.article-row').length,5);assert.equal(nojs.window.document.querySelectorAll('.ranking-row').length,5);assert.equal(nojs.window.document.querySelectorAll('main > section').length,8);nojs.window.close();
+const nojs=new JSDOM(html);assert.equal(nojs.window.document.querySelectorAll('.article-row').length,7);assert.equal(nojs.window.document.querySelectorAll('.ranking-row').length,5);assert.equal(nojs.window.document.querySelectorAll('main > section').length,8);nojs.window.close();
 console.log(`PASS: ${runs} rank/missing-data cases; 0/1/5/12 items, tabs/keyboard, long text retained, safe rendering, search, image fallback, script-disabled content. DOM tests only; no visual-layout claims.`);
