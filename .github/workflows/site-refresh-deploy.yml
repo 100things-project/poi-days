@@ -1,0 +1,103 @@
+name: Refresh and publish POI DAYS
+
+on:
+  schedule:
+    # UTC 21:05 = JST 06:05. Active only after this file reaches main.
+    - cron: '5 21 * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# All production builds/deployments share one queue. Never cancel a live deploy.
+concurrency:
+  group: poi-days-pages-production
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main' && github.repository == '100things-project/poi-days'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # A queued run always builds current main, not a superseded push revision.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch the preservation baseline only
+        run: git fetch --no-tags --depth=1 origin 4d204a18d2e5afc3514a55b45d164268edbbb12c
+
+      - name: Verify current Pages configuration without changing it
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/100things-project/poi-days/pages --jq .build_type > "$RUNNER_TEMP/poi-pages-build-type"
+          test "$(cat "$RUNNER_TEMP/poi-pages-build-type")" = workflow
+
+      # Requires Pages Source = GitHub Actions. Does not change repository settings.
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install fixed dependencies
+        run: |
+          python -m pip install --disable-pip-version-check requests==2.32.5 beautifulsoup4==4.13.5 PyYAML==6.0.3
+          npm ci --ignore-scripts
+
+      - name: Check collectors and publication guards offline
+        run: |
+          python scripts/check-rankings.py
+          python scripts/check-news.py
+          python scripts/check-collector-fallbacks.py
+          python scripts/check-publication.py
+
+      # Push/manual publication never re-collects. The schedule collects each once.
+      - name: Collect daily public data
+        if: github.event_name == 'schedule'
+        run: |
+          python scripts/fetch-rankings.py
+          python scripts/fetch-news.py
+
+      - name: Build and validate before saving or publishing
+        run: |
+          python build.py
+          python check.py
+          python scripts/check-seo.py
+          python scripts/check-preservation.py
+          node scripts/check-media.mjs
+          python scripts/check-recommendation.py
+          python scripts/publication.py verify
+
+      # Uses the checkout's GITHUB_TOKEN: its push does not trigger another run.
+      - name: Save validated data without overwriting concurrent edits
+        run: python scripts/publication.py save
+
+      - name: Package the validated public directory
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+          retention-days: 1
+
+      - name: Stop if main changed after validation
+        run: python scripts/publication.py current
+
+      - name: Publish the artifact in this run
+        id: deployment
+        uses: actions/deploy-pages@v4
