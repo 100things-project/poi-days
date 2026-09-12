@@ -26,7 +26,10 @@ for p in sorted((ROOT/'docs/articles').glob('moppy-*.html')):
  assert [x['@type'] for x in schema['@graph']]==['Article','BreadcrumbList']
  assert schema['@graph'][0]['headline']==title.removesuffix('｜POI DAYS')
  assert '../analytics.js' in s and 'poidays_owner_exclude_v1' in s
- assert len(re.findall(r'<a ',s.split('<section class="seo-next">')[1].split('</section>')[0]))==2
+ next_block=s.split('<section class="seo-next">')[1].split('</section>')[0]
+ next_links=re.findall(r'<a href="([^"]+)">',next_block)
+ assert len(next_links)==3 and len(set(next_links))==3
+ assert all(href.startswith('moppy-') and href.endswith('.html') for href in next_links)
  for a in page.links:
   if 'entry/invite' in a['href']:
    assert a['href']=='https://pc.moppy.jp/entry/invite.php?invite=Jh7He170&openExternalBrowser=1'
@@ -47,4 +50,4 @@ urls=[n.text for n in ET.parse(ROOT/'docs/sitemap.xml').findall('.//{*}loc')]
 assert len(urls)==len(set(urls)) and len(urls)>=22
 assert not any(x.endswith(('/qa-preview.html','/articles/safety.html','/articles/registration.html')) for x in urls)
 assert {p.relative_to(ROOT/'docs') for p in (ROOT/'docs').rglob('*') if p.is_file()}=={p.relative_to(ROOT/'dist') for p in (ROOT/'dist').rglob('*') if p.is_file()}
-print('PASS: unique metadata, specified referral, baseline shared assets/verification retained; dist/docs file inventory matches')
+print('PASS: unique metadata, three-link Moppy journeys, specified referral, baseline shared assets/verification retained; dist/docs file inventory matches')
