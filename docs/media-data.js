@@ -386,7 +386,7 @@ window.POI_DAYS_MEDIA = {
   "rankingMeta": {
     "moppy": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-12",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
@@ -398,7 +398,7 @@ window.POI_DAYS_MEDIA = {
     },
     "warau": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-12",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
@@ -409,12 +409,5 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
-  "recommendation": {
-    "siteId": "warau",
-    "siteName": "ワラウ",
-    "title": "楽天市場",
-    "rewardText": "1%",
-    "checkedAt": "2026-09-12",
-    "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all"
-  }
+  "recommendation": null
 };
