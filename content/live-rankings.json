@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-12T03:11:45+09:00",
+  "generatedAt": "2026-09-13T07:55:20+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,8 +9,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-09-12T03:11:46+09:00",
-      "checkedAt": "2026-09-12",
+      "fetchedAt": "2026-09-13T07:55:21+09:00",
+      "checkedAt": "2026-09-13",
       "items": [
         {
           "rank": 1,
@@ -19,43 +19,43 @@
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-12"
+          "checkedAt": "2026-09-13"
         },
         {
           "rank": 2,
-          "title": "※9月超高還元※楽天銀行スーパーローン",
-          "rewardText": "20,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=100953&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-09-12"
-        },
-        {
-          "rank": 3,
-          "title": "JCB CARD W/JCB CARD W plus L(39歳以下限定)",
-          "rewardText": "11,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=140425&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-09-12"
-        },
-        {
-          "rank": 4,
           "title": "※13日まで過去最高13,000P還元※楽天銀行 口座開設",
           "rewardText": "1,500P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-12"
+          "checkedAt": "2026-09-13"
         },
         {
-          "rank": 5,
+          "rank": 3,
           "title": "※土日限定超還元※楽天証券",
           "rewardText": "20,000P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-12"
+          "checkedAt": "2026-09-13"
+        },
+        {
+          "rank": 4,
+          "title": "※13日まで過去最高※【年収1000万円以上】プロパティエージェントの不動産投資WEB面談",
+          "rewardText": "125,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=143476&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-13"
+        },
+        {
+          "rank": 5,
+          "title": "auひかり",
+          "rewardText": "60,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-13"
         }
       ]
     },
@@ -114,7 +114,7 @@
           "checkedAt": "2026-09-11"
         }
       ],
-      "lastErrorAt": "2026-09-12T03:11:47+09:00",
+      "lastErrorAt": "2026-09-13T07:55:22+09:00",
       "lastError": "ranking list is loaded dynamically; public HTML has no verifiable top five"
     },
     "warau": {
@@ -123,8 +123,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
-      "fetchedAt": "2026-09-12T03:11:49+09:00",
-      "checkedAt": "2026-09-12",
+      "fetchedAt": "2026-09-13T07:55:23+09:00",
+      "checkedAt": "2026-09-13",
       "items": [
         {
           "rank": 1,
@@ -133,7 +133,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-12"
+          "checkedAt": "2026-09-13"
         },
         {
           "rank": 2,
@@ -142,7 +142,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=206169&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-12"
+          "checkedAt": "2026-09-13"
         },
         {
           "rank": 3,
@@ -151,25 +151,25 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-12"
+          "checkedAt": "2026-09-13"
         },
         {
           "rank": 4,
           "title": "マネックス証券（1取引完了）",
-          "rewardText": "13,000pt",
-          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=204589&pl=pc_rnkngPg_all",
+          "rewardText": "12,000pt",
+          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=204239&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-12"
+          "checkedAt": "2026-09-13"
         },
         {
           "rank": 5,
-          "title": "Yahoo!ショッピング",
-          "rewardText": "1.2%",
-          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205718&pl=pc_rnkngPg_all",
+          "title": "みずほ銀行 口座開設",
+          "rewardText": "8,000pt",
+          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=206684&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-12"
+          "checkedAt": "2026-09-13"
         }
       ]
     },
@@ -228,7 +228,7 @@
           "checkedAt": "2026-09-10"
         }
       ],
-      "lastErrorAt": "2026-09-12T03:11:49+09:00",
+      "lastErrorAt": "2026-09-13T07:55:24+09:00",
       "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/shopping/"
     }
   }
