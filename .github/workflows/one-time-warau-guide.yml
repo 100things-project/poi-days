@@ -1,0 +1,34 @@
+name: One-time Warau guide build
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/one-time-warau-guide.yml
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build site
+        run: python build.py
+      - name: Validate site
+        run: python check.py
+      - name: Verify Warau guide
+        run: |
+          grep -q 'd5eo' docs/warau.html
+          grep -q 'https://www.warau.jp/friend/reg/d5em' docs/warau.html
+          grep -q 'ワラウランク制度' docs/warau.html
+          cmp docs/warau.html dist/warau.html
+      - name: Commit generated files
+        run: |
+          if git diff --quiet -- docs dist; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs dist
+          git commit -m 'Publish expanded Warau guide'
+          git push
