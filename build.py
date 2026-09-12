@@ -13,6 +13,7 @@ if '--legacy-layout-build' not in sys.argv:
  subprocess.run([sys.executable,str(root/'scripts/build-chobirich.py')],check=True)
  subprocess.run([sys.executable,str(root/'scripts/build-moppy-search.py')],check=True)
  subprocess.run([sys.executable,str(root/'scripts/build-seo.py')],check=True)
+ subprocess.run([sys.executable,str(root/'scripts/build-moppy-internal-links.py')],check=True)
  subprocess.run([sys.executable,str(root/'scripts/build-moppy-navigation.py')],check=True)
  raise SystemExit(0)
 subprocess.run([sys.executable,str(root/'scripts/expand-site.py')],check=True)
