@@ -89,6 +89,22 @@ jobs:
       - name: Save validated data without overwriting concurrent edits
         run: python scripts/publication.py save
 
+      - name: Add Search Console verification tag to deployed homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('docs/index.html')
+          text = p.read_text(encoding='utf-8')
+          tag = '<meta name="google-site-verification" content="Hrh7MBSkbcyQGelakYCKkuacW5nHig9tVhBP22-JwA8" />'
+          if tag not in text:
+              if '<head>' not in text:
+                  raise SystemExit('Homepage <head> not found')
+              text = text.replace('<head>', '<head>' + tag, 1)
+              p.write_text(text, encoding='utf-8')
+          if tag not in p.read_text(encoding='utf-8'):
+              raise SystemExit('Search Console verification tag injection failed')
+          PY
+
       - name: Package the validated public directory
         uses: actions/upload-pages-artifact@v4
         with:
