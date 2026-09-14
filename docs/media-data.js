@@ -25,7 +25,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "15,000P",
-        "checkedAt": "2026-09-14",
+        "checkedAt": "2026-09-15",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "image": "visuals/about.svg"
@@ -36,42 +36,42 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1,500P",
-        "checkedAt": "2026-09-14",
+        "checkedAt": "2026-09-15",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "楽天証券",
+        "title": "auひかり",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "13,000P",
-        "checkedAt": "2026-09-14",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
+        "rewardText": "60,000P",
+        "checkedAt": "2026-09-15",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "※14日までの限定超還元※au PAY ゴールドカード",
+        "title": "【年収600万円以上の方限定】プロパティエージェントの不動産投資WEB面談",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "20,000P",
-        "checkedAt": "2026-09-14",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157386&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=157386&track_ref=car",
+        "rewardText": "65,000P",
+        "checkedAt": "2026-09-15",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=141303&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=141303&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "※合計最大60,000円相当※【三菱ＵＦＪ銀行】普通預金口座開設",
+        "title": "【年収700万円以上】マンション投資 個別面談 / JPリターンズ",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "4,000P",
-        "checkedAt": "2026-09-14",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=158897&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=158897&track_ref=car",
+        "rewardText": "80,000P",
+        "checkedAt": "2026-09-15",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=142718&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=142718&track_ref=car",
         "image": "visuals/about.svg"
       }
     ],
@@ -139,7 +139,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-14",
+        "checkedAt": "2026-09-15",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -150,7 +150,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "15,000pt",
-        "checkedAt": "2026-09-14",
+        "checkedAt": "2026-09-15",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=206169&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=206169&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -161,7 +161,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "4,000pt",
-        "checkedAt": "2026-09-14",
+        "checkedAt": "2026-09-15",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -172,7 +172,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-14",
+        "checkedAt": "2026-09-15",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -183,7 +183,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "12,000pt",
-        "checkedAt": "2026-09-14",
+        "checkedAt": "2026-09-15",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=204239&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=204239&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -249,6 +249,16 @@ window.POI_DAYS_MEDIA = {
   },
   "news": [
     {
+      "id": "1a5827dfc38371f7c41a",
+      "site": "chobirich",
+      "siteName": "ちょびリッチ",
+      "date": "2026-09-14",
+      "title": "【ゲーム：農場生活/頭の体操】 9/13 6時~21時20分アクセスできない状態でした。現在は回復済みです。",
+      "category": "お知らせ",
+      "sourceUrl": "https://help.chobirich.com/#block-2b0bff5a9dce80f18a3de82c74ac8fae",
+      "official": true
+    },
+    {
       "id": "b33f833e66562ed4f886",
       "site": "warau",
       "siteName": "ワラウ",
@@ -259,13 +269,13 @@ window.POI_DAYS_MEDIA = {
       "official": true
     },
     {
-      "id": "1a5827dfc38371f7c41a",
+      "id": "19cb3b87b3fc1a3166bb",
       "site": "chobirich",
       "siteName": "ちょびリッチ",
       "date": "2026-09-01",
       "title": "【高ポイントアンケート】 5問回答(8/25-31)でのボーナスポイント反映完了",
       "category": "キャンペーン",
-      "sourceUrl": "https://help.chobirich.com/#block-2b0bff5a9dce80f18a3de82c74ac8fae",
+      "sourceUrl": "https://help.chobirich.com/#block-3dbbff5a9dce80ed81d4e9e91938383a",
       "official": true
     },
     {
@@ -296,16 +306,6 @@ window.POI_DAYS_MEDIA = {
       "title": "【お問合せ回答】 一部のお問合せが正常に振分けられない事象改善",
       "category": "お知らせ",
       "sourceUrl": "https://help.chobirich.com/#block-3cebff5a9dce8033a738c25aa99830c1",
-      "official": true
-    },
-    {
-      "id": "f20c5ea3d10b71d59f40",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-08-24",
-      "title": "【予告】最大1,900pt！Qoo10 メガ割 × ワラウでおトク",
-      "category": "お知らせ",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3099/",
       "official": true
     }
   ],
@@ -405,7 +405,7 @@ window.POI_DAYS_MEDIA = {
     "moppy": {
       "status": "ok",
       "stale": false,
-      "checkedAt": "2026-09-14",
+      "checkedAt": "2026-09-15",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
@@ -417,7 +417,7 @@ window.POI_DAYS_MEDIA = {
     "warau": {
       "status": "ok",
       "stale": false,
-      "checkedAt": "2026-09-14",
+      "checkedAt": "2026-09-15",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
@@ -428,11 +428,11 @@ window.POI_DAYS_MEDIA = {
     }
   },
   "recommendation": {
-    "siteId": "warau",
-    "siteName": "ワラウ",
-    "title": "楽天市場",
-    "rewardText": "1%",
-    "checkedAt": "2026-09-14",
-    "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all"
+    "siteId": "moppy",
+    "siteName": "モッピー",
+    "title": "【過去最高還元】三菱ＵＦＪカード【最大45,000円相当】",
+    "rewardText": "15,000P",
+    "checkedAt": "2026-09-15",
+    "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car"
   }
 };
