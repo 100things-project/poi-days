@@ -1,8 +1,9 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-13T16:55:00+09:00",
+  "generatedAt": "2026-09-14T13:41:00+09:00",
   "items": [
+    {"id":"f34826306c8775514d9f","site":"hapitas","siteName":"ハピタス","date":"2026-09-07","title":"SNSログイン機能の一部ご利用不可についてのお知らせ","category":"重要","sourceUrl":"https://sp.hapitas.jp/notifications","official":true},
     {"id":"b33f833e66562ed4f886","site":"warau","siteName":"ワラウ","date":"2026-09-04","title":"9月は5のつく日のお買い物でポイント5.5%増量 GoGoキャンペーン","category":"キャンペーン","sourceUrl":"https://www.warau.jp/service/info/permalink/3109/","official":true},
     {"id":"1a5827dfc38371f7c41a","site":"chobirich","siteName":"ちょびリッチ","date":"2026-09-01","title":"【高ポイントアンケート】 5問回答(8/25-31)でのボーナスポイント反映完了","category":"キャンペーン","sourceUrl":"https://help.chobirich.com/#block-2b0bff5a9dce80f18a3de82c74ac8fae","official":true},
     {"id":"02eb38067878cad6d29c","site":"warau","siteName":"ワラウ","date":"2026-09-01","title":"抽選で合計300名様に当たる！「読んで当てる ハーゲンダッツプレゼントキャンペーン」開始","category":"キャンペーン","sourceUrl":"https://www.warau.jp/service/info/permalink/3105/","official":true},
@@ -27,27 +28,27 @@
       "fetchedAt":null,
       "sourceUrl":"https://pc.moppy.jp/news/",
       "count":0,
-      "lastErrorAt":"2026-09-13T16:55:00+09:00",
-      "lastError":"official page exposes monthly counts, but the dated news list is not present in retrievable public HTML"
+      "lastErrorAt":"2026-09-14T13:41:00+09:00",
+      "lastError":"official page shows five September news items, but the dated news list is not reliably exposed in retrievable public HTML"
     },
     "hapitas": {
       "name":"ハピタス",
       "status":"ok",
-      "fetchedAt":"2026-09-13T16:55:00+09:00",
+      "fetchedAt":"2026-09-14T13:41:00+09:00",
       "sourceUrl":"https://hapitas.jp/notifications/list",
-      "count":4
+      "count":5
     },
     "warau": {
       "name":"ワラウ",
       "status":"ok",
-      "fetchedAt":"2026-09-13T16:55:00+09:00",
+      "fetchedAt":"2026-09-14T13:41:00+09:00",
       "sourceUrl":"https://www.warau.jp/service/info/",
       "count":10
     },
     "chobirich": {
       "name":"ちょびリッチ",
       "status":"ok",
-      "fetchedAt":"2026-09-13T16:55:00+09:00",
+      "fetchedAt":"2026-09-14T13:41:00+09:00",
       "sourceUrl":"https://help.chobirich.com/",
       "count":2
     }
