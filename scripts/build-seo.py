@@ -23,6 +23,7 @@ SEARCH_ARTICLES = [
  ('moppy-referral-code', '【2026年9月】モッピー紹介コードはどこ？入力方法・後付け・特典を解説'),
  ('moppy-september-campaign', '【2026年9月】モッピー新規登録キャンペーン｜入会特典と条件を解説'),
  ('moppy-pros-cons', 'モッピーのメリット・デメリット｜登録前に知りたい注意点'),
+ ('moppy-points-missing', 'モッピーでポイントが付かない？判定中・反映されない原因と対処法'),
 ]
 
 def write_both(path, text):
@@ -77,7 +78,7 @@ def main():
  body = ('<section><p class="eyebrow">WEEKLY FEATURE</p><h2>今週の特集</h2>'
          '<a class="seo-index-link" href="point-site-selection.html">ポイントサイトの選び方｜4サイトの特徴を比べる6つの視点 →</a>'
          '<a class="seo-index-link" href="game-offer-selection.html">ポイントサイトのゲーム案件の選び方｜失敗しにくい7つのチェック →</a></section>'
-         '<section><h2>モッピー初心者ガイド</h2><p>安全性・評判・稼ぎ方・登録方法に加えて、紹介コードや最新キャンペーン、メリット・デメリットまで、知りたいテーマから選べます。</p>'
+         '<section><h2>モッピー初心者ガイド</h2><p>安全性・評判・稼ぎ方・登録方法に加えて、紹介コードや最新キャンペーン、メリット・デメリット、ポイント未反映時の確認まで、知りたいテーマから選べます。</p>'
          + ''.join(f'<a class="seo-index-link" href="{slug}.html">{title} →</a>' for slug,title in all_moppy_links) + '</section>')
  values = dict(TITLE='ポイントサイト初心者ガイド・特集一覧',DESCRIPTION='ポイントサイトの選び方やゲーム案件の選び方、モッピーの安全性・評判・登録方法などをまとめたPOI DAYSの記事・特集一覧。',URL=BASE+'/articles/index.html',SHORT='記事・特集一覧',LABEL='READ & LEARN',BODY=body,CTA_TITLE='まずは、気になるテーマから',RELATED='<a href="point-site-selection.html">ポイントサイトの選び方を読む →</a><a href="game-offer-selection.html">ゲーム案件の選び方を読む →</a><a href="../#ranking">各ポイントサイトの今日のランキングを見る →</a>')
  for key,value in values.items(): index=index.replace('{{'+key+'}}',value)
