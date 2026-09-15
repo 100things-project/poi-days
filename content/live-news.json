@@ -1,8 +1,10 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-14T13:41:00+09:00",
+  "generatedAt": "2026-09-15T14:23:00+09:00",
   "items": [
+    {"id":"moppy-20260914-3457","site":"moppy","siteName":"モッピー","date":"2026-09-14","title":"新モニターサービス「レシプラ」リリースのお知らせ","category":"リリース","sourceUrl":"https://pc.moppy.jp/news/detail.php?news_id=3457","official":true},
+    {"id":"chobirich-20260914-game-recovery","site":"chobirich","siteName":"ちょびリッチ","date":"2026-09-14","title":"【ゲーム：農場生活/頭の体操】9/13 6時~21時20分アクセスできない状態でした。現在は回復済みです。","category":"お知らせ","sourceUrl":"https://help.chobirich.com/","official":true},
     {"id":"f34826306c8775514d9f","site":"hapitas","siteName":"ハピタス","date":"2026-09-07","title":"SNSログイン機能の一部ご利用不可についてのお知らせ","category":"重要","sourceUrl":"https://sp.hapitas.jp/notifications","official":true},
     {"id":"b33f833e66562ed4f886","site":"warau","siteName":"ワラウ","date":"2026-09-04","title":"9月は5のつく日のお買い物でポイント5.5%増量 GoGoキャンペーン","category":"キャンペーン","sourceUrl":"https://www.warau.jp/service/info/permalink/3109/","official":true},
     {"id":"1a5827dfc38371f7c41a","site":"chobirich","siteName":"ちょびリッチ","date":"2026-09-01","title":"【高ポイントアンケート】 5問回答(8/25-31)でのボーナスポイント反映完了","category":"キャンペーン","sourceUrl":"https://help.chobirich.com/#block-2b0bff5a9dce80f18a3de82c74ac8fae","official":true},
@@ -22,35 +24,9 @@
     {"id":"a88e528afe83f35093e1","site":"hapitas","siteName":"ハピタス","date":"2024-04-01","title":"【重要】ハピタス利用規約一部改定のお知らせ","category":"重要","sourceUrl":"https://hapitas.jp/notifications/detail/id/1849","official":true}
   ],
   "sources": {
-    "moppy": {
-      "name":"モッピー",
-      "status":"unavailable",
-      "fetchedAt":null,
-      "sourceUrl":"https://pc.moppy.jp/news/",
-      "count":0,
-      "lastErrorAt":"2026-09-14T13:41:00+09:00",
-      "lastError":"official page shows five September news items, but the dated news list is not reliably exposed in retrievable public HTML"
-    },
-    "hapitas": {
-      "name":"ハピタス",
-      "status":"ok",
-      "fetchedAt":"2026-09-14T13:41:00+09:00",
-      "sourceUrl":"https://hapitas.jp/notifications/list",
-      "count":5
-    },
-    "warau": {
-      "name":"ワラウ",
-      "status":"ok",
-      "fetchedAt":"2026-09-14T13:41:00+09:00",
-      "sourceUrl":"https://www.warau.jp/service/info/",
-      "count":10
-    },
-    "chobirich": {
-      "name":"ちょびリッチ",
-      "status":"ok",
-      "fetchedAt":"2026-09-14T13:41:00+09:00",
-      "sourceUrl":"https://help.chobirich.com/",
-      "count":2
-    }
+    "moppy": {"name":"モッピー","status":"partial","fetchedAt":"2026-09-15T14:23:00+09:00","sourceUrl":"https://pc.moppy.jp/news/","count":1,"lastErrorAt":"2026-09-15T14:23:00+09:00","lastError":"archive count/list is inconsistent across fetches; only individually verified dated items are stored"},
+    "hapitas": {"name":"ハピタス","status":"ok","fetchedAt":"2026-09-15T14:23:00+09:00","sourceUrl":"https://sp.hapitas.jp/notifications","count":5},
+    "warau": {"name":"ワラウ","status":"ok","fetchedAt":"2026-09-15T14:23:00+09:00","sourceUrl":"https://www.warau.jp/service/info/","count":10},
+    "chobirich": {"name":"ちょびリッチ","status":"ok","fetchedAt":"2026-09-15T14:23:00+09:00","sourceUrl":"https://help.chobirich.com/","count":3}
   }
 }
