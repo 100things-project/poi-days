@@ -341,6 +341,12 @@ window.POI_DAYS_MEDIA = {
   ],
   "articles": [
     {
+      "title": "モッピーでポイントが付かない？判定中・反映されない原因と対処法",
+      "href": "articles/moppy-points-missing.html",
+      "date": "2026-09-16",
+      "image": "visuals/way-game.webp"
+    },
+    {
       "title": "【2026年9月】モッピー紹介コードはどこ？入力方法・後付け・特典を解説",
       "href": "articles/moppy-referral-code.html",
       "date": "2026-09-12",
@@ -404,7 +410,7 @@ window.POI_DAYS_MEDIA = {
   "rankingMeta": {
     "moppy": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-15",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
@@ -416,7 +422,7 @@ window.POI_DAYS_MEDIA = {
     },
     "warau": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-15",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
@@ -427,12 +433,5 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
-  "recommendation": {
-    "siteId": "moppy",
-    "siteName": "モッピー",
-    "title": "【過去最高還元】三菱ＵＦＪカード【最大45,000円相当】",
-    "rewardText": "15,000P",
-    "checkedAt": "2026-09-15",
-    "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car"
-  }
+  "recommendation": null
 };
