@@ -1,4 +1,4 @@
-"""Strengthen internal links among the eight Moppy search-intent guides."""
+"""Strengthen internal links among the Moppy search-intent guides."""
 from pathlib import Path
 import re
 
@@ -38,13 +38,18 @@ ROUTES={
  ],
  'moppy-earning':[
   ('moppy-games','ゲーム案件の選び方を見る'),
-  ('moppy-pros-cons','メリット・デメリットを確認'),
+  ('moppy-points-missing','ポイントが付かないときの確認手順'),
   ('moppy-registration','始める前に登録方法を確認'),
  ],
  'moppy-games':[
+  ('moppy-points-missing','ポイントが反映されないときの対処法'),
   ('moppy-earning','初心者向けの稼ぎ方を見る'),
-  ('moppy-pros-cons','登録前の注意点を確認'),
   ('moppy-registration','ゲーム開始前に登録方法を確認'),
+ ],
+ 'moppy-points-missing':[
+  ('moppy-games','ゲーム案件の開始前チェックを見る'),
+  ('moppy-earning','初心者向けの稼ぎ方を見る'),
+  ('moppy-registration','登録方法を確認'),
  ],
 }
 
@@ -60,4 +65,4 @@ for root in (DOCS,DIST):
    raise SystemExit(f'seo-next section not found exactly once: {path}')
   path.write_text(text,encoding='utf-8')
 
-print('Moppy internal journey built: 8 guides linked by search intent')
+print('Moppy internal journey built: 9 guides linked by search intent')
