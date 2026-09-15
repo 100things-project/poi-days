@@ -1,12 +1,12 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-14T13:41:00+09:00",
+  "generatedAt": "2026-09-15T14:23:00+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
       "fetchedAt": "2026-09-14T13:41:00+09:00",
       "checkedAt": "2026-09-14",
@@ -16,7 +16,9 @@
         {"rank": 3, "title": "※本日最終★超還元※au PAY ゴールドカード", "rewardText": "20,000P", "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157386&track_ref=car_sh", "sample": false, "verified": true, "checkedAt": "2026-09-14"},
         {"rank": 4, "title": "楽天証券", "rewardText": "13,000P", "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car", "sample": false, "verified": true, "checkedAt": "2026-09-14"},
         {"rank": 5, "title": "※合計最大60,000円相当※【三菱ＵＦＪ銀行】普通預金口座開設", "rewardText": "4,000P", "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=158897&track_ref=sea", "sample": false, "verified": true, "checkedAt": "2026-09-14"}
-      ]
+      ],
+      "lastErrorAt": "2026-09-15T14:23:00+09:00",
+      "lastError": "current fetch/search result still contains a 2026-09-14-only '本日最終' title, so it was not promoted as a verified 2026-09-15 ranking"
     },
     "hapitas": {
       "name": "ハピタス",
@@ -26,7 +28,7 @@
       "fetchedAt": null,
       "checkedAt": null,
       "items": [],
-      "lastErrorAt": "2026-09-14T13:41:00+09:00",
+      "lastErrorAt": "2026-09-15T14:23:00+09:00",
       "lastError": "ranking list is loaded dynamically; public HTML has no verifiable top five"
     },
     "warau": {
@@ -34,14 +36,14 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
-      "fetchedAt": "2026-09-14T13:41:00+09:00",
-      "checkedAt": "2026-09-14",
+      "fetchedAt": "2026-09-15T14:23:00+09:00",
+      "checkedAt": "2026-09-15",
       "items": [
-        {"rank": 1, "title": "楽天市場", "rewardText": "1%", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=137795", "sample": false, "verified": true, "checkedAt": "2026-09-14"},
-        {"rank": 2, "title": "三菱UFJカード", "rewardText": "15,000pt", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=206169", "sample": false, "verified": true, "checkedAt": "2026-09-14"},
-        {"rank": 3, "title": "【PR】【三菱ＵＦＪ銀行】普通預金口座開設", "rewardText": "4,000pt", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=205830", "sample": false, "verified": true, "checkedAt": "2026-09-14"},
-        {"rank": 4, "title": "Yahoo!ショッピング", "rewardText": "1%", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=200192", "sample": false, "verified": true, "checkedAt": "2026-09-14"},
-        {"rank": 5, "title": "マネックス証券（1取引完了）", "rewardText": "12,000pt", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=204239", "sample": false, "verified": true, "checkedAt": "2026-09-14"}
+        {"rank": 1, "title": "楽天市場", "rewardText": "1%", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=137795", "sample": false, "verified": true, "checkedAt": "2026-09-15"},
+        {"rank": 2, "title": "三菱UFJカード", "rewardText": "15,000pt", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=206169", "sample": false, "verified": true, "checkedAt": "2026-09-15"},
+        {"rank": 3, "title": "【PR】【三菱ＵＦＪ銀行】普通預金口座開設", "rewardText": "4,000pt", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=205830", "sample": false, "verified": true, "checkedAt": "2026-09-15"},
+        {"rank": 4, "title": "Yahoo!ショッピング", "rewardText": "1%", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=200192", "sample": false, "verified": true, "checkedAt": "2026-09-15"},
+        {"rank": 5, "title": "マネックス証券（1取引完了）", "rewardText": "12,000pt", "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?pl=pc_rnkngPg_all&point_id=204239", "sample": false, "verified": true, "checkedAt": "2026-09-15"}
       ]
     },
     "chobirich": {
