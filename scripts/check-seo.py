@@ -19,12 +19,18 @@ for p in sorted((ROOT/'docs/articles').glob('moppy-*.html')):
  title=re.search(r'<title>(.*?)</title>',s)[1];titles.append(title)
  description=page.meta['description'];descriptions.append(description)
  assert page.h1==1 and 90<=len(description)<=130
- assert '2026年9月8日' in s and 'Jh7He170' in s
+ date_match=re.search(r'<p class="seo-date">.*?<time datetime="(\d{4}-\d{2}-\d{2})">([^<]+)</time>',s)
+ assert date_match,(p,'missing visible article date')
+ published=date_match[1]
+ assert 'Jh7He170' in s
  assert '運営者が報酬を受け取る場合' in s
  assert '<nav class="seo-breadcrumb"' in s and '<nav class="seo-toc"' in s
  schema=json.loads(re.search(r'<script type="application/ld\+json" data-poidays-schema>(.*?)</script>',s)[1])
  assert [x['@type'] for x in schema['@graph']]==['Article','BreadcrumbList']
- assert schema['@graph'][0]['headline']==title.removesuffix('｜POI DAYS')
+ article_schema=schema['@graph'][0]
+ assert article_schema['headline']==title.removesuffix('｜POI DAYS')
+ assert article_schema['datePublished']==published
+ assert article_schema['dateModified']>=published
  assert '../analytics.js' in s and 'poidays_owner_exclude_v1' in s
  next_block=s.split('<section class="seo-next">')[1].split('</section>')[0]
  next_links=re.findall(r'<a href="([^"]+)">',next_block)
@@ -50,4 +56,4 @@ urls=[n.text for n in ET.parse(ROOT/'docs/sitemap.xml').findall('.//{*}loc')]
 assert len(urls)==len(set(urls)) and len(urls)>=22
 assert not any(x.endswith(('/qa-preview.html','/articles/safety.html','/articles/registration.html')) for x in urls)
 assert {p.relative_to(ROOT/'docs') for p in (ROOT/'docs').rglob('*') if p.is_file()}=={p.relative_to(ROOT/'dist') for p in (ROOT/'dist').rglob('*') if p.is_file()}
-print('PASS: unique metadata, three-link Moppy journeys, specified referral, baseline shared assets/verification retained; dist/docs file inventory matches')
+print('PASS: unique metadata, three-link Moppy journeys, article/schema dates aligned, specified referral, baseline shared assets/verification retained; dist/docs file inventory matches')
