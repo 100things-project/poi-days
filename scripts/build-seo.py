@@ -13,7 +13,7 @@ BASE = os.environ.get('SITE_URL', 'https://100things-project.github.io/poi-days'
 u = urlsplit(BASE)
 assert u.scheme in ('http', 'https') and u.netloc and not u.query and not u.fragment
 ARTICLES = [
- ('moppy-safety', 'モッピーとは？怪しい？安全性・仕組みを初心者向けに解説', '安全性と仕組み', 'UNDERSTAND', 'モッピーが怪しいと感じる初心者へ、広告費からポイントが還元される仕組みと運営会社を解説。安全性の判断材料、個人情報・費用・承認条件の注意点を公式情報で確認し、自分に向いているか考えられます。', ['moppy-reviews','moppy-earning'], '仕組みに納得できたら、条件を確認'),
+ ('moppy-safety', 'モッピーは危険？怪しい？安全性・運営会社・注意点を公式情報で解説', '安全性と危険性', 'SAFETY CHECK', 'モッピーは危険・怪しいのか気になる人へ、運営会社、プライバシーマーク、顔認証、個人情報、ポイント未反映、なりすまし、有料案件の注意点を公式情報で確認。安全性の判断材料と利用前に知りたいリスクを分けて解説します。', ['moppy-reviews','moppy-earning'], '安全性を確認したら、使い方を選ぶ'),
  ('moppy-reviews', 'モッピーの評判・口コミ｜良い評判と悪い評判を整理', '評判・口コミ', 'COMPARE', 'モッピーの評判が気になる方へ、実在する公開口コミを投稿時期とともに整理。空き時間の活用を評価する声と反映待ちへの不満を公平に紹介し、個人の感想と公式条件を分けて、自分に合う使い方を判断できます。', ['moppy-safety','moppy-registration'], '評判だけでなく、公式条件で判断'),
  ('moppy-earning', 'モッピーの稼ぎ方｜初心者が最初にやること', '初心者の稼ぎ方', 'START SMALL', 'モッピーで何から始めるか迷う初心者へ、無料で貯める方法、クレカなし・スマホ中心の始め方、ゲーム案件の課金の考え方、買い物やサービス申込の選び方を公式情報で解説。経由忘れを防ぐ確認事項と最初の7日間プランもまとめます。', ['moppy-games','moppy-registration'], '自分に合う始め方が見つかったら'),
  ('moppy-registration', 'モッピーの登録方法｜招待コード・紹介リンクの使い方', '登録方法', 'REGISTRATION', 'モッピーに登録したい方へ、紹介リンクと招待コードJh7He170の使い方を公式案内に沿って解説。登録前の年齢・情報確認、紹介コードの入れ忘れ、特典の反映条件、登録後の確認と退会の疑問まで整理します。', ['moppy-earning','moppy-games'], '入力前に、紹介条件をもう一度確認'),
@@ -26,7 +26,7 @@ SEARCH_ARTICLES = [
  ('moppy-points-missing', 'モッピーでポイントが付かない？判定中・反映されない原因と対処法'),
  ('moppy-registration-trouble', 'モッピーに登録できない？メールが届かない・電話番号認証できない時の対処法'),
 ]
-MODIFIED_DATES = {'moppy-earning':'2026-09-16','moppy-registration':'2026-09-16'}
+MODIFIED_DATES = {'moppy-safety':'2026-09-16','moppy-earning':'2026-09-16','moppy-registration':'2026-09-16'}
 
 def write_both(path, text):
  for directory in (DOCS, DIST):
