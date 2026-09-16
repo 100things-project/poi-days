@@ -353,6 +353,12 @@ window.POI_DAYS_MEDIA = {
       "image": "visuals/way-game.webp"
     },
     {
+      "title": "モッピーは危険？怪しい？安全性・運営会社・注意点を公式情報で解説",
+      "href": "articles/moppy-safety.html",
+      "date": "2026-09-16",
+      "image": "visuals/way-service.webp"
+    },
+    {
       "title": "【2026年9月】モッピー紹介コードはどこ？入力方法・後付け・特典を解説",
       "href": "articles/moppy-referral-code.html",
       "date": "2026-09-12",
@@ -399,12 +405,6 @@ window.POI_DAYS_MEDIA = {
       "href": "articles/moppy-games.html",
       "date": "2026-09-08",
       "image": "visuals/way-game.webp"
-    },
-    {
-      "title": "モッピーは危険？怪しい？安全性・運営会社・注意点を公式情報で解説",
-      "href": "articles/moppy-safety.html",
-      "date": "2026-09-16",
-      "image": "visuals/way-service.webp"
     },
     {
       "title": "モッピーの評判・口コミ｜良い声と気になる声を整理",
