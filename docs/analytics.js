@@ -50,6 +50,17 @@
     });
   };
   const textOf = (el) => (el?.textContent || "").replace(/\s+/g, " ").trim().slice(0, 120);
+  const ctaLocationOf = (a) => {
+    const explicit = a.getAttribute("data-cta-location");
+    if (explicit) return explicit;
+    if (a.closest("#result")) return "diagnosis_result";
+    if (a.closest(".seo-cta")) return "article_bottom";
+    if (a.closest(".invite-campaign")) return "moppy_campaign";
+    if (a.closest(".invite-panel")) return "moppy_invite_panel";
+    if (a.closest(".hero")) return "moppy_hero";
+    if (a.closest("header")) return "header";
+    return "other";
+  };
 
   document.addEventListener("click", (event) => {
     const target = event.target instanceof Element ? event.target : null;
@@ -70,7 +81,7 @@
     };
 
     if (/invite\.php\?invite=/i.test(href)) {
-      send("invite_click", base);
+      send("invite_click", { ...base, cta_location: ctaLocationOf(a) });
     } else if (/pc\.moppy\.jp\/ad\/detail\.php/i.test(url?.href || "")) {
       send("moppy_offer_click", base);
     } else if (href.startsWith("#diagnosis") || /#diagnosis$/.test(url?.href || "")) {
