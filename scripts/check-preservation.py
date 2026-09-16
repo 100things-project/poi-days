@@ -14,12 +14,17 @@ MOPPY_GUIDES={
 # eight Moppy guides are generated from reviewed source definitions and are
 # validated independently by check.py/check-seo.py plus the reproducible-build
 # check. moppy.html may only change inside its explicit generated navigation
-# marker. sitemap may gain URLs but may not lose committed URLs.
+# marker. sitemap may gain URLs but may not lose committed URLs. analytics.js is
+# generated from content/analytics.js and checked byte-for-byte below.
 for path in paths:
-    if path in {'docs/index.html','docs/media-data.js','docs/articles/index.html','docs/moppy.html','docs/sitemap.xml'} or path in MOPPY_GUIDES:
+    if path in {'docs/index.html','docs/media-data.js','docs/articles/index.html','docs/moppy.html','docs/sitemap.xml','docs/analytics.js'} or path in MOPPY_GUIDES:
         continue
     old=subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT)
     assert (ROOT/path).read_bytes()==old, f'committed page/asset changed: {path}'
+
+analytics=(ROOT/'content/analytics.js').read_bytes()
+assert (ROOT/'docs/analytics.js').read_bytes()==analytics, 'docs analytics differs from reviewed source'
+assert (ROOT/'dist/analytics.js').read_bytes()==analytics, 'dist analytics differs from reviewed source'
 
 start='<!-- MOPPY ARTICLE NAV START -->'
 end='<!-- MOPPY ARTICLE NAV END -->'
@@ -50,4 +55,4 @@ assert old_urls <= new_urls, f'sitemap lost committed URLs: {sorted(old_urls-new
 
 for path in ('content/point-sites.json',):
     assert (ROOT/path).read_bytes()==subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT),path
-print('PASS: committed pages/assets preserved; reviewed generated Moppy guides/navigation allowed; sitemap retained all existing URLs')
+print('PASS: committed pages/assets preserved; reviewed generated Moppy guides/navigation/analytics allowed; sitemap retained all existing URLs')
