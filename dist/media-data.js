@@ -341,6 +341,12 @@ window.POI_DAYS_MEDIA = {
   ],
   "articles": [
     {
+      "title": "モッピーに登録できない？メールが届かない・電話番号認証できない時の対処法",
+      "href": "articles/moppy-registration-trouble.html",
+      "date": "2026-09-16",
+      "image": "visuals/way-spare.webp"
+    },
+    {
       "title": "モッピーでポイントが付かない？判定中・反映されない原因と対処法",
       "href": "articles/moppy-points-missing.html",
       "date": "2026-09-16",
