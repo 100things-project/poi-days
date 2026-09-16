@@ -14,7 +14,7 @@ u = urlsplit(BASE)
 assert u.scheme in ('http', 'https') and u.netloc and not u.query and not u.fragment
 ARTICLES = [
  ('moppy-safety', 'モッピーは危険？怪しい？安全性・運営会社・注意点を公式情報で解説', '安全性と危険性', 'SAFETY CHECK', 'モッピーは危険・怪しいのか気になる人へ、運営会社、プライバシーマーク、顔認証、個人情報、ポイント未反映、なりすまし、有料案件の注意点を公式情報で確認。安全性の判断材料と利用前に知りたいリスクを分けて解説します。', ['moppy-reviews','moppy-earning'], '安全性を確認したら、使い方を選ぶ'),
- ('moppy-reviews', 'モッピーの評判・口コミ｜良い評判と悪い評判を整理', '評判・口コミ', 'COMPARE', 'モッピーの評判が気になる方へ、実在する公開口コミを投稿時期とともに整理。空き時間の活用を評価する声と反映待ちへの不満を公平に紹介し、個人の感想と公式条件を分けて、自分に合う使い方を判断できます。', ['moppy-safety','moppy-registration'], '評判だけでなく、公式条件で判断'),
+ ('moppy-reviews', 'モッピーの評判・口コミ｜良い評判と悪い評判を整理', '評判・口コミ', 'COMPARE', 'モッピーの評判・口コミを2026年9月時点で確認。App Storeの全体評価と、みん評の公開口コミを分けて整理し、ポイント未反映・判定待ち・顔認証への不満と、利用者評価を公式情報と照合して解説します。', ['moppy-safety','moppy-registration'], '評判だけでなく、公式条件で判断'),
  ('moppy-earning', 'モッピーの稼ぎ方｜初心者が最初にやること', '初心者の稼ぎ方', 'START SMALL', 'モッピーで何から始めるか迷う初心者へ、無料で貯める方法、クレカなし・スマホ中心の始め方、ゲーム案件の課金の考え方、買い物やサービス申込の選び方を公式情報で解説。経由忘れを防ぐ確認事項と最初の7日間プランもまとめます。', ['moppy-games','moppy-registration'], '自分に合う始め方が見つかったら'),
  ('moppy-registration', 'モッピーの登録方法｜招待コード・紹介リンクの使い方', '登録方法', 'REGISTRATION', 'モッピーに登録したい方へ、紹介リンクと招待コードJh7He170の使い方を公式案内に沿って解説。登録前の年齢・情報確認、紹介コードの入れ忘れ、特典の反映条件、登録後の確認と退会の疑問まで整理します。', ['moppy-earning','moppy-games'], '入力前に、紹介条件をもう一度確認'),
  ('moppy-games', 'モッピーのゲーム案件｜初心者向けの選び方・注意点', 'ゲーム案件', 'PLAY WISELY', 'モッピーのゲーム案件を始めたい初心者へ、OS・達成条件・期限・課金・判定条件の5項目を解説。開始前の記録、再インストールや機種変更の注意、未反映時の確認手順を整理し、報酬額だけに頼らない選び方を紹介します。', ['moppy-earning','moppy-registration'], 'インストール前に、登録と条件を確認'),
@@ -26,7 +26,7 @@ SEARCH_ARTICLES = [
  ('moppy-points-missing', 'モッピーでポイントが付かない？判定中・反映されない原因と対処法'),
  ('moppy-registration-trouble', 'モッピーに登録できない？メールが届かない・電話番号認証できない時の対処法'),
 ]
-MODIFIED_DATES = {'moppy-safety':'2026-09-16','moppy-earning':'2026-09-16','moppy-registration':'2026-09-16'}
+MODIFIED_DATES = {'moppy-safety':'2026-09-16','moppy-reviews':'2026-09-16','moppy-earning':'2026-09-16','moppy-registration':'2026-09-16'}
 LEGACY_GATEWAY_LABELS = {
  'moppy-safety':'モッピーとは？怪しい？安全性・仕組みを初心者向けに解説',
  'moppy-registration':'モッピーの登録方法｜招待コード・紹介リンクの使い方',
