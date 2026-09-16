@@ -17,8 +17,13 @@ ROUTES={
   ('moppy-pros-cons','メリット・デメリットを見る'),
  ],
  'moppy-registration':[
+  ('moppy-registration-trouble','登録できないときの対処法を見る'),
   ('moppy-referral-code','紹介コードを入れる場所を確認'),
-  ('moppy-september-campaign','今月の入会特典を確認'),
+  ('moppy-safety','登録前に安全性を確認'),
+ ],
+ 'moppy-registration-trouble':[
+  ('moppy-registration','通常の登録手順を確認'),
+  ('moppy-referral-code','紹介コードの入力場所を確認'),
   ('moppy-safety','登録前に安全性を確認'),
  ],
  'moppy-safety':[
@@ -65,4 +70,4 @@ for root in (DOCS,DIST):
    raise SystemExit(f'seo-next section not found exactly once: {path}')
   path.write_text(text,encoding='utf-8')
 
-print('Moppy internal journey built: 9 guides linked by search intent')
+print('Moppy internal journey built: 10 guides linked by search intent')

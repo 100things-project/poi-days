@@ -9,6 +9,7 @@ ARTICLES=[
  ('moppy-september-campaign','【2026年9月】モッピー新規登録キャンペーン｜入会特典と条件を解説','9月キャンペーン','SEPTEMBER 2026','2026年9月のモッピー友達紹介・新規登録キャンペーンを解説。紹介された人の30P、条件付き2,000P特典、5,000Pの対象者を整理。期間、達成条件、付与時期、登録前の注意点まで公式情報をもとに確認できます。','2026-09-12'),
  ('moppy-pros-cons','モッピーのメリット・デメリット｜登録前に知りたい注意点','メリット・デメリット','BEFORE YOU JOIN','モッピーのメリットとデメリットを公式情報をもとに整理。1P=1円、貯め方や交換先の幅、案件条件、ポイント有効期限など登録前の注意点を解説。向いている人・向いていない人も比較し、登録前の判断材料をまとめます。','2026-09-12'),
  ('moppy-points-missing','モッピーでポイントが付かない？判定中・反映されない原因と対処法','ポイントが付かない','CHECK STATUS','モッピーのポイントが付かない、判定中に反映されない、判定中のまま動かないときの確認手順を公式情報で解説。予定反映・確定反映の違い、ゲームやアプリ案件の注意、問い合わせる目安まで整理します。','2026-09-16'),
+ ('moppy-registration-trouble','モッピーに登録できない？メールが届かない・電話番号認証できない時の対処法','登録できない','SIGNUP HELP','モッピーに登録できない、仮登録メールが届かない、電話番号認証が進まないときの確認手順を公式ヘルプで解説。迷惑メール設定、使えないメールドメイン、電話番号が登録済みと表示される場合、問い合わせ前に確認する項目まで整理します。','2026-09-16'),
 ]
 def write_both(rel,text):
  for root in (DOCS,DIST):
@@ -20,6 +21,7 @@ def main():
   'moppy-september-campaign':[('moppy-referral-code','紹介コードの入力方法'),('moppy-registration','モッピーの登録方法')],
   'moppy-pros-cons':[('moppy-safety','モッピーの安全性'),('moppy-earning','初心者向けの稼ぎ方')],
   'moppy-points-missing':[('moppy-games','ゲーム案件の未反映を防ぐ確認'),('moppy-earning','初心者向けの稼ぎ方'),('moppy-registration','登録方法を確認')],
+  'moppy-registration-trouble':[('moppy-registration','通常の登録手順を確認'),('moppy-referral-code','紹介コードの入力場所を確認'),('moppy-safety','登録前に安全性を確認')],
  }
  for slug,title,short,label,desc,date in ARTICLES:
   body=(ROOT/'content/seo'/f'{slug}.html').read_text(encoding='utf-8')
@@ -41,5 +43,5 @@ def main():
   page=page.replace(marker,'<script type="application/ld+json" data-poidays-schema>'+json.dumps(schema,ensure_ascii=False,separators=(',',':'))+'</script>'+marker)
   page=page.replace('../index.html','../')
   write_both('articles/'+slug+'.html',page)
- print('Moppy search cluster built: referral code, September campaign, pros/cons, missing points')
+ print('Moppy search cluster built: referral code, September campaign, pros/cons, missing points, registration trouble')
 if __name__=='__main__':main()
