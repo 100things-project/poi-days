@@ -27,6 +27,11 @@ SEARCH_ARTICLES = [
  ('moppy-registration-trouble', 'モッピーに登録できない？メールが届かない・電話番号認証できない時の対処法'),
 ]
 MODIFIED_DATES = {'moppy-safety':'2026-09-16','moppy-earning':'2026-09-16','moppy-registration':'2026-09-16'}
+LEGACY_GATEWAY_LABELS = {
+ 'moppy-safety':'モッピーとは？怪しい？安全性・仕組みを初心者向けに解説',
+ 'moppy-registration':'モッピーの登録方法｜招待コード・紹介リンクの使い方',
+ 'moppy-earning':'モッピーの稼ぎ方｜初心者が最初にやること',
+}
 
 def write_both(path, text):
  for directory in (DOCS, DIST):
@@ -94,7 +99,8 @@ def main():
  for old,new in gateways.items():
   page=(DOCS/'articles'/f'{old}.html').read_text()
   page=re.sub(r'<!-- SEO gateway -->.*?<!-- /SEO gateway -->','',page,flags=re.S)
-  gateway=f'<!-- SEO gateway --><section><h2>もう少し詳しく知りたい方へ</h2><p><a href="{new}.html">{titles[new]} →</a></p><p><a href="index.html">記事・特集一覧から選ぶ →</a></p></section><!-- /SEO gateway -->'
+  label=LEGACY_GATEWAY_LABELS[new]
+  gateway=f'<!-- SEO gateway --><section><h2>もう少し詳しく知りたい方へ</h2><p><a href="{new}.html">{label} →</a></p><p><a href="index.html">記事・特集一覧から選ぶ →</a></p></section><!-- /SEO gateway -->'
   page=page.replace('</main>',gateway+'</main>')
   write_both('articles/'+old+'.html',page)
  paths=[]
