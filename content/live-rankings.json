@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-16T08:28:42+09:00",
+  "generatedAt": "2026-09-17T08:35:59+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,8 +9,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-09-16T08:28:43+09:00",
-      "checkedAt": "2026-09-16",
+      "fetchedAt": "2026-09-17T08:36:01+09:00",
+      "checkedAt": "2026-09-17",
       "items": [
         {
           "rank": 1,
@@ -19,43 +19,43 @@
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-16"
+          "checkedAt": "2026-09-17"
         },
         {
           "rank": 2,
-          "title": "※合計最大80,800円相当※【三井住友銀行】Olive口座開設",
-          "rewardText": "4,400P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=155058&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-09-16"
-        },
-        {
-          "rank": 3,
           "title": "※超高還元12,000P※楽天銀行 口座開設",
           "rewardText": "1,500P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-16"
+          "checkedAt": "2026-09-17"
+        },
+        {
+          "rank": 3,
+          "title": "預金連動型住宅ローン（東京スター銀行）",
+          "rewardText": "120,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161612&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-17"
         },
         {
           "rank": 4,
-          "title": "三菱UFJ eスマート証券（旧：auカブコム証券）",
-          "rewardText": "6,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=147395&track_ref=car",
+          "title": "※9/17まで高還元※GMOあおぞらネット銀行【法人口座開設】",
+          "rewardText": "22,100P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=142953&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-16"
+          "checkedAt": "2026-09-17"
         },
         {
           "rank": 5,
-          "title": "三井住友カード ビジネスオーナーズゴールド（カード発行）",
-          "rewardText": "24,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161166&track_ref=car",
+          "title": "SBI証券 こども口座",
+          "rewardText": "9,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-16"
+          "checkedAt": "2026-09-17"
         }
       ]
     },
@@ -114,7 +114,7 @@
           "checkedAt": "2026-09-11"
         }
       ],
-      "lastErrorAt": "2026-09-16T08:28:44+09:00",
+      "lastErrorAt": "2026-09-17T08:36:02+09:00",
       "lastError": "ranking list is loaded dynamically; public HTML has no verifiable top five"
     },
     "warau": {
@@ -123,8 +123,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
-      "fetchedAt": "2026-09-16T08:28:45+09:00",
-      "checkedAt": "2026-09-16",
+      "fetchedAt": "2026-09-17T08:36:03+09:00",
+      "checkedAt": "2026-09-17",
       "items": [
         {
           "rank": 1,
@@ -133,7 +133,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-16"
+          "checkedAt": "2026-09-17"
         },
         {
           "rank": 2,
@@ -142,7 +142,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-16"
+          "checkedAt": "2026-09-17"
         },
         {
           "rank": 3,
@@ -151,25 +151,25 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-16"
+          "checkedAt": "2026-09-17"
         },
         {
           "rank": 4,
+          "title": "楽天証券（口座開設）",
+          "rewardText": "8,000pt",
+          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=197793&pl=pc_rnkngPg_all",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-17"
+        },
+        {
+          "rank": 5,
           "title": "マネックス証券（1取引完了）",
           "rewardText": "12,000pt",
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=204239&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-16"
-        },
-        {
-          "rank": 5,
-          "title": "みずほ銀行 口座開設",
-          "rewardText": "6,300pt",
-          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=202704&pl=pc_rnkngPg_all",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-09-16"
+          "checkedAt": "2026-09-17"
         }
       ]
     },
@@ -228,7 +228,7 @@
           "checkedAt": "2026-09-10"
         }
       ],
-      "lastErrorAt": "2026-09-16T08:28:46+09:00",
+      "lastErrorAt": "2026-09-17T08:36:03+09:00",
       "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/shopping/"
     }
   }

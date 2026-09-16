@@ -25,20 +25,9 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "13,000P",
-        "checkedAt": "2026-09-16",
+        "checkedAt": "2026-09-17",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "※合計最大80,800円相当※【三井住友銀行】Olive口座開設",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "4,400P",
-        "checkedAt": "2026-09-16",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=155058&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=155058&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
@@ -47,31 +36,42 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1,500P",
-        "checkedAt": "2026-09-16",
+        "checkedAt": "2026-09-17",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "三菱UFJ eスマート証券（旧：auカブコム証券）",
+        "title": "預金連動型住宅ローン（東京スター銀行）",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "6,000P",
-        "checkedAt": "2026-09-16",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=147395&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=147395&track_ref=car",
+        "rewardText": "120,000P",
+        "checkedAt": "2026-09-17",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161612&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=161612&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "三井住友カード ビジネスオーナーズゴールド（カード発行）",
+        "title": "※9/17まで高還元※GMOあおぞらネット銀行【法人口座開設】",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "24,000P",
-        "checkedAt": "2026-09-16",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161166&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=161166&track_ref=car",
+        "rewardText": "22,100P",
+        "checkedAt": "2026-09-17",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=142953&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=142953&track_ref=car",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "SBI証券 こども口座",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "9,000P",
+        "checkedAt": "2026-09-17",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
         "image": "visuals/about.svg"
       }
     ],
@@ -139,7 +139,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-16",
+        "checkedAt": "2026-09-17",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -150,7 +150,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-16",
+        "checkedAt": "2026-09-17",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -161,9 +161,20 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "4,000pt",
-        "checkedAt": "2026-09-16",
+        "checkedAt": "2026-09-17",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "楽天証券（口座開設）",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "8,000pt",
+        "checkedAt": "2026-09-17",
+        "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=197793&pl=pc_rnkngPg_all",
+        "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=197793&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
       },
       {
@@ -172,20 +183,9 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "12,000pt",
-        "checkedAt": "2026-09-16",
+        "checkedAt": "2026-09-17",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=204239&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=204239&pl=pc_rnkngPg_all",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "みずほ銀行 口座開設",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "6,300pt",
-        "checkedAt": "2026-09-16",
-        "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=202704&pl=pc_rnkngPg_all",
-        "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=202704&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
       }
     ],
@@ -417,7 +417,7 @@ window.POI_DAYS_MEDIA = {
     "moppy": {
       "status": "ok",
       "stale": false,
-      "checkedAt": "2026-09-16",
+      "checkedAt": "2026-09-17",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
@@ -429,7 +429,7 @@ window.POI_DAYS_MEDIA = {
     "warau": {
       "status": "ok",
       "stale": false,
-      "checkedAt": "2026-09-16",
+      "checkedAt": "2026-09-17",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
@@ -440,11 +440,11 @@ window.POI_DAYS_MEDIA = {
     }
   },
   "recommendation": {
-    "siteId": "warau",
-    "siteName": "ワラウ",
-    "title": "楽天市場",
-    "rewardText": "1%",
-    "checkedAt": "2026-09-16",
-    "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all"
+    "siteId": "moppy",
+    "siteName": "モッピー",
+    "title": "※今月でキャンペーン終了※【合計最大43,000円相当プレゼント中】三菱ＵＦＪカード",
+    "rewardText": "13,000P",
+    "checkedAt": "2026-09-17",
+    "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car"
   }
 };
