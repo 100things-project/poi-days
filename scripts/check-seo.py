@@ -49,11 +49,15 @@ for p in sorted((ROOT/'docs/articles').glob('moppy-*.html')):
  print(p.name, 'description:',len(description),'h1:1; sources/date/PR/links:PASS')
 assert len(titles)>=5 and len(titles)==len(set(titles)) and len(descriptions)==len(set(descriptions))
 baseline='4d204a1'
-for path in ['docs/style.css','docs/visuals.css','docs/visuals-base.css','docs/enrichment.css','docs/app.js','docs/analytics.js','docs/hero-photo.jpeg','docs/google988181a833d31a3a.html']:
+for path in ['docs/style.css','docs/visuals.css','docs/visuals-base.css','docs/enrichment.css','docs/app.js','docs/hero-photo.jpeg','docs/google988181a833d31a3a.html']:
  original=subprocess.check_output(['git','show',f'{baseline}:{path}'],cwd=ROOT)
  assert original==(ROOT/path).read_bytes(),path
+analytics=(ROOT/'content/analytics.js').read_bytes()
+assert b'cta_location' in analytics, 'CTA location tracking missing from reviewed analytics source'
+assert analytics==(ROOT/'docs/analytics.js').read_bytes(), 'docs analytics differs from reviewed source'
+assert analytics==(ROOT/'dist/analytics.js').read_bytes(), 'dist analytics differs from reviewed source'
 urls=[n.text for n in ET.parse(ROOT/'docs/sitemap.xml').findall('.//{*}loc')]
 assert len(urls)==len(set(urls)) and len(urls)>=22
 assert not any(x.endswith(('/qa-preview.html','/articles/safety.html','/articles/registration.html')) for x in urls)
 assert {p.relative_to(ROOT/'docs') for p in (ROOT/'docs').rglob('*') if p.is_file()}=={p.relative_to(ROOT/'dist') for p in (ROOT/'dist').rglob('*') if p.is_file()}
-print('PASS: unique metadata, three-link Moppy journeys, article/schema dates aligned, specified referral, baseline shared assets/verification retained; dist/docs file inventory matches')
+print('PASS: unique metadata, three-link Moppy journeys, article/schema dates aligned, specified referral, baseline shared assets/verification retained, reviewed analytics synchronized; dist/docs file inventory matches')
