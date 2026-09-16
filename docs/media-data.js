@@ -401,9 +401,9 @@ window.POI_DAYS_MEDIA = {
       "image": "visuals/way-game.webp"
     },
     {
-      "title": "モッピーとは？安全性と仕組みをやさしく解説",
+      "title": "モッピーは危険？怪しい？安全性・運営会社・注意点を公式情報で解説",
       "href": "articles/moppy-safety.html",
-      "date": "2026-09-08",
+      "date": "2026-09-16",
       "image": "visuals/way-service.webp"
     },
     {
