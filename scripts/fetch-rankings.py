@@ -22,6 +22,10 @@ OUT = ROOT / "content" / "live-rankings.json"
 TIMEOUT = 15
 JST = ZoneInfo("Asia/Tokyo")
 USER_AGENT = "POI-DAYS-RankingBot/1.0 (+https://100things-project.github.io/poi-days/)"
+BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+)
 
 SOURCES = {
     "moppy": {
@@ -49,6 +53,8 @@ SOURCES = {
     "chobirich": {
         "name": "ちょびリッチ",
         "url": "https://www.chobirich.com/shopping/",
+        "fetch_url": "https://www.chobirich.com/shopping",
+        "request_user_agent": BROWSER_USER_AGENT,
         "marker": "みんなのランキング",
         "stop": ["今月のキャンペーン情報"],
         "href_hints": ["/ad/", "/shopping/", "/earning/"],
@@ -81,8 +87,8 @@ def load_previous() -> dict:
         return {"version": 1, "timezone": "Asia/Tokyo", "sites": {}}
 
 
-def fetch_html(url: str, *, extra_headers=None, session=None) -> str:
-    return fetch_public(url, USER_AGENT, TIMEOUT, minimum=500,
+def fetch_html(url: str, *, extra_headers=None, session=None, user_agent=None) -> str:
+    return fetch_public(url, user_agent or USER_AGENT, TIMEOUT, minimum=500,
                         extra_headers=extra_headers, session=session)
 
 
@@ -103,15 +109,17 @@ def ranking_html(html: str, source: dict, *, session=None) -> str:
             matches.append(href)
     if len(set(matches)) != 1:
         raise RuntimeError('verified public shopping-ranking endpoint missing or ambiguous')
+    current_url = source.get('fetch_url', source['url'])
     return fetch_html(
         matches[0],
         session=session,
+        user_agent=source.get('request_user_agent'),
         extra_headers={
             'Accept': 'text/html, */*;q=0.9',
-            'Referer': source['url'],
+            'Referer': current_url,
             'HX-Request': 'true',
             'HX-Target': 'ShopRankingResponse',
-            'HX-Current-URL': source['url'],
+            'HX-Current-URL': current_url,
             'X-Requested-With': 'XMLHttpRequest',
         },
     )
@@ -184,15 +192,28 @@ def parse_hapitas_rows(soup: BeautifulSoup, source: dict) -> list[dict]:
         if not anchor_text:
             image = anchor.find('img', alt=True)
             anchor_text = image.get('alt', '').strip() if image else ''
-        title = REWARD_RE.sub('', anchor_text.replace('％', '%')).strip()
+
+        normalized = anchor_text.replace('％', '%')
+        matches = list(REWARD_RE.finditer(normalized))
+        reward = None
+        title = normalized
+        if matches:
+            current = matches[-1]
+            reward = SPACE_RE.sub('', current.group(0))
+            title = normalized[:current.start()] + normalized[current.end():]
+        else:
+            parent = anchor.parent
+            depth = 0
+            while reward is None and isinstance(parent, Tag) and depth < 4:
+                parent_rewards = REWARD_RE.findall(text(parent).replace('％', '%'))
+                if parent_rewards:
+                    reward = SPACE_RE.sub('', parent_rewards[-1])
+                parent = parent.parent
+                depth += 1
+
+        expected_rank = len(rows) + 1
+        title = re.sub(rf'^\s*{expected_rank}\s+(?=\S)', '', title, count=1)
         title = SPACE_RE.sub(' ', title).strip(' -｜|:：')
-        reward = reward_text(anchor_text)
-        parent = anchor.parent
-        depth = 0
-        while reward is None and isinstance(parent, Tag) and depth < 4:
-            reward = reward_text(text(parent))
-            parent = parent.parent
-            depth += 1
         if not title or not reward:
             continue
         seen.add(href)
@@ -263,7 +284,17 @@ def main() -> int:
         session = requests.Session() if site_id == 'chobirich' else None
         try:
             fetch_url = source.get('fetch_url', source['url'])
-            html = fetch_html(fetch_url, session=session)
+            parent_headers = None
+            if site_id == 'chobirich':
+                parent_headers = {
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                }
+            html = fetch_html(
+                fetch_url,
+                session=session,
+                user_agent=source.get('request_user_agent'),
+                extra_headers=parent_headers,
+            )
             html = ranking_html(html, source, session=session)
             rows = parse_rows(html, source)
             validate(rows, source)

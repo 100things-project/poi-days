@@ -18,7 +18,9 @@ for site_id,source in mod.SOURCES.items():
  for i in range(1,6):
   reward=f'{i}.5%' if i==1 else f'{i*1000:,}pt'
   if site_id=='moppy':rows.append(f'<li><a class="block__link" href="{hrefs[site_id].format(i=i)}"><h2 class="a-list__item__title">案件{i}</h2><em class="a-list__item__point">{reward}</em></a></li>')
-  elif site_id=='hapitas':rows.append(f'<li><span>{i}</span><a href="{hrefs[site_id].format(i=i)}">案件{i}</a><span>{reward}</span></li>')
+  elif site_id=='hapitas':
+   label=f'【最大9,500pt】案件{i}' if i==3 else f'案件{i}'
+   rows.append(f'<li><a href="{hrefs[site_id].format(i=i)}">{i} {label} {reward}</a></li>')
   elif site_id=='warau':rows.append(f'<li><a class="sw-AfListCarousel_AdListLink" href="{hrefs[site_id].format(i=i)}"><h3 class="sw-AfListCarousel_ListSpecTitle">案件{i}</h3><p class="ranking-AfListItem_Pt">{reward}</p><div class="sw-AfListItem_BeforePt">999pt</div></a></li>')
   elif site_id=='chobirich':rows.append(f'<li class="CommonRankingBox__item"><a class="CommonRankingBox__itemInner" href="{hrefs[site_id].format(i=i)}"><p class="CommonRankingBox__itemName">案件{i}</p><p class="CommonRankingBox__itemPt">{reward.replace(chr(37),chr(65285))}</p></a></li>')
   else:rows.append(f'<li><a href="{hrefs[site_id].format(i=i)}">案件{i}</a><span>{reward}</span></li>')
@@ -33,6 +35,9 @@ for site_id,source in mod.SOURCES.items():
  assert parsed[0]['rewardText']=='1.5%',(site_id,parsed[0])
  assert parsed[4]['rank']==5
  if site_id in ('moppy','warau'):assert parsed[1]['rewardText']=='2,000pt',parsed[1]
+ if site_id=='hapitas':
+  assert parsed[2]['title']=='【最大9,500pt】案件3',parsed[2]
+  assert parsed[2]['rewardText']=='3,000pt',parsed[2]
  assert all('999' not in r['rewardText'] for r in parsed)
 
 # Hapitas must stay inside the ranking section and accept only official item-detail links.
@@ -76,10 +81,15 @@ with patch.object(mod,'fetch_html',return_value=html) as get:
  assert get.call_args.kwargs['session'] is session
  assert get.call_args.kwargs['extra_headers']['HX-Request']=='true'
  assert get.call_args.kwargs['extra_headers']['HX-Target']=='ShopRankingResponse'
- assert get.call_args.kwargs['extra_headers']['Referer']==mod.SOURCES['chobirich']['url']
+ assert get.call_args.kwargs['extra_headers']['Referer']==mod.SOURCES['chobirich']['fetch_url']
+ assert get.call_args.kwargs['user_agent']==mod.SOURCES['chobirich']['request_user_agent']
 with patch.object(mod,'fetch_html',side_effect=AssertionError('unsafe request')):
  for unsafe in (parent.replace('www.chobirich.com','evil.test'),parent.replace('SPShopping_ranking','OtherRanking'),'<div id="ShopRankingResponse"></div>'):
   try:mod.ranking_html(unsafe,mod.SOURCES['chobirich'])
   except RuntimeError:pass
   else:raise AssertionError('unverified endpoint accepted')
 print('PASS: public shopping endpoint discovery, one request, fail closed on source changes')
+
+# Chobirich parent request uses the canonical browser-facing URL without the trailing-slash edge path.
+assert mod.SOURCES['chobirich']['fetch_url']=='https://www.chobirich.com/shopping'
+assert mod.SOURCES['chobirich']['request_user_agent'].startswith('Mozilla/5.0')
