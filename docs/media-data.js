@@ -77,7 +77,7 @@ window.POI_DAYS_MEDIA = {
     ],
     "hapitas": [
       {
-        "title": "1 【最大60,500円相当】三菱ＵＦＪ銀行 口座開設",
+        "title": "【最大60,500円相当】三菱ＵＦＪ銀行 口座開設",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
@@ -88,7 +88,7 @@ window.POI_DAYS_MEDIA = {
         "image": "visuals/about.svg"
       },
       {
-        "title": "2 ※今月でキャンペーン終了※【合計最大43,000円相当プレゼント中】三菱ＵＦＪカード",
+        "title": "※今月でキャンペーン終了※【合計最大43,000円相当プレゼント中】三菱ＵＦＪカード",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
@@ -99,18 +99,18 @@ window.POI_DAYS_MEDIA = {
         "image": "visuals/about.svg"
       },
       {
-        "title": "3 【最大】楽天銀行 口座開設",
+        "title": "【最大9,500pt】楽天銀行 口座開設",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "9,500pt / 1,500pt",
+        "rewardText": "1,500pt",
         "checkedAt": "2026-09-18",
         "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
         "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
         "image": "visuals/about.svg"
       },
       {
-        "title": "4 SBI証券（新規口座開設+50,000円以上入金）",
+        "title": "SBI証券（新規口座開設+50,000円以上入金）",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
@@ -121,7 +121,7 @@ window.POI_DAYS_MEDIA = {
         "image": "visuals/about.svg"
       },
       {
-        "title": "5 楽天証券",
+        "title": "楽天証券",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
