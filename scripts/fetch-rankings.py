@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import urljoin, urlparse, parse_qs
+from urllib.parse import urljoin, urlparse, parse_qs, urlencode
 from zoneinfo import ZoneInfo
 import json
 import re
@@ -54,6 +54,12 @@ SOURCES = {
         "name": "ちょびリッチ",
         "url": "https://www.chobirich.com/shopping/",
         "fetch_url": "https://www.chobirich.com/shopping",
+        "ranking_url": "https://www.chobirich.com/logreco/ranking?" + urlencode({
+            "logreco[response_number]": "15",
+            "logreco[method_type]": "2",
+            "logreco[spot_name]": "SPShopping_ranking",
+            "logreco[category1]": "お買い物で貯める",
+        }),
         "request_user_agent": BROWSER_USER_AGENT,
         "marker": "みんなのランキング",
         "stop": ["今月のキャンペーン情報"],
@@ -92,26 +98,29 @@ def fetch_html(url: str, *, extra_headers=None, session=None, user_agent=None) -
                         extra_headers=extra_headers, session=session)
 
 
-def ranking_html(html: str, source: dict, *, session=None) -> str:
-    """Follow only the shopping-ranking URL explicitly advertised by the page."""
-    if source['name'] != 'ちょびリッチ':
-        return html
-    soup = BeautifulSoup(html, 'html.parser')
-    matches = []
-    for node in soup.select('[hx-get][hx-target="#ShopRankingResponse"]'):
-        href = urljoin(source['url'], node['hx-get'])
-        parsed = urlparse(href)
-        query = parse_qs(parsed.query)
-        expected = {'logreco[response_number]':['15'], 'logreco[method_type]':['2'],
-                    'logreco[spot_name]':['SPShopping_ranking'],
-                    'logreco[category1]':['お買い物で貯める']}
-        if official_url(source['url'], href) and parsed.path == '/logreco/ranking' and query == expected:
-            matches.append(href)
-    if len(set(matches)) != 1:
-        raise RuntimeError('verified public shopping-ranking endpoint missing or ambiguous')
+def chobirich_ranking_url(source: dict) -> str:
+    """Return the one public ranking fragment URL whose path/query are explicitly allowlisted."""
+    href = source.get('ranking_url', '')
+    parsed = urlparse(href)
+    query = parse_qs(parsed.query)
+    expected = {
+        'logreco[response_number]': ['15'],
+        'logreco[method_type]': ['2'],
+        'logreco[spot_name]': ['SPShopping_ranking'],
+        'logreco[category1]': ['お買い物で貯める'],
+    }
+    if not official_url(source['url'], href):
+        raise RuntimeError('unsafe Chobirich ranking URL')
+    if parsed.path != '/logreco/ranking' or query != expected:
+        raise RuntimeError('unexpected Chobirich ranking endpoint')
+    return href
+
+
+def fetch_chobirich_ranking(source: dict, *, session=None) -> str:
+    """Fetch the public HTMX ranking fragment directly; the parent page blocks datacenter IPs."""
     current_url = source.get('fetch_url', source['url'])
     return fetch_html(
-        matches[0],
+        chobirich_ranking_url(source),
         session=session,
         user_agent=source.get('request_user_agent'),
         extra_headers={
@@ -283,19 +292,15 @@ def main() -> int:
     for site_id, source in SOURCES.items():
         session = requests.Session() if site_id == 'chobirich' else None
         try:
-            fetch_url = source.get('fetch_url', source['url'])
-            parent_headers = None
             if site_id == 'chobirich':
-                parent_headers = {
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-                }
-            html = fetch_html(
-                fetch_url,
-                session=session,
-                user_agent=source.get('request_user_agent'),
-                extra_headers=parent_headers,
-            )
-            html = ranking_html(html, source, session=session)
+                html = fetch_chobirich_ranking(source, session=session)
+            else:
+                fetch_url = source.get('fetch_url', source['url'])
+                html = fetch_html(
+                    fetch_url,
+                    session=session,
+                    user_agent=source.get('request_user_agent'),
+                )
             rows = parse_rows(html, source)
             validate(rows, source)
             output["sites"][site_id] = {
