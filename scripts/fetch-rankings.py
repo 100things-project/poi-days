@@ -34,8 +34,9 @@ SOURCES = {
     "hapitas": {
         "name": "ハピタス",
         "url": "https://hapitas.jp/ranking/",
+        "fetch_url": "https://hapitas.jp/?guest=true",
         "marker": "ランキング",
-        "stop": ["ショッピングでためる", "サービスでためる"],
+        "stop": ["ハピタスチャレンジ", "重要なお知らせ"],
         "href_hints": ["/item/detail/"],
     },
     "warau": {
@@ -80,11 +81,12 @@ def load_previous() -> dict:
         return {"version": 1, "timezone": "Asia/Tokyo", "sites": {}}
 
 
-def fetch_html(url: str) -> str:
-    return fetch_public(url, USER_AGENT, TIMEOUT, minimum=500)
+def fetch_html(url: str, *, extra_headers=None, session=None) -> str:
+    return fetch_public(url, USER_AGENT, TIMEOUT, minimum=500,
+                        extra_headers=extra_headers, session=session)
 
 
-def ranking_html(html: str, source: dict) -> str:
+def ranking_html(html: str, source: dict, *, session=None) -> str:
     """Follow only the shopping-ranking URL explicitly advertised by the page."""
     if source['name'] != 'ちょびリッチ':
         return html
@@ -101,7 +103,18 @@ def ranking_html(html: str, source: dict) -> str:
             matches.append(href)
     if len(set(matches)) != 1:
         raise RuntimeError('verified public shopping-ranking endpoint missing or ambiguous')
-    return fetch_html(matches[0])
+    return fetch_html(
+        matches[0],
+        session=session,
+        extra_headers={
+            'Accept': 'text/html, */*;q=0.9',
+            'Referer': source['url'],
+            'HX-Request': 'true',
+            'HX-Target': 'ShopRankingResponse',
+            'HX-Current-URL': source['url'],
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+    )
 
 
 def text(node: Tag) -> str:
@@ -157,8 +170,45 @@ def candidates_from_section(soup: BeautifulSoup, source: dict) -> list[Tag]:
     return anchors
 
 
+def parse_hapitas_rows(soup: BeautifulSoup, source: dict) -> list[dict]:
+    """Parse the first five official offer links in the homepage overall ranking section."""
+    rows = []
+    seen = set()
+    for anchor in candidates_from_section(soup, source):
+        href = urljoin(source['url'], anchor.get('href', ''))
+        if not any(hint in urlparse(href).path for hint in source['href_hints']):
+            continue
+        if not same_site(source['url'], href) or not href.startswith('https://') or href in seen:
+            continue
+        anchor_text = text(anchor)
+        if not anchor_text:
+            image = anchor.find('img', alt=True)
+            anchor_text = image.get('alt', '').strip() if image else ''
+        title = REWARD_RE.sub('', anchor_text.replace('％', '%')).strip()
+        title = SPACE_RE.sub(' ', title).strip(' -｜|:：')
+        reward = reward_text(anchor_text)
+        parent = anchor.parent
+        depth = 0
+        while reward is None and isinstance(parent, Tag) and depth < 4:
+            reward = reward_text(text(parent))
+            parent = parent.parent
+            depth += 1
+        if not title or not reward:
+            continue
+        seen.add(href)
+        rows.append({'rank': len(rows)+1, 'title': title, 'rewardText': reward,
+                     'sourceHref': href, 'sample': False, 'verified': True, 'checkedAt': today()})
+        if len(rows) == 5:
+            break
+    if len(rows) != 5:
+        raise RuntimeError(f'expected 5 Hapitas overall-ranking rows, got {len(rows)}')
+    return rows
+
+
 def parse_rows(html: str, source: dict) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
+    if source['name'] == 'ハピタス':
+        return parse_hapitas_rows(soup, source)
     # Only inspect the verified overall-ranking container. A generic ancestor
     # search can mix neighbouring offers, old rewards and advertising copy.
     selectors = {
@@ -210,8 +260,11 @@ def main() -> int:
     }
     failures = []
     for site_id, source in SOURCES.items():
+        session = requests.Session() if site_id == 'chobirich' else None
         try:
-            html = ranking_html(fetch_html(source["url"]), source)
+            fetch_url = source.get('fetch_url', source['url'])
+            html = fetch_html(fetch_url, session=session)
+            html = ranking_html(html, source, session=session)
             rows = parse_rows(html, source)
             validate(rows, source)
             output["sites"][site_id] = {
@@ -251,6 +304,9 @@ def main() -> int:
                     "lastError": str(exc)[:240],
                 }
                 print(f"{site_id}: UNAVAILABLE ({exc})")
+        finally:
+            if session is not None:
+                session.close()
     OUT.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("collector complete; failed sites:", ", ".join(failures) if failures else "none")
     return 0
