@@ -1,0 +1,26 @@
+name: tmp Chobirich macOS reachability
+
+on:
+  push:
+    branches: [fix/chobirich-direct-ranking-endpoint]
+
+permissions:
+  contents: read
+
+jobs:
+  chobirich:
+    runs-on: macos-latest
+    timeout-minutes: 5
+    steps:
+      - name: Test public ranking fragment
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://www.chobirich.com/logreco/ranking?logreco%5Bresponse_number%5D=15&logreco%5Bmethod_type%5D=2&logreco%5Bspot_name%5D=SPShopping_ranking&logreco%5Bcategory1%5D=%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E3%81%A7%E8%B2%AF%E3%82%81%E3%82%8B'
+          ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36'
+          code=$(curl --silent --show-error --location --output "$RUNNER_TEMP/chobi.html" --write-out '%{http_code}'             --user-agent "$ua"             --header 'Accept: text/html, */*;q=0.9'             --header 'Referer: https://www.chobirich.com/shopping'             --header 'HX-Request: true'             --header 'HX-Target: ShopRankingResponse'             --header 'HX-Current-URL: https://www.chobirich.com/shopping'             --header 'X-Requested-With: XMLHttpRequest'             "$url")
+          echo "HTTP=$code"
+          echo "BYTES=$(wc -c < "$RUNNER_TEMP/chobi.html" | tr -d ' ')"
+          grep -o 'CommonRankingBox__item' "$RUNNER_TEMP/chobi.html" | wc -l | awk '{print "RANKING_MARKERS="$1}'
+          test "$code" = 200
+          grep -q 'CommonRankingBox__item' "$RUNNER_TEMP/chobi.html"
