@@ -37,7 +37,7 @@ for kind in ('rankings', 'news'):
     with tempfile.TemporaryDirectory() as tmp, patch('requests.get', side_effect=AssertionError('network forbidden in offline test')):
         m.OUT = Path(tmp) / 'snapshot.json'
         for scenario in ('403', 'timeout', 'zero', 'structure'):
-            def response(*args):
+            def response(*args, **kwargs):
                 if scenario == '403':
                     raise requests.HTTPError('HTTP 403 fixture')
                 if scenario == 'timeout':
@@ -68,7 +68,7 @@ for kind in ('rankings', 'news'):
         else:
             fixture = '<div><a href="/notifications/detail/id/999">正常なお知らせのタイトル</a><div class="message_date">2026-09-10</div></div>'
             success = 'hapitas'
-        def isolated(url):
+        def isolated(url, **kwargs):
             if url == m.SOURCES[success]['url']:
                 return fixture
             raise requests.Timeout('isolated source failure')
@@ -111,4 +111,13 @@ with patch('requests.get', return_value=r) as get:
     else:
         raise AssertionError('cross-origin redirect accepted')
     assert get.call_count == 1
-print('PASS: bounded GET, no retry after denial/timeout, no cross-origin redirect')
+# Extra headers are restricted to the small public-fragment allowlist.
+ok=requests.Response();ok.status_code=200;ok._content=b'<html>' + b'x'*600 + b'</html>'
+with patch('requests.get', return_value=ok) as get:
+    fetch_public('https://example.com/public', 'offline-test', extra_headers={'HX-Request':'true'})
+    assert get.call_args.kwargs['headers']['HX-Request']=='true'
+with patch('requests.get', side_effect=AssertionError('unsafe header must fail before request')):
+    try:fetch_public('https://example.com/public', 'offline-test', extra_headers={'Authorization':'secret'})
+    except RuntimeError:pass
+    else:raise AssertionError('unsafe extra header accepted')
+print('PASS: bounded GET, no retry after denial/timeout, no cross-origin redirect, safe fragment headers')
