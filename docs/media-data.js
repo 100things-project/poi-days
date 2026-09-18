@@ -42,6 +42,17 @@ window.POI_DAYS_MEDIA = {
         "image": "visuals/about.svg"
       },
       {
+        "title": "※最大合計20,600円相当※楽天カード【最短10日でポイントGET】",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "10,000P",
+        "checkedAt": "2026-09-18",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=100822&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=100822&track_ref=car",
+        "image": "visuals/about.svg"
+      },
+      {
         "title": "GMOあおぞらネット銀行【法人口座開設】",
         "category": "公式ランキング",
         "sample": false,
@@ -53,82 +64,71 @@ window.POI_DAYS_MEDIA = {
         "image": "visuals/about.svg"
       },
       {
-        "title": "※還元超アップ中※みずほ銀行 法人口座",
+        "title": "※合計最大88,900円相当※【三井住友銀行】Olive口座開設",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "28,000P",
+        "rewardText": "4,400P",
         "checkedAt": "2026-09-18",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161933&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=161933&track_ref=car",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "楽天カード【最短10日でポイントGET】",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "10,000P",
-        "checkedAt": "2026-09-18",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=100822&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=100822&track_ref=car",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=155058&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=155058&track_ref=car",
         "image": "visuals/about.svg"
       }
     ],
     "hapitas": [
       {
-        "title": "【過去最高】三菱ＵＦＪカード【最大45,000円相当】",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "15,000pt",
-        "checkedAt": "2026-09-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/100868?apn=top_header",
-        "href": "https://hapitas.jp/item/detail/itemid/100868?apn=top_header",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "13日まで高還元！三菱ＵＦＪ銀行 口座開設【最大59,000円相当】",
+        "title": "1 【最大60,500円相当】三菱ＵＦＪ銀行 口座開設",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
         "rewardText": "4,000pt",
-        "checkedAt": "2026-09-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_6",
-        "href": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_6",
+        "checkedAt": "2026-09-18",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_1",
+        "href": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_1",
         "image": "visuals/about.svg"
       },
       {
-        "title": "【最大9,500pt】楽天銀行 口座開設",
+        "title": "2 ※今月でキャンペーン終了※【合計最大43,000円相当プレゼント中】三菱ＵＦＪカード",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "1,500pt",
-        "checkedAt": "2026-09-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_bank_6/page/1",
-        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_bank_6/page/1",
+        "rewardText": "13,000pt",
+        "checkedAt": "2026-09-18",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_2",
+        "href": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_2",
         "image": "visuals/about.svg"
       },
       {
-        "title": "楽天証券",
+        "title": "3 【最大】楽天銀行 口座開設",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "12,000pt",
-        "checkedAt": "2026-09-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1/page/1",
-        "href": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1/page/1",
+        "rewardText": "9,500pt / 1,500pt",
+        "checkedAt": "2026-09-18",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
+        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
         "image": "visuals/about.svg"
       },
       {
-        "title": "みずほ銀行「口座開設」",
+        "title": "4 SBI証券（新規口座開設+50,000円以上入金）",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "6,000pt",
-        "checkedAt": "2026-09-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/95341",
-        "href": "https://hapitas.jp/item/detail/itemid/95341",
+        "rewardText": "15,000pt",
+        "checkedAt": "2026-09-18",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_4",
+        "href": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_4",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "5 楽天証券",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "13,000pt",
+        "checkedAt": "2026-09-18",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_5",
+        "href": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_5",
         "image": "visuals/about.svg"
       }
     ],
@@ -421,9 +421,9 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
-      "status": "stale",
-      "stale": true,
-      "checkedAt": "2026-09-11",
+      "status": "ok",
+      "stale": false,
+      "checkedAt": "2026-09-18",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
