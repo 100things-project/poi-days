@@ -14,15 +14,11 @@ hrefs={
  'chobirich':'/ad_details/{i}',
 }
 for site_id,source in mod.SOURCES.items():
- if site_id == 'hapitas':
-  try:mod.parse_rows('<a href="/shopping/promo">宣伝案件 999pt</a>',source)
-  except RuntimeError:pass
-  else:raise AssertionError('unverified non-ranking must fail closed')
-  continue
  rows=[]
  for i in range(1,6):
   reward=f'{i}.5%' if i==1 else f'{i*1000:,}pt'
   if site_id=='moppy':rows.append(f'<li><a class="block__link" href="{hrefs[site_id].format(i=i)}"><h2 class="a-list__item__title">案件{i}</h2><em class="a-list__item__point">{reward}</em></a></li>')
+  elif site_id=='hapitas':rows.append(f'<li><span>{i}</span><a href="{hrefs[site_id].format(i=i)}">案件{i}</a><span>{reward}</span></li>')
   elif site_id=='warau':rows.append(f'<li><a class="sw-AfListCarousel_AdListLink" href="{hrefs[site_id].format(i=i)}"><h3 class="sw-AfListCarousel_ListSpecTitle">案件{i}</h3><p class="ranking-AfListItem_Pt">{reward}</p><div class="sw-AfListItem_BeforePt">999pt</div></a></li>')
   elif site_id=='chobirich':rows.append(f'<li class="CommonRankingBox__item"><a class="CommonRankingBox__itemInner" href="{hrefs[site_id].format(i=i)}"><p class="CommonRankingBox__itemName">案件{i}</p><p class="CommonRankingBox__itemPt">{reward.replace(chr(37),chr(65285))}</p></a></li>')
   else:rows.append(f'<li><a href="{hrefs[site_id].format(i=i)}">案件{i}</a><span>{reward}</span></li>')
@@ -38,6 +34,12 @@ for site_id,source in mod.SOURCES.items():
  assert parsed[4]['rank']==5
  if site_id in ('moppy','warau'):assert parsed[1]['rewardText']=='2,000pt',parsed[1]
  assert all('999' not in r['rewardText'] for r in parsed)
+
+# Hapitas must stay inside the ranking section and accept only official item-detail links.
+hapitas=mod.SOURCES['hapitas']
+try:mod.parse_rows('<h2>ランキング</h2><a href="/shopping/promo">宣伝案件 999pt</a><h2>ハピタスチャレンジ</h2>',hapitas)
+except RuntimeError:pass
+else:raise AssertionError('unverified Hapitas non-ranking offer must fail closed')
 
 snapshot=json.loads((ROOT/'content/live-rankings.json').read_text(encoding='utf-8'))
 assert snapshot['timezone']=='Asia/Tokyo'
@@ -67,9 +69,14 @@ query=urlencode({'logreco[response_number]':'15','logreco[method_type]':'2','log
 endpoint='https://www.chobirich.com/logreco/ranking?'+query
 parent=f'<button hx-get="{endpoint}" hx-target="#ShopRankingResponse">総合</button>'
 with patch.object(mod,'fetch_html',return_value=html) as get:
- result=mod.parse_rows(mod.ranking_html(parent,mod.SOURCES['chobirich']),mod.SOURCES['chobirich'])
+ session=object()
+ result=mod.parse_rows(mod.ranking_html(parent,mod.SOURCES['chobirich'],session=session),mod.SOURCES['chobirich'])
  mod.validate(result,mod.SOURCES['chobirich'])
  assert get.call_count==1 and get.call_args.args[0]==endpoint
+ assert get.call_args.kwargs['session'] is session
+ assert get.call_args.kwargs['extra_headers']['HX-Request']=='true'
+ assert get.call_args.kwargs['extra_headers']['HX-Target']=='ShopRankingResponse'
+ assert get.call_args.kwargs['extra_headers']['Referer']==mod.SOURCES['chobirich']['url']
 with patch.object(mod,'fetch_html',side_effect=AssertionError('unsafe request')):
  for unsafe in (parent.replace('www.chobirich.com','evil.test'),parent.replace('SPShopping_ranking','OtherRanking'),'<div id="ShopRankingResponse"></div>'):
   try:mod.ranking_html(unsafe,mod.SOURCES['chobirich'])
