@@ -1,0 +1,30 @@
+name: tmp Chobirich browser probe
+
+on:
+  push:
+    branches: [tmp/chobirich-sptop-probe]
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe with real Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          chrome=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)
+          echo "CHROME=$chrome"
+          test -n "$chrome"
+          "$chrome"             --headless=new             --no-sandbox             --disable-gpu             --disable-dev-shm-usage             --virtual-time-budget=10000             --dump-dom             'https://www.chobirich.com/shopping'             > "$RUNNER_TEMP/chobi-dom.html" 2>"$RUNNER_TEMP/chrome.err" || true
+          echo "DOM_BYTES=$(wc -c < "$RUNNER_TEMP/chobi-dom.html" | tr -d ' ')"
+          echo "RANKING_MARKERS=$(grep -o 'CommonRankingBox__item' "$RUNNER_TEMP/chobi-dom.html" | wc -l | tr -d ' ' || true)"
+          echo "FORBIDDEN_MARKERS=$(grep -oi '403 Forbidden' "$RUNNER_TEMP/chobi-dom.html" | wc -l | tr -d ' ' || true)"
+          echo "TITLE=$(grep -o '<title>[^<]*' "$RUNNER_TEMP/chobi-dom.html" | head -1 | sed 's/<title>//' || true)"
+          grep -n -m 3 'CommonRankingBox__item' "$RUNNER_TEMP/chobi-dom.html" || true
+          echo "--- chrome stderr tail ---"
+          tail -40 "$RUNNER_TEMP/chrome.err" || true
+          test "$(grep -o 'CommonRankingBox__item' "$RUNNER_TEMP/chobi-dom.html" | wc -l | tr -d ' ' || true)" -gt 0
