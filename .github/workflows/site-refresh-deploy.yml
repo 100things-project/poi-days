@@ -7,6 +7,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      chobirich_html:
+        description: 'Optional login-free Chobirich ranking fragment captured by an approved device'
+        required: false
+        default: ''
+        type: string
 
 permissions:
   contents: read
@@ -64,6 +70,7 @@ jobs:
       - name: Check collectors and publication guards offline
         run: |
           python scripts/check-rankings.py
+          python scripts/check-chobirich-device-import.py
           python scripts/check-news.py
           python scripts/check-collector-fallbacks.py
           python scripts/check-publication.py
@@ -74,6 +81,26 @@ jobs:
         run: |
           python scripts/fetch-rankings.py
           python scripts/fetch-news.py
+
+      - name: Import device-supplied Chobirich ranking
+        if: github.event_name == 'workflow_dispatch' && inputs.chobirich_html != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          event = json.loads(Path(os.environ['GITHUB_EVENT_PATH']).read_text(encoding='utf-8'))
+          value = (event.get('inputs') or {}).get('chobirich_html', '')
+          if not isinstance(value, str) or not value.strip():
+              raise SystemExit('missing Chobirich device payload')
+          target = Path(os.environ['RUNNER_TEMP']) / 'chobirich-ranking.html'
+          target.write_text(value, encoding='utf-8')
+          print(f'device payload saved: {target.stat().st_size} bytes')
+          PY
+          python scripts/import-chobirich-ranking.py "$RUNNER_TEMP/chobirich-ranking.html"
 
       - name: Build and validate before saving or publishing
         run: |
