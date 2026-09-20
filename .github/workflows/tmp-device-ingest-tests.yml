@@ -26,7 +26,8 @@ jobs:
           python scripts/check-collector-fallbacks.py
           python scripts/check-publication.py
       - name: Parse production workflow YAML
-        run: python - <<'PY'
+        run: |
+          python - <<'PY'
           from pathlib import Path
           import yaml
           data=yaml.safe_load(Path('.github/workflows/site-refresh-deploy.yml').read_text())
