@@ -24,7 +24,6 @@ jobs:
           python scripts/check-chobirich-device-import.py
           python scripts/check-news.py
           python scripts/check-collector-fallbacks.py
-          python scripts/check-publication.py
       - name: Parse production workflow YAML
         run: |
           python - <<'PY'
@@ -34,3 +33,7 @@ jobs:
           assert data
           print('PASS: production workflow YAML parses')
           PY
+      - name: Verify publication guard in production one-workflow shape
+        run: |
+          rm .github/workflows/tmp-device-ingest-tests.yml
+          python scripts/check-publication.py
