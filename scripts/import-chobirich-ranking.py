@@ -20,6 +20,7 @@ spec.loader.exec_module(ranking)
 
 MIN_BYTES = 500
 MAX_BYTES = 65_535
+SUPPORTED_ENCODINGS = ("utf-8", "cp932")
 
 
 def load_snapshot() -> dict:
@@ -31,14 +32,20 @@ def load_snapshot() -> dict:
     return data
 
 
-def import_fragment(path: Path) -> list[dict]:
-    raw = path.read_bytes()
+def decode_fragment(raw: bytes) -> tuple[str, str]:
     if not (MIN_BYTES <= len(raw) <= MAX_BYTES):
         raise RuntimeError(f"unexpected Chobirich fragment size: {len(raw)} bytes")
-    try:
-        html = raw.decode("utf-8")
-    except UnicodeDecodeError as exc:
-        raise RuntimeError("Chobirich fragment is not UTF-8") from exc
+    for encoding in SUPPORTED_ENCODINGS:
+        try:
+            return raw.decode(encoding), encoding
+        except UnicodeDecodeError:
+            pass
+    raise RuntimeError("Chobirich fragment is neither UTF-8 nor CP932/Shift_JIS")
+
+
+def import_fragment(path: Path) -> list[dict]:
+    raw = path.read_bytes()
+    html, encoding = decode_fragment(raw)
 
     source = ranking.SOURCES["chobirich"]
     rows = ranking.parse_rows(html, source)
@@ -55,6 +62,7 @@ def import_fragment(path: Path) -> list[dict]:
         "fetchedAt": ranking.iso_now(),
         "checkedAt": ranking.today(),
         "captureMethod": "device-public-fragment",
+        "captureEncoding": encoding,
         "items": rows,
     }
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

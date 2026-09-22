@@ -9,7 +9,12 @@ on:
   workflow_dispatch:
     inputs:
       chobirich_html:
-        description: 'Optional login-free Chobirich ranking fragment captured by an approved device'
+        description: 'Optional UTF-8 Chobirich ranking fragment captured by an approved device'
+        required: false
+        default: ''
+        type: string
+      chobirich_base64:
+        description: 'Optional Base64 raw Chobirich ranking fragment captured by an approved device'
         required: false
         default: ''
         type: string
@@ -83,22 +88,37 @@ jobs:
           python scripts/fetch-news.py
 
       - name: Import device-supplied Chobirich ranking
-        if: github.event_name == 'workflow_dispatch' && inputs.chobirich_html != ''
+        if: github.event_name == 'workflow_dispatch' && (inputs.chobirich_html != '' || inputs.chobirich_base64 != '')
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
+          import base64
+          import binascii
           import json
           import os
           from pathlib import Path
 
           event = json.loads(Path(os.environ['GITHUB_EVENT_PATH']).read_text(encoding='utf-8'))
-          value = (event.get('inputs') or {}).get('chobirich_html', '')
-          if not isinstance(value, str) or not value.strip():
-              raise SystemExit('missing Chobirich device payload')
+          inputs = event.get('inputs') or {}
+          html = inputs.get('chobirich_html', '')
+          encoded = inputs.get('chobirich_base64', '')
+          if not isinstance(html, str) or not isinstance(encoded, str):
+              raise SystemExit('invalid Chobirich device payload type')
+          if bool(html.strip()) == bool(encoded.strip()):
+              raise SystemExit('supply exactly one Chobirich device payload')
           target = Path(os.environ['RUNNER_TEMP']) / 'chobirich-ranking.html'
-          target.write_text(value, encoding='utf-8')
-          print(f'device payload saved: {target.stat().st_size} bytes')
+          if encoded.strip():
+              try:
+                  raw = base64.b64decode(encoded.strip(), validate=True)
+              except (binascii.Error, ValueError) as exc:
+                  raise SystemExit('invalid Base64 Chobirich device payload') from exc
+              target.write_bytes(raw)
+              mode = 'base64-raw'
+          else:
+              target.write_text(html, encoding='utf-8')
+              mode = 'utf8-text'
+          print(f'device payload saved: {target.stat().st_size} bytes ({mode})')
           PY
           python scripts/import-chobirich-ranking.py "$RUNNER_TEMP/chobirich-ranking.html"
 

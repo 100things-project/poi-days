@@ -16,7 +16,7 @@ def load(name, path):
 ranking = load("ranking_fetcher_for_device_test", ROOT / "scripts" / "fetch-rankings.py")
 ingest = load("ranking_device_ingest", ROOT / "scripts" / "import-chobirich-ranking.py")
 
-def fragment(duplicate=False, external=False):
+def fragment(duplicate=False, external=False, encoding="utf-8"):
     cards = []
     for i in range(1, 6):
         href = f"/ad_details/{1 if duplicate and i == 2 else i}"
@@ -30,7 +30,7 @@ def fragment(duplicate=False, external=False):
             '</a></li>'
         )
     padding = "<!--" + ("x" * 700) + "-->"
-    return (padding + '<ul class="CommonRankingBox">' + "".join(cards) + "</ul>").encode("utf-8")
+    return (padding + '<ul class="CommonRankingBox">' + "".join(cards) + "</ul>").encode(encoding)
 
 with TemporaryDirectory() as td:
     td = Path(td)
@@ -48,10 +48,20 @@ with TemporaryDirectory() as td:
     assert result["sites"]["chobirich"]["status"] == "ok"
     assert result["sites"]["chobirich"]["stale"] is False
     assert result["sites"]["chobirich"]["captureMethod"] == "device-public-fragment"
+    assert result["sites"]["chobirich"]["captureEncoding"] == "utf-8"
     assert result["sites"]["chobirich"]["items"][0]["title"] == "端末案件1"
     assert result["sites"]["chobirich"]["items"][4]["rewardText"] == "5%"
     for site_id, old in original_other.items():
         assert result["sites"][site_id] == old, site_id
+
+    cp932 = td / "cp932.html"
+    cp932.write_bytes(fragment(encoding="cp932"))
+    rows = ingest.import_fragment(cp932)
+    assert len(rows) == 5
+    result = json.loads(out.read_text(encoding="utf-8"))
+    assert result["sites"]["chobirich"]["captureEncoding"] == "cp932"
+    assert result["sites"]["chobirich"]["items"][0]["title"] == "端末案件1"
+    assert result["sites"]["chobirich"]["items"][4]["rewardText"] == "5%"
 
     # Re-seed before every rejection case so a failure cannot hide a mutation.
     for label, payload in [
@@ -59,6 +69,7 @@ with TemporaryDirectory() as td:
         ("external", fragment(external=True)),
         ("undersized", b"<html>tiny</html>"),
         ("oversized", b"x" * 65_536),
+        ("invalid-encoding", b"\xff" * 700),
     ]:
         out.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         candidate = td / f"{label}.html"
@@ -72,4 +83,4 @@ with TemporaryDirectory() as td:
             raise AssertionError(f"{label} device payload was accepted")
         assert out.read_bytes() == before, f"{label} failure mutated snapshot"
 
-print("PASS: device Chobirich import is top-5 validated, fail-closed and preserves other sites")
+print("PASS: device Chobirich import accepts UTF-8/CP932, is top-5 validated, fail-closed and preserves other sites")
