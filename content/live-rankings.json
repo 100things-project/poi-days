@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-23T08:33:15+09:00",
+  "generatedAt": "2026-09-24T06:20:30+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -174,11 +174,11 @@
     "chobirich": {
       "name": "ちょびリッチ",
       "scope": "ショッピング",
-      "status": "stale",
-      "stale": true,
+      "status": "ok",
+      "stale": false,
       "sourceUrl": "https://www.chobirich.com/shopping/",
-      "fetchedAt": "2026-09-23T06:21:00+09:00",
-      "checkedAt": "2026-09-23",
+      "fetchedAt": "2026-09-24T06:20:30+09:00",
+      "checkedAt": "2026-09-24",
       "captureMethod": "device-public-fragment",
       "captureEncoding": "utf-8",
       "items": [
@@ -189,7 +189,7 @@
           "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-23"
+          "checkedAt": "2026-09-24"
         },
         {
           "rank": 2,
@@ -198,7 +198,7 @@
           "sourceHref": "https://www.chobirich.com/ad_details/41250?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-23"
+          "checkedAt": "2026-09-24"
         },
         {
           "rank": 3,
@@ -207,7 +207,7 @@
           "sourceHref": "https://www.chobirich.com/ad_details/57209?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-23"
+          "checkedAt": "2026-09-24"
         },
         {
           "rank": 4,
@@ -216,7 +216,7 @@
           "sourceHref": "https://www.chobirich.com/ad_details/69345?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-23"
+          "checkedAt": "2026-09-24"
         },
         {
           "rank": 5,
@@ -225,11 +225,9 @@
           "sourceHref": "https://www.chobirich.com/ad_details/54288?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-23"
+          "checkedAt": "2026-09-24"
         }
-      ],
-      "lastErrorAt": "2026-09-23T08:33:20+09:00",
-      "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/logreco/ranking?logreco%5Bresponse_number%5D=15&logreco%5Bmethod_type%5D=2&logreco%5Bspot_name%5D=SPShopping_ranking&logreco%5Bcategory1%5D=%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%"
+      ]
     }
   }
 }
