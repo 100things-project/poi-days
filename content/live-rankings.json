@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-26T06:20:27+09:00",
+  "generatedAt": "2026-09-26T08:54:34+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,53 +9,53 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-09-25T08:49:06+09:00",
-      "checkedAt": "2026-09-25",
+      "fetchedAt": "2026-09-26T08:54:35+09:00",
+      "checkedAt": "2026-09-26",
       "items": [
         {
           "rank": 1,
-          "title": "※9/24,25限定UP※三井ショッピングパークカード《セゾン》",
-          "rewardText": "8,500P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157313&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-09-25"
-        },
-        {
-          "rank": 2,
-          "title": "【9月超還元】 MONEY CARD（マネーカード）",
-          "rewardText": "20,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161188&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-09-25"
-        },
-        {
-          "rank": 3,
-          "title": "三菱ＵＦＪカード",
-          "rewardText": "14,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-09-25"
-        },
-        {
-          "rank": 4,
-          "title": "auひかり",
-          "rewardText": "60,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-09-25"
-        },
-        {
-          "rank": 5,
           "title": "【超還元】SBI証券 こども口座",
           "rewardText": "13,000P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
+        },
+        {
+          "rank": 2,
+          "title": "三菱ＵＦＪカード",
+          "rewardText": "14,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-26"
+        },
+        {
+          "rank": 3,
+          "title": "【9月超還元】 MONEY CARD（マネーカード）",
+          "rewardText": "20,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161188&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-26"
+        },
+        {
+          "rank": 4,
+          "title": "※9/27まで過去最高★合計15,000P※プロミスVisaカード",
+          "rewardText": "10,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=155385&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-26"
+        },
+        {
+          "rank": 5,
+          "title": "auひかり",
+          "rewardText": "60,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-09-26"
         }
       ]
     },
@@ -65,8 +65,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://hapitas.jp/ranking/",
-      "fetchedAt": "2026-09-25T08:49:08+09:00",
-      "checkedAt": "2026-09-25",
+      "fetchedAt": "2026-09-26T08:54:36+09:00",
+      "checkedAt": "2026-09-26",
       "items": [
         {
           "rank": 1,
@@ -75,43 +75,43 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         },
         {
           "rank": 2,
-          "title": "三菱ＵＦＪ銀行 口座開設",
-          "rewardText": "4,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_2",
+          "title": "SBI証券（新規口座開設+50,000円以上入金）",
+          "rewardText": "18,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_2",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         },
         {
           "rank": 3,
-          "title": "【月額】Disney+ (ディズニープラス)【dアカウント以外】",
-          "rewardText": "500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/81509/apn/ranking_all_3",
+          "title": "【緊急UP★最大10,000pt】楽天銀行 口座開設",
+          "rewardText": "1,500pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         },
         {
           "rank": 4,
-          "title": "【緊急UP★最大10,000pt】楽天銀行 口座開設",
-          "rewardText": "1,500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_4",
+          "title": "【即増量キャンペーン実施中！】ふるなびマネー",
+          "rewardText": "0.5%",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/99579/apn/ranking_all_4",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         },
         {
           "rank": 5,
-          "title": "【即増量キャンペーン実施中！】ふるなびマネー",
-          "rewardText": "0.5%",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/99579/apn/ranking_all_5",
+          "title": "【最大44,000円相当】三井住友カード（NL）",
+          "rewardText": "15,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_5",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         }
       ]
     },
@@ -121,8 +121,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
-      "fetchedAt": "2026-09-25T08:49:09+09:00",
-      "checkedAt": "2026-09-25",
+      "fetchedAt": "2026-09-26T08:54:38+09:00",
+      "checkedAt": "2026-09-26",
       "items": [
         {
           "rank": 1,
@@ -131,7 +131,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         },
         {
           "rank": 2,
@@ -140,7 +140,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         },
         {
           "rank": 3,
@@ -149,7 +149,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=202704&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         },
         {
           "rank": 4,
@@ -158,24 +158,24 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=197793&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         },
         {
           "rank": 5,
-          "title": "エポスカード",
-          "rewardText": "10,000pt",
-          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200578&pl=pc_rnkngPg_all",
+          "title": "【PR】【三菱ＵＦＪ銀行】普通預金口座開設",
+          "rewardText": "4,000pt",
+          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-09-25"
+          "checkedAt": "2026-09-26"
         }
       ]
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "scope": "ショッピング",
-      "status": "ok",
-      "stale": false,
+      "status": "stale",
+      "stale": true,
       "sourceUrl": "https://www.chobirich.com/shopping/",
       "fetchedAt": "2026-09-26T06:20:27+09:00",
       "checkedAt": "2026-09-26",
@@ -227,7 +227,9 @@
           "verified": true,
           "checkedAt": "2026-09-26"
         }
-      ]
+      ],
+      "lastErrorAt": "2026-09-26T08:54:39+09:00",
+      "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/logreco/ranking?logreco%5Bresponse_number%5D=15&logreco%5Bmethod_type%5D=2&logreco%5Bspot_name%5D=SPShopping_ranking&logreco%5Bcategory1%5D=%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%"
     }
   }
 }
