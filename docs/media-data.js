@@ -196,7 +196,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "href": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "image": "visuals/about.svg"
@@ -206,8 +206,8 @@ window.POI_DAYS_MEDIA = {
         "category": "公式ショッピング順位",
         "sample": false,
         "verified": true,
-        "rewardText": "1.1%",
-        "checkedAt": "2026-09-26",
+        "rewardText": "1%",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.chobirich.com/ad_details/41250?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "href": "https://www.chobirich.com/ad_details/41250?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "image": "visuals/about.svg"
@@ -218,7 +218,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.chobirich.com/ad_details/57209?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "href": "https://www.chobirich.com/ad_details/57209?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "image": "visuals/about.svg"
@@ -229,7 +229,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.chobirich.com/ad_details/69345?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "href": "https://www.chobirich.com/ad_details/69345?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "image": "visuals/about.svg"
@@ -240,7 +240,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "2%",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.chobirich.com/ad_details/54288?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "href": "https://www.chobirich.com/ad_details/54288?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking",
         "image": "visuals/about.svg"
@@ -416,35 +416,35 @@ window.POI_DAYS_MEDIA = {
   "rankingMeta": {
     "moppy": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-26",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-26",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-26",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
-      "status": "stale",
-      "stale": true,
-      "checkedAt": "2026-09-26",
+      "status": "ok",
+      "stale": false,
+      "checkedAt": "2026-09-27",
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
   "recommendation": {
-    "siteId": "moppy",
-    "siteName": "モッピー",
-    "title": "【超還元】SBI証券 こども口座",
-    "rewardText": "13,000P",
-    "checkedAt": "2026-09-26",
-    "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car"
+    "siteId": "chobirich",
+    "siteName": "ちょびリッチ",
+    "title": "楽天市場",
+    "rewardText": "1%",
+    "checkedAt": "2026-09-27",
+    "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking"
   }
 };
