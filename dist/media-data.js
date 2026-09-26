@@ -25,7 +25,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "13,000P",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
         "image": "visuals/about.svg"
@@ -36,42 +36,42 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "14,000P",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "【9月超還元】 MONEY CARD（マネーカード）",
+        "title": "【年収1000万円以上】マンション投資 個別面談 / JPリターンズ",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "125,000P",
+        "checkedAt": "2026-09-27",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=147972&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=147972&track_ref=car",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "※27日まで超高還元※楽天証券",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
         "rewardText": "20,000P",
-        "checkedAt": "2026-09-26",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161188&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=161188&track_ref=car",
+        "checkedAt": "2026-09-27",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "※9/27まで過去最高★合計15,000P※プロミスVisaカード",
+        "title": "※最大合計20,600円相当※楽天カード【最短10日でポイントGET】",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
         "rewardText": "10,000P",
-        "checkedAt": "2026-09-26",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=155385&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=155385&track_ref=car",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "auひかり",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "60,000P",
-        "checkedAt": "2026-09-26",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
+        "checkedAt": "2026-09-27",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=100822&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=100822&track_ref=car",
         "image": "visuals/about.svg"
       }
     ],
@@ -82,31 +82,9 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "25,000pt",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
         "href": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "SBI証券（新規口座開設+50,000円以上入金）",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "18,000pt",
-        "checkedAt": "2026-09-26",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_2",
-        "href": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_2",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "【緊急UP★最大10,000pt】楽天銀行 口座開設",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "1,500pt",
-        "checkedAt": "2026-09-26",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
-        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
         "image": "visuals/about.svg"
       },
       {
@@ -115,20 +93,42 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "0.5%",
-        "checkedAt": "2026-09-26",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/99579/apn/ranking_all_4",
-        "href": "https://hapitas.jp/item/detail/itemid/99579/apn/ranking_all_4",
+        "checkedAt": "2026-09-27",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/99579/apn/ranking_all_2",
+        "href": "https://hapitas.jp/item/detail/itemid/99579/apn/ranking_all_2",
         "image": "visuals/about.svg"
       },
       {
-        "title": "【最大44,000円相当】三井住友カード（NL）",
+        "title": "【緊急UP★最大10,000pt】楽天銀行 口座開設",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "15,000pt",
-        "checkedAt": "2026-09-26",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_5",
-        "href": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_5",
+        "rewardText": "1,500pt",
+        "checkedAt": "2026-09-27",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
+        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "SBI証券（新規口座開設+50,000円以上入金）",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "18,000pt",
+        "checkedAt": "2026-09-27",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_4",
+        "href": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_4",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "三菱ＵＦＪカード",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "14,000pt",
+        "checkedAt": "2026-09-27",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/100868/apn/ranking_all_5",
+        "href": "https://hapitas.jp/item/detail/itemid/100868/apn/ranking_all_5",
         "image": "visuals/about.svg"
       }
     ],
@@ -139,7 +139,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -150,7 +150,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1%",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -161,7 +161,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "6,300pt",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=202704&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=202704&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
@@ -172,20 +172,20 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "8,000pt",
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-09-27",
         "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=197793&pl=pc_rnkngPg_all",
         "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=197793&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
       },
       {
-        "title": "【PR】【三菱ＵＦＪ銀行】普通預金口座開設",
+        "title": "エポスカード",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "4,000pt",
-        "checkedAt": "2026-09-26",
-        "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
-        "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205830&pl=pc_rnkngPg_all",
+        "rewardText": "10,300pt",
+        "checkedAt": "2026-09-27",
+        "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205828&pl=pc_rnkngPg_all",
+        "href": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=205828&pl=pc_rnkngPg_all",
         "image": "visuals/about.svg"
       }
     ],
@@ -416,35 +416,35 @@ window.POI_DAYS_MEDIA = {
   "rankingMeta": {
     "moppy": {
       "status": "ok",
-      "stale": true,
-      "checkedAt": "2026-09-26",
+      "stale": false,
+      "checkedAt": "2026-09-27",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
       "status": "ok",
-      "stale": true,
-      "checkedAt": "2026-09-26",
+      "stale": false,
+      "checkedAt": "2026-09-27",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
       "status": "ok",
-      "stale": true,
-      "checkedAt": "2026-09-26",
+      "stale": false,
+      "checkedAt": "2026-09-27",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
-      "status": "ok",
-      "stale": false,
+      "status": "stale",
+      "stale": true,
       "checkedAt": "2026-09-27",
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
   "recommendation": {
-    "siteId": "chobirich",
-    "siteName": "ちょびリッチ",
+    "siteId": "warau",
+    "siteName": "ワラウ",
     "title": "楽天市場",
     "rewardText": "1%",
     "checkedAt": "2026-09-27",
-    "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking"
+    "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all"
   }
 };
