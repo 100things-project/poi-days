@@ -53,8 +53,12 @@ for site in data.get('sites',[]):
 data['rankingMeta']={}
 for site in data.get('sites',[]):
  state=(live.get('sites') or {}).get(site['id']) or {}
- old_date=bool(state.get('checkedAt') and state['checkedAt'] < datetime.now(ZoneInfo('Asia/Tokyo')).date().isoformat())
- data['rankingMeta'][site['id']]={'status':state.get('status','sample'),'stale':bool(state.get('stale') or old_date),'checkedAt':state.get('checkedAt'),'sourceUrl':state.get('sourceUrl')}
+ today_iso=datetime.now(ZoneInfo('Asia/Tokyo')).date().isoformat()
+ old_date=bool(state.get('checkedAt') and state['checkedAt'] < today_iso)
+ # A device capture made today is today's data even if a later automatic
+ # fetch failed, so it is not labelled as a previous snapshot.
+ device_today=str(state.get('captureMethod') or '').startswith('device') and state.get('checkedAt')==today_iso
+ data['rankingMeta'][site['id']]={'status':state.get('status','sample'),'stale':bool((state.get('stale') or old_date) and not device_today),'checkedAt':state.get('checkedAt'),'sourceUrl':state.get('sourceUrl')}
 
 def ranks(rows):
  if not rows:return '<li class="empty-state">現在準備中です。</li>'
