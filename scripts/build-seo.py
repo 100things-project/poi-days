@@ -15,7 +15,7 @@ assert u.scheme in ('http', 'https') and u.netloc and not u.query and not u.frag
 ARTICLES = [
  ('moppy-safety', 'モッピーは危険？怪しい？安全性・運営会社・注意点を公式情報で解説', '安全性と危険性', 'SAFETY CHECK', 'モッピーは危険・怪しいのか気になる人へ、運営会社、プライバシーマーク、顔認証、個人情報、ポイント未反映、なりすまし、有料案件の注意点を公式情報で確認。安全性の判断材料と利用前に知りたいリスクを分けて解説します。', ['moppy-reviews','moppy-earning'], '安全性を確認したら、使い方を選ぶ'),
  ('moppy-reviews', 'モッピーの評判・口コミ｜良い評判と悪い評判を整理', '評判・口コミ', 'COMPARE', 'モッピーの評判・口コミを2026年9月時点で確認。App Storeの全体評価と、みん評の公開口コミを分けて整理し、ポイント未反映・判定待ち・顔認証への不満と、利用者評価を公式情報と照合して解説します。', ['moppy-safety','moppy-registration'], '評判だけでなく、公式条件で判断'),
- ('moppy-earning', 'モッピーの稼ぎ方｜初心者が最初にやること', '初心者の稼ぎ方', 'START SMALL', 'モッピーで何から始めるか迷う初心者へ、無料で貯める方法、クレカなし・スマホ中心の始め方、ゲーム案件の課金の考え方、買い物やサービス申込の選び方を公式情報で解説。経由忘れを防ぐ確認事項と最初の7日間プランもまとめます。', ['moppy-games','moppy-registration'], '自分に合う始め方が見つかったら'),
+ ('moppy-earning', 'モッピーの稼ぎ方｜初心者が無料で始める方法と注意点', '初心者の稼ぎ方', 'START SMALL', 'モッピーの稼ぎ方を初心者向けに解説。無料で貯める方法、クレカなし・スマホ中心の始め方、ゲーム案件の課金の考え方、買い物やサービス申込の選び方を公式情報で整理。経由忘れを防ぐ確認事項と最初の7日間プランもまとめます。', ['moppy-games','moppy-registration'], '自分に合う始め方が見つかったら'),
  ('moppy-registration', 'モッピーの登録方法｜招待コード・紹介リンクの使い方', '登録方法', 'REGISTRATION', 'モッピーに登録したい方へ、紹介リンクと招待コードJh7He170の使い方を公式案内に沿って解説。登録前の年齢・情報確認、紹介コードの入れ忘れ、特典の反映条件、登録後の確認と退会の疑問まで整理します。', ['moppy-earning','moppy-games'], '入力前に、紹介条件をもう一度確認'),
  ('moppy-games', 'モッピーのゲーム案件｜初心者向けの選び方・注意点', 'ゲーム案件', 'PLAY WISELY', 'モッピーのゲーム案件を始めたい初心者へ、OS・達成条件・期限・課金・判定条件の5項目を解説。開始前の記録、再インストールや機種変更の注意、未反映時の確認手順を整理し、報酬額だけに頼らない選び方を紹介します。', ['moppy-earning','moppy-registration'], 'インストール前に、登録と条件を確認'),
 ]
@@ -26,11 +26,13 @@ SEARCH_ARTICLES = [
  ('moppy-points-missing', 'モッピーでポイントが付かない？判定中・反映されない原因と対処法'),
  ('moppy-registration-trouble', 'モッピーに登録できない？メールが届かない・電話番号認証できない時の対処法'),
 ]
-MODIFIED_DATES = {'moppy-safety':'2026-09-16','moppy-reviews':'2026-09-16','moppy-earning':'2026-09-16','moppy-registration':'2026-09-16'}
+# Hub for the Moppy cluster. New URL only; existing article URLs never change.
+HUB = ('moppy-guide', 'モッピー初心者ガイド｜登録前〜ポイント獲得まで記事まとめ', 'モッピー初心者ガイド', 'MOPPY GUIDE', 'モッピーを初めて使う人向けに、POI DAYSのモッピー記事を登録前の確認・登録・始め方・困ったときの4段階で整理。安全性や評判、紹介コード、稼ぎ方、ポイント未反映まで、今の自分に必要な記事から順番に読めます。', '2026-09-28')
+MODIFIED_DATES = {'moppy-safety':'2026-09-28','moppy-reviews':'2026-09-28','moppy-earning':'2026-09-28','moppy-registration':'2026-09-28','moppy-games':'2026-09-28'}
 LEGACY_GATEWAY_LABELS = {
  'moppy-safety':'モッピーとは？怪しい？安全性・仕組みを初心者向けに解説',
  'moppy-registration':'モッピーの登録方法｜招待コード・紹介リンクの使い方',
- 'moppy-earning':'モッピーの稼ぎ方｜初心者が最初にやること',
+ 'moppy-earning':'モッピーの稼ぎ方｜初心者が無料で始める方法と注意点',
 }
 
 def write_both(path, text):
@@ -39,12 +41,12 @@ def write_both(path, text):
   p.parent.mkdir(parents=True, exist_ok=True)
   p.write_text(text, encoding='utf-8')
 
-def finish_page(page, title=None, description=None, url=None, modified='2026-09-08'):
+def finish_page(page, title=None, description=None, url=None, modified='2026-09-08', published='2026-09-08'):
  page = page.replace('../index.html', '../')
  if title:
   schema = {'@context':'https://schema.org','@graph':[
    {'@type':'Article','headline':title,'description':description,
-    'mainEntityOfPage':url,'url':url,'datePublished':'2026-09-08',
+    'mainEntityOfPage':url,'url':url,'datePublished':published,
     'dateModified':modified,'inLanguage':'ja',
     'author':{'@type':'Organization','name':'POI DAYS'},
     'publisher':{'@type':'Organization','name':'POI DAYS','url':BASE+'/'}},
@@ -54,6 +56,27 @@ def finish_page(page, title=None, description=None, url=None, modified='2026-09-
   marker='<script src="../analytics.js" defer></script>'
   page=page.replace(marker,'<script type="application/ld+json" data-poidays-schema>'+json.dumps(schema,ensure_ascii=False,separators=(',',':'))+'</script>'+marker)
  return page
+
+def build_hub(template):
+ slug,title,short,label,description,date=HUB
+ assert 90 <= len(description) <= 130, (slug, len(description))
+ titles = {a[0]:a[1] for a in ARTICLES} | dict(SEARCH_ARTICLES)
+ body = (ROOT/'content/seo'/f'{slug}.html').read_text()
+ def link(m):
+  target,summary=m[1],m[2]
+  return f'<a class="seo-hub-link" href="{target}.html"><strong>{html.escape(titles[target])}</strong><span>{html.escape(summary)}</span></a>'
+ body = re.sub(r'\{\{LINK:([a-z-]+)\|([^}]+)\}\}', link, body)
+ assert '{{' not in body, 'unresolved hub link'
+ sections = re.findall(r'<section id="([^"]+)"><h2>(.*?)</h2>', body)
+ toc = '<nav class="seo-toc" aria-label="記事の目次"><strong>このページの目次</strong><ol>' + ''.join(f'<li><a href="#{sid}">{heading}</a></li>' for sid,heading in sections) + '</ol></nav>'
+ body = body.replace('<section ', toc+'\n<section ', 1)
+ url = BASE+'/articles/'+slug+'.html'
+ values = dict(TITLE=html.escape(title), DESCRIPTION=html.escape(description,quote=True), URL=url, SHORT=short, LABEL=label, BODY=body, CTA_TITLE='読む順番が決まったら、登録条件を確認', RELATED='')
+ page = template
+ for key,value in values.items(): page=page.replace('{{'+key+'}}',value)
+ year,month,day=(int(x) for x in date.split('-'))
+ page = page.replace('<time datetime="2026-09-08">2026年9月8日</time>', f'<time datetime="{date}">{year}年{month}月{day}日</time>')
+ write_both('articles/'+slug+'.html', finish_page(page,title,description,url,date,date))
 
 def main():
  allowed = {'robots.txt','sitemap.xml','exchange-cash.png','exchange-emoney.png',
@@ -79,6 +102,7 @@ def main():
   page = template
   for key,value in values.items(): page=page.replace('{{'+key+'}}',value)
   write_both('articles/'+slug+'.html',finish_page(page,title,description,values['URL'],MODIFIED_DATES.get(slug,'2026-09-08')))
+ build_hub(template)
  write_both('seo-articles.css',(ROOT/'content/seo-articles.css').read_text())
  index = template
  all_moppy_links = [(a[0],a[1]) for a in ARTICLES] + SEARCH_ARTICLES
@@ -86,6 +110,7 @@ def main():
          '<a class="seo-index-link" href="point-site-selection.html">ポイントサイトの選び方｜4サイトの特徴を比べる6つの視点 →</a>'
          '<a class="seo-index-link" href="game-offer-selection.html">ポイントサイトのゲーム案件の選び方｜失敗しにくい7つのチェック →</a></section>'
          '<section><h2>モッピー初心者ガイド</h2><p>安全性・評判・稼ぎ方・登録方法に加えて、紹介コードや最新キャンペーン、メリット・デメリット、ポイント未反映、登録トラブルまで、知りたいテーマから選べます。</p>'
+         f'<a class="seo-index-link" href="{HUB[0]}.html">{HUB[1]}（読む順番つき） →</a>'
          + ''.join(f'<a class="seo-index-link" href="{slug}.html">{title} →</a>' for slug,title in all_moppy_links) + '</section>')
  values = dict(TITLE='ポイントサイト初心者ガイド・特集一覧',DESCRIPTION='ポイントサイトの選び方やゲーム案件の選び方、モッピーの安全性・評判・登録方法などをまとめたPOI DAYSの記事・特集一覧。',URL=BASE+'/articles/index.html',SHORT='記事・特集一覧',LABEL='READ & LEARN',BODY=body,CTA_TITLE='まずは、気になるテーマから',RELATED='<a href="point-site-selection.html">ポイントサイトの選び方を読む →</a><a href="game-offer-selection.html">ゲーム案件の選び方を読む →</a><a href="../#ranking">各ポイントサイトの今日のランキングを見る →</a>')
  for key,value in values.items(): index=index.replace('{{'+key+'}}',value)

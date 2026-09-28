@@ -23,7 +23,7 @@ SECTION='''<!-- MOPPY ARTICLE NAV START -->
 <a href="articles/moppy-games.html" style="display:flex;gap:16px;justify-content:space-between;align-items:center;padding:18px 4px;border-bottom:1px solid #e7e2dc;text-decoration:none"><span><strong>ゲーム案件の選び方</strong><br><small>期限・OS・課金条件の見方</small></span><span aria-hidden="true">→</span></a>
 <a href="articles/moppy-points-missing.html" style="display:flex;gap:16px;justify-content:space-between;align-items:center;padding:18px 4px;border-bottom:1px solid #e7e2dc;text-decoration:none"><span><strong>ポイントが付かないとき</strong><br><small>判定中・未反映の確認手順</small></span><span aria-hidden="true">→</span></a>
 </div>
-<p style="margin-top:18px"><a class="text-link" href="articles/index.html">モッピー記事を一覧で見る →</a></p>
+<p style="margin-top:18px"><a class="text-link" href="articles/moppy-guide.html">モッピー記事を読む順番で見る →</a></p>
 </div></section>
 <!-- MOPPY ARTICLE NAV END -->'''
 

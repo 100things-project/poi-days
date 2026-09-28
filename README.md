@@ -18,6 +18,8 @@ POI DAYS は、ポイントサイトの案件・使い方・比較・SEO記事�
 - SEO記事: `content/seo/` と `scripts/build-seo.py`
 - モッピー内リンク・ナビゲーション: `scripts/build-moppy-internal-links.py`, `scripts/build-moppy-navigation.py`
 - CTA: `scripts/add-invite-cta.py`
+- 結論まとめ・モッピー関連記事・パンくず（ハブ経由）・PR表記・運営情報リンク: `scripts/build-article-trust.py`（要約は `content/article-summaries.json`、運営者情報は `content/site-operator.json`。【要記入】のままの項目は公開ページに出力されない）
+- モッピー記事ハブ: `articles/moppy-guide.html`（本文 `content/seo/moppy-guide.html`、生成は `scripts/build-seo.py`）
 - GA4/CTA計測: `content/analytics.js` → `scripts/sync-analytics.py` で `dist` / `docs` へ同期
 - sitemap `lastmod`: `scripts/add-sitemap-lastmod.py`
 - 公開生成物: `dist/` と `docs/`

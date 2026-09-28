@@ -6,6 +6,11 @@ ROOT=Path(__file__).resolve().parents[1]
 DOCS,DIST=ROOT/'docs',ROOT/'dist'
 
 ROUTES={
+ 'moppy-guide':[
+  ('moppy-safety','まずは安全性を確認'),
+  ('moppy-referral-code','紹介コードの入力場所を確認'),
+  ('moppy-earning','初心者向けの稼ぎ方を見る'),
+ ],
  'moppy-referral-code':[
   ('moppy-september-campaign','2026年9月のキャンペーン条件を確認'),
   ('moppy-registration','モッピーの登録方法を見る'),
@@ -70,4 +75,4 @@ for root in (DOCS,DIST):
    raise SystemExit(f'seo-next section not found exactly once: {path}')
   path.write_text(text,encoding='utf-8')
 
-print('Moppy internal journey built: 10 guides linked by search intent')
+print('Moppy internal journey built: 11 guides linked by search intent')
