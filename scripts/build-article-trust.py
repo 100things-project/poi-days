@@ -134,8 +134,11 @@ def jp_date(value):
 
 
 def operator_block():
- fields = [('運営者', OPERATOR.get('operatorName', '')), ('連絡先', OPERATOR.get('contact', '')), ('編集責任者', OPERATOR.get('editorProfile', ''))]
- filled = [(k, v) for k, v in fields if v and not v.startswith('【要記入')]
+ def lines(value):
+  values = value if isinstance(value, list) else [value]
+  return [v for v in values if isinstance(v, str) and v.strip() and not v.startswith('【要記入')]
+ fields = [('運営者', OPERATOR.get('operatorName', '')), ('お問い合わせ', OPERATOR.get('contact', '')), ('運営者プロフィール', OPERATOR.get('editorProfile', ''))]
+ filled = [(k, lines(v)) for k, v in fields if lines(v)]
  editorial = ('<section><h2>記事の作り方</h2><ul>'
               '<li>ポイントサイトの条件・キャンペーンは、公式ヘルプや公式発表を確認し、記事内に確認日と出典を記載します。</li>'
               '<li>記事には公開日と、内容を確認・更新した日を表示します。</li>'
@@ -144,7 +147,8 @@ def operator_block():
               '</ul></section>')
  details = ''
  if filled:
-  details = '<section><h2>運営者情報</h2><dl class="poidays-operator">' + ''.join(f'<dt>{html.escape(k)}</dt><dd>{html.escape(v)}</dd>' for k, v in filled) + '</dl></section>'
+  details = ('<style>.poidays-operator dt{font-weight:700;color:#145951;margin-top:14px}.poidays-operator dd{margin:4px 0 0}.poidays-operator dd p{margin:0 0 8px}</style>'
+             '<section><h2>運営者情報</h2><dl class="poidays-operator">' + ''.join(f'<dt>{html.escape(k)}</dt><dd>' + ''.join(f'<p>{html.escape(v)}</p>' for v in vs) + '</dd>' for k, vs in filled) + '</dl></section>')
  return marked('operator', editorial + details)
 
 
