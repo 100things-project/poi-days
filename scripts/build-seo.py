@@ -28,7 +28,7 @@ SEARCH_ARTICLES = [
 ]
 # Hub for the Moppy cluster. New URL only; existing article URLs never change.
 HUB = ('moppy-guide', 'モッピー初心者ガイド｜登録前〜ポイント獲得まで記事まとめ', 'モッピー初心者ガイド', 'MOPPY GUIDE', 'モッピーを初めて使う人向けに、POI DAYSのモッピー記事を登録前の確認・登録・始め方・困ったときの4段階で整理。安全性や評判、紹介コード、稼ぎ方、ポイント未反映まで、今の自分に必要な記事から順番に読めます。', '2026-09-28')
-MODIFIED_DATES = {'moppy-safety':'2026-09-16','moppy-reviews':'2026-09-16','moppy-earning':'2026-09-16','moppy-registration':'2026-09-16'}
+MODIFIED_DATES = {'moppy-safety':'2026-09-28','moppy-reviews':'2026-09-28','moppy-earning':'2026-09-28','moppy-registration':'2026-09-28','moppy-games':'2026-09-28'}
 LEGACY_GATEWAY_LABELS = {
  'moppy-safety':'モッピーとは？怪しい？安全性・仕組みを初心者向けに解説',
  'moppy-registration':'モッピーの登録方法｜招待コード・紹介リンクの使い方',

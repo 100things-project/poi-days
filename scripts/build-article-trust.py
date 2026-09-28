@@ -152,6 +152,20 @@ def operator_block():
  return marked('operator', editorial + details)
 
 
+# Update dates for preserved (non-generated) articles.
+STATIC_MODIFIED = {'point-site-selection': '2026-09-28', 'game-offer-selection': '2026-09-28'}
+
+
+def set_static_modified(text, modified):
+ shown = f'<time datetime="{modified}">{jp_date(modified)}</time>'
+ text = re.sub(r'(<script type="application/ld\+json">[^<]*?"dateModified":")[^"]+(")', rf'\g<1>{modified}\2', text, count=1)
+ if re.search(r'<p class="seo-date">[^<]*?公開：<time[^>]*>[^<]*</time>　更新：<time', text):
+  return re.sub(r'(<p class="seo-date">[^<]*?公開：<time[^>]*>[^<]*</time>　更新：)<time[^>]*>[^<]*</time>', lambda m: m[1] + shown, text, count=1)
+ new, n = re.subn(r'<p class="seo-date">公開・情報確認：(<time[^>]*>[^<]*</time>)', lambda m: f'<p class="seo-date">公開：{m[1]}　更新：{shown}', text, count=1)
+ assert n == 1, 'static article date line not found'
+ return new
+
+
 GTAG_OLD = "if(p.get('owner')==='1')localStorage.setItem(k,'1');if(p.get('owner')==='0')localStorage.removeItem(k);if(localStorage.getItem(k)==='1')window['ga-disable-G-0TZ7EH65BW']=true;if(p.has('owner'))"
 GTAG_NEW = "try{if(p.get('owner')==='1')localStorage.setItem(k,'1');if(p.get('owner')==='0')localStorage.removeItem(k);if(localStorage.getItem(k)==='1')window['ga-disable-G-0TZ7EH65BW']=true;}catch(e){}if(p.has('owner'))"
 
@@ -171,6 +185,8 @@ def process(folder, path):
 
  if is_article:
   text = text.replace('<p class="seo-disclosure">PR：', '<p class="seo-disclosure"><span class="pr-badge">PR</span>')
+  if slug in STATIC_MODIFIED and not rel.startswith('articles/moppy-'):
+   text = set_static_modified(text, STATIC_MODIFIED[slug])
   if slug in SUMMARIES:
    text, n = re.subn(r'(<p class="seo-disclosure">.*?</p>)', lambda m: m[1] + summary_box(SUMMARIES[slug]), text, count=1, flags=re.S)
    assert n == 1, rel

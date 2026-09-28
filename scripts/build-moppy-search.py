@@ -11,6 +11,8 @@ ARTICLES=[
  ('moppy-points-missing','モッピーでポイントが付かない？判定中・反映されない原因と対処法','ポイントが付かない','CHECK STATUS','モッピーのポイントが付かない、判定中に反映されない、判定中のまま動かないときの確認手順を公式情報で解説。予定反映・確定反映の違い、ゲームやアプリ案件の注意、問い合わせる目安まで整理します。','2026-09-16'),
  ('moppy-registration-trouble','モッピーに登録できない？メールが届かない・電話番号認証できない時の対処法','登録できない','SIGNUP HELP','モッピーに登録できない、仮登録メールが届かない、電話番号認証が進まないときの確認手順を公式ヘルプで解説。迷惑メール設定、使えないメールドメイン、電話番号が登録済みと表示される場合、問い合わせ前に確認する項目まで整理します。','2026-09-16'),
 ]
+# Update dates (published date stays the 6th field of ARTICLES).
+MODIFIED={'moppy-referral-code':'2026-09-28','moppy-september-campaign':'2026-09-28','moppy-pros-cons':'2026-09-28','moppy-points-missing':'2026-09-28','moppy-registration-trouble':'2026-09-28'}
 def write_both(rel,text):
  for root in (DOCS,DIST):
   p=root/rel;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text,encoding='utf-8')
@@ -36,7 +38,7 @@ def main():
   display_date=f'{year}年{month}月{day}日'
   page=page.replace('<time datetime="2026-09-08">2026年9月8日</time>',f'<time datetime="{date}">{display_date}</time>')
   schema={'@context':'https://schema.org','@graph':[
-   {'@type':'Article','headline':title,'description':desc,'mainEntityOfPage':url,'url':url,'datePublished':date,'dateModified':date,'inLanguage':'ja','author':{'@type':'Organization','name':'POI DAYS'},'publisher':{'@type':'Organization','name':'POI DAYS','url':BASE+'/' }},
+   {'@type':'Article','headline':title,'description':desc,'mainEntityOfPage':url,'url':url,'datePublished':date,'dateModified':MODIFIED.get(slug,date),'inLanguage':'ja','author':{'@type':'Organization','name':'POI DAYS'},'publisher':{'@type':'Organization','name':'POI DAYS','url':BASE+'/' }},
    {'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'POI DAYS','item':BASE+'/'},{'@type':'ListItem','position':2,'name':title,'item':url}]}
   ]}
   marker='<script src="../analytics.js" defer></script>'
