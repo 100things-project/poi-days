@@ -1,6 +1,6 @@
 {
   "_note": "運営情報ページに追記する運営者情報。値が【要記入: …】のままの項目は公開ページに出力されない。事実のみ記入する。editorProfile は段落ごとの配列。",
-  "operatorName": "100things",
+  "operatorName": "おすし",
   "contact": "【要記入: 公開できる連絡先（GoogleフォームURL）】",
   "editorProfile": [
     "ポイ活歴10年。",
