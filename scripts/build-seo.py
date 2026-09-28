@@ -13,7 +13,7 @@ BASE = os.environ.get('SITE_URL', 'https://100things-project.github.io/poi-days'
 u = urlsplit(BASE)
 assert u.scheme in ('http', 'https') and u.netloc and not u.query and not u.fragment
 ARTICLES = [
- ('moppy-safety', 'モッピーは危険？怪しい？安全性・運営会社・注意点を公式情報で解説', '安全性と危険性', 'SAFETY CHECK', 'モッピーは危険・怪しいのか気になる人へ、運営会社、プライバシーマーク、顔認証、個人情報、ポイント未反映、なりすまし、有料案件の注意点を公式情報で確認。安全性の判断材料と利用前に知りたいリスクを分けて解説します。', ['moppy-reviews','moppy-earning'], '安全性を確認したら、使い方を選ぶ'),
+ ('moppy-safety', 'モッピーは危険・悪質？安全性と運営会社を公式情報で確認', '安全性と危険性', 'SAFETY CHECK', 'モッピーは危険・悪質・怪しいのか気になる人へ、運営会社、プライバシーマーク、顔認証、個人情報、ポイント未反映、なりすまし、有料案件の注意点を公式情報で確認。安全性の判断材料と利用前に知りたいリスクを分けて解説します。', ['moppy-reviews','moppy-earning'], '安全性を確認したら、使い方を選ぶ'),
  ('moppy-reviews', 'モッピーの評判・口コミ｜良い評判と悪い評判を整理', '評判・口コミ', 'COMPARE', 'モッピーの評判・口コミを2026年9月時点で確認。App Storeの全体評価と、みん評の公開口コミを分けて整理し、ポイント未反映・判定待ち・顔認証への不満と、利用者評価を公式情報と照合して解説します。', ['moppy-safety','moppy-registration'], '評判だけでなく、公式条件で判断'),
  ('moppy-earning', 'モッピーの稼ぎ方｜初心者が無料で始める方法と注意点', '初心者の稼ぎ方', 'START SMALL', 'モッピーの稼ぎ方を初心者向けに解説。無料で貯める方法、クレカなし・スマホ中心の始め方、ゲーム案件の課金の考え方、買い物やサービス申込の選び方を公式情報で整理。経由忘れを防ぐ確認事項と最初の7日間プランもまとめます。', ['moppy-games','moppy-registration'], '自分に合う始め方が見つかったら'),
  ('moppy-registration', 'モッピーの登録方法｜招待コード・紹介リンクの使い方', '登録方法', 'REGISTRATION', 'モッピーに登録したい方へ、紹介リンクと招待コードJh7He170の使い方を公式案内に沿って解説。登録前の年齢・情報確認、紹介コードの入れ忘れ、特典の反映条件、登録後の確認と退会の疑問まで整理します。', ['moppy-earning','moppy-games'], '入力前に、紹介条件をもう一度確認'),
@@ -29,6 +29,7 @@ SEARCH_ARTICLES = [
 # Hub for the Moppy cluster. New URL only; existing article URLs never change.
 HUB = ('moppy-guide', 'モッピー初心者ガイド｜登録前〜ポイント獲得まで記事まとめ', 'モッピー初心者ガイド', 'MOPPY GUIDE', 'モッピーを初めて使う人向けに、POI DAYSのモッピー記事を登録前の確認・登録・始め方・困ったときの4段階で整理。安全性や評判、紹介コード、稼ぎ方、ポイント未反映まで、今の自分に必要な記事から順番に読めます。', '2026-09-28')
 MODIFIED_DATES = {'moppy-safety':'2026-09-28','moppy-reviews':'2026-09-28','moppy-earning':'2026-09-28','moppy-registration':'2026-09-28','moppy-games':'2026-09-28'}
+CONSOLIDATED = {'about','categories'}
 LEGACY_GATEWAY_LABELS = {
  'moppy-safety':'モッピーとは？怪しい？安全性・仕組みを初心者向けに解説',
  'moppy-registration':'モッピーの登録方法｜招待コード・紹介リンクの使い方',
@@ -127,6 +128,12 @@ def main():
   label=LEGACY_GATEWAY_LABELS[new]
   gateway=f'<!-- SEO gateway --><section><h2>もう少し詳しく知りたい方へ</h2><p><a href="{new}.html">{label} →</a></p><p><a href="index.html">記事・特集一覧から選ぶ →</a></p></section><!-- /SEO gateway -->'
   page=page.replace('</main>',gateway+'</main>')
+  if old in CONSOLIDATED:
+   # Older overview pages overlap newer guides: keep the URL, point search
+   # engines at the newer guide (same treatment as safety/registration).
+   page=re.sub(r'<link rel="canonical" href="[^"]*">',f'<link rel="canonical" href="{BASE}/articles/{new}.html">',page,count=1)
+   if 'name="robots"' not in page:
+    page=page.replace('</head>','<meta name="robots" content="noindex,follow"></head>',1)
   write_both('articles/'+old+'.html',page)
  paths=[]
  for p in sorted(DOCS.rglob('*.html')):

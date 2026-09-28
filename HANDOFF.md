@@ -47,6 +47,8 @@
 - sitemap `lastmod` は `scripts/add-sitemap-lastmod.py` で扱う。
 - 記事冒頭の「結論まとめ」は `content/article-summaries.json` を正本とし、本文にない数値・体験談・評判を書かない。
 - モッピー記事はハブ `articles/moppy-guide.html` を経由する3階層パンくずと「モッピーの関連記事」ブロックを `scripts/build-article-trust.py` で付ける。
+- 旧ページ `articles/about.html`・`articles/categories.html` は URL を残したまま noindex,follow と新記事への canonical（`scripts/build-seo.py` の `CONSOLIDATED`）にし、サイト内リンクは新記事へ向けている（`scripts/build-article-trust.py`）。
+- トップの紹介リンクは「初心者ガイド」節の1か所だけ（`data-cta-location="home_guide"`）。増やす前に GA4 で効果を確認する。
 - 紹介リンクを含むページの PR 表記と運営情報リンクも同スクリプトが付与する。運営者情報は `content/site-operator.json` に事実だけを記入する。
 - `dateModified` と sitemap `lastmod` は、実際に内容を確認・更新した事実に基づいて変更する。
 - Search Console の新しい実クエリが十分にない場合、推測だけで記事を増やしたり大幅改変しない。
