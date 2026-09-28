@@ -21,7 +21,7 @@ BASE = os.environ.get('SITE_URL', 'https://100things-project.github.io/poi-days'
 SUMMARIES = {k: v for k, v in json.loads((ROOT / 'content/article-summaries.json').read_text(encoding='utf-8')).items() if not k.startswith('_')}
 OPERATOR = json.loads((ROOT / 'content/site-operator.json').read_text(encoding='utf-8'))
 POINT_SITES = json.loads((ROOT / 'content/point-sites.json').read_text(encoding='utf-8'))
-CSS_VERSION = '20260928-1'
+CSS_VERSION = '20260928-2'
 HUB = 'moppy-guide'
 HUB_TITLE = 'モッピー初心者ガイド'
 
@@ -56,7 +56,11 @@ def related_block(current):
   groups.append(f'<div><p>{label}</p><ul>{items}</ul></div>')
  return marked('related', '<section class="seo-related" aria-labelledby="seo-related-title"><h2 id="seo-related-title">モッピーの関連記事</h2>'
                f'<div class="seo-related-groups">{"".join(groups)}</div>'
-               f'<a class="seo-related-hub" href="{HUB}.html">読む順番は{HUB_TITLE}で確認 →</a></section>')
+               f'<a class="seo-related-hub" href="{HUB}.html">読む順番は{HUB_TITLE}で確認 →</a>'
+               '<div class="seo-related-sites"><p>ほかのポイントサイトと比べる</p><ul>'
+               '<li><a href="point-site-selection.html">ポイントサイトの選び方</a></li>'
+               '<li><a href="../hapitas.html">ハピタス</a></li><li><a href="../warau.html">ワラウ</a></li>'
+               '<li><a href="../chobirich.html">ちょびリッチ</a></li></ul></div></section>')
 
 
 def moppy_breadcrumb(text, slug):
@@ -166,6 +170,29 @@ def set_static_modified(text, modified):
  return new
 
 
+# about.html / categories.html are consolidated into newer guides (noindex +
+# canonical in build-seo.py). Point internal links at the newer pages.
+LEGACY_LINKS = [
+ (r'articles/categories\.html#part-0|categories\.html#part-0', 'moppy-games.html'),
+ (r'articles/categories\.html#part-1|categories\.html#part-1', 'moppy-earning.html#free'),
+ (r'articles/categories\.html(?:#part-\d)?|categories\.html(?:#part-\d)?', 'moppy-earning.html#categories'),
+ (r'articles/about\.html|about\.html', 'moppy-guide.html'),
+]
+
+
+def retarget_legacy_links(text, rel):
+ def fix(match):
+  href = match[1]
+  prefix = href[:len(href) - len(href.lstrip('./'))]
+  body = href[len(prefix):]
+  for pattern, target in LEGACY_LINKS:
+   if re.fullmatch(pattern, body):
+    path = ('articles/' if body.startswith('articles/') else '') + target
+    return f'href="{prefix}{path}"'
+  return match[0]
+ return re.sub(r'href="((?:\.\./)*(?:articles/)?(?:about|categories)\.html(?:#part-\d)?)"', fix, text)
+
+
 GTAG_OLD = "if(p.get('owner')==='1')localStorage.setItem(k,'1');if(p.get('owner')==='0')localStorage.removeItem(k);if(localStorage.getItem(k)==='1')window['ga-disable-G-0TZ7EH65BW']=true;if(p.has('owner'))"
 GTAG_NEW = "try{if(p.get('owner')==='1')localStorage.setItem(k,'1');if(p.get('owner')==='0')localStorage.removeItem(k);if(localStorage.getItem(k)==='1')window['ga-disable-G-0TZ7EH65BW']=true;}catch(e){}if(p.has('owner'))"
 
@@ -181,6 +208,8 @@ def process(folder, path):
  is_article = 'class="seo-disclosure"' in text
 
  text = text.replace(GTAG_OLD, GTAG_NEW)
+ if rel not in ('articles/about.html', 'articles/categories.html'):
+  text = retarget_legacy_links(text, rel)
  text = re.sub(r'seo-articles\.css(\?v=[^"]*)?"', f'seo-articles.css?v={CSS_VERSION}"', text)
 
  if is_article:
