@@ -17,9 +17,13 @@
   }
 
   const params = new URLSearchParams(location.search);
-  if (params.get("owner") === "1") localStorage.setItem(OWNER_KEY, "1");
-  if (params.get("owner") === "0") localStorage.removeItem(OWNER_KEY);
-  if (localStorage.getItem(OWNER_KEY) === "1") window["ga-disable-" + GA_ID] = true;
+  // Storage can throw (blocked cookies, some in-app browsers). Never let the
+  // owner-exclusion helper stop page_view or click tracking for visitors.
+  try {
+    if (params.get("owner") === "1") localStorage.setItem(OWNER_KEY, "1");
+    if (params.get("owner") === "0") localStorage.removeItem(OWNER_KEY);
+    if (localStorage.getItem(OWNER_KEY) === "1") window["ga-disable-" + GA_ID] = true;
+  } catch (e) {}
   if (params.has("owner")) {
     params.delete("owner");
     const q = params.toString();
@@ -54,6 +58,8 @@
     const explicit = a.getAttribute("data-cta-location");
     if (explicit) return explicit;
     if (a.closest("#result")) return "diagnosis_result";
+    if (a.closest(".mobile-sticky")) return "mobile_sticky";
+    if (a.closest(".final-cta")) return "moppy_final_cta";
     if (a.closest(".seo-cta")) return "article_bottom";
     if (a.closest(".invite-campaign")) return "moppy_campaign";
     if (a.closest(".invite-panel")) return "moppy_invite_panel";
