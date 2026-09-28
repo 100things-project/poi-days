@@ -416,19 +416,19 @@ window.POI_DAYS_MEDIA = {
   "rankingMeta": {
     "moppy": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-28",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-28",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
       "status": "ok",
-      "stale": false,
+      "stale": true,
       "checkedAt": "2026-09-28",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
@@ -439,12 +439,5 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
-  "recommendation": {
-    "siteId": "hapitas",
-    "siteName": "ハピタス",
-    "title": "楽天証券",
-    "rewardText": "13,000pt",
-    "checkedAt": "2026-09-28",
-    "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1"
-  }
+  "recommendation": null
 };
