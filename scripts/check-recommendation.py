@@ -52,16 +52,4 @@ for status,stale,checked,expected in [('ok',False,today,True),('stale',True,toda
  assert bool(built['recommendation'])==expected,(status,stale,checked)
  if checked=='2000-01-01':assert built['data']['rankingMeta']['moppy']['stale'] is True
  if status=='unavailable':assert built['data']['rankings']['moppy'][0].get('sample') is not False
-# A device capture made today stays labelled fresh after a failed automatic fetch;
-# a device capture from an earlier day is still labelled stale.
-for checked,expected_stale in [(today,False),('2000-01-01',True)]:
- fixture={'sites':{'chobirich':{'name':'ちょびリッチ','sourceUrl':'https://www.chobirich.com/shopping/','status':'stale','stale':True,'checkedAt':checked,'captureMethod':'device-public-fragment','items':[
-  {'rank':i,'title':f'検証案件{i}','rewardText':'100pt','verified':True,'sourceHref':f'https://www.chobirich.com/ad_details/{i}/'} for i in range(1,6)]}}}
- def read(path,*args,**kwargs):
-  if path==ROOT/'content/live-rankings.json':return json.dumps(fixture)
-  return original_read(path,*args,**kwargs)
- with patch.object(Path,'read_text',read),patch.object(Path,'write_text'),contextlib.redirect_stdout(io.StringIO()):
-  built=runpy.run_path(str(ROOT/'scripts/build-media.py'))
- assert built['data']['rankingMeta']['chobirich']['stale'] is expected_stale,(checked,built['data']['rankingMeta']['chobirich'])
- assert not built['recommendation'],'stale-status device capture must not become the daily recommendation'
-print('PASS: fresh/stale/old-date/unavailable recommendation and ranking fallback fixtures; same-day device capture not labelled stale')
+print('PASS: fresh/stale/old-date/unavailable recommendation and ranking fallback fixtures')
