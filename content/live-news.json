@@ -1,14 +1,14 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-29T09:54:40+09:00",
+  "generatedAt": "2026-09-30T09:15:36+09:00",
   "items": [
     {
       "id": "106ccca1bf17f4707e80",
       "site": "chobirich",
       "siteName": "ちょびリッチ",
       "date": "2026-09-28",
-      "title": "【アンケート】 未反映p対応中：資産運用に関するアンケート【CH260926】",
+      "title": "【アンケート】 対応完了：資産運用に関するアンケート【CH260926】",
       "category": "お知らせ",
       "sourceUrl": "https://help.chobirich.com/#block-330bff5a9dce8011ae7aea724682d861",
       "official": true
@@ -161,27 +161,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-09-29T09:54:37+09:00",
+      "lastErrorAt": "2026-09-30T09:15:33+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-09-29T09:54:38+09:00",
+      "fetchedAt": "2026-09-30T09:15:34+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 4
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-09-29T09:54:39+09:00",
+      "fetchedAt": "2026-09-30T09:15:35+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-09-29T09:54:40+09:00",
+      "fetchedAt": "2026-09-30T09:15:36+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 1
     }
