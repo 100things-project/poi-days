@@ -12,7 +12,7 @@ ROUTES={
   ('moppy-earning','初心者向けの稼ぎ方を見る'),
  ],
  'moppy-referral-code':[
-  ('moppy-september-campaign','2026年9月のキャンペーン条件を確認'),
+  ('moppy-september-campaign','2026年10月のキャンペーン条件を確認'),
   ('moppy-registration','モッピーの登録方法を見る'),
   ('moppy-safety','登録前に安全性を確認'),
  ],

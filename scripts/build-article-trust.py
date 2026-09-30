@@ -28,7 +28,7 @@ HUB_TITLE = 'モッピー初心者ガイド'
 # Reading order used by the related-articles block (matches the hub page).
 CLUSTER = [
  ('登録前に確認', [('moppy-safety', '安全性・運営会社'), ('moppy-reviews', '評判・口コミ'), ('moppy-pros-cons', 'メリット・デメリット')]),
- ('登録する', [('moppy-referral-code', '紹介コードの入力場所'), ('moppy-september-campaign', '9月のキャンペーン'), ('moppy-registration', '登録方法'), ('moppy-registration-trouble', '登録できないとき')]),
+ ('登録する', [('moppy-referral-code', '紹介コードの入力場所'), ('moppy-september-campaign', '10月のキャンペーン'), ('moppy-registration', '登録方法'), ('moppy-registration-trouble', '登録できないとき')]),
  ('始める・困ったとき', [('moppy-earning', '初心者の稼ぎ方'), ('moppy-games', 'ゲーム案件の選び方'), ('moppy-points-missing', 'ポイントが付かないとき')]),
 ]
 
