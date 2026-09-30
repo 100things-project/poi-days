@@ -5,21 +5,21 @@ ROOT=Path(__file__).resolve().parents[1]
 BASE='https://100things-project.github.io/poi-days'
 DOCS,DIST=ROOT/'docs',ROOT/'dist'
 ARTICLES=[
- ('moppy-referral-code','【2026年9月】モッピー紹介コードはどこ？入力方法・後付け・特典を解説','紹介コード','JOIN SMART','モッピーの紹介コードJh7He170の入力場所、紹介リンクとの違い、後付けできるか、2026年9月の紹介特典を公式情報で解説。登録前に確認したい入力場所、紹介成立の確認方法、5,000Pとの違いまでまとめます。','2026-09-12'),
- ('moppy-september-campaign','【2026年9月】モッピー新規登録キャンペーン｜入会特典と条件を解説','9月キャンペーン','SEPTEMBER 2026','2026年9月のモッピー友達紹介・新規登録キャンペーンを解説。紹介された人の30P、条件付き2,000P特典、5,000Pの対象者を整理。期間、達成条件、付与時期、登録前の注意点まで公式情報をもとに確認できます。','2026-09-12'),
+ ('moppy-referral-code','【2026年10月】モッピー紹介コードはどこ？入力方法・後付け・特典を解説','紹介コード','JOIN SMART','モッピーの紹介コードJh7He170の入力場所、紹介リンクとの違い、後付けできるか、2026年10月の紹介特典を公式情報で解説。登録前に確認したい入力場所、紹介成立の確認方法、紹介者向け特典との違いまでまとめます。','2026-09-12'),
+ ('moppy-september-campaign','【2026年10月】モッピー新規登録キャンペーン｜入会特典と条件を解説','10月キャンペーン','OCTOBER 2026','2026年10月のモッピー友達紹介・新規登録キャンペーンを解説。紹介された人の10,000P抽選（20名）、条件付き2,000P特典、最大1,500Pの対象者を整理。期間、達成条件、付与時期、登録前の注意点を公式情報で確認できます。','2026-09-12'),
  ('moppy-pros-cons','モッピーのメリット・デメリット｜登録前に知りたい注意点','メリット・デメリット','BEFORE YOU JOIN','モッピーのメリットとデメリットを公式情報をもとに整理。1P=1円、貯め方や交換先の幅、案件条件、ポイント有効期限など登録前の注意点を解説。向いている人・向いていない人も比較し、登録前の判断材料をまとめます。','2026-09-12'),
  ('moppy-points-missing','モッピーでポイントが付かない？判定中・反映されない原因と対処法','ポイントが付かない','CHECK STATUS','モッピーのポイントが付かない、判定中に反映されない、判定中のまま動かないときの確認手順を公式情報で解説。予定反映・確定反映の違い、ゲームやアプリ案件の注意、問い合わせる目安まで整理します。','2026-09-16'),
  ('moppy-registration-trouble','モッピーに登録できない？メールが届かない・電話番号認証できない時の対処法','登録できない','SIGNUP HELP','モッピーに登録できない、仮登録メールが届かない、電話番号認証が進まないときの確認手順を公式ヘルプで解説。迷惑メール設定、使えないメールドメイン、電話番号が登録済みと表示される場合、問い合わせ前に確認する項目まで整理します。','2026-09-16'),
 ]
 # Update dates (published date stays the 6th field of ARTICLES).
-MODIFIED={'moppy-referral-code':'2026-09-28','moppy-september-campaign':'2026-09-28','moppy-pros-cons':'2026-09-28','moppy-points-missing':'2026-09-28','moppy-registration-trouble':'2026-09-28'}
+MODIFIED={'moppy-referral-code':'2026-10-01','moppy-september-campaign':'2026-10-01','moppy-pros-cons':'2026-09-28','moppy-points-missing':'2026-09-28','moppy-registration-trouble':'2026-09-28'}
 def write_both(rel,text):
  for root in (DOCS,DIST):
   p=root/rel;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text,encoding='utf-8')
 def main():
  template=(ROOT/'content/seo-template.html').read_text(encoding='utf-8').replace('../seo-articles.css','../seo-articles.css?v=20260912-1')
  related={
-  'moppy-referral-code':[('moppy-september-campaign','2026年9月のキャンペーン条件'),('moppy-registration','モッピーの登録方法')],
+  'moppy-referral-code':[('moppy-september-campaign','2026年10月のキャンペーン条件'),('moppy-registration','モッピーの登録方法')],
   'moppy-september-campaign':[('moppy-referral-code','紹介コードの入力方法'),('moppy-registration','モッピーの登録方法')],
   'moppy-pros-cons':[('moppy-safety','モッピーの安全性'),('moppy-earning','初心者向けの稼ぎ方')],
   'moppy-points-missing':[('moppy-games','ゲーム案件の未反映を防ぐ確認'),('moppy-earning','初心者向けの稼ぎ方'),('moppy-registration','登録方法を確認')],
