@@ -152,7 +152,7 @@ def operator_block():
  details = ''
  if filled:
   details = ('<style>.poidays-operator dt{font-weight:700;color:#145951;margin-top:14px}.poidays-operator dd{margin:4px 0 0}.poidays-operator dd p{margin:0 0 8px}</style>'
-             '<section><h2>運営者情報</h2><dl class="poidays-operator">' + ''.join(f'<dt>{html.escape(k)}</dt><dd>' + ''.join(f'<p>{html.escape(v)}</p>' for v in vs) + '</dd>' for k, vs in filled) + '</dl></section>')
+             '<section><h2>運営者情報</h2><dl class="poidays-operator">' + ''.join(f'<dt>{html.escape(k)}</dt><dd>' + ''.join(f'<p><a href="{html.escape(v)}" target="_blank" rel="noopener noreferrer">お問い合わせフォーム（Googleフォーム）</a></p>' if v.startswith('https://docs.google.com/forms/') else f'<p>{html.escape(v)}</p>' for v in vs) + '</dd>' for k, vs in filled) + '</dl></section>')
  return marked('operator', editorial + details)
 
 

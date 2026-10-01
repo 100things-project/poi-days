@@ -1,6 +1,6 @@
 """Preserve committed public files while allowing reviewed generated surfaces to expand."""
 from pathlib import Path
-import re, subprocess
+import re, subprocess, importlib.util
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 paths=subprocess.check_output(['git','ls-tree','-r','--name-only','HEAD','docs'],text=True,cwd=ROOT).splitlines()
@@ -16,11 +16,27 @@ MOPPY_GUIDES={
 # check. moppy.html may only change inside its explicit generated navigation
 # marker. sitemap may gain URLs but may not lose committed URLs. analytics.js is
 # generated from content/analytics.js and checked byte-for-byte below.
+# The reviewed contact-link block (scripts/add-contact-link.py) is the only change
+# allowed on otherwise-preserved pages: strip it, then require byte equality.
+CONTACT=re.compile(r'<!-- POIDAYS:contact -->.*?</div>(?=</footer>)', re.S)
+CONTACT_MENU=re.compile(r'<a href="https://docs\.google\.com/forms/d/e/[^"]+" target="_blank" rel="noopener noreferrer">お問い合わせ</a></nav>')
+_spec=importlib.util.spec_from_file_location('add_contact_link',ROOT/'scripts/add-contact-link.py')
+_contact=importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_contact)
+# policy/privacy carry the reviewed wording change about the new contact form.
+CONTACT_WORDING={'docs/articles/policy.html','docs/articles/privacy.html'}
+def strip_contact(data):
+    try: text=data.decode('utf-8')
+    except UnicodeDecodeError: return data
+    return CONTACT_MENU.sub('</nav>',CONTACT.sub('',_contact.apply_replacements(text))).encode('utf-8')
+
 for path in paths:
     if path in {'docs/index.html','docs/media-data.js','docs/articles/index.html','docs/moppy.html','docs/sitemap.xml','docs/analytics.js'} or path in MOPPY_GUIDES:
         continue
     old=subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT)
-    assert (ROOT/path).read_bytes()==old, f'committed page/asset changed: {path}'
+    if path in CONTACT_WORDING:
+        assert _contact.FORM in (ROOT/path).read_text(encoding='utf-8'), f'contact form link missing: {path}'
+        continue
+    assert strip_contact((ROOT/path).read_bytes())==strip_contact(old), f'committed page/asset changed: {path}'
 
 analytics=(ROOT/'content/analytics.js').read_bytes()
 assert (ROOT/'docs/analytics.js').read_bytes()==analytics, 'docs analytics differs from reviewed source'
@@ -33,7 +49,7 @@ def strip_moppy_nav(text):
 old_moppy=subprocess.check_output(['git','show','HEAD:docs/moppy.html'],cwd=ROOT,text=True)
 new_moppy=(ROOT/'docs/moppy.html').read_text(encoding='utf-8')
 assert start in new_moppy and end in new_moppy, 'generated Moppy article navigation missing'
-assert strip_moppy_nav(new_moppy)==strip_moppy_nav(old_moppy), 'moppy.html changed outside reviewed article navigation'
+assert strip_contact(strip_moppy_nav(new_moppy).encode())==strip_contact(strip_moppy_nav(old_moppy).encode()), 'moppy.html changed outside reviewed article navigation'
 
 # Generated guide bodies are allowed to change when their reviewed source or
 # generator changes. Keep minimum structural guards here; detailed metadata,

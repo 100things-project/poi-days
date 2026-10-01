@@ -1,7 +1,7 @@
 {
   "_note": "運営情報ページに追記する運営者情報。値が【要記入: …】のままの項目は公開ページに出力されない。事実のみ記入する。editorProfile は段落ごとの配列。",
   "operatorName": "おすし",
-  "contact": "【要記入: 公開できる連絡先（GoogleフォームURL）】",
+  "contact": "https://docs.google.com/forms/d/e/1FAIpQLSfjHaGmX0Q-55saiNXmHix0oNMi0XKCYxeXk4YoyGkck94vkQ/viewform",
   "editorProfile": [
     "ポイ活歴10年。",
     "ポイントサイトやキャンペーンを長く使い続けてきた経験をもとに、POI DAYSを運営しています。",
