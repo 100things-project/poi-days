@@ -1,6 +1,6 @@
 """Preserve committed public files while allowing reviewed generated surfaces to expand."""
 from pathlib import Path
-import re, subprocess
+import re, subprocess, importlib.util
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 paths=subprocess.check_output(['git','ls-tree','-r','--name-only','HEAD','docs'],text=True,cwd=ROOT).splitlines()
@@ -20,16 +20,22 @@ MOPPY_GUIDES={
 # allowed on otherwise-preserved pages: strip it, then require byte equality.
 CONTACT=re.compile(r'<!-- POIDAYS:contact -->.*?</div>(?=</footer>)', re.S)
 CONTACT_MENU=re.compile(r'<a href="https://docs\.google\.com/forms/d/e/[^"]+" target="_blank" rel="noopener noreferrer">お問い合わせ</a></nav>')
+_spec=importlib.util.spec_from_file_location('add_contact_link',ROOT/'scripts/add-contact-link.py')
+_contact=importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_contact)
+# policy/privacy carry the reviewed wording change about the new contact form.
+CONTACT_WORDING={'docs/articles/policy.html','docs/articles/privacy.html'}
 def strip_contact(data):
-    if b'<!-- POIDAYS:contact -->' not in data and b'docs.google.com/forms' not in data:
-        return data
-    text=data.decode('utf-8')
-    return CONTACT_MENU.sub('</nav>',CONTACT.sub('',text)).encode('utf-8')
+    try: text=data.decode('utf-8')
+    except UnicodeDecodeError: return data
+    return CONTACT_MENU.sub('</nav>',CONTACT.sub('',_contact.apply_replacements(text))).encode('utf-8')
 
 for path in paths:
     if path in {'docs/index.html','docs/media-data.js','docs/articles/index.html','docs/moppy.html','docs/sitemap.xml','docs/analytics.js'} or path in MOPPY_GUIDES:
         continue
     old=subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT)
+    if path in CONTACT_WORDING:
+        assert _contact.FORM in (ROOT/path).read_text(encoding='utf-8'), f'contact form link missing: {path}'
+        continue
     assert strip_contact((ROOT/path).read_bytes())==strip_contact(old), f'committed page/asset changed: {path}'
 
 analytics=(ROOT/'content/analytics.js').read_bytes()

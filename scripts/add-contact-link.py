@@ -20,15 +20,37 @@ BLOCK = (f'{MARK}{STYLE}<div class="poidays-contact"><p>ご質問・ご感想・
 MENU_OLD = '<a href="moppy.html">モッピーのページ →</a></nav>'
 MENU_NEW = f'<a href="moppy.html">モッピーのページ →</a>{LINK}お問い合わせ</a></nav>'
 
-for folder in ('docs', 'dist'):
-    for page in (ROOT / folder).rglob('*.html'):
-        if page.name.startswith('google'):
-            continue
-        text = page.read_text(encoding='utf-8')
-        if MARK in text or '</footer>' not in text:
-            continue
-        text = text.replace('</footer>', BLOCK + '</footer>', 1)
-        if page.relative_to(ROOT / folder).as_posix() == 'index.html':
-            text = text.replace(MENU_OLD, MENU_NEW, 1)
-        page.write_text(text, encoding='utf-8')
-print('Contact link added to footers')
+# Existing wording unified so the form is the single contact route. Each pair is
+# applied only where the old text exists, so re-running is harmless.
+REPLACEMENTS = [
+    ('<a href="articles/policy.html#part-3">お問い合わせ</a>', ''),
+    ('>運営情報・お問い合わせ</a>', '>運営情報</a>'),
+    ('記事の訂正を受け付ける公開連絡先は現在準備中です。',
+     f'ご質問・ご感想・情報提供は{LINK}お問い合わせフォーム</a>（Googleフォーム）から受け付けています。'),
+    ('広告配信タグや問い合わせフォームは現在設置していません。',
+     '広告配信タグは現在設置していません。お問い合わせにはGoogleフォームを利用します（入力内容の取り扱いはGoogleのポリシーに従います）。'),
+]
+
+
+def apply_replacements(text):
+    for old, new in REPLACEMENTS:
+        text = text.replace(old, new)
+    return text
+
+
+def main():
+    for folder in ('docs', 'dist'):
+        for page in (ROOT / folder).rglob('*.html'):
+            if page.name.startswith('google'):
+                continue
+            text = apply_replacements(page.read_text(encoding='utf-8'))
+            if MARK not in text and '</footer>' in text:
+                text = text.replace('</footer>', BLOCK + '</footer>', 1)
+                if page.relative_to(ROOT / folder).as_posix() == 'index.html':
+                    text = text.replace(MENU_OLD, MENU_NEW, 1)
+            page.write_text(text, encoding='utf-8')
+    print('Contact link added to footers')
+
+
+if __name__ == '__main__':
+    main()
