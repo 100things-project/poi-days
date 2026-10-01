@@ -16,11 +16,21 @@ MOPPY_GUIDES={
 # check. moppy.html may only change inside its explicit generated navigation
 # marker. sitemap may gain URLs but may not lose committed URLs. analytics.js is
 # generated from content/analytics.js and checked byte-for-byte below.
+# The reviewed contact-link block (scripts/add-contact-link.py) is the only change
+# allowed on otherwise-preserved pages: strip it, then require byte equality.
+CONTACT=re.compile(r'<!-- POIDAYS:contact -->.*?</div>(?=</footer>)', re.S)
+CONTACT_MENU=re.compile(r'<a href="https://docs\.google\.com/forms/d/e/[^"]+" target="_blank" rel="noopener noreferrer">お問い合わせ</a></nav>')
+def strip_contact(data):
+    if b'<!-- POIDAYS:contact -->' not in data and b'docs.google.com/forms' not in data:
+        return data
+    text=data.decode('utf-8')
+    return CONTACT_MENU.sub('</nav>',CONTACT.sub('',text)).encode('utf-8')
+
 for path in paths:
     if path in {'docs/index.html','docs/media-data.js','docs/articles/index.html','docs/moppy.html','docs/sitemap.xml','docs/analytics.js'} or path in MOPPY_GUIDES:
         continue
     old=subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT)
-    assert (ROOT/path).read_bytes()==old, f'committed page/asset changed: {path}'
+    assert strip_contact((ROOT/path).read_bytes())==strip_contact(old), f'committed page/asset changed: {path}'
 
 analytics=(ROOT/'content/analytics.js').read_bytes()
 assert (ROOT/'docs/analytics.js').read_bytes()==analytics, 'docs analytics differs from reviewed source'
@@ -33,7 +43,7 @@ def strip_moppy_nav(text):
 old_moppy=subprocess.check_output(['git','show','HEAD:docs/moppy.html'],cwd=ROOT,text=True)
 new_moppy=(ROOT/'docs/moppy.html').read_text(encoding='utf-8')
 assert start in new_moppy and end in new_moppy, 'generated Moppy article navigation missing'
-assert strip_moppy_nav(new_moppy)==strip_moppy_nav(old_moppy), 'moppy.html changed outside reviewed article navigation'
+assert strip_contact(strip_moppy_nav(new_moppy).encode())==strip_contact(strip_moppy_nav(old_moppy).encode()), 'moppy.html changed outside reviewed article navigation'
 
 # Generated guide bodies are allowed to change when their reviewed source or
 # generator changes. Keep minimum structural guards here; detailed metadata,
