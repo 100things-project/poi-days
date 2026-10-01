@@ -416,28 +416,35 @@ window.POI_DAYS_MEDIA = {
   "rankingMeta": {
     "moppy": {
       "status": "ok",
-      "stale": true,
+      "stale": false,
       "checkedAt": "2026-10-01",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
       "status": "ok",
-      "stale": true,
+      "stale": false,
       "checkedAt": "2026-10-01",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
       "status": "ok",
-      "stale": true,
+      "stale": false,
       "checkedAt": "2026-10-01",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
       "status": "stale",
-      "stale": true,
+      "stale": false,
       "checkedAt": "2026-10-01",
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
-  "recommendation": null
+  "recommendation": {
+    "siteId": "hapitas",
+    "siteName": "ハピタス",
+    "title": "【即増量キャンペーン実施中！】ふるなびマネー",
+    "rewardText": "0.5%",
+    "checkedAt": "2026-10-01",
+    "sourceHref": "https://hapitas.jp/item/detail/itemid/99579/apn/ranking_all_1"
+  }
 };
