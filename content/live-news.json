@@ -1,16 +1,46 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-09-30T09:15:36+09:00",
+  "generatedAt": "2026-10-01T09:26:40+09:00",
   "items": [
     {
+      "id": "ff32eaf1c39b68a34c90",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-01",
+      "title": "Qoo10メガポ開催！お気に入り＆購入で最大520ptキャンペーン",
+      "category": "キャンペーン",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3121/",
+      "official": true
+    },
+    {
+      "id": "c2249b38733ace1e03e4",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-01",
+      "title": "新規登録で合計最大2,500ptがもらえるキャンペーン開催中！",
+      "category": "キャンペーン",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3123/",
+      "official": true
+    },
+    {
       "id": "106ccca1bf17f4707e80",
+      "site": "chobirich",
+      "siteName": "ちょびリッチ",
+      "date": "2026-09-30",
+      "title": "【交換】 18:40頃 再開：デジタルギフト系交換",
+      "category": "交換",
+      "sourceUrl": "https://help.chobirich.com/#block-330bff5a9dce8011ae7aea724682d861",
+      "official": true
+    },
+    {
+      "id": "4454f37bf060ba6cfc20",
       "site": "chobirich",
       "siteName": "ちょびリッチ",
       "date": "2026-09-28",
       "title": "【アンケート】 対応完了：資産運用に関するアンケート【CH260926】",
       "category": "お知らせ",
-      "sourceUrl": "https://help.chobirich.com/#block-330bff5a9dce8011ae7aea724682d861",
+      "sourceUrl": "https://help.chobirich.com/#block-3ebbff5a9dce80c9aaf4f4386d7b0afd",
       "official": true
     },
     {
@@ -94,26 +124,6 @@
       "official": true
     },
     {
-      "id": "f20c5ea3d10b71d59f40",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-08-24",
-      "title": "【予告】最大1,900pt！Qoo10 メガ割 × ワラウでおトク",
-      "category": "お知らせ",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3099/",
-      "official": true
-    },
-    {
-      "id": "426c01af44d2136c3e36",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-08-24",
-      "title": "【総額50,000pt】2ショップ以上のお買い物で山分けボーナスキャンペーン",
-      "category": "キャンペーン",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3101/",
-      "official": true
-    },
-    {
       "id": "a44ae005b4b31ebb7145",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -161,29 +171,29 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-09-30T09:15:33+09:00",
+      "lastErrorAt": "2026-10-01T09:26:37+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-09-30T09:15:34+09:00",
+      "fetchedAt": "2026-10-01T09:26:38+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 4
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-09-30T09:15:35+09:00",
+      "fetchedAt": "2026-10-01T09:26:39+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-09-30T09:15:36+09:00",
+      "fetchedAt": "2026-10-01T09:26:40+09:00",
       "sourceUrl": "https://help.chobirich.com/",
-      "count": 1
+      "count": 2
     }
   }
 }
