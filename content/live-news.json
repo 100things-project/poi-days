@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-01T09:26:40+09:00",
+  "generatedAt": "2026-10-02T09:37:54+09:00",
   "items": [
     {
       "id": "ff32eaf1c39b68a34c90",
@@ -21,6 +21,26 @@
       "title": "新規登録で合計最大2,500ptがもらえるキャンペーン開催中！",
       "category": "キャンペーン",
       "sourceUrl": "https://www.warau.jp/service/info/permalink/3123/",
+      "official": true
+    },
+    {
+      "id": "b1c27882f7371eefeefa",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-01",
+      "title": "【5のつく日限定】10月はお得にお買い物！5.5%増量 GoGoキャンペーン",
+      "category": "キャンペーン",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3122/",
+      "official": true
+    },
+    {
+      "id": "5fc589b08ea1a7f17130",
+      "site": "hapitas",
+      "siteName": "ハピタス",
+      "date": "2026-10-01",
+      "title": "「Ｇポイントギフト」 交換メンテナンスのお知らせ",
+      "category": "重要",
+      "sourceUrl": "https://hapitas.jp/notifications/detail/id/1950",
       "official": true
     },
     {
@@ -114,16 +134,6 @@
       "official": true
     },
     {
-      "id": "494ffae32f7c91085a63",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-08-28",
-      "title": "【最大1,900pt】Qoo10 メガ割 × ワラウでおトク",
-      "category": "お知らせ",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3100/",
-      "official": true
-    },
-    {
       "id": "a44ae005b4b31ebb7145",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -171,27 +181,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-10-01T09:26:37+09:00",
+      "lastErrorAt": "2026-10-02T09:37:52+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-10-01T09:26:38+09:00",
+      "fetchedAt": "2026-10-02T09:37:53+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
-      "count": 4
+      "count": 5
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-10-01T09:26:39+09:00",
+      "fetchedAt": "2026-10-02T09:37:54+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-10-01T09:26:40+09:00",
+      "fetchedAt": "2026-10-02T09:37:54+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 2
     }
