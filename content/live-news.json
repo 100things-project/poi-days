@@ -1,8 +1,18 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-02T09:37:54+09:00",
+  "generatedAt": "2026-10-03T09:20:10+09:00",
   "items": [
+    {
+      "id": "b457e9c5b2ac44ce1c1b",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-02",
+      "title": "ご利用規約の一部改定（退会に関する項目の追加）に関するお知らせ",
+      "category": "重要",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3124/",
+      "official": true
+    },
     {
       "id": "ff32eaf1c39b68a34c90",
       "site": "warau",
@@ -124,16 +134,6 @@
       "official": true
     },
     {
-      "id": "02eb38067878cad6d29c",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-09-01",
-      "title": "抽選で合計300名様に当たる！「読んで当てる ハーゲンダッツプレゼントキャンペーン」開始",
-      "category": "キャンペーン",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3105/",
-      "official": true
-    },
-    {
       "id": "a44ae005b4b31ebb7145",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -181,27 +181,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-10-02T09:37:52+09:00",
+      "lastErrorAt": "2026-10-03T09:20:08+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-10-02T09:37:53+09:00",
+      "fetchedAt": "2026-10-03T09:20:09+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 5
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-10-02T09:37:54+09:00",
+      "fetchedAt": "2026-10-03T09:20:10+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-10-02T09:37:54+09:00",
+      "fetchedAt": "2026-10-03T09:20:10+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 2
     }
