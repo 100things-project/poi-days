@@ -20,93 +20,82 @@ window.POI_DAYS_MEDIA = {
   "rankings": {
     "moppy": [
       {
-        "title": "【10/11まで過去最高還元】三菱ＵＦＪカード",
+        "title": "※本日まで！【合計25,000円相当】三菱ＵＦＪカード",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
         "rewardText": "15,000P",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "【10/12まで15,000P】三井住友カード（NL）",
+        "title": "※3連休限定過去最高13,500P※楽天銀行 口座開設",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "15,000P",
-        "checkedAt": "2026-10-10",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=149052&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=149052&track_ref=car",
+        "rewardText": "1,500P",
+        "checkedAt": "2026-10-11",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "【10/11まで過去最高還元】三菱ＵＦＪカード ゴールド",
+        "title": "※12日まで20,000P※楽天証券",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "15,000P",
-        "checkedAt": "2026-10-10",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161423&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=161423&track_ref=car",
+        "rewardText": "20,000P",
+        "checkedAt": "2026-10-11",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "※還元UP中※楽天証券 こども口座開設",
+        "title": "auひかり",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "9,000P",
-        "checkedAt": "2026-10-10",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162173&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=162173&track_ref=car",
+        "rewardText": "60,000P",
+        "checkedAt": "2026-10-11",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "※超高還元※愛車の高価買取【車買取ソコカラ】",
+        "title": "【12日まで超還元】エポスカード【最短4日付与】",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "35,000P",
-        "checkedAt": "2026-10-10",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161196&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=161196&track_ref=car",
+        "rewardText": "14,000P",
+        "checkedAt": "2026-10-11",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102162&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=102162&track_ref=car",
         "image": "visuals/about.svg"
       }
     ],
     "hapitas": [
-      {
-        "title": "【10/11まで過去最高還元】三菱ＵＦＪカード",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "15,000pt",
-        "checkedAt": "2026-10-10",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_1",
-        "href": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_1",
-        "image": "visuals/about.svg"
-      },
       {
         "title": "【土日祝限定★モーレツ還元】楽天証券",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
         "rewardText": "20,000pt",
-        "checkedAt": "2026-10-10",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_2",
-        "href": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_2",
+        "checkedAt": "2026-10-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
+        "href": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
         "image": "visuals/about.svg"
       },
       {
-        "title": "【土日祝限定★最大12,000pt】楽天銀行 口座開設",
+        "title": "※本日まで！【合計25,000円相当】三菱ＵＦＪカード",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "1,500pt",
-        "checkedAt": "2026-10-10",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
-        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
+        "rewardText": "15,000pt",
+        "checkedAt": "2026-10-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_2",
+        "href": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_2",
         "image": "visuals/about.svg"
       },
       {
@@ -115,9 +104,20 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "15,000pt",
-        "checkedAt": "2026-10-10",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_4",
-        "href": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_4",
+        "checkedAt": "2026-10-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_3",
+        "href": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_3",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "【土日祝限定★最大12,000pt】楽天銀行 口座開設",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "1,500pt",
+        "checkedAt": "2026-10-11",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_4",
+        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_4",
         "image": "visuals/about.svg"
       },
       {
@@ -126,7 +126,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "4,000pt",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_5",
         "href": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_5",
         "image": "visuals/about.svg"
@@ -416,14 +416,14 @@ window.POI_DAYS_MEDIA = {
   "rankingMeta": {
     "moppy": {
       "status": "ok",
-      "stale": true,
-      "checkedAt": "2026-10-10",
+      "stale": false,
+      "checkedAt": "2026-10-11",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
       "status": "ok",
-      "stale": true,
-      "checkedAt": "2026-10-10",
+      "stale": false,
+      "checkedAt": "2026-10-11",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
@@ -433,18 +433,18 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
-      "status": "ok",
+      "status": "stale",
       "stale": false,
       "checkedAt": "2026-10-11",
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
   "recommendation": {
-    "siteId": "chobirich",
-    "siteName": "ちょびリッチ",
-    "title": "楽天市場",
-    "rewardText": "1%",
+    "siteId": "hapitas",
+    "siteName": "ハピタス",
+    "title": "【土日祝限定★モーレツ還元】楽天証券",
+    "rewardText": "20,000pt",
     "checkedAt": "2026-10-11",
-    "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking"
+    "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1"
   }
 };

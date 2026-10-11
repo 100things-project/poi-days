@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-11T00:20:19+09:00",
+  "generatedAt": "2026-10-11T09:10:38+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,53 +9,53 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-10-10T09:39:17+09:00",
-      "checkedAt": "2026-10-10",
+      "fetchedAt": "2026-10-11T09:10:39+09:00",
+      "checkedAt": "2026-10-11",
       "items": [
         {
           "rank": 1,
-          "title": "【10/11まで過去最高還元】三菱ＵＦＪカード",
+          "title": "※本日まで！【合計25,000円相当】三菱ＵＦＪカード",
           "rewardText": "15,000P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         },
         {
           "rank": 2,
-          "title": "【10/12まで15,000P】三井住友カード（NL）",
-          "rewardText": "15,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=149052&track_ref=car",
+          "title": "※3連休限定過去最高13,500P※楽天銀行 口座開設",
+          "rewardText": "1,500P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         },
         {
           "rank": 3,
-          "title": "【10/11まで過去最高還元】三菱ＵＦＪカード ゴールド",
-          "rewardText": "15,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161423&track_ref=car",
+          "title": "※12日まで20,000P※楽天証券",
+          "rewardText": "20,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         },
         {
           "rank": 4,
-          "title": "※還元UP中※楽天証券 こども口座開設",
-          "rewardText": "9,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162173&track_ref=car",
+          "title": "auひかり",
+          "rewardText": "60,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         },
         {
           "rank": 5,
-          "title": "※超高還元※愛車の高価買取【車買取ソコカラ】",
-          "rewardText": "35,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161196&track_ref=car",
+          "title": "【12日まで超還元】エポスカード【最短4日付与】",
+          "rewardText": "14,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102162&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         }
       ]
     },
@@ -65,44 +65,44 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://hapitas.jp/ranking/",
-      "fetchedAt": "2026-10-10T09:39:18+09:00",
-      "checkedAt": "2026-10-10",
+      "fetchedAt": "2026-10-11T09:10:41+09:00",
+      "checkedAt": "2026-10-11",
       "items": [
         {
           "rank": 1,
-          "title": "【10/11まで過去最高還元】三菱ＵＦＪカード",
-          "rewardText": "15,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_1",
+          "title": "【土日祝限定★モーレツ還元】楽天証券",
+          "rewardText": "20,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         },
         {
           "rank": 2,
-          "title": "【土日祝限定★モーレツ還元】楽天証券",
-          "rewardText": "20,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_2",
+          "title": "※本日まで！【合計25,000円相当】三菱ＵＦＪカード",
+          "rewardText": "15,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_2",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         },
         {
           "rank": 3,
-          "title": "【土日祝限定★最大12,000pt】楽天銀行 口座開設",
-          "rewardText": "1,500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_3",
+          "title": "【最大38,000円相当】三井住友カード（NL）",
+          "rewardText": "15,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_3",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         },
         {
           "rank": 4,
-          "title": "【最大38,000円相当】三井住友カード（NL）",
-          "rewardText": "15,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_4",
+          "title": "【土日祝限定★最大12,000pt】楽天銀行 口座開設",
+          "rewardText": "1,500pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_4",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         },
         {
           "rank": 5,
@@ -111,7 +111,7 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_5",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-10"
+          "checkedAt": "2026-10-11"
         }
       ]
     },
@@ -170,14 +170,14 @@
           "checkedAt": "2026-10-09"
         }
       ],
-      "lastErrorAt": "2026-10-10T09:39:19+09:00",
+      "lastErrorAt": "2026-10-11T09:10:42+09:00",
       "lastError": "503 Server Error: Service Temporarily Unavailable for url: https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "scope": "ショッピング",
-      "status": "ok",
-      "stale": false,
+      "status": "stale",
+      "stale": true,
       "sourceUrl": "https://www.chobirich.com/shopping/",
       "fetchedAt": "2026-10-11T00:20:19+09:00",
       "checkedAt": "2026-10-11",
@@ -229,7 +229,9 @@
           "verified": true,
           "checkedAt": "2026-10-11"
         }
-      ]
+      ],
+      "lastErrorAt": "2026-10-11T09:10:42+09:00",
+      "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/logreco/ranking?logreco%5Bresponse_number%5D=15&logreco%5Bmethod_type%5D=2&logreco%5Bspot_name%5D=SPShopping_ranking&logreco%5Bcategory1%5D=%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%"
     }
   }
 }
