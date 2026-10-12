@@ -20,14 +20,25 @@ window.POI_DAYS_MEDIA = {
   "rankings": {
     "moppy": [
       {
-        "title": "※本日まで！【合計25,000円相当】三菱ＵＦＪカード",
+        "title": "【合計24,500円相当】三菱ＵＦＪカード",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "15,000P",
-        "checkedAt": "2026-10-11",
+        "rewardText": "14,500P",
+        "checkedAt": "2026-10-12",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "【12日まで超還元】エポスカード【最短4日付与】",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "14,000P",
+        "checkedAt": "2026-10-12",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102162&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=102162&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
@@ -36,7 +47,7 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1,500P",
-        "checkedAt": "2026-10-11",
+        "checkedAt": "2026-10-12",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
         "image": "visuals/about.svg"
@@ -47,31 +58,20 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "20,000P",
-        "checkedAt": "2026-10-11",
+        "checkedAt": "2026-10-12",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "auひかり",
+        "title": "【合計26,500円相当】三菱ＵＦＪカード ゴールド",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "60,000P",
-        "checkedAt": "2026-10-11",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "【12日まで超還元】エポスカード【最短4日付与】",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "14,000P",
-        "checkedAt": "2026-10-11",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102162&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=102162&track_ref=car",
+        "rewardText": "14,500P",
+        "checkedAt": "2026-10-12",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161423&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=161423&track_ref=car",
         "image": "visuals/about.svg"
       }
     ],
@@ -82,31 +82,9 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "20,000pt",
-        "checkedAt": "2026-10-11",
+        "checkedAt": "2026-10-12",
         "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
         "href": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "※本日まで！【合計25,000円相当】三菱ＵＦＪカード",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "15,000pt",
-        "checkedAt": "2026-10-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_2",
-        "href": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_2",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "【最大38,000円相当】三井住友カード（NL）",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "15,000pt",
-        "checkedAt": "2026-10-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_3",
-        "href": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_3",
         "image": "visuals/about.svg"
       },
       {
@@ -115,9 +93,9 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "1,500pt",
-        "checkedAt": "2026-10-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_4",
-        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_4",
+        "checkedAt": "2026-10-12",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_2",
+        "href": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_2",
         "image": "visuals/about.svg"
       },
       {
@@ -126,9 +104,31 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "4,000pt",
-        "checkedAt": "2026-10-11",
-        "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_5",
-        "href": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_5",
+        "checkedAt": "2026-10-12",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_3",
+        "href": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_3",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "【最大38,000円相当】三井住友カード（NL）",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "15,000pt",
+        "checkedAt": "2026-10-12",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_4",
+        "href": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_4",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "【土日祝限定★爆裂還元】みずほ銀行「口座開設」",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "10,000pt",
+        "checkedAt": "2026-10-12",
+        "sourceHref": "https://hapitas.jp/item/detail/itemid/95341/apn/ranking_all_5",
+        "href": "https://hapitas.jp/item/detail/itemid/95341/apn/ranking_all_5",
         "image": "visuals/about.svg"
       }
     ],
@@ -416,14 +416,14 @@ window.POI_DAYS_MEDIA = {
   "rankingMeta": {
     "moppy": {
       "status": "ok",
-      "stale": true,
-      "checkedAt": "2026-10-11",
+      "stale": false,
+      "checkedAt": "2026-10-12",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
       "status": "ok",
-      "stale": true,
-      "checkedAt": "2026-10-11",
+      "stale": false,
+      "checkedAt": "2026-10-12",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
@@ -433,18 +433,18 @@ window.POI_DAYS_MEDIA = {
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
-      "status": "ok",
+      "status": "stale",
       "stale": false,
       "checkedAt": "2026-10-12",
       "sourceUrl": "https://www.chobirich.com/shopping/"
     }
   },
   "recommendation": {
-    "siteId": "chobirich",
-    "siteName": "ちょびリッチ",
-    "title": "楽天市場",
-    "rewardText": "1%",
+    "siteId": "moppy",
+    "siteName": "モッピー",
+    "title": "【合計24,500円相当】三菱ＵＦＪカード",
+    "rewardText": "14,500P",
     "checkedAt": "2026-10-12",
-    "sourceHref": "https://www.chobirich.com/ad_details/36796?type_name=ランキング_コンバージョンログ&spot_name=SPShopping_ranking"
+    "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car"
   }
 };
