@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-12T09:23:01+09:00",
+  "generatedAt": "2026-10-13T11:30:01+09:00",
   "items": [
     {
       "id": "166f373dee56ef20d9f6",
@@ -191,27 +191,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-10-12T09:22:59+09:00",
+      "lastErrorAt": "2026-10-13T11:29:58+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-10-12T09:23:00+09:00",
+      "fetchedAt": "2026-10-13T11:29:59+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 6
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-10-12T09:23:01+09:00",
+      "fetchedAt": "2026-10-13T11:30:00+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-10-12T09:23:01+09:00",
+      "fetchedAt": "2026-10-13T11:30:01+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 2
     }
