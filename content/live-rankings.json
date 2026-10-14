@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-14T00:20:24+09:00",
+  "generatedAt": "2026-10-14T09:13:38+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,8 +9,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-10-13T11:29:55+09:00",
-      "checkedAt": "2026-10-13",
+      "fetchedAt": "2026-10-14T09:13:39+09:00",
+      "checkedAt": "2026-10-14",
       "items": [
         {
           "rank": 1,
@@ -19,43 +19,43 @@
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
         },
         {
           "rank": 2,
-          "title": "【合計11,000P】楽天銀行 口座開設",
-          "rewardText": "1,500P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-10-13"
-        },
-        {
-          "rank": 3,
           "title": "【過去最高‼】dカード GOLD［新規申込限定］",
           "rewardText": "27,000P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=151298&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
         },
         {
-          "rank": 4,
+          "rank": 3,
           "title": "【合計24,500円相当】三菱ＵＦＪカード",
           "rewardText": "14,500P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
+        },
+        {
+          "rank": 4,
+          "title": "※15日まで超還元※三菱UFJ eスマート証券（旧：auカブコム証券）",
+          "rewardText": "17,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=147395&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-10-14"
         },
         {
           "rank": 5,
-          "title": "楽天証券",
-          "rewardText": "10,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
+          "title": "【合計11,000P】楽天銀行 口座開設",
+          "rewardText": "1,500P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
         }
       ]
     },
@@ -65,8 +65,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://hapitas.jp/ranking/",
-      "fetchedAt": "2026-10-13T11:29:56+09:00",
-      "checkedAt": "2026-10-13",
+      "fetchedAt": "2026-10-14T09:13:40+09:00",
+      "checkedAt": "2026-10-14",
       "items": [
         {
           "rank": 1,
@@ -75,25 +75,25 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
         },
         {
           "rank": 2,
-          "title": "【最大10,000pt】楽天銀行 口座開設",
-          "rewardText": "1,500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_2",
+          "title": "【月額】Disney+ (ディズニープラス)【dアカウント以外】",
+          "rewardText": "2,600pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/81509/apn/ranking_all_2",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
         },
         {
           "rank": 3,
-          "title": "【最大56,000円相当】三菱ＵＦＪ銀行 口座開設",
-          "rewardText": "4,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_3",
+          "title": "SBI証券（新規口座開設+50,000円以上入金）",
+          "rewardText": "13,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_3",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
         },
         {
           "rank": 4,
@@ -102,16 +102,16 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_4",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
         },
         {
           "rank": 5,
-          "title": "みずほ銀行「口座開設」",
-          "rewardText": "6,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/95341/apn/ranking_all_5",
+          "title": "リクルートカード",
+          "rewardText": "1,100pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/49829/apn/ranking_all_5",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-13"
+          "checkedAt": "2026-10-14"
         }
       ]
     },
@@ -170,14 +170,14 @@
           "checkedAt": "2026-10-09"
         }
       ],
-      "lastErrorAt": "2026-10-13T11:29:57+09:00",
+      "lastErrorAt": "2026-10-14T09:13:41+09:00",
       "lastError": "503 Server Error: Service Temporarily Unavailable for url: https://www.warau.jp/contents/point/ranking/"
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "scope": "ショッピング",
-      "status": "ok",
-      "stale": false,
+      "status": "stale",
+      "stale": true,
       "sourceUrl": "https://www.chobirich.com/shopping/",
       "fetchedAt": "2026-10-14T00:20:24+09:00",
       "checkedAt": "2026-10-14",
@@ -229,7 +229,9 @@
           "verified": true,
           "checkedAt": "2026-10-14"
         }
-      ]
+      ],
+      "lastErrorAt": "2026-10-14T09:13:42+09:00",
+      "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/logreco/ranking?logreco%5Bresponse_number%5D=15&logreco%5Bmethod_type%5D=2&logreco%5Bspot_name%5D=SPShopping_ranking&logreco%5Bcategory1%5D=%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%"
     }
   }
 }
