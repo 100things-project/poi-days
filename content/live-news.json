@@ -1,8 +1,18 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-16T08:37:27+09:00",
+  "generatedAt": "2026-10-17T08:23:44+09:00",
   "items": [
+    {
+      "id": "ce4cab1655cc33a13c58",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-16",
+      "title": "【重要】「みんなのウエル活報告会」10月開催休止とポイント交換に関するお知らせ",
+      "category": "重要",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3142/",
+      "official": true
+    },
     {
       "id": "fcfb9ea64cd2295c3d10",
       "site": "warau",
@@ -94,16 +104,6 @@
       "official": true
     },
     {
-      "id": "ff32eaf1c39b68a34c90",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-10-01",
-      "title": "Qoo10メガポ開催！お気に入り＆購入で最大520ptキャンペーン",
-      "category": "キャンペーン",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3121/",
-      "official": true
-    },
-    {
       "id": "c2249b38733ace1e03e4",
       "site": "warau",
       "siteName": "ワラウ",
@@ -181,27 +181,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-10-16T08:37:24+09:00",
+      "lastErrorAt": "2026-10-17T08:23:41+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-10-16T08:37:25+09:00",
+      "fetchedAt": "2026-10-17T08:23:42+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 6
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-10-16T08:37:26+09:00",
+      "fetchedAt": "2026-10-17T08:23:43+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-10-16T08:37:27+09:00",
+      "fetchedAt": "2026-10-17T08:23:44+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 1
     }

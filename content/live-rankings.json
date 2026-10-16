@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-16T08:37:19+09:00",
+  "generatedAt": "2026-10-17T08:23:36+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,53 +9,53 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-10-16T08:37:20+09:00",
-      "checkedAt": "2026-10-16",
+      "fetchedAt": "2026-10-17T08:23:38+09:00",
+      "checkedAt": "2026-10-17",
       "items": [
         {
           "rank": 1,
+          "title": "DARWIN funding 50万以上の出資完了（ダーウィンファンディング）",
+          "rewardText": "150,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154759&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-10-17"
+        },
+        {
+          "rank": 2,
           "title": "※高還元※SBI証券 こども口座",
           "rewardText": "12,000P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
-          "rank": 2,
+          "rank": 3,
           "title": "【合計24,500円相当】三菱ＵＦＪカード",
           "rewardText": "14,500P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
-        },
-        {
-          "rank": 3,
-          "title": "【過去最高‼】dカード GOLD［新規申込限定］",
-          "rewardText": "27,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=151298&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 4,
-          "title": "三菱UFJ eスマート証券（旧：auカブコム証券）",
-          "rewardText": "6,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=147395&track_ref=car",
+          "title": "TASUKI FUNDS（タスキファンズ）200万円以上投資完了",
+          "rewardText": "84,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=158724&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 5,
-          "title": "【合計11,000P】楽天銀行 口座開設",
-          "rewardText": "1,500P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
+          "title": "※過去最高20,000P！※【三井住友銀行】法人ネット口座 Trunk",
+          "rewardText": "18,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=160005&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         }
       ]
     },
@@ -65,53 +65,53 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://hapitas.jp/ranking/",
-      "fetchedAt": "2026-10-16T08:37:22+09:00",
-      "checkedAt": "2026-10-16",
+      "fetchedAt": "2026-10-17T08:23:39+09:00",
+      "checkedAt": "2026-10-17",
       "items": [
         {
           "rank": 1,
-          "title": "楽天証券",
-          "rewardText": "13,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
+          "title": "【高還元】SBI証券（新規口座開設 50,000円以上入金）",
+          "rewardText": "18,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_1",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 2,
-          "title": "SBI証券（新規口座開設+50,000円以上入金）",
-          "rewardText": "18,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_2",
+          "title": "【土日限定★モリモリ還元】楽天証券",
+          "rewardText": "20,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_2",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 3,
-          "title": "【最大36,000円相当】三井住友カード（NL）",
-          "rewardText": "13,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_3",
+          "title": "23日まで過去最高還元✨三菱ＵＦＪ銀行 口座開設【最大64,000円相当】",
+          "rewardText": "4,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_3",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 4,
-          "title": "【最大58,000円相当】三菱ＵＦＪ銀行 口座開設",
-          "rewardText": "4,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_4",
+          "title": "ぐんぐん還元！エポスカード【最短4日付与】※25日まで高pt",
+          "rewardText": "14,500pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/97154/apn/ranking_all_4",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 5,
-          "title": "【最大10,000pt】楽天銀行 口座開設",
-          "rewardText": "1,500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_5",
+          "title": "【最大38,500円相当】三井住友カード（NL）",
+          "rewardText": "15,500pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_5",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         }
       ]
     },
@@ -121,8 +121,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
-      "fetchedAt": "2026-10-16T08:37:23+09:00",
-      "checkedAt": "2026-10-16",
+      "fetchedAt": "2026-10-17T08:23:40+09:00",
+      "checkedAt": "2026-10-17",
       "items": [
         {
           "rank": 1,
@@ -131,7 +131,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 2,
@@ -140,7 +140,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=207734&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 3,
@@ -149,7 +149,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 4,
@@ -158,7 +158,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=207341&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         },
         {
           "rank": 5,
@@ -167,7 +167,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=207908&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-10-16"
+          "checkedAt": "2026-10-17"
         }
       ]
     },
@@ -228,7 +228,7 @@
           "checkedAt": "2026-10-16"
         }
       ],
-      "lastErrorAt": "2026-10-16T08:37:23+09:00",
+      "lastErrorAt": "2026-10-17T08:23:41+09:00",
       "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/logreco/ranking?logreco%5Bresponse_number%5D=15&logreco%5Bmethod_type%5D=2&logreco%5Bspot_name%5D=SPShopping_ranking&logreco%5Bcategory1%5D=%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%"
     }
   }
