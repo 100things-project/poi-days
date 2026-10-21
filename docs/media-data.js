@@ -25,20 +25,9 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "14,500P",
-        "checkedAt": "2026-10-21",
+        "checkedAt": "2026-10-22",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
-        "image": "visuals/about.svg"
-      },
-      {
-        "title": "みずほ銀行 口座開設",
-        "category": "公式ランキング",
-        "sample": false,
-        "verified": true,
-        "rewardText": "6,000P",
-        "checkedAt": "2026-10-21",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=160628&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=160628&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
@@ -47,31 +36,42 @@ window.POI_DAYS_MEDIA = {
         "sample": false,
         "verified": true,
         "rewardText": "13,000P",
-        "checkedAt": "2026-10-21",
+        "checkedAt": "2026-10-22",
         "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
         "href": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "還元UP！※合計最大41,400円相当※【三井住友銀行】Olive口座開設",
+        "title": "Coincheck（コインチェック）",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "4,400P",
-        "checkedAt": "2026-10-21",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=155058&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=155058&track_ref=car",
+        "rewardText": "7,500P",
+        "checkedAt": "2026-10-22",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=145659&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=145659&track_ref=car",
         "image": "visuals/about.svg"
       },
       {
-        "title": "※過去最高還元※au PAY ゴールドカード",
+        "title": "auひかり",
         "category": "公式ランキング",
         "sample": false,
         "verified": true,
-        "rewardText": "20,000P",
-        "checkedAt": "2026-10-21",
-        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157386&track_ref=car",
-        "href": "https://pc.moppy.jp/ad/detail.php?site_id=157386&track_ref=car",
+        "rewardText": "60,000P",
+        "checkedAt": "2026-10-22",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
+        "image": "visuals/about.svg"
+      },
+      {
+        "title": "※31日まで超高還元※愛車の高価買取【車買取ソコカラ】",
+        "category": "公式ランキング",
+        "sample": false,
+        "verified": true,
+        "rewardText": "35,000P",
+        "checkedAt": "2026-10-22",
+        "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161196&track_ref=car",
+        "href": "https://pc.moppy.jp/ad/detail.php?site_id=161196&track_ref=car",
         "image": "visuals/about.svg"
       }
     ],
@@ -417,18 +417,18 @@ window.POI_DAYS_MEDIA = {
     "moppy": {
       "status": "ok",
       "stale": false,
-      "checkedAt": "2026-10-21",
+      "checkedAt": "2026-10-22",
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php"
     },
     "hapitas": {
-      "status": "ok",
-      "stale": false,
+      "status": "stale",
+      "stale": true,
       "checkedAt": "2026-10-21",
       "sourceUrl": "https://hapitas.jp/ranking/"
     },
     "warau": {
-      "status": "ok",
-      "stale": false,
+      "status": "stale",
+      "stale": true,
       "checkedAt": "2026-10-21",
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/"
     },
@@ -440,11 +440,11 @@ window.POI_DAYS_MEDIA = {
     }
   },
   "recommendation": {
-    "siteId": "warau",
-    "siteName": "ワラウ",
-    "title": "楽天市場",
-    "rewardText": "1%",
-    "checkedAt": "2026-10-21",
-    "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all"
+    "siteId": "moppy",
+    "siteName": "モッピー",
+    "title": "【合計24,500円相当】三菱ＵＦＪカード",
+    "rewardText": "14,500P",
+    "checkedAt": "2026-10-22",
+    "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car"
   }
 };
