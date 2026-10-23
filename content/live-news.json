@@ -1,8 +1,28 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-23T08:56:29+09:00",
+  "generatedAt": "2026-10-24T08:48:27+09:00",
   "items": [
+    {
+      "id": "c9e31948cbc8ffe1b58d",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-23",
+      "title": "【本日23:59まで】「ポイント調査」「ワラウあんしん保証」申請期限のお知らせ",
+      "category": "お知らせ",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3151/",
+      "official": true
+    },
+    {
+      "id": "a7f394481ef05f49e77a",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-23",
+      "title": "【抽選で1等10,000pt】秋のお買い物キャンペーン",
+      "category": "キャンペーン",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3148/",
+      "official": true
+    },
     {
       "id": "bc954161cf882e305011",
       "site": "hapitas",
@@ -18,7 +38,7 @@
       "site": "warau",
       "siteName": "ワラウ",
       "date": "2026-10-22",
-      "title": "【追記】じゃんけんちゃんハロウィンキャンペーン延期のお知らせ",
+      "title": "【10/23追記】じゃんけんちゃんハロウィンキャンペーンの開催",
       "category": "キャンペーン",
       "sourceUrl": "https://www.warau.jp/service/info/permalink/3133/",
       "official": true
@@ -28,7 +48,7 @@
       "site": "chobirich",
       "siteName": "ちょびリッチ",
       "date": "2026-10-22",
-      "title": "【メンテンナンス中コンテンツ】 交換：Pollet/Amazonギフト、リサーチプラス/頭の体操/農場生活、ちょびリッチ×テンタメ",
+      "title": "【メンテンナンス中コンテンツ】 交換：Pollet/Amazonギフト、リサーチプラス/頭の体操/農場生活（再開：）",
       "category": "交換",
       "sourceUrl": "https://help.chobirich.com/#block-330bff5a9dce8011ae7aea724682d861",
       "official": true
@@ -134,26 +154,6 @@
       "official": true
     },
     {
-      "id": "d533e5d9e00cc2e8fb86",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-10-08",
-      "title": "【重要】不正アクセスによる個人情報に関するお詫びとご報告",
-      "category": "重要",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3130/",
-      "official": true
-    },
-    {
-      "id": "a62a69ce5addcfc45956",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-10-08",
-      "title": "緊急システムメンテナンスのお知らせ：2026年10月8日(木) 午後1:30 〜 午後3:00",
-      "category": "重要",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3129/",
-      "official": true
-    },
-    {
       "id": "5fc589b08ea1a7f17130",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -211,27 +211,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-10-23T08:56:26+09:00",
+      "lastErrorAt": "2026-10-24T08:48:24+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-10-23T08:56:27+09:00",
+      "fetchedAt": "2026-10-24T08:48:25+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 7
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-10-23T08:56:28+09:00",
+      "fetchedAt": "2026-10-24T08:48:26+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-10-23T08:56:29+09:00",
+      "fetchedAt": "2026-10-24T08:48:27+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 3
     }
