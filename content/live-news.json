@@ -1,8 +1,18 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-25T08:02:26+09:00",
+  "generatedAt": "2026-10-26T08:07:15+09:00",
   "items": [
+    {
+      "id": "afcf1e493f3f612f91c6",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-26",
+      "title": "全員50コイン獲得！じゃんけんちゃんハロウィンキャンペーン",
+      "category": "キャンペーン",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3135/",
+      "official": true
+    },
     {
       "id": "92a45a49b6be6cb3a0bd",
       "site": "hapitas",
@@ -144,16 +154,6 @@
       "official": true
     },
     {
-      "id": "166f373dee56ef20d9f6",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-10-09",
-      "title": "【重要】ポイント交換申請の一時休止のお知らせ",
-      "category": "重要",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3131/",
-      "official": true
-    },
-    {
       "id": "eb3143578b62949ff509",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -221,27 +221,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-10-25T08:02:23+09:00",
+      "lastErrorAt": "2026-10-26T08:07:13+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-10-25T08:02:24+09:00",
+      "fetchedAt": "2026-10-26T08:07:13+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 8
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-10-25T08:02:25+09:00",
+      "fetchedAt": "2026-10-26T08:07:15+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-10-25T08:02:26+09:00",
+      "fetchedAt": "2026-10-26T08:07:15+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 3
     }
