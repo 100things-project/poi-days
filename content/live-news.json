@@ -1,8 +1,48 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-10-29T09:42:32+09:00",
+  "generatedAt": "2026-10-30T09:43:23+09:00",
   "items": [
+    {
+      "id": "f1ce72f2bc02cb57088c",
+      "site": "chobirich",
+      "siteName": "ちょびリッチ",
+      "date": "2026-10-29",
+      "title": "【メンテナンス中】 交換： au PAY ギフトカード",
+      "category": "重要",
+      "sourceUrl": "https://help.chobirich.com/#block-408bff5a9dce80f1b9c8e1a1841ac5a5",
+      "official": true
+    },
+    {
+      "id": "8f574d4b6bd82ef98ec8",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-10-29",
+      "title": "【お詫び】10月29日（木）早朝のポイント交換一時停止について",
+      "category": "重要",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3155/",
+      "official": true
+    },
+    {
+      "id": "69faca10f10909b01035",
+      "site": "chobirich",
+      "siteName": "ちょびリッチ",
+      "date": "2026-10-29",
+      "title": "【今日のポイントプレゼント】 「長年のご利用ありがとう賞」誤表示の修正完了",
+      "category": "キャンペーン",
+      "sourceUrl": "https://help.chobirich.com/#block-407bff5a9dce80358f5bdb62284b5c0f",
+      "official": true
+    },
+    {
+      "id": "3926862733543b2ae84a",
+      "site": "chobirich",
+      "siteName": "ちょびリッチ",
+      "date": "2026-10-29",
+      "title": "【メンテナンス予定】 交換停止10/30 15:00 ～ 11/4 15:00 ごろ（予定）",
+      "category": "重要",
+      "sourceUrl": "https://help.chobirich.com/#block-408bff5a9dce80b38e5df1a608a222bf",
+      "official": true
+    },
     {
       "id": "739272c7b991ba19cf6b",
       "site": "warau",
@@ -14,13 +54,13 @@
       "official": true
     },
     {
-      "id": "69faca10f10909b01035",
+      "id": "51feaa6810a56f7726fe",
       "site": "chobirich",
       "siteName": "ちょびリッチ",
       "date": "2026-10-28",
-      "title": "【今日のポイントプレゼント】 「長年のご利用ありがとう賞」誤表示について",
-      "category": "キャンペーン",
-      "sourceUrl": "https://help.chobirich.com/#block-407bff5a9dce80358f5bdb62284b5c0f",
+      "title": "【提携先メンテンナンス】 メンテナンスの終了を確認し再開しました。",
+      "category": "重要",
+      "sourceUrl": "https://help.chobirich.com/#block-405bff5a9dce80158871fec46fbd0e8f",
       "official": true
     },
     {
@@ -31,16 +71,6 @@
       "title": "対象アンケートのコイン初獲得でボーナス250コイン付与キャンペーン",
       "category": "キャンペーン",
       "sourceUrl": "https://www.warau.jp/service/info/permalink/3143/",
-      "official": true
-    },
-    {
-      "id": "51feaa6810a56f7726fe",
-      "site": "chobirich",
-      "siteName": "ちょびリッチ",
-      "date": "2026-10-27",
-      "title": "【提携先メンテンナンス中コンテンツ】 交換：ビットコイン(bitflyer)、ゲーム：農場生活",
-      "category": "交換",
-      "sourceUrl": "https://help.chobirich.com/#block-405bff5a9dce80158871fec46fbd0e8f",
       "official": true
     },
     {
@@ -154,16 +184,6 @@
       "official": true
     },
     {
-      "id": "56a5c4504d1e64e3edee",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-10-19",
-      "title": "【復旧】WAON POINT eギフトへのポイント交換を再開しました",
-      "category": "交換",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3147/",
-      "official": true
-    },
-    {
       "id": "eb3143578b62949ff509",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -231,29 +251,29 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-10-29T09:42:29+09:00",
+      "lastErrorAt": "2026-10-30T09:43:20+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-10-29T09:42:30+09:00",
+      "fetchedAt": "2026-10-30T09:43:22+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 7
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-10-29T09:42:31+09:00",
+      "fetchedAt": "2026-10-30T09:43:22+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-10-29T09:42:32+09:00",
+      "fetchedAt": "2026-10-30T09:43:23+09:00",
       "sourceUrl": "https://help.chobirich.com/",
-      "count": 5
+      "count": 7
     }
   }
 }
