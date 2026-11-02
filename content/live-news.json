@@ -1,8 +1,18 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-11-01T08:59:23+09:00",
+  "generatedAt": "2026-11-02T09:28:48+09:00",
   "items": [
+    {
+      "id": "bb553c5b5f8e01e992e0",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-11-02",
+      "title": "【5と0のつく日限定】定率広告ポイントが5.5%増量 GoGoキャンペーン",
+      "category": "キャンペーン",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3156/",
+      "official": true
+    },
     {
       "id": "c3c564e1aaa60532f3b6",
       "site": "chobirich",
@@ -154,16 +164,6 @@
       "official": true
     },
     {
-      "id": "ad10ab02a3a6c145c472",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-10-22",
-      "title": "【10/23追記】じゃんけんちゃんハロウィンキャンペーンの開催",
-      "category": "キャンペーン",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3133/",
-      "official": true
-    },
-    {
       "id": "eb3143578b62949ff509",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -231,27 +231,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-11-01T08:59:20+09:00",
+      "lastErrorAt": "2026-11-02T09:28:45+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-11-01T08:59:21+09:00",
+      "fetchedAt": "2026-11-02T09:28:45+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 6
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-11-01T08:59:22+09:00",
+      "fetchedAt": "2026-11-02T09:28:47+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-11-01T08:59:23+09:00",
+      "fetchedAt": "2026-11-02T09:28:48+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 6
     }
