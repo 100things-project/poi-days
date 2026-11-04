@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-11-03T11:51:14+09:00",
+  "generatedAt": "2026-11-04T10:08:50+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,8 +9,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-11-03T11:51:16+09:00",
-      "checkedAt": "2026-11-03",
+      "fetchedAt": "2026-11-04T10:08:52+09:00",
+      "checkedAt": "2026-11-04",
       "items": [
         {
           "rank": 1,
@@ -19,43 +19,43 @@
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         },
         {
           "rank": 2,
-          "title": "※3日まで超還元UP※楽天証券",
-          "rewardText": "20,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-11-03"
-        },
-        {
-          "rank": 3,
-          "title": "※3日まで超高還元※楽天証券 こども口座開設",
-          "rewardText": "12,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162173&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-11-03"
-        },
-        {
-          "rank": 4,
-          "title": "※超還元13,000P※楽天銀行 口座開設",
-          "rewardText": "1,500P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-11-03"
-        },
-        {
-          "rank": 5,
           "title": "※超還元※【2枚持ちOK】三井住友カード Visa（NL）",
           "rewardText": "13,500P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=149052&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
+        },
+        {
+          "rank": 3,
+          "title": "CAMEL(キャメル)[50万円以上の投資完了]",
+          "rewardText": "62,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=158347&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-11-04"
+        },
+        {
+          "rank": 4,
+          "title": "楽天証券 こども口座開設",
+          "rewardText": "9,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162173&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-11-04"
+        },
+        {
+          "rank": 5,
+          "title": "※6日まで限定UP※三菱UFJ eスマート証券（旧：auカブコム証券）",
+          "rewardText": "17,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=147395&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-11-04"
         }
       ]
     },
@@ -65,53 +65,53 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://hapitas.jp/ranking/",
-      "fetchedAt": "2026-11-03T11:51:17+09:00",
-      "checkedAt": "2026-11-03",
+      "fetchedAt": "2026-11-04T10:08:53+09:00",
+      "checkedAt": "2026-11-04",
       "items": [
         {
           "rank": 1,
-          "title": "【最大37,000円相当】三井住友カード Visa（NL）",
-          "rewardText": "13,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_1",
+          "title": "楽天証券",
+          "rewardText": "12,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         },
         {
           "rank": 2,
-          "title": "【月初限定★グレート還元】楽天証券",
-          "rewardText": "20,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_2",
+          "title": "SBI証券（新規口座開設+50,000円以上入金）",
+          "rewardText": "15,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_2",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         },
         {
           "rank": 3,
-          "title": "SBI証券（新規口座開設+50,000円以上入金）",
-          "rewardText": "15,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_3",
+          "title": "【最大35,000円相当】三井住友カード Visa（NL）",
+          "rewardText": "11,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/91934/apn/ranking_all_3",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         },
         {
           "rank": 4,
-          "title": "【月額】Disney+ (ディズニープラス)【dアカウント以外】",
-          "rewardText": "2,600pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/81509/apn/ranking_all_4",
+          "title": "4日まで！【最大58,000円相当】三菱ＵＦＪ銀行 口座開設",
+          "rewardText": "4,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_4",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         },
         {
           "rank": 5,
-          "title": "4日まで！【最大58,000円相当】三菱ＵＦＪ銀行 口座開設",
-          "rewardText": "4,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_5",
+          "title": "【大型還元★11,000pt】楽天銀行 口座開設",
+          "rewardText": "1,500pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_5",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         }
       ]
     },
@@ -121,8 +121,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
-      "fetchedAt": "2026-11-03T11:51:19+09:00",
-      "checkedAt": "2026-11-03",
+      "fetchedAt": "2026-11-04T10:08:54+09:00",
+      "checkedAt": "2026-11-04",
       "items": [
         {
           "rank": 1,
@@ -131,25 +131,25 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         },
         {
           "rank": 2,
-          "title": "SBI証券 こども口座開設",
-          "rewardText": "11,000pt",
-          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=208471&pl=pc_rnkngPg_all",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-11-03"
-        },
-        {
-          "rank": 3,
           "title": "Yahoo!ショッピング",
           "rewardText": "1%",
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
+        },
+        {
+          "rank": 3,
+          "title": "SBI証券 こども口座開設",
+          "rewardText": "11,000pt",
+          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=208471&pl=pc_rnkngPg_all",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-11-04"
         },
         {
           "rank": 4,
@@ -158,7 +158,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=208555&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         },
         {
           "rank": 5,
@@ -167,7 +167,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=207299&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-03"
+          "checkedAt": "2026-11-04"
         }
       ]
     },
@@ -228,7 +228,7 @@
           "checkedAt": "2026-10-16"
         }
       ],
-      "lastErrorAt": "2026-11-03T11:51:20+09:00",
+      "lastErrorAt": "2026-11-04T10:08:55+09:00",
       "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/georestricted/index.html"
     }
   }
