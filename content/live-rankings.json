@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-11-08T09:19:12+09:00",
+  "generatedAt": "2026-11-09T09:40:56+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,8 +9,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-11-08T09:19:13+09:00",
-      "checkedAt": "2026-11-08",
+      "fetchedAt": "2026-11-09T09:40:57+09:00",
+      "checkedAt": "2026-11-09",
       "items": [
         {
           "rank": 1,
@@ -19,43 +19,43 @@
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 2,
-          "title": "【8日まで超還元】SBI証券 こども口座",
-          "rewardText": "12,000P",
+          "title": "※高還元※SBI証券 こども口座",
+          "rewardText": "10,000P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 3,
-          "title": "※8日まで超高還元※楽天証券",
-          "rewardText": "20,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-11-08"
-        },
-        {
-          "rank": 4,
-          "title": "auひかり",
-          "rewardText": "60,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-11-08"
-        },
-        {
-          "rank": 5,
           "title": "※超還元13,000P※楽天銀行 口座開設",
           "rewardText": "1,500P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "rank": 4,
+          "title": "楽天証券",
+          "rewardText": "10,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=111069&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "rank": 5,
+          "title": "【8日まで超還元】povo（ポヴォ）2.0",
+          "rewardText": "5,500P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157738&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-11-09"
         }
       ]
     },
@@ -65,26 +65,26 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://hapitas.jp/ranking/",
-      "fetchedAt": "2026-11-08T09:19:15+09:00",
-      "checkedAt": "2026-11-08",
+      "fetchedAt": "2026-11-09T09:40:59+09:00",
+      "checkedAt": "2026-11-09",
       "items": [
         {
           "rank": 1,
-          "title": "【PR】SBI新生銀行（口座開設）",
-          "rewardText": "1,500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/102317/apn/ranking_all_1",
+          "title": "【ハピ爆実施中★最大25,000pt】楽天証券",
+          "rewardText": "22,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_1",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 2,
-          "title": "【土日限定★グレート還元】楽天証券",
-          "rewardText": "20,000pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/35520/apn/ranking_all_2",
+          "title": "【大型還元★11,000pt】楽天銀行 口座開設",
+          "rewardText": "1,500pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_2",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 3,
@@ -93,25 +93,25 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_3",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 4,
-          "title": "【大型還元★11,000pt】楽天銀行 口座開設",
-          "rewardText": "1,500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_4",
+          "title": "【大好評につき過去最高還元！】三菱ＵＦＪカード",
+          "rewardText": "15,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/94544/apn/ranking_all_4",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 5,
-          "title": "新規povo2.0プランのeSIM有効化+3日以内のトッピング購入",
-          "rewardText": "5,500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/94134/apn/ranking_all_5",
+          "title": "【PR】SBI新生銀行（口座開設）",
+          "rewardText": "1,500pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/102317/apn/ranking_all_5",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         }
       ]
     },
@@ -121,8 +121,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
-      "fetchedAt": "2026-11-08T09:19:17+09:00",
-      "checkedAt": "2026-11-08",
+      "fetchedAt": "2026-11-09T09:41:00+09:00",
+      "checkedAt": "2026-11-09",
       "items": [
         {
           "rank": 1,
@@ -131,25 +131,25 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 2,
-          "title": "Yahoo!ショッピング",
-          "rewardText": "1%",
-          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-11-08"
-        },
-        {
-          "rank": 3,
           "title": "三菱UFJカード",
           "rewardText": "15,000pt",
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=207299&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "rank": 3,
+          "title": "Yahoo!ショッピング",
+          "rewardText": "1%",
+          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 4,
@@ -158,16 +158,16 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=208471&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         },
         {
           "rank": 5,
-          "title": "SBI証券",
-          "rewardText": "11,000pt",
-          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=208555&pl=pc_rnkngPg_all",
+          "title": "楽天証券（口座開設）",
+          "rewardText": "7,200pt",
+          "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=207341&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-08"
+          "checkedAt": "2026-11-09"
         }
       ]
     },
@@ -228,7 +228,7 @@
           "checkedAt": "2026-10-16"
         }
       ],
-      "lastErrorAt": "2026-11-08T09:19:17+09:00",
+      "lastErrorAt": "2026-11-09T09:41:00+09:00",
       "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/georestricted/index.html"
     }
   }
