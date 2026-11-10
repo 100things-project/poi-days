@@ -1,15 +1,25 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-11-09T09:41:04+09:00",
+  "generatedAt": "2026-11-10T12:21:37+09:00",
   "items": [
+    {
+      "id": "65f55f4cd5bca9c2e97d",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-11-10",
+      "title": "【お詫び】11月10日の緊急メンテナンスについて",
+      "category": "重要",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3174/",
+      "official": true
+    },
     {
       "id": "ec0a0ddefb2b4c9f23c0",
       "site": "chobirich",
       "siteName": "ちょびリッチ",
       "date": "2026-11-04",
-      "title": "【提携先メンテンナンス中】 ちょびリッチモニター",
-      "category": "お知らせ",
+      "title": "【提携先メンテンナンス終了】 ちょびリッチモニター",
+      "category": "重要",
       "sourceUrl": "https://help.chobirich.com/#block-40cbff5a9dce80ebb4bcddbe1ae2f220",
       "official": true
     },
@@ -24,13 +34,13 @@
       "official": true
     },
     {
-      "id": "3926862733543b2ae84a",
+      "id": "18a12c44196ea4300181",
       "site": "chobirich",
       "siteName": "ちょびリッチ",
       "date": "2026-11-04",
       "title": "【一部メール配信停止中】 ちょびリッチ通信/アンケート等、 委託先不正アクセスにより停止中 です。ご不便とご迷惑をおかけいたしまして誠に申し訳ございません。",
       "category": "重要",
-      "sourceUrl": "https://help.chobirich.com/#block-408bff5a9dce80b38e5df1a608a222bf",
+      "sourceUrl": "https://help.chobirich.com/#block-413bff5a9dce80f9898dfe623d453da8",
       "official": true
     },
     {
@@ -58,7 +68,7 @@
       "site": "chobirich",
       "siteName": "ちょびリッチ",
       "date": "2026-10-30",
-      "title": "【緊急メンテンナンス終了】 ちょびリッチサイト/アプリ（11/2一部メンテナンス継続ページも再開しました）",
+      "title": "【緊急メンテンナンス終了】 ちょびリッチサイト/アプリ：強制ログアウトによりログインが必要です。エラーが発生する場合は ご利用環境の設定 をご確認ください。",
       "category": "重要",
       "sourceUrl": "https://help.chobirich.com/#block-40cbff5a9dce8076b6c6c5ab87fa1937",
       "official": true
@@ -114,16 +124,6 @@
       "official": true
     },
     {
-      "id": "51feaa6810a56f7726fe",
-      "site": "chobirich",
-      "siteName": "ちょびリッチ",
-      "date": "2026-10-28",
-      "title": "【提携先メンテンナンス】 メンテナンスの終了を確認し再開しました。",
-      "category": "重要",
-      "sourceUrl": "https://help.chobirich.com/#block-405bff5a9dce80158871fec46fbd0e8f",
-      "official": true
-    },
-    {
       "id": "5b511800d0f4a8edde17",
       "site": "warau",
       "siteName": "ワラウ",
@@ -131,16 +131,6 @@
       "title": "対象アンケートのコイン初獲得でボーナス250コイン付与キャンペーン",
       "category": "キャンペーン",
       "sourceUrl": "https://www.warau.jp/service/info/permalink/3143/",
-      "official": true
-    },
-    {
-      "id": "106ccca1bf17f4707e80",
-      "site": "chobirich",
-      "siteName": "ちょびリッチ",
-      "date": "2026-10-27",
-      "title": "【交換】 10/28 12:00～デジタルギフトの一部受取先停止について",
-      "category": "重要",
-      "sourceUrl": "https://help.chobirich.com/#block-330bff5a9dce8011ae7aea724682d861",
       "official": true
     },
     {
@@ -171,16 +161,6 @@
       "title": "【本日23:59まで】「ポイント調査」「ワラウあんしん保証」申請期限のお知らせ",
       "category": "お知らせ",
       "sourceUrl": "https://www.warau.jp/service/info/permalink/3151/",
-      "official": true
-    },
-    {
-      "id": "a7f394481ef05f49e77a",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-10-23",
-      "title": "【抽選で1等10,000pt】秋のお買い物キャンペーン",
-      "category": "キャンペーン",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3148/",
       "official": true
     },
     {
@@ -251,29 +231,29 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-11-09T09:41:01+09:00",
+      "lastErrorAt": "2026-11-10T12:21:34+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-11-09T09:41:03+09:00",
+      "fetchedAt": "2026-11-10T12:21:35+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 7
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-11-09T09:41:04+09:00",
+      "fetchedAt": "2026-11-10T12:21:36+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-11-09T09:41:04+09:00",
+      "fetchedAt": "2026-11-10T12:21:37+09:00",
       "sourceUrl": "https://help.chobirich.com/",
-      "count": 7
+      "count": 5
     }
   }
 }
