@@ -1,8 +1,18 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-11-11T10:09:38+09:00",
+  "generatedAt": "2026-11-12T11:10:48+09:00",
   "items": [
+    {
+      "id": "c859e5361d6363f01455",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-11-11",
+      "title": "【重要】ポイント有効期限の延長措置の再延長について",
+      "category": "重要",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3175/",
+      "official": true
+    },
     {
       "id": "65f55f4cd5bca9c2e97d",
       "site": "warau",
@@ -144,16 +154,6 @@
       "official": true
     },
     {
-      "id": "c9e31948cbc8ffe1b58d",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-10-23",
-      "title": "【本日23:59まで】「ポイント調査」「ワラウあんしん保証」申請期限のお知らせ",
-      "category": "お知らせ",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3151/",
-      "official": true
-    },
-    {
       "id": "eb3143578b62949ff509",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -221,27 +221,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-11-11T10:09:35+09:00",
+      "lastErrorAt": "2026-11-12T11:10:45+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-11-11T10:09:37+09:00",
+      "fetchedAt": "2026-11-12T11:10:46+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 6
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-11-11T10:09:37+09:00",
+      "fetchedAt": "2026-11-12T11:10:47+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-11-11T10:09:38+09:00",
+      "fetchedAt": "2026-11-12T11:10:48+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 5
     }
