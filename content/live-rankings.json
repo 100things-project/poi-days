@@ -1,7 +1,7 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-11-22T10:06:04+09:00",
+  "generatedAt": "2026-11-23T10:29:10+09:00",
   "sites": {
     "moppy": {
       "name": "モッピー",
@@ -9,8 +9,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://pc.moppy.jp/ad/category_ranking/list.php",
-      "fetchedAt": "2026-11-22T10:06:06+09:00",
-      "checkedAt": "2026-11-22",
+      "fetchedAt": "2026-11-23T10:29:11+09:00",
+      "checkedAt": "2026-11-23",
       "items": [
         {
           "rank": 1,
@@ -19,43 +19,43 @@
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=102667&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 2,
-          "title": "※最大合計20,600円相当※楽天カード【最短10日でポイントGET】",
-          "rewardText": "10,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=100822&track_ref=car",
+          "title": "DARWIN funding (ダーウィンファンディング) 50万以上の出資完了 (2回目以降出資)",
+          "rewardText": "120,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=161818&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 3,
-          "title": "【大好評につき過去最高還元！】三菱ＵＦＪカード",
-          "rewardText": "15,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
-          "sample": false,
-          "verified": true,
-          "checkedAt": "2026-11-22"
-        },
-        {
-          "rank": 4,
           "title": "※23日まで超高還元※SBI証券 こども口座",
           "rewardText": "13,000P",
           "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=162169&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
+        },
+        {
+          "rank": 4,
+          "title": "DARWIN funding 50万以上の出資完了（ダーウィンファンディング）",
+          "rewardText": "160,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154759&track_ref=car",
+          "sample": false,
+          "verified": true,
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 5,
-          "title": "auひかり",
-          "rewardText": "50,000P",
-          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=154946&track_ref=car",
+          "title": "【大好評につき過去最高還元！】三菱ＵＦＪカード",
+          "rewardText": "15,000P",
+          "sourceHref": "https://pc.moppy.jp/ad/detail.php?site_id=157374&track_ref=car",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -65,8 +65,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://hapitas.jp/ranking/",
-      "fetchedAt": "2026-11-22T10:06:07+09:00",
-      "checkedAt": "2026-11-22",
+      "fetchedAt": "2026-11-23T10:29:12+09:00",
+      "checkedAt": "2026-11-23",
       "items": [
         {
           "rank": 1,
@@ -75,7 +75,7 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/94532/apn/ranking_all_1",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 2,
@@ -84,7 +84,7 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/53979/apn/ranking_all_2",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 3,
@@ -93,7 +93,7 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/94134/apn/ranking_all_3",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 4,
@@ -102,16 +102,16 @@
           "sourceHref": "https://hapitas.jp/item/detail/itemid/97154/apn/ranking_all_4",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 5,
-          "title": "【PR】SBI新生銀行（口座開設）",
-          "rewardText": "1,500pt",
-          "sourceHref": "https://hapitas.jp/item/detail/itemid/102317/apn/ranking_all_5",
+          "title": "27日まで高還元！【最大58,000円相当】三菱ＵＦＪ銀行 口座開設",
+          "rewardText": "4,000pt",
+          "sourceHref": "https://hapitas.jp/item/detail/itemid/92479/apn/ranking_all_5",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -121,8 +121,8 @@
       "status": "ok",
       "stale": false,
       "sourceUrl": "https://www.warau.jp/contents/point/ranking/",
-      "fetchedAt": "2026-11-22T10:06:09+09:00",
-      "checkedAt": "2026-11-22",
+      "fetchedAt": "2026-11-23T10:29:13+09:00",
+      "checkedAt": "2026-11-23",
       "items": [
         {
           "rank": 1,
@@ -131,16 +131,16 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=137795&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 2,
-          "title": "三菱UFJカード",
+          "title": "【大好評につき過去最高還元！】三菱ＵＦＪカード",
           "rewardText": "15,000pt",
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=207299&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 3,
@@ -149,7 +149,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=200192&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 4,
@@ -158,7 +158,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209475&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         },
         {
           "rank": 5,
@@ -167,7 +167,7 @@
           "sourceHref": "https://www.warau.jp/contents/point/pointEntrance.php?point_id=209474&pl=pc_rnkngPg_all",
           "sample": false,
           "verified": true,
-          "checkedAt": "2026-11-22"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -228,8 +228,8 @@
           "checkedAt": "2026-10-16"
         }
       ],
-      "lastErrorAt": "2026-11-22T10:06:09+09:00",
-      "lastError": "expected 5 ranking rows, got 0"
+      "lastErrorAt": "2026-11-23T10:29:14+09:00",
+      "lastError": "403 Client Error: Forbidden for url: https://www.chobirich.com/georestricted/index.html"
     }
   }
 }
