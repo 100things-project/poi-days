@@ -1,8 +1,18 @@
 {
   "version": 1,
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-11-26T12:27:24+09:00",
+  "generatedAt": "2026-11-27T12:34:33+09:00",
   "items": [
+    {
+      "id": "146c7fab93ee7ea08269",
+      "site": "warau",
+      "siteName": "ワラウ",
+      "date": "2026-11-26",
+      "title": "【重要】ポイント交換時のご本人様確認を強化しました",
+      "category": "重要",
+      "sourceUrl": "https://www.warau.jp/service/info/permalink/3194/",
+      "official": true
+    },
     {
       "id": "81bf103b4cbd5bbe9afc",
       "site": "warau",
@@ -114,16 +124,6 @@
       "official": true
     },
     {
-      "id": "19d7a2ecca9b322f691a",
-      "site": "warau",
-      "siteName": "ワラウ",
-      "date": "2026-11-12",
-      "title": "【お詫びとご報告】ドットマネーへのポイント交換再開のお知らせ",
-      "category": "交換",
-      "sourceUrl": "https://www.warau.jp/service/info/permalink/3182/",
-      "official": true
-    },
-    {
       "id": "eb3143578b62949ff509",
       "site": "hapitas",
       "siteName": "ハピタス",
@@ -191,27 +191,27 @@
       "fetchedAt": null,
       "sourceUrl": "https://pc.moppy.jp/news/",
       "count": 0,
-      "lastErrorAt": "2026-11-26T12:27:22+09:00",
+      "lastErrorAt": "2026-11-27T12:34:31+09:00",
       "lastError": "no dated official news links found"
     },
     "hapitas": {
       "name": "ハピタス",
       "status": "ok",
-      "fetchedAt": "2026-11-26T12:27:23+09:00",
+      "fetchedAt": "2026-11-27T12:34:31+09:00",
       "sourceUrl": "https://hapitas.jp/notifications/list",
       "count": 6
     },
     "warau": {
       "name": "ワラウ",
       "status": "ok",
-      "fetchedAt": "2026-11-26T12:27:24+09:00",
+      "fetchedAt": "2026-11-27T12:34:32+09:00",
       "sourceUrl": "https://www.warau.jp/service/info/",
       "count": 10
     },
     "chobirich": {
       "name": "ちょびリッチ",
       "status": "ok",
-      "fetchedAt": "2026-11-26T12:27:24+09:00",
+      "fetchedAt": "2026-11-27T12:34:33+09:00",
       "sourceUrl": "https://help.chobirich.com/",
       "count": 2
     }
